@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.news.linglian.factory.IServletFactory;
-import com.news.linglian.factoryImpl.IServletFactoryImpl;
+import com.news.linglian.factoryImpl.IAdminFactoryImpl;
 
 /**
  * Servlet implementation class AdminLoginServlet
@@ -22,9 +22,11 @@ import com.news.linglian.factoryImpl.IServletFactoryImpl;
  * 
  */
 @WebServlet(name = "AdminAction", urlPatterns = "/AdminAction.do", initParams = {
-		@WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.IServletFactoryImpl"),
-		@WebInitParam(name = "login_from", value = "adminLogin.jsp"),
-		@WebInitParam(name = "login_to", value = "admin.jsp") })
+		@WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.IAdminFactoryImpl"),
+		@WebInitParam(name = "login_from", value = "index.jsp"),
+		@WebInitParam(name = "login_to", value = "index.jsp"),
+		@WebInitParam(name = "insert_from", value = "adminLogin.jsp"),
+		@WebInitParam(name = "update_from", value = "index.jsp")})
 public class AdminAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

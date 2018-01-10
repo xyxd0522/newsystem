@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-aszsadas
+${identity.adminname }
+${info}
+
+<a href="AdminAction.do?method=login&adminid=admin&password=123456">登录</a>
+
+
+<a href="AdminAction.do?method=update&adminid=admin&adminname=linglian&password=123456">点一下</a>
 </body>
 </html>
