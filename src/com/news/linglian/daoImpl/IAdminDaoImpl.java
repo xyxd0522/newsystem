@@ -18,23 +18,18 @@ public class IAdminDaoImpl implements IAdminDao {
 	 * @return 返回1则删除成功，返回0则失败
 	 */
 	public int updateAdmin(Admin admin) {
-		try {
-			if (admin.getPassword() != null) {
-				return DBMan
-						.getInstance()
-						.update("UPDATE admin SET adminname = ?, password = ? WHERE adminid = ?",
-								admin.getAdminname(), admin.getPassword(),
-								admin.getAdminid());
-			} else {
-				return DBMan.getInstance().update(
-						"UPDATE admin SET adminname = ? WHERE adminid = ?",
-						admin.getAdminname(), admin.getAdminid());
-			}
-		} catch (ClassNotFoundException | SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (admin.getPassword() != null) {
+			return DBMan
+					.getInstance()
+					.updateWithoutThrow(
+							"UPDATE admin SET adminname = ?, password = ? WHERE adminid = ?",
+							admin.getAdminname(), admin.getPassword(),
+							admin.getAdminid());
+		} else {
+			return DBMan.getInstance().updateWithoutThrow(
+					"UPDATE admin SET adminname = ? WHERE adminid = ?",
+					admin.getAdminname(), admin.getAdminid());
 		}
-		return 0;
 	}
 
 	/**
@@ -48,16 +43,10 @@ public class IAdminDaoImpl implements IAdminDao {
 	}
 
 	public int removeAdmin(String adminid) {
-		try {
-			DBMan.getInstance().update("DELETE FROM LOG WHERE adminid = ?",
-					adminid);
-			return DBMan.getInstance().update(
-					"DELETE FROM ADMIN WHERE adminid = ?", adminid);
-		} catch (ClassNotFoundException | SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return 0;
+		DBMan.getInstance().updateWithoutThrow(
+				"DELETE FROM LOG WHERE adminid = ?", adminid);
+		return DBMan.getInstance().updateWithoutThrow(
+				"DELETE FROM ADMIN WHERE adminid = ?", adminid);
 	}
 
 	/**
@@ -67,17 +56,12 @@ public class IAdminDaoImpl implements IAdminDao {
 	 * @return 返回1则插入成功，0为失败。
 	 */
 	public int insert(Admin admin) {
-		try {
-			return DBMan
-					.getInstance()
-					.update("INSERT INTO admin (adminid, adminname, password) VALUES (?, ?, ?)",
-							admin.getAdminid(), admin.getAdminname(),
-							admin.getPassword());
-		} catch (ClassNotFoundException | SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return 0;
+		return DBMan
+				.getInstance()
+				.updateWithoutThrow(
+						"INSERT INTO admin (adminid, adminname, password) VALUES (?, ?, ?)",
+						admin.getAdminid(), admin.getAdminname(),
+						admin.getPassword());
 	}
 
 	/**
@@ -87,17 +71,9 @@ public class IAdminDaoImpl implements IAdminDao {
 	 * @return 存在则返回实例，不存在则返回空。
 	 */
 	public Admin getAdmin(String adminid) {
-		try {
-			return DBMan.getInstance().queryById(Admin.class,
-					"SELECT adminid, adminname FROM admin where adminid = ?",
-					adminid);
-		} catch (ClassNotFoundException | InstantiationException
-				| InvocationTargetException | IllegalAccessException
-				| SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
+		return DBMan.getInstance().queryByIdWithoutThrow(Admin.class,
+				"SELECT adminid, adminname FROM admin where adminid = ?",
+				adminid);
 	}
 
 	/**
@@ -108,20 +84,12 @@ public class IAdminDaoImpl implements IAdminDao {
 	 * @return 存在则返回实例，不存在则返回空。
 	 */
 	public Admin getAdmin(String adminid, String password) {
-		try {
-			return DBMan
-					.getInstance()
-					.queryById(
-							Admin.class,
-							"SELECT adminid, adminname FROM admin where adminid = ? and password = ?",
-							adminid, password);
-		} catch (ClassNotFoundException | InstantiationException
-				| InvocationTargetException | IllegalAccessException
-				| SQLException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
+		return DBMan
+				.getInstance()
+				.queryByIdWithoutThrow(
+						Admin.class,
+						"SELECT adminid, adminname FROM admin where adminid = ? and password = ?",
+						adminid, password);
 	}
 
 	public static void main(String[] args) throws ClassNotFoundException,

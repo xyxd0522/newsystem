@@ -3,7 +3,7 @@ package com.news.linglian.entity;
 public class User {
 	private String userid;
 	private String password;
-	private String pid;
+	private String qid;
 	private String answer;
 	private String score;
 
@@ -15,12 +15,12 @@ public class User {
 		this.userid = userid;
 	}
 
-	public String getPid() {
-		return pid;
+	public String getQid() {
+		return qid;
 	}
 
-	public void setPid(String pid) {
-		this.pid = pid;
+	public void setQid(String qid) {
+		this.qid = qid;
 	}
 
 	public String getAnswer() {
@@ -50,7 +50,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", password=" + password + ", pid="
-				+ pid + ", answer=" + answer + ", score=" + score + "]";
+				+ qid + ", answer=" + answer + ", score=" + score + "]";
 	}
 
 }
