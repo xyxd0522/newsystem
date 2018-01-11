@@ -1,112 +1,226 @@
 package com.news.linglian.daoImpl;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.sql.SQLException;
+import java.util.List;
 
-import com.news.linglian.dao.IAdminDao;
 import com.news.linglian.entity.Admin;
 
+import com.news.linglian.dao.IAdminDao;
 import db.DBMan;
 
 public class IAdminDaoImpl implements IAdminDao {
-	/**
-	 * 更新数据库中的对应的Admin对象
-	 * 
-	 * @param admin
-	 *            （传入password为空时，不改变password）
-	 * @return 返回1则删除成功，返回0则失败
-	 */
-	public int updateAdmin(Admin admin) {
-		if (admin.getPassword() != null) {
-			return DBMan
-					.getInstance()
-					.updateWithoutThrow(
-							"UPDATE admin SET adminname = ?, password = ? WHERE adminid = ?",
-							admin.getAdminname(), admin.getPassword(),
-							admin.getAdminid());
-		} else {
-			return DBMan.getInstance().updateWithoutThrow(
-					"UPDATE admin SET adminname = ? WHERE adminid = ?",
-					admin.getAdminname(), admin.getAdminid());
-		}
-	}
-
-	/**
-	 * 删除Admin实例，根据传入的adminid
-	 * 
-	 * @param admin
-	 * @return 返回1则删除成功，返回0则失败
-	 */
-	public int removeAdmin(Admin admin) {
-		return removeAdmin(admin.getAdminid());
-	}
-
-	public int removeAdmin(String adminid) {
-		DBMan.getInstance().updateWithoutThrow(
-				"DELETE FROM LOG WHERE adminid = ?", adminid);
-		return DBMan.getInstance().updateWithoutThrow(
-				"DELETE FROM ADMIN WHERE adminid = ?", adminid);
-	}
-
-	/**
-	 * 插入Admin实例
-	 * 
-	 * @param admin
-	 * @return 返回1则插入成功，0为失败。
-	 */
-	public int insert(Admin admin) {
-		return DBMan
-				.getInstance()
-				.updateWithoutThrow(
-						"INSERT INTO admin (adminid, adminname, password) VALUES (?, ?, ?)",
-						admin.getAdminid(), admin.getAdminname(),
-						admin.getPassword());
-	}
-
-	/**
-	 * 获得admin信息
-	 * 
-	 * @param id
-	 * @return 存在则返回实例，不存在则返回空。
-	 */
-	public Admin getAdmin(String adminid) {
-		return DBMan.getInstance().queryByIdWithoutThrow(Admin.class,
-				"SELECT adminid, adminname FROM admin where adminid = ?",
-				adminid);
-	}
-
-	/**
-	 * 获得admin信息
-	 * 
-	 * @param id
-	 * @param password
-	 * @return 存在则返回实例，不存在则返回空。
-	 */
-	public Admin getAdmin(String adminid, String password) {
-		return DBMan
-				.getInstance()
-				.queryByIdWithoutThrow(
-						Admin.class,
-						"SELECT adminid, adminname FROM admin where adminid = ? and password = ?",
-						adminid, password);
-	}
-
-	public static void main(String[] args) throws ClassNotFoundException,
-			SQLException, IOException {
-		Admin admin = new Admin();
-		admin.setAdminid("temp");
-		admin.setAdminname("临时变量");
-		admin.setPassword("123456");
-		System.out.println("插入操作: " + new IAdminDaoImpl().insert(admin));
-		System.out.println("查询操作: "
-				+ new IAdminDaoImpl().getAdmin(admin.getAdminid()));
-		admin.setAdminname("临时变量222");
-		System.out.println("更新操作: " + new IAdminDaoImpl().updateAdmin(admin));
-		System.out.println("查询操作: "
-				+ new IAdminDaoImpl().getAdmin(admin.getAdminid()));
-		System.out.println("删除操作: " + new IAdminDaoImpl().removeAdmin(admin));
-		System.out.println("查询操作: "
-				+ new IAdminDaoImpl().getAdmin(admin.getAdminid()));
-	}
+    public int update(Admin admin, Admin keyAdmin) {
+        return DBMan.getInstance().updateWithoutThrow(admin, keyAdmin, "admin");
+    }
+    public int updateOfAdminid(Admin admin, String adminid) {
+        Admin kAdmin = new Admin();
+        kAdmin.setAdminid(adminid);
+        return update(admin, kAdmin);
+    }
+    public int updateOfAdminname(Admin admin, String adminname) {
+        Admin kAdmin = new Admin();
+        kAdmin.setAdminname(adminname);
+        return update(admin, kAdmin);
+    }
+    public int updateOfPassword(Admin admin, String password) {
+        Admin kAdmin = new Admin();
+        kAdmin.setPassword(password);
+        return update(admin, kAdmin);
+    }
+    public int updateOfAdminidAndAdminname(Admin admin, String adminid, String adminname) {
+        Admin kAdmin = new Admin();
+        kAdmin.setAdminid(adminid);
+        kAdmin.setAdminname(adminname);
+        return update(admin, kAdmin);
+    }
+    public int updateOfAdminidAndPassword(Admin admin, String adminid, String password) {
+        Admin kAdmin = new Admin();
+        kAdmin.setAdminid(adminid);
+        kAdmin.setPassword(password);
+        return update(admin, kAdmin);
+    }
+    public int updateOfAdminnameAndPassword(Admin admin, String adminname, String password) {
+        Admin kAdmin = new Admin();
+        kAdmin.setAdminname(adminname);
+        kAdmin.setPassword(password);
+        return update(admin, kAdmin);
+    }
+    public int updateOfAdminidAndAdminnameAndPassword(Admin admin, String adminid, String adminname, String password) {
+        Admin kAdmin = new Admin();
+        kAdmin.setAdminid(adminid);
+        kAdmin.setAdminname(adminname);
+        kAdmin.setPassword(password);
+        return update(admin, kAdmin);
+    }
+    public int remove(Admin admin) {
+        return DBMan.getInstance().deleteWithoutThrow(admin, "admin");
+    }
+    public int removeOfAdminid(String adminid) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        return remove(admin);
+    }
+    public int removeOfAdminname(String adminname) {
+        Admin admin = new Admin();
+        admin.setAdminname(adminname);
+        return remove(admin);
+    }
+    public int removeOfPassword(String password) {
+        Admin admin = new Admin();
+        admin.setPassword(password);
+        return remove(admin);
+    }
+    public int removeOfAdminidAndAdminname(String adminid, String adminname) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setAdminname(adminname);
+        return remove(admin);
+    }
+    public int removeOfAdminidAndPassword(String adminid, String password) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setPassword(password);
+        return remove(admin);
+    }
+    public int removeOfAdminnameAndPassword(String adminname, String password) {
+        Admin admin = new Admin();
+        admin.setAdminname(adminname);
+        admin.setPassword(password);
+        return remove(admin);
+    }
+    public int removeOfAdminidAndAdminnameAndPassword(String adminid, String adminname, String password) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setAdminname(adminname);
+        admin.setPassword(password);
+        return remove(admin);
+    }
+    public int insert(Admin admin) {
+        return DBMan.getInstance().insertWithoutThrow(admin, "admin");
+    }
+    public int insertOfAdminid(String adminid) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        return insert(admin);
+    }
+    public int insertOfAdminname(String adminname) {
+        Admin admin = new Admin();
+        admin.setAdminname(adminname);
+        return insert(admin);
+    }
+    public int insertOfPassword(String password) {
+        Admin admin = new Admin();
+        admin.setPassword(password);
+        return insert(admin);
+    }
+    public int insertOfAdminidAndAdminname(String adminid, String adminname) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setAdminname(adminname);
+        return insert(admin);
+    }
+    public int insertOfAdminidAndPassword(String adminid, String password) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setPassword(password);
+        return insert(admin);
+    }
+    public int insertOfAdminnameAndPassword(String adminname, String password) {
+        Admin admin = new Admin();
+        admin.setAdminname(adminname);
+        admin.setPassword(password);
+        return insert(admin);
+    }
+    public int insertOfAdminidAndAdminnameAndPassword(String adminid, String adminname, String password) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setAdminname(adminname);
+        admin.setPassword(password);
+        return insert(admin);
+    }
+    public Admin getAdmin(Admin admin) {
+        return DBMan.getInstance().queryByIdWithoutThrow(admin, "admin");
+    }
+    public Admin getAdminOfAdminid(String adminid) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        return getAdmin(admin);
+    }
+    public Admin getAdminOfAdminname(String adminname) {
+        Admin admin = new Admin();
+        admin.setAdminname(adminname);
+        return getAdmin(admin);
+    }
+    public Admin getAdminOfPassword(String password) {
+        Admin admin = new Admin();
+        admin.setPassword(password);
+        return getAdmin(admin);
+    }
+    public Admin getAdminOfAdminidAndAdminname(String adminid, String adminname) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setAdminname(adminname);
+        return getAdmin(admin);
+    }
+    public Admin getAdminOfAdminidAndPassword(String adminid, String password) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setPassword(password);
+        return getAdmin(admin);
+    }
+    public Admin getAdminOfAdminnameAndPassword(String adminname, String password) {
+        Admin admin = new Admin();
+        admin.setAdminname(adminname);
+        admin.setPassword(password);
+        return getAdmin(admin);
+    }
+    public Admin getAdminOfAdminidAndAdminnameAndPassword(String adminid, String adminname, String password) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setAdminname(adminname);
+        admin.setPassword(password);
+        return getAdmin(admin);
+    }
+    public List<Admin> getAdmins(Admin admin) {
+        return DBMan.getInstance().queryWithoutThrow(admin, "admin");
+    }
+    public List<Admin> getAdminsOfAdminid(String adminid) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        return getAdmins(admin);
+    }
+    public List<Admin> getAdminsOfAdminname(String adminname) {
+        Admin admin = new Admin();
+        admin.setAdminname(adminname);
+        return getAdmins(admin);
+    }
+    public List<Admin> getAdminsOfPassword(String password) {
+        Admin admin = new Admin();
+        admin.setPassword(password);
+        return getAdmins(admin);
+    }
+    public List<Admin> getAdminsOfAdminidAndAdminname(String adminid, String adminname) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setAdminname(adminname);
+        return getAdmins(admin);
+    }
+    public List<Admin> getAdminsOfAdminidAndPassword(String adminid, String password) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setPassword(password);
+        return getAdmins(admin);
+    }
+    public List<Admin> getAdminsOfAdminnameAndPassword(String adminname, String password) {
+        Admin admin = new Admin();
+        admin.setAdminname(adminname);
+        admin.setPassword(password);
+        return getAdmins(admin);
+    }
+    public List<Admin> getAdminsOfAdminidAndAdminnameAndPassword(String adminid, String adminname, String password) {
+        Admin admin = new Admin();
+        admin.setAdminid(adminid);
+        admin.setAdminname(adminname);
+        admin.setPassword(password);
+        return getAdmins(admin);
+    }
 }

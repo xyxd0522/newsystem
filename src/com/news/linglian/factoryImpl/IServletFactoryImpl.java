@@ -41,7 +41,7 @@ public class IServletFactoryImpl implements IServletFactory {
 			ServletUtil.forward(request, response, serlvet, "login_from");
 		} else {
 			IAdminService ias = new IAdminServiceImpl();
-			Admin admin = ias.getAdmin(adminid, password);
+			Admin admin = ias.getAdminOfAdminidAndPassword(adminid, password);
 			if (admin == null) {
 				request.setAttribute("info", "账号或者密码错误!");
 				ServletUtil.forward(request, response, serlvet, "login_from");

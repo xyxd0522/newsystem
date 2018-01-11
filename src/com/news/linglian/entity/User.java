@@ -1,56 +1,55 @@
 package com.news.linglian.entity;
 
 public class User {
-	private String userid;
-	private String password;
-	private String qid;
-	private String answer;
-	private String score;
+    private String userId;
+    private String password;
+    private String qid;
+    private String answer;
+    private String score;
 
-	public String getUserid() {
-		return userid;
-	}
+    public String getUserId() {
+        return userId;
+    }
 
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-	public String getQid() {
-		return qid;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setQid(String qid) {
-		this.qid = qid;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getAnswer() {
-		return answer;
-	}
+    public String getQid() {
+        return qid;
+    }
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
+    public void setQid(String qid) {
+        this.qid = qid;
+    }
 
-	public String getScore() {
-		return score;
-	}
+    public String getAnswer() {
+        return answer;
+    }
 
-	public void setScore(String score) {
-		this.score = score;
-	}
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getScore() {
+        return score;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setScore(String score) {
+        this.score = score;
+    }
 
-	@Override
-	public String toString() {
-		return "User [userid=" + userid + ", password=" + password + ", pid="
-				+ qid + ", answer=" + answer + ", score=" + score + "]";
-	}
+    @Override
+    public String toString() {
+        return "User [userId=" + userId + ", password=" + password + ", qid=" + qid + ", answer=" + answer + ", score=" + score + ", ]";
+    }
 
 }

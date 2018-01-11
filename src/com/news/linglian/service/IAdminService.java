@@ -1,57 +1,48 @@
 package com.news.linglian.service;
 
+import java.util.List;
+
 import com.news.linglian.entity.Admin;
 
 public interface IAdminService {
-	/**
-	 * 更新数据库中的对应的Admin对象
-	 * 
-	 * @param admin
-	 *            （传入password为空时，不改变password）
-	 * @return 返回1则删除成功，返回0则失败
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws IOException
-	 */
-	public int updateAdmin(Admin admin);
-
-	/**
-	 * 删除Admin实例，根据传入的adminid
-	 * 
-	 * @param admin
-	 * @return 返回1则删除成功，返回0则失败
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws IOException
-	 */
-	public int removeAdmin(Admin admin);
-	public int removeAdmin(String adminid);
-
-	/**
-	 * 插入Admin实例
-	 * 
-	 * @param admin
-	 * @return 返回1则插入成功，0为失败。
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws IOException
-	 */
-	public int insert(Admin admin);
-
-	/**
-	 * 获得admin信息
-	 * 
-	 * @param id
-	 * @return 存在则返回实例，不存在则返回空。
-	 */
-	public Admin getAdmin(String adminid);
-
-	/**
-	 * 获得admin信息
-	 * 
-	 * @param id
-	 * @param password
-	 * @return 存在则返回实例，不存在则返回空。
-	 */
-	public Admin getAdmin(String adminid, String password);
+    public int update(Admin admin, Admin keyAdmin);
+    public int updateOfAdminid(Admin admin, String adminid);
+    public int updateOfAdminname(Admin admin, String adminname);
+    public int updateOfPassword(Admin admin, String password);
+    public int updateOfAdminidAndAdminname(Admin admin, String adminid, String adminname);
+    public int updateOfAdminidAndPassword(Admin admin, String adminid, String password);
+    public int updateOfAdminnameAndPassword(Admin admin, String adminname, String password);
+    public int updateOfAdminidAndAdminnameAndPassword(Admin admin, String adminid, String adminname, String password);
+    public int remove(Admin admin);
+    public int removeOfAdminid(String adminid);
+    public int removeOfAdminname(String adminname);
+    public int removeOfPassword(String password);
+    public int removeOfAdminidAndAdminname(String adminid, String adminname);
+    public int removeOfAdminidAndPassword(String adminid, String password);
+    public int removeOfAdminnameAndPassword(String adminname, String password);
+    public int removeOfAdminidAndAdminnameAndPassword(String adminid, String adminname, String password);
+    public int insert(Admin admin);
+    public int insertOfAdminid(String adminid);
+    public int insertOfAdminname(String adminname);
+    public int insertOfPassword(String password);
+    public int insertOfAdminidAndAdminname(String adminid, String adminname);
+    public int insertOfAdminidAndPassword(String adminid, String password);
+    public int insertOfAdminnameAndPassword(String adminname, String password);
+    public int insertOfAdminidAndAdminnameAndPassword(String adminid, String adminname, String password);
+    public Admin getAdmin(Admin admin);
+    public Admin getAdminOfAdminid(String adminid);
+    public Admin getAdminOfAdminname(String adminname);
+    public Admin getAdminOfPassword(String password);
+    public Admin getAdminOfAdminidAndAdminname(String adminid, String adminname);
+    public Admin getAdminOfAdminidAndPassword(String adminid, String password);
+    public Admin getAdminOfAdminnameAndPassword(String adminname, String password);
+    public Admin getAdminOfAdminidAndAdminnameAndPassword(String adminid, String adminname, String password);
+    public List<Admin> getAdmins(Admin admin);
+    public List<Admin> getAdminsOfAdminid(String adminid);
+    public List<Admin> getAdminsOfAdminname(String adminname);
+    public List<Admin> getAdminsOfPassword(String password);
+    public List<Admin> getAdminsOfAdminidAndAdminname(String adminid, String adminname);
+    public List<Admin> getAdminsOfAdminidAndPassword(String adminid, String password);
+    public List<Admin> getAdminsOfAdminnameAndPassword(String adminname, String password);
+    public List<Admin> getAdminsOfAdminidAndAdminnameAndPassword(String adminid, String adminname, String password);
 }
