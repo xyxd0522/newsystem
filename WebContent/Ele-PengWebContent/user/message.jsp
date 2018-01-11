@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>登入</title>
+  <title>我的消息</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="SunnyNews">
   <meta name="description" content="SunnyNews 向阳小队旗舰之作">
@@ -72,56 +72,69 @@
   </div>
 </div>
 
-<div class="layui-container fly-marginTop">
-  <div class="fly-panel fly-panel-user" pad20>
-    <div class="layui-tab layui-tab-brief" lay-filter="user">
-      <ul class="layui-tab-title">
-        <li class="layui-this">登入</li>
-        <li><a href="reg.jsp">注册</a></li>
-      </ul>
-      <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
-        <div class="layui-tab-item layui-show">
-          <div class="layui-form layui-form-pane">
-            <form method="post">
-              <div class="layui-form-item">
-                <label for="L_email" class="layui-form-label">邮箱</label>
-                <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="email" required lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-              </div>
-              <div class="layui-form-item">
-                <label for="L_pass" class="layui-form-label">密码</label>
-                <div class="layui-input-inline">
-                  <input type="password" id="L_pass" name="pass" required lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-              </div>
-              <div class="layui-form-item">
-                <label for="L_vercode" class="layui-form-label">人类验证</label>
-                <div class="layui-input-inline">
-                  <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
-                </div>
-                <div class="layui-form-mid">
-                  <span style="color: #c00;">{{d.vercode}}</span>
-                </div>
-              </div>
-              <div class="layui-form-item">
-                <button class="layui-btn" lay-filter="*" lay-submit>立即登录</button>
-                <span style="padding-left:20px;">
-                  <a href="forget.html">忘记密码？</a>
-                </span>
-              </div>
-              <div class="layui-form-item fly-form-app">
-                <span>或者使用社交账号登入</span>
-                <a href="" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-qq" title="QQ登入"></a>
-                <a href="" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-weibo" title="微博登入"></a>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
+  <li class="layui-nav-item">
+    <a href="home.jsp">
+      <i class="layui-icon">&#xe609;</i>
+      我的主页
+    </a>
+  </li>
+  <li class="layui-nav-item ">
+    <a href="index.jsp">
+      <i class="layui-icon">&#xe612;</i>
+      用户中心
+    </a>
+  </li>
+  <li class="layui-nav-item ">
+    <a href="set.jsp">
+      <i class="layui-icon">&#xe620;</i>
+      基本设置
+    </a>
+  </li>
+  <li class="layui-nav-item layui-this">
+    <a href="message.jsp">
+      <i class="layui-icon">&#xe611;</i>
+      我的消息
+    </a>
+  </li>
+</ul>
+
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
 </div>
+<div class="site-mobile-shade"></div>
+
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+  
+  
+  <div class="fly-panel fly-panel-user" pad20>
+	  <div class="layui-tab layui-tab-brief" lay-filter="user" id="LAY_msg" style="margin-top: 15px;">
+	    <button class="layui-btn layui-btn-danger" id="LAY_delallmsg">清空全部消息</button>
+	    <div  id="LAY_minemsg" style="margin-top: 10px;">
+        <!--<div class="fly-none">您暂时没有最新消息</div>-->
+        <ul class="mine-msg">
+          <li data-id="123">
+            <blockquote class="layui-elem-quote">
+              <a href="/jump?username=Absolutely" target="_blank"><cite>Absolutely</cite></a>回答了您的求解<a target="_blank" href=""><cite>鹿晗和关晓彤在一起了？</cite></a>
+            </blockquote>
+            <p><span>1小时前</span><a href="javascript:;" class="layui-btn layui-btn-small layui-btn-danger fly-delete">删除</a></p>
+          </li>
+          <li data-id="123">
+            <blockquote class="layui-elem-quote">
+              系统消息：欢迎使用 SunnyNews
+            </blockquote>
+            <p><span>1小时前</span><a href="javascript:;" class="layui-btn layui-btn-small layui-btn-danger fly-delete">删除</a></p>
+          </li>
+        </ul>
+      </div>
+	  </div>
+	</div>
+
+</div>
+
 
 <div class="fly-footer">
   <p><a href="http://fly.layui.com/" target="_blank">SunnyNews</a> 2018 &copy; <a href="http://www.layui.com/" target="_blank">向阳出品</a></p>

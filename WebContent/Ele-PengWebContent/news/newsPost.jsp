@@ -89,12 +89,11 @@
                   <div class="layui-input-block">
                     <select lay-verify="required" name="class" lay-filter="column"> 
                       <option></option> 
-                      <option value="0">提问</option> 
-                      <option value="99">分享</option> 
-                      <option value="100">讨论</option> 
-                      <option value="101">建议</option> 
+                      <option value="0">发表新闻</option> 
+                      <option value="99">编辑新闻</option> 
+                      <option value="100">讨论版</option> 
+                      <option value="101">即时通讯</option> 
                       <option value="168">公告</option> 
-                      <option value="169">动态</option> 
                     </select>
                   </div>
                 </div>
@@ -106,34 +105,9 @@
                   </div>
                 </div>
               </div>
-              <div class="layui-row layui-col-space15 layui-form-item layui-hide" id="LAY_quiz">
-                <div class="layui-col-md3">
-                  <label class="layui-form-label">所属产品</label>
-                  <div class="layui-input-block">
-                    <select name="project">
-                      <option></option>
-                      <option value="网页版SunnyNews">网页版SunnyNews</option>
-                      <option value="PC版SunnyNews">PC版SunnyNews</option>
-                      <option value="微信小程序版SunnyNews">微信小程序版SunnyNews</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="layui-col-md3">
-                  <label class="layui-form-label" for="L_version">版本号</label>
-                  <div class="layui-input-block">
-                    <input type="text" id="L_version" value="" name="version" autocomplete="off" class="layui-input">
-                  </div>
-                </div>
-                <div class="layui-col-md6">
-                  <label class="layui-form-label" for="L_browser">浏览器</label>
-                  <div class="layui-input-block">
-                    <input type="text" id="L_browser"  value="" name="browser" placeholder="浏览器名称及版本，如：IE 11" autocomplete="off" class="layui-input">
-                  </div>
-                </div>
-              </div>
               <div class="layui-form-item layui-form-text">
                 <div class="layui-input-block">
-                  <textarea id="L_content" name="content" required lay-verify="required" placeholder="详细描述" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
+                  <textarea id="L_content" name="content" required lay-verify="required" placeholder="编辑内容" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
                 </div>
               </div>
               <div class="layui-form-item">
