@@ -155,11 +155,10 @@ public class DBMan {
 
 	public static void main(String[] args) {
 		News news = new News();
-		news.setNewsid("181");
-		News news2 = new News();
-		news2.setBody("彭倩最美丽了");
+		news.setStatus("1");
+		news.setBody("彭倩最美丽了");
 		System.out.println(DBMan.getInstance()
-				.insertWithoutThrow(news2, "news"));
+				.queryWithoutThrow(news, "news"));
 	}
 
 	public synchronized <T> T queryByIdWithoutThrow(Class<T> clazz, String sql,

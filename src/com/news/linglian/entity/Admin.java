@@ -1,5 +1,16 @@
 package com.news.linglian.entity;
 
+/**
+ * 
+ * @project newsystem
+ *
+ * @class com.news.linglian.entity Admin.java
+ *
+ * @author linglian
+ *
+ * @date 2018年1月11日 上午9:46:58
+ *
+ */
 public class Admin {
 	private String adminid;
 	private String adminname;
