@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <c:if test="${empty sessionScope.identity}" >
-	<c:redirect url="adminLigin.jsp" />
+	<c:redirect url="adminLogin.jsp" />
 </c:if>
 </head>
 <body>${sessionScope.identity}

@@ -24,13 +24,13 @@ public class IAdminServiceImplOfBad implements IAdminService {
 	@Override
 	public int removeAdmin(Admin admin) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	@Override
 	public int removeAdmin(String adminid) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	@Override

@@ -1,10 +1,14 @@
 package com.news.linglian.factoryImpl;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.linglian.util.ServletUtil;
 import com.news.linglian.entity.Admin;
 import com.news.linglian.factory.IServletFactory;
@@ -56,39 +60,33 @@ public class IAdminFactoryImpl implements IServletFactory {
 			break;
 		}
 	}
-	
+
 	/**
 	 * 获取admin信息
 	 * 
 	 */
 	protected void doQuery(HttpServletRequest request,
-			HttpServletResponse response, HttpServlet serlvet)
+			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String adminid = request.getParameter("adminid");
-		if (request.getSession().getAttribute("identity") == null) {
-			request.getSession().setAttribute("info", "请重新登录");
-			ServletUtil.redirect(request, response, serlvet, "login_from");
-			return;
-		}
-		if (!(request.getSession().getAttribute("identity") instanceof Admin)) {
-			request.getSession().setAttribute("info", "权限不足");
-			ServletUtil.redirect(request, response, serlvet, "query_from");
-			return;
-		}
-		if("".equals(adminid)){
-			request.getSession().setAttribute("info", "管理员id不能为空");
-			ServletUtil.redirect(request, response, "query_from");
-		}else{
+		if(ServletUtil.checkIdentity(request, response, servlet, "query_from")){
+			String[] a={adminid,"管理员的id"};
+			List<String[] > list= new ArrayList<String[] >();
+			list.add(a);
+			if(ServletUtil.isNull(request, response, servlet, "query_from", list)){
 			if(ias.getAdmin(adminid)==null){
 				request.getSession().setAttribute("info", "获取失败");
-				ServletUtil.redirect(request, response, serlvet, "query_from");
+				ServletUtil.redirect(request, response, servlet, "query_from");
 			}else{
 				request.getSession().setAttribute("info", "获取成功");
-				ServletUtil.forward(request, response, serlvet, "query_to");
+				Admin admin=new Admin();
+				admin=ias.getAdmin(adminid);
+				request.getSession().setAttribute("admin", admin);
+				ServletUtil.forward(request, response, servlet, "query_to");
 			}
 		}
-		
+		}
 	}
 	
 	/**
@@ -97,125 +95,77 @@ public class IAdminFactoryImpl implements IServletFactory {
 	 */
 	
 	protected void doUpdate(HttpServletRequest request,
-			HttpServletResponse response, HttpServlet serlvet)
+			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String adminid =request.getParameter("adminid");
 		String adminname =request.getParameter("adminname");
 		String password =request.getParameter("password");
-		System.out.println(adminid);
-		if (request.getSession().getAttribute("identity") == null) {
-			request.getSession().setAttribute("info", "请重新登录");
-			ServletUtil.redirect(request, response, serlvet, "login_from");
-			return;
-		}
-		if (!(request.getSession().getAttribute("identity") instanceof Admin)) {
-			request.getSession().setAttribute("info", "权限不足");
-			ServletUtil.redirect(request, response, serlvet, "update_from");
-			return;
-		}
-		if("".equals(adminid)){
-			request.getSession().setAttribute("info", "管理员id不能为空");
-			ServletUtil.redirect(request, response, "update_from");
-		}else if("".equals(adminname)){
-			request.getSession().setAttribute("info", "管理员姓名不能为空");
-			ServletUtil.redirect(request, response, "update_from");
-		}else if("".equals(password)){
-			request.getSession().setAttribute("info", "密码不能为空!");
-			ServletUtil.redirect(request, response, serlvet, "update_from");
-		}else{
+		if(ServletUtil.checkIdentity(request, response, servlet, "update_from")){
+			String[] a={adminid,"管理员的id"};
+			String[] b={adminname,"管理员的名字"};
+			String[] c={password,"密码"};
+			List<String[] > list= new ArrayList<String[] >();
+			list.add(a);
+			list.add(b);
+			list.add(c);
+			if(ServletUtil.isNull(request, response, servlet, "update_from", list)){
 			Admin admin =new Admin();
 			admin.setAdminid(adminid);
 			admin.setAdminname(adminname);
 			admin.setPassword(password);
-			if(ias.updateAdmin(admin)==0){
-				request.getSession().setAttribute("info", "修改失败");
-				ServletUtil.redirect(request, response, serlvet, "update_from");
-			} else {
-				request.getSession().setAttribute("info", "修改成功");
-				ServletUtil.redirect(request, response, serlvet, "update_to");
-			}
+			ServletUtil.checkdata(request, response, servlet, "update_from", "修改", ias.updateAdmin(admin));
+		}
 		}
 	}
+	
 	
 	/**
 	 * 插入
 	 * 
 	 */
 	protected void doInsert(HttpServletRequest request,
-			HttpServletResponse response, HttpServlet serlvet)
+			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String adminid =request.getParameter("adminid");
 		String adminname =request.getParameter("adminname");
 		String password =request.getParameter("password");
-		if (request.getSession().getAttribute("identity") == null) {
-			request.getSession().setAttribute("info", "请重新登录");
-			ServletUtil.redirect(request, response, serlvet, "login_from");
-			return;
-		}
-		if (!(request.getSession().getAttribute("identity") instanceof Admin)) {
-			request.getSession().setAttribute("info", "权限不足");
-			ServletUtil.redirect(request, response, serlvet, "insert_from");
-			return;
-		}
-		if("".equals(adminid)){
-			request.getSession().setAttribute("info", "管理员id不能为空");
-			ServletUtil.redirect(request, response, "insert_from");
-		}else if("".equals(adminname)){
-			request.getSession().setAttribute("info", "管理员姓名不能为空");
-			ServletUtil.redirect(request, response, "insert_from");
-		}else if("".equals(password)){
-			request.getSession().setAttribute("info", "密码不能为空!");
-			ServletUtil.redirect(request, response, serlvet, "insert_from");
-		}else{
+		if(ServletUtil.checkIdentity(request, response, servlet, "insert_from")){
+			String[] a={adminid,"管理员的id"};
+			String[] b={adminname,"管理员的名字"};
+			String[] c={password,"密码"};
+			List<String[] > list= new ArrayList<String[] >();
+			list.add(a);
+			list.add(b);
+			list.add(c);
+			if(ServletUtil.isNull(request, response, servlet, "insert_from", list)){
 			Admin admin =new Admin();
 			admin.setAdminid(adminid);
 			admin.setAdminname(adminname);
 			admin.setPassword(password);
-			if(ias.insert(admin)==0){
-				request.getSession().setAttribute("info", "插入失败");
-				ServletUtil.redirect(request, response, serlvet, "insert_from");
-			}else{
-				request.getSession().setAttribute("info", "插入成功");
-				ServletUtil.redirect(request, response, serlvet, "insert_to");
-				
-			}
+			ServletUtil.checkdata(request, response, servlet, "insert_from", "插入", ias.insert(admin));
 		}
-		
+		}
 	}
 	/**
 	 * 删除
 	 * 
 	 */
 	protected void doRemove(HttpServletRequest request,
-			HttpServletResponse response, HttpServlet serlvet)
+			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String adminid =request.getParameter("adminid");
-		if (request.getSession().getAttribute("identity") == null) {
-			request.getSession().setAttribute("info", "请重新登录");
-			ServletUtil.redirect(request, response, serlvet, "login_from");
-			return;
-		}
-		if (!(request.getSession().getAttribute("identity") instanceof Admin)) {
-			request.getSession().setAttribute("info", "权限不足");
-			ServletUtil.redirect(request, response, serlvet, "remove_from");
-			return;
-		}
-		if("".equals(adminid)){
-			request.getSession().setAttribute("info", "管理员id不能为空");
-			ServletUtil.redirect(request, response, "remove_from");
-		}else{
-			Admin admin =new Admin();
-			admin.setAdminid(adminid);
-			if(ias.removeAdmin(admin)==0){
-				request.getSession().setAttribute("info", "删除失败");
-				ServletUtil.redirect(request, response, serlvet, "remove_from");
-			}else{
-				request.getSession().setAttribute("info", "删除成功");
-				ServletUtil.redirect(request, response, serlvet, "remove_to");
-			}	
+		if(ServletUtil.checkIdentity(request, response, servlet, "remove_from")){
+			String[] a={adminid,"管理员id"};
+			List<String[] > list= new ArrayList<String[] >();
+			list.add(a);
+			if(ServletUtil.isNull(request, response, servlet, "remove_from", list)){
+				Admin admin =new Admin();
+				admin.setAdminid(adminid);
+				ServletUtil.checkdata(request, response, servlet, "remove_from", "删除", ias.removeAdmin(admin));	
+			}
 		}
 	}
 	
@@ -224,26 +174,25 @@ public class IAdminFactoryImpl implements IServletFactory {
 	 * 
 	 */
 	protected void doLogin(HttpServletRequest request,
-			HttpServletResponse response, HttpServlet serlvet)
+			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String adminid = request.getParameter("adminid");
 		String password = request.getParameter("password");
-		if ("".equals(adminid)) {
-			request.getSession().setAttribute("info", "管理员id不能为空!");
-			ServletUtil.forward(request, response, serlvet, "login_from");
-		} else if ("".equals(password)) {
-			request.getSession().setAttribute("info", "密码不能为空!");
-			ServletUtil.redirect(request, response, serlvet, "login_from");
-		} else {
+		String[] a={adminid,"管理员的id"};
+		String[] b={password,"密码"};
+		List<String[] > list= new ArrayList<String[] >();
+		list.add(a);
+		list.add(b);
+		if(ServletUtil.isNull(request, response, servlet, "login_from", list)){
 			Admin admin = ias.getAdmin(adminid, password);
 			if (admin == null) {
 				request.getSession().setAttribute("info", "账号或者密码错误!");
-				ServletUtil.redirect(request, response, serlvet, "login_from");
+				ServletUtil.redirect(request, response, servlet, "login_from");
 			} else {
 				request.getSession().setAttribute("identity", admin);
 				request.getSession().setAttribute("info", "登录成功!");
-				ServletUtil.redirect(request, response, serlvet, "login_to");
+				ServletUtil.redirect(request, response, servlet, "login_to");
 			}
 		}
 	}

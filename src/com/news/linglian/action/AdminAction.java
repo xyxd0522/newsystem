@@ -69,7 +69,7 @@ public class AdminAction extends HttpServlet {
 		// TODO Auto-generated method stub
 		doThing(request, response);
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
