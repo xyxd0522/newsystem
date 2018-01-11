@@ -36,13 +36,16 @@ public class IAdminServiceImplOfBad implements IAdminService {
 	@Override
 	public int insert(Admin admin) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1 ;
 	}
 
 	@Override
 	public Admin getAdmin(String adminid) {
 		// TODO Auto-generated method stub
-		return null;
+		Admin admin = new Admin();
+		admin.setAdminid(adminid);
+		admin.setAdminname(new Date().toLocaleString());
+		return admin;
 	}
 
 	@Override

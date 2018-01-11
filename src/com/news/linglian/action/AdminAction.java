@@ -23,9 +23,15 @@ import com.news.linglian.factoryImpl.IAdminFactoryImpl;
  */
 @WebServlet(name = "AdminAction", urlPatterns = "/AdminAction.do", initParams = {
 		@WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.IAdminFactoryImpl"),
-		@WebInitParam(name = "login_from", value = "index.jsp"),
+		@WebInitParam(name = "login_from", value = "adminLogin.jsp"),
 		@WebInitParam(name = "login_to", value = "index.jsp"),
-		@WebInitParam(name = "insert_from", value = "adminLogin.jsp"),
+		@WebInitParam(name = "insert_from", value = "index.jsp"),
+		@WebInitParam(name = "insert_to", value = "index.jsp"),
+		@WebInitParam(name = "remove_from", value = "index.jsp"),
+		@WebInitParam(name = "remove_to", value = "index.jsp"),
+		@WebInitParam(name = "query_from", value = "index.jsp"),
+		@WebInitParam(name = "query_to", value = "index.jsp"),
+		@WebInitParam(name = "update_to", value = "index.jsp"),
 		@WebInitParam(name = "update_from", value = "index.jsp")})
 public class AdminAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;

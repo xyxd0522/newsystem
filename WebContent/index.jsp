@@ -11,8 +11,9 @@ ${identity.adminname }
 ${info}
 
 <a href="AdminAction.do?method=login&adminid=admin&password=123456">登录</a>
-
-
-<a href="AdminAction.do?method=update&adminid=admin&adminname=linglian&password=123456">点一下</a>
+<a href="AdminAction.do?method=update&adminid=admin&adminname=linglian&password=123456">修改</a>
+<a href="AdminAction.do?method=insert&adminid=admin&adminname=linglian&password=123456">插入</a>
+<a href="AdminAction.do?method=query&adminid=admin">获取</a>
+<a href="AdminAction.do?method=remove&adminid=admin">删除</a>
 </body>
 </html>
