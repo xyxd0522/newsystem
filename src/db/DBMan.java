@@ -109,7 +109,7 @@ public class DBMan {
 				.addDataName(dataName)
 				.addAfterWheres(ClassUtil.getNameNotNull(t)).build();
 		System.out.println(sql);
-		return (T) queryByIdWithoutThrow(t.getClass(), sql,
+		return (T) queryByIdWithoutThrow(sql, t.getClass(),
 				ClassUtil.getValueNotNull(t));
 	}
 
@@ -120,7 +120,7 @@ public class DBMan {
 				.addDataName(dataName)
 				.addAfterWheres(ClassUtil.getNameNotNull(t)).build();
 		System.out.println(sql);
-		return (List<T>) queryWithoutThrow(t.getClass(), sql,
+		return (List<T>) queryWithoutThrow(sql, t.getClass(),
 				ClassUtil.getValueNotNull(t));
 	}
 
@@ -153,18 +153,10 @@ public class DBMan {
 		return updateWithoutThrow(sql, ClassUtil.getValueNotNull(t));
 	}
 
-	public static void main(String[] args) {
-		News news = new News();
-		news.setStatus("1");
-		news.setBody("彭倩最美丽了");
-		System.out.println(DBMan.getInstance()
-				.queryWithoutThrow(news, "news"));
-	}
-
-	public synchronized <T> T queryByIdWithoutThrow(Class<T> clazz, String sql,
+	public synchronized <T> T queryByIdWithoutThrow(String sql, Class<T> clazz,
 			Object... obj) {
 		try {
-			return queryById(clazz, sql, obj);
+			return queryById(sql, clazz, obj);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
@@ -179,7 +171,7 @@ public class DBMan {
 		return null;
 	}
 
-	public synchronized <T> T queryById(Class<T> clazz, String sql,
+	public synchronized <T> T queryById(String sql, Class<T> clazz,
 			Object... obj) throws ClassNotFoundException, SQLException,
 			InstantiationException, InvocationTargetException,
 			IllegalAccessException {
@@ -221,10 +213,10 @@ public class DBMan {
 	 * @throws InvocationTargetException
 	 * @throws IllegalAccessException
 	 */
-	public synchronized <T> List<T> queryWithoutThrow(Class<T> clazz,
-			String sql, Object... obj) {
+	public synchronized <T> List<T> queryWithoutThrow(String sql,
+			Class<T> clazz, Object... obj) {
 		try {
-			return query(clazz, sql, obj);
+			return query(sql, clazz, obj);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
@@ -239,7 +231,7 @@ public class DBMan {
 		return null;
 	}
 
-	public synchronized <T> List<T> query(Class<T> clazz, String sql,
+	public synchronized <T> List<T> query(String sql, Class<T> clazz,
 			Object... obj) throws ClassNotFoundException, SQLException,
 			InstantiationException, InvocationTargetException,
 			IllegalAccessException {

@@ -38,15 +38,21 @@ public class Arithmetic {
         return list;
     }
     
-    public static <T> List<List<T>> combiner(List<T> a) {
+    public static <T> List<List<T>> combiner(List<T> a, int length) {
+        if (length == 0) {
+            length = a.size();
+        }
         List<List<T>> list = new ArrayList();
-        for (int i = 1; i <= a.size(); i++) {
+        for (int i = 1; i <= length; i++) {
             List<List<T>> tList = combinerSelect(a, new ArrayList<T>(), 0, i);
             for (List<T> l : tList) {
                 list.add(l);
             }
         }
         return list;
+    }
+    private static <T> List<List<T>> combiner(List<T> a) {
+        return combiner(a, a.size());
     }
 
 }

@@ -7,8 +7,10 @@ package util;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -22,6 +24,7 @@ public class SDMCreater {
     private String className = null; // 类名， 必选
     private String dataName = null; // 数据库表明， 必选
     private List<List<String>> list = null;
+    private int length = 0;
 
     public final SDMCreater reset() {
         packageName = null;
@@ -29,54 +32,12 @@ public class SDMCreater {
         dataName = null;
         paramName = new ArrayList();
         basePath = "./";
+        length = 0;
         return this;
     }
 
     public SDMCreater() {
         reset();
-    }
-
-    public SDMCreater setPackageName(String packageName) {
-        this.packageName = packageName;
-        return this;
-    }
-
-    public SDMCreater setClassName(String className) {
-        this.className = className;
-        return this;
-    }
-
-    public SDMCreater setBasePath(String basePath) {
-        this.basePath = basePath;
-        return this;
-    }
-
-    public SDMCreater setDataName(String dataName) {
-        this.dataName = dataName;
-        return this;
-    }
-
-    public SDMCreater addParamName(String paramName) {
-        this.paramName.add(paramName);
-        return this;
-    }
-
-    public SDMCreater addParamNames(String[] paramNames) {
-        if (paramNames != null) {
-            for (String s : paramNames) {
-                this.paramName.add(s);
-            }
-        }
-        return this;
-    }
-
-    public SDMCreater addParamNames(List<String> paramNames) {
-        if (paramNames != null) {
-            for (String s : paramNames) {
-                this.paramName.add(s);
-            }
-        }
-        return this;
     }
 
     // 写函数名
@@ -128,7 +89,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printInterface(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ");");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -141,7 +102,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printInterfaceOfUpdate(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ", " + StringUtil.getUp(className) + " key" + StringUtil.getUp(className) + ");");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -155,7 +116,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printInterfaceOfGet(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public " + StringUtil.getUp(className) + " " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ");");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -180,7 +141,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printFunction(PrintWriter out) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         printInterfaceOfUpdate(out, "update");
         printInterface(out, "remove");
         printInterface(out, "insert");
@@ -190,7 +151,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printClassOfInsert(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
         out.println("        return DBMan.getInstance().insertWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
         out.println("    }");
@@ -208,7 +169,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printClassOfRemove(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
         out.println("        return DBMan.getInstance().deleteWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
         out.println("    }");
@@ -226,7 +187,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printClassOfUpdate(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ", " + StringUtil.getUp(className) + " key" + StringUtil.getUp(className) + ") {");
         out.println("        return DBMan.getInstance().updateWithoutThrow(" + StringUtil.getLow(className) + ", key" + StringUtil.getUp(className) + ", \"" + dataName + "\");");
         out.println("    }");
@@ -250,7 +211,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printClassOfGet(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public " + StringUtil.getUp(className) + " " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
         out.println("        return DBMan.getInstance().queryByIdWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
         out.println("    }");
@@ -285,7 +246,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printFunctionOfClass(PrintWriter out) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         printClassOfUpdate(out, "update");
         printClassOfRemove(out, "remove");
         printClassOfInsert(out, "insert");
@@ -315,7 +276,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printClassOfInsertByService(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
         out.println("        return dao." + method + "(" + StringUtil.getLow(className) + ");");
         out.println("    }");
@@ -332,7 +293,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printClassOfRemoveByService(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
         out.println("        return dao." + method + "(" + StringUtil.getLow(className) + ");");
         out.println("    }");
@@ -349,7 +310,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printClassOfUpdateByService(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ", " + StringUtil.getUp(className) + " key" + StringUtil.getUp(className) + ") {");
         out.println("        return dao." + method + "(" + StringUtil.getLow(className) + ", key" + StringUtil.getUp(className) + ");");
         out.println("    }");
@@ -383,7 +344,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printClassOfGetByService(PrintWriter out, String method) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         out.println("    public " + StringUtil.getUp(className) + " " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
         out.println("        return dao." + method + "(" + StringUtil.getLow(className) + ");");
         out.println("    }");
@@ -416,7 +377,7 @@ public class SDMCreater {
     }
 
     private SDMCreater printFunctionOfClassByService(PrintWriter out) {
-        list = Arithmetic.combiner(paramName);
+        list = Arithmetic.combiner(paramName, length);
         printClassOfUpdateByService(out, "update");
         printClassOfRemoveByService(out, "remove");
         printClassOfInsertByService(out, "insert");
@@ -441,14 +402,14 @@ public class SDMCreater {
     private SDMCreater printGetterAndSetter(PrintWriter out, String param) {
         // 输出getter
         out.println("    public String get"
-                + param.substring(0, 1).toUpperCase() + param.substring(1)
+                + StringUtil.getUp(param)
                 + "() {");
         out.println("        return " + param + ";");
         out.println("    }");
         out.println();
         // 输出setter
         out.println("    public void set"
-                + param.substring(0, 1).toUpperCase() + param.substring(1)
+                + StringUtil.getUp(param)
                 + "(String " + param + ") {");
         out.println("        this." + param + " = " + param + ";");
         out.println("    }");
@@ -559,7 +520,7 @@ public class SDMCreater {
         File file = FileUtil.mkFile(path, "I" + this.className + "DaoImpl" + ".java");
         PrintWriter out = FileUtil.getPrintWriter(file);
         // out = new PrintWriter(System.out);
-        out.println("package " 
+        out.println("package "
                 + packageName + ".daoImpl;");
         out.println();
         printImport(out);
@@ -612,7 +573,7 @@ public class SDMCreater {
         File file = FileUtil.mkFile(path, "I" + this.className + "ServiceImpl" + ".java");
         PrintWriter out = FileUtil.getPrintWriter(file);
         // out = new PrintWriter(System.out);
-        out.println("package " 
+        out.println("package "
                 + packageName + ".serviceImpl;");
         out.println();
         printImport(out);
@@ -639,15 +600,240 @@ public class SDMCreater {
         return this;
     }
 
+    public SDMCreater setPackageName(String packageName) {
+        this.packageName = packageName;
+        return this;
+    }
+
+    public SDMCreater setClassName(String className) {
+        this.className = className;
+        return this;
+    }
+
+    public SDMCreater setBasePath(String basePath) {
+        this.basePath = basePath;
+        return this;
+    }
+
+    public SDMCreater setDataName(String dataName) {
+        this.dataName = dataName;
+        return this;
+    }
+
+    public SDMCreater setLength(int length) {
+        this.length = length;
+        return this;
+    }
+
+    public SDMCreater addParamName(String paramName) {
+        this.paramName.add(paramName);
+        return this;
+    }
+
+    public SDMCreater addParamNames(String[] paramNames) {
+        if (paramNames != null) {
+            for (String s : paramNames) {
+                this.paramName.add(s);
+            }
+        }
+        return this;
+    }
+
+    public SDMCreater addParamNames(List<String> paramNames) {
+        if (paramNames != null) {
+            for (String s : paramNames) {
+                this.paramName.add(s);
+            }
+        }
+        return this;
+    }
+
+    public SDMCreater addParamNames(Set<String> paramNames) {
+        if (paramNames != null) {
+            for (String s : paramNames) {
+                this.paramName.add(s);
+            }
+        }
+        return this;
+    }
+
     public void build() {
         createPackage().createEntity().createDao().createDaoImpl().createService().createServiceImpl();
     }
-    
+
+    private SDMCreater createEntity(PrintWriter out) {
+        String path = basePath;
+        // 将packageName临时保存
+        // path = FileUtil.mkdir(path, "entity");
+        // File file = FileUtil.mkFile(path, className + ".java");
+        // PrintWriter out = FileUtil.getPrintWriter(file);
+        out.println("package " + packageName + ".entity;");
+        out.println();
+        // out = new PrintWriter(System.out);
+        printClassName(out)
+                .printParams(out)
+                .printGetterAndSetters(out)
+                .printToString(out)
+                .printEnd(out);
+        out.flush();
+        // System.out.println(file);
+        return this;
+    }
+
+    /**
+     * 生成Dao接口
+     *
+     * @return
+     */
+    private SDMCreater createDao(PrintWriter out) {
+        String path = basePath;
+        // 将packageName和className临时保存
+        path = FileUtil.mkdir(path, "dao");
+        File file = FileUtil.mkFile(path, "I" + this.className + "Dao" + ".java");
+        // 声明包名
+        out.println("package " + packageName + ".dao;");
+        out.println();
+        // 声明引用包
+        printImport(out);
+        // 声明接口
+        out.println("public interface I" + className + "Dao {");
+        printFunction(out)
+                .printEnd(out);
+        out.flush();
+        System.out.println(file);
+        return this;
+    }
+
+    /**
+     * 生成DaoImpl类
+     *
+     * @return
+     */
+    private SDMCreater createDaoImpl(PrintWriter out) {
+        String path = basePath;
+        // 将packageName和className临时保存
+        path = FileUtil.mkdir(path, "daoImpl");
+        File file = FileUtil.mkFile(path, "I" + this.className + "DaoImpl" + ".java");
+        // out = new PrintWriter(System.out);
+        out.println("package "
+                + packageName + ".daoImpl;");
+        out.println();
+        printImport(out);
+        out.println("import "
+                + packageName + ".dao.I" + className + "Dao;");
+        out.println("import db.DBMan;");
+        out.println();
+        out.println("public class I" + className + "DaoImpl implements I" + className + "Dao {");
+        printFunctionOfClass(out);
+        printEnd(out);
+        out.flush();
+        System.out.println(file);
+        return this;
+    }
+
+    /**
+     * 生成Service接口
+     *
+     * @return
+     */
+    private SDMCreater createService(PrintWriter out) {
+        String path = basePath;
+        // 将packageName和className临时保存
+        path = FileUtil.mkdir(path, "service");
+        File file = FileUtil.mkFile(path, "I" + this.className + "Service" + ".java");
+        // 声明包名
+        out.println("package " + packageName + ".service;");
+        out.println();
+        // 声明引用包
+        printImport(out);
+        // 声明接口
+        out.println("public interface I" + className + "Service {");
+        printFunction(out)
+                .printEnd(out);
+        out.flush();
+        System.out.println(file);
+        return this;
+    }
+
+    /**
+     * 生成Service类
+     *
+     * @return
+     */
+    private SDMCreater createServiceImpl(PrintWriter out) {
+        String path = basePath;
+        // 将packageName和className临时保存
+        path = FileUtil.mkdir(path, "serviceImpl");
+        File file = FileUtil.mkFile(path, "I" + this.className + "ServiceImpl" + ".java");
+        // out = new PrintWriter(System.out);
+        out.println("package "
+                + packageName + ".serviceImpl;");
+        out.println();
+        printImport(out);
+        out.println("import "
+                + packageName + ".dao.I" + StringUtil.getUp(className) + "Dao;\n"
+                + "import "
+                + packageName + ".daoImpl.I" + StringUtil.getUp(className) + "DaoImpl;");
+        out.println("import "
+                + packageName + ".service.I" + StringUtil.getUp(className) + "Service;");
+        out.println();
+        out.println("public class I" + StringUtil.getUp(className)
+                + "ServiceImpl implements I"
+                + StringUtil.getUp(className)
+                + "Service {");
+        out.println("	I" + StringUtil.getUp(className) + "Dao dao = null;\n"
+                + "\n"
+                + "	public I" + StringUtil.getUp(className) + "ServiceImpl() {\n"
+                + "		dao = new I" + StringUtil.getUp(className) + "DaoImpl();\n"
+                + "	}");
+        printFunctionOfClassByService(out);
+        printEnd(out);
+        out.flush();
+        System.out.println(file);
+        return this;
+    }
+
+    public String createEntityToString() {
+        StringWriter sw = new StringWriter();
+        createEntity(new PrintWriter(sw));
+        sw.flush();
+        return sw.toString();
+    }
+
+    public String createDaoToString() {
+        StringWriter sw = new StringWriter();
+        createDao(new PrintWriter(sw));
+        sw.flush();
+        return sw.toString();
+    }
+
+    public String createDaoImplToString() {
+        StringWriter sw = new StringWriter();
+        createDaoImpl(new PrintWriter(sw));
+        sw.flush();
+        return sw.toString();
+    }
+
+    public String createServiceToString() {
+        StringWriter sw = new StringWriter();
+        createService(new PrintWriter(sw));
+        sw.flush();
+        return sw.toString();
+    }
+
+    public String createServiceImplToString() {
+        StringWriter sw = new StringWriter();
+        createServiceImpl(new PrintWriter(sw));
+        sw.flush();
+        return sw.toString();
+    }
+
     public static void main(String[] args) {
-        String[] strs = {"newsid", "title", "body", "typeid", "newsdate", "userid", "status"};
+
+        String[] strs = {"logid", "body", "logdate", "adminid"};
         new SDMCreater().setPackageName("com.news.linglian")
-                .setClassName("News")
-                .setDataName("news")
+                .setClassName("Log")
+                .setDataName("log")
                 .setBasePath("C:\\eclipse\\newsystem\\src")
                 .addParamNames(strs)
                 .build();
