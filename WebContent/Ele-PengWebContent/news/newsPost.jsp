@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>发表新闻 修改新闻 公用</title>
+  <title>发布新闻 修改新闻 公用</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="SunnyNews">
   <meta name="description" content="SunnyNews 向阳小队旗舰之作">
@@ -78,7 +78,7 @@
     <div class="layui-form layui-form-pane">
       <div class="layui-tab layui-tab-brief" lay-filter="user">
         <ul class="layui-tab-title">
-          <li class="layui-this">发表新闻<!-- 修改新闻 --></li>
+          <li class="layui-this">发布新闻<!-- 修改新闻 --></li>
         </ul>
         <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
           <div class="layui-tab-item layui-show">
@@ -89,7 +89,7 @@
                   <div class="layui-input-block">
                     <select lay-verify="required" name="class" lay-filter="column"> 
                       <option></option> 
-                      <option value="0">发表新闻</option> 
+                      <option value="0">发布新闻</option> 
                       <option value="99">编辑新闻</option> 
                       <option value="100">讨论版</option> 
                       <option value="101">即时通讯</option> 
@@ -122,7 +122,7 @@
                       <option value="80">80</option>
                     </select>
                   </div>
-                  <div class="layui-form-mid layui-word-aux">发表后无法更改阳光值</div>
+                  <div class="layui-form-mid layui-word-aux">发布后无法更改阳光值</div>
                 </div>
               </div>
               <div class="layui-form-item">
