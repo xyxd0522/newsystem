@@ -4,6 +4,7 @@ public class Newstype {
     private String newsTypeId;
     private String name;
     private String body;
+
     public String getNewsTypeId() {
         return newsTypeId;
     }

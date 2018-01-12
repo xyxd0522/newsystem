@@ -14,11 +14,12 @@ import com.news.linglian.factory.IServletFactory;
 /**
  * Servlet implementation class UserAction
  */
-@WebServlet(name = "/UserAction", urlPatterns = "//UserAction.do", initParams = {
-		@WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.IAdminFactoryImpl"),
+@WebServlet(name = "UserAction", urlPatterns = "/UserAction.do", initParams = {
+		@WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.IUserFactoryImpl"),
 		@WebInitParam(name = "login_from", value = "adminLogin.jsp"),
 		@WebInitParam(name = "login_to", value = "admin.jsp"),
-		@WebInitParam(name = "insert_from", value = "adminLogin.jsp")})
+		@WebInitParam(name = "insert_to", value = "index.jsp"),
+		@WebInitParam(name = "insert_from", value = "user/reg.jsp")})
 public class UserAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -49,6 +50,7 @@ public class UserAction extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doThing(request, response);
 	}
 
 	/**
@@ -56,6 +58,7 @@ public class UserAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doThing(request, response);
 	}
 
 }

@@ -9,7 +9,7 @@ import db.DBMan;
 
 public class IUserDaoImpl implements IUserDao {
     public int update(User user, User keyUser) {
-        return DBMan.getInstance().updateNoSqlWithoutThrow(user, keyUser, "newsystem");
+        return DBMan.getInstance().updateNoSqlWithoutThrow(user, keyUser, "user");
     }
     public int updateOfUserId(User user, String userId) {
         User kUser = new User();
@@ -1133,7 +1133,7 @@ public class IUserDaoImpl implements IUserDao {
         return update(user, kUser);
     }
     public int remove(User user) {
-        return DBMan.getInstance().deleteNoSqlWithoutThrow(user, "newsystem");
+        return DBMan.getInstance().deleteNoSqlWithoutThrow(user, "user");
     }
     public int removeOfUserId(String userId) {
         User user = new User();
@@ -2257,7 +2257,7 @@ public class IUserDaoImpl implements IUserDao {
         return remove(user);
     }
     public int insert(User user) {
-        return DBMan.getInstance().insertNoSqlWithoutThrow(user, "newsystem");
+        return DBMan.getInstance().insertNoSqlWithoutThrow(user, "user");
     }
     public int insertOfUserId(String userId) {
         User user = new User();
@@ -3381,7 +3381,7 @@ public class IUserDaoImpl implements IUserDao {
         return insert(user);
     }
     public User getUser(User user) {
-        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(user, "newsystem");
+        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(user, "user");
     }
     public User getUserOfUserId(String userId) {
         User user = new User();
@@ -4505,7 +4505,7 @@ public class IUserDaoImpl implements IUserDao {
         return getUser(user);
     }
     public List<User> getUsers(User user) {
-        return DBMan.getInstance().queryNoSqlWithoutThrow(user, "newsystem");
+        return DBMan.getInstance().queryNoSqlWithoutThrow(user, "user");
     }
     public List<User> getUsersOfUserId(String userId) {
         User user = new User();

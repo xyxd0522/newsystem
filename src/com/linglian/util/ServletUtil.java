@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.news.linglian.entity.Admin;
+import com.news.linglian.entity.User;
 
 public class ServletUtil {
 
     private ServletUtil() {
-
+    	
     }
 
     /**
@@ -74,11 +75,11 @@ public class ServletUtil {
     		ServletUtil.redirect(request, response,servlet, "login_from");
     		return false;
     	}
-    	if (!(request.getSession().getAttribute("identity") instanceof Admin)) {
+    	if (!(request.getSession().getAttribute("identity") instanceof User)) {
     		request.getSession().setAttribute("info", "权限不足");
     		ServletUtil.redirect(request, response, servlet, parameterName);
     		return false;
-    }
+    	}
     	return true;
     }
 
@@ -88,13 +89,12 @@ public class ServletUtil {
     public static boolean isNull(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
              String parameterName ,List<String []>list) throws ServletException, IOException {
-    		
     	for(int i=0;i<list.size();i++){    		
-    	if(list.get(i)[0]==null||"".equals(list.get(i)[0])){
-    		request.getSession().setAttribute("info", list.get(i)[1]+"不能为空");
-    		ServletUtil.redirect(request, response,servlet,parameterName);
-    		return false;
-    	}
+	    	if(list.get(i)[0]==null||"".equals(list.get(i)[0])){
+	    		request.getSession().setAttribute("info", list.get(i)[1]+"不能为空");
+	    		ServletUtil.redirect(request, response,servlet,parameterName);
+	    		return false;
+	    	}
     	}
     	return true;
     }
@@ -105,12 +105,12 @@ public class ServletUtil {
     public static void checkdata(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
             String parameterName,String responsename, int ispass) throws ServletException, IOException {
-        	if(ispass==0){
+        	if(ispass==0) {
     			request.getSession().setAttribute("info", responsename+"失败");
-    			ServletUtil.redirect(request, response, servlet, "remove_from");
-    		}else{
+    			ServletUtil.redirect(request, response, servlet, parameterName );
+    		} else {
     			request.getSession().setAttribute("info", responsename+"成功");
-    			ServletUtil.redirect(request, response, servlet, "remove_to");
+    			ServletUtil.redirect(request, response, servlet,  parameterName);
     		}
     }
     

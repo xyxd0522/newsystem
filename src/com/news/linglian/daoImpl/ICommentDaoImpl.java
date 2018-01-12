@@ -9,7 +9,7 @@ import db.DBMan;
 
 public class ICommentDaoImpl implements ICommentDao {
     public int update(Comment comment, Comment keyComment) {
-        return DBMan.getInstance().updateNoSqlWithoutThrow(comment, keyComment, "newsystem");
+        return DBMan.getInstance().updateNoSqlWithoutThrow(comment, keyComment, "comment");
     }
     public int updateOfCommentId(Comment comment, String commentId) {
         Comment kComment = new Comment();
@@ -173,7 +173,7 @@ public class ICommentDaoImpl implements ICommentDao {
         return update(comment, kComment);
     }
     public int remove(Comment comment) {
-        return DBMan.getInstance().deleteNoSqlWithoutThrow(comment, "newsystem");
+        return DBMan.getInstance().deleteNoSqlWithoutThrow(comment, "comment");
     }
     public int removeOfCommentId(String commentId) {
         Comment comment = new Comment();
@@ -337,7 +337,7 @@ public class ICommentDaoImpl implements ICommentDao {
         return remove(comment);
     }
     public int insert(Comment comment) {
-        return DBMan.getInstance().insertNoSqlWithoutThrow(comment, "newsystem");
+        return DBMan.getInstance().insertNoSqlWithoutThrow(comment, "comment");
     }
     public int insertOfCommentId(String commentId) {
         Comment comment = new Comment();
@@ -501,7 +501,7 @@ public class ICommentDaoImpl implements ICommentDao {
         return insert(comment);
     }
     public Comment getComment(Comment comment) {
-        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(comment, "newsystem");
+        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(comment, "comment");
     }
     public Comment getCommentOfCommentId(String commentId) {
         Comment comment = new Comment();
@@ -665,7 +665,7 @@ public class ICommentDaoImpl implements ICommentDao {
         return getComment(comment);
     }
     public List<Comment> getComments(Comment comment) {
-        return DBMan.getInstance().queryNoSqlWithoutThrow(comment, "newsystem");
+        return DBMan.getInstance().queryNoSqlWithoutThrow(comment, "comment");
     }
     public List<Comment> getCommentsOfCommentId(String commentId) {
         Comment comment = new Comment();

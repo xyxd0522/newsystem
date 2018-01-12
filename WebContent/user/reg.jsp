@@ -15,9 +15,12 @@
   <script src="../comm/layui/layui.js" charset="utf-8"></script>
   <script src="../comm/layer/layer.js"></script>
   <script src="../comm/jquery/jquery-2.1.4.js"></script>
+  <script>
+  </script>
 </head>
 <body>
 
+${info}
 <div class="fly-header layui-bg-black">
   <div class="layui-container">
     <a class="fly-logo" href="/">
@@ -38,7 +41,7 @@
     <ul class="layui-nav fly-nav-user">
       
       <!-- 未登入的状态 -->
-      <!--<li class="layui-nav-item">
+      <li class="layui-nav-item">
         <a class="iconfont icon-touxiang layui-hide-xs" href="login.jsp"></a>
       </li>
       <li class="layui-nav-item">
@@ -52,9 +55,9 @@
       </li>
       <li class="layui-nav-item layui-hide-xs">
         <a href="/app/weibo/" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" title="微博登入" class="iconfont icon-weibo"></a>
-      </li>-->
+      </li>
       
-      <!-- 登入后的状态 -->
+      <!-- 登入后的状态 
      
       <li class="layui-nav-item">
         <a class="fly-nav-avatar" href="javascript:;">
@@ -70,7 +73,7 @@
           <hr style="margin: 5px 0;">
           <dd><a href="../user/logout/" style="text-align: center;">退出</a></dd>
         </dl>
-      </li>  
+      </li>  -->
     </ul>
   </div>
 </div>
@@ -85,7 +88,7 @@
       <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
         <div class="layui-tab-item layui-show">
           <div class="layui-form layui-form-pane">
-            <form method="post">
+            <form action="${pageContext.request.contextPath}/UserAction.do?method=insert"  method="post">
               <div class="layui-form-item">
                 <label for="L_email" class="layui-form-label">邮箱</label>
                 <div class="layui-input-inline">
@@ -148,11 +151,11 @@
                   <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid">
-                  <span style="color: #c00;">{{d.vercode}}</span>
+                  <span style="color: #c00;"><img src="../token.do"></span>
                 </div>
               </div>
               <div class="layui-form-item">
-                <button class="layui-btn" lay-filter="*" lay-submit>立即注册</button>
+                <button class="layui-btn"  lay-submit>立即注册</button>
               </div>
               <div class="layui-form-item fly-form-app">
                 <span>或者直接使用社交账号快捷注册</span>

@@ -9,7 +9,7 @@ import db.DBMan;
 
 public class INewstypeDaoImpl implements INewstypeDao {
     public int update(Newstype newstype, Newstype keyNewstype) {
-        return DBMan.getInstance().updateNoSqlWithoutThrow(newstype, keyNewstype, "newsystem");
+        return DBMan.getInstance().updateNoSqlWithoutThrow(newstype, keyNewstype, "newstype");
     }
     public int updateOfNewsTypeId(Newstype newstype, String newsTypeId) {
         Newstype kNewstype = new Newstype();
@@ -45,7 +45,7 @@ public class INewstypeDaoImpl implements INewstypeDao {
         return update(newstype, kNewstype);
     }
     public int remove(Newstype newstype) {
-        return DBMan.getInstance().deleteNoSqlWithoutThrow(newstype, "newsystem");
+        return DBMan.getInstance().deleteNoSqlWithoutThrow(newstype, "newstype");
     }
     public int removeOfNewsTypeId(String newsTypeId) {
         Newstype newstype = new Newstype();
@@ -81,7 +81,7 @@ public class INewstypeDaoImpl implements INewstypeDao {
         return remove(newstype);
     }
     public int insert(Newstype newstype) {
-        return DBMan.getInstance().insertNoSqlWithoutThrow(newstype, "newsystem");
+        return DBMan.getInstance().insertNoSqlWithoutThrow(newstype, "newstype");
     }
     public int insertOfNewsTypeId(String newsTypeId) {
         Newstype newstype = new Newstype();
@@ -117,7 +117,7 @@ public class INewstypeDaoImpl implements INewstypeDao {
         return insert(newstype);
     }
     public Newstype getNewstype(Newstype newstype) {
-        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(newstype, "newsystem");
+        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(newstype, "newstype");
     }
     public Newstype getNewstypeOfNewsTypeId(String newsTypeId) {
         Newstype newstype = new Newstype();
@@ -153,7 +153,7 @@ public class INewstypeDaoImpl implements INewstypeDao {
         return getNewstype(newstype);
     }
     public List<Newstype> getNewstypes(Newstype newstype) {
-        return DBMan.getInstance().queryNoSqlWithoutThrow(newstype, "newsystem");
+        return DBMan.getInstance().queryNoSqlWithoutThrow(newstype, "newstype");
     }
     public List<Newstype> getNewstypesOfNewsTypeId(String newsTypeId) {
         Newstype newstype = new Newstype();
