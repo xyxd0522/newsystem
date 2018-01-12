@@ -13,7 +13,6 @@ import com.linglian.util.ServletUtil;
 import com.news.linglian.entity.Admin;
 import com.news.linglian.factory.IServletFactory;
 import com.news.linglian.service.IAdminService;
-import com.news.linglian.serviceImpl.IAdminServiceImpl;
 import com.news.linglian.serviceImpl.IAdminServiceImplOfBad;
 /**
  * 

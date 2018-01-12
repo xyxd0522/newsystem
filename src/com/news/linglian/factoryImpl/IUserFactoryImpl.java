@@ -13,7 +13,6 @@ import com.news.linglian.entity.Admin;
 import com.news.linglian.factory.IServletFactory;
 import com.news.linglian.service.IAdminService;
 import com.news.linglian.service.IUserService;
-import com.news.linglian.serviceImpl.IAdminServiceImpl;
 import com.news.linglian.serviceImpl.IUserServiceImpl;
 
 public class IUserFactoryImpl implements IServletFactory {
