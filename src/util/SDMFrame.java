@@ -243,7 +243,7 @@ public class SDMFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (Integer.parseInt(lengthText.getValue().toString()) < 0) {
             lengthText.setValue(0);
-        } else if(Integer.parseInt(lengthText.getValue().toString()) > params.size()) {
+        } else if (Integer.parseInt(lengthText.getValue().toString()) > params.size()) {
             lengthText.setValue(params.size());
         }
         update();
