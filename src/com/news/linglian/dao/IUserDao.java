@@ -1,10 +1,10 @@
-package com.news.linglian.service;
+package com.news.linglian.dao;
 
 import java.util.List;
 
 import com.news.linglian.entity.User;
 
-public interface IUserService {
+public interface IUserDao {
     public int update(User user, User keyUser);
     public int updateOfUserId(User user, String userId);
     public int updateOfPassword(User user, String password);

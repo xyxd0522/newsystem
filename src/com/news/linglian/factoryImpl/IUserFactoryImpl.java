@@ -1,12 +1,15 @@
 package com.news.linglian.factoryImpl;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.linglian.util.ServletUtil;
+import com.news.linglian.entity.Admin;
 import com.news.linglian.factory.IServletFactory;
 import com.news.linglian.service.IAdminService;
 import com.news.linglian.service.IUserService;
@@ -30,3 +33,20 @@ public class IUserFactoryImpl implements IServletFactory {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,6 +61,7 @@ public class ServletUtil {
         redirect(request, response,
                 servlet.getServletConfig().getInitParameter(parameterName));
     }
+    
     /**
      * 验证登录
      * 
@@ -69,18 +70,18 @@ public class ServletUtil {
             HttpServletResponse response, HttpServlet servlet,
             String parameterName) throws ServletException, IOException {
     	if (request.getSession().getAttribute("identity") == null) {
-			request.getSession().setAttribute("info", "请重新登录");
-			ServletUtil.redirect(request, response,servlet, "login_from");
-			return false;
-		}
-		if (!(request.getSession().getAttribute("identity") instanceof Admin)) {
-			request.getSession().setAttribute("info", "权限不足");
-			ServletUtil.redirect(request, response, servlet, parameterName);
-			return false;
+    		request.getSession().setAttribute("info", "请重新登录");
+    		ServletUtil.redirect(request, response,servlet, "login_from");
+    		return false;
+    	}
+    	if (!(request.getSession().getAttribute("identity") instanceof Admin)) {
+    		request.getSession().setAttribute("info", "权限不足");
+    		ServletUtil.redirect(request, response, servlet, parameterName);
+    		return false;
     }
-		return true;
-	}
-    
+    	return true;
+    }
+
     /**
      * 判空函数
      */
@@ -90,9 +91,9 @@ public class ServletUtil {
     		
     	for(int i=0;i<list.size();i++){    		
     	if(list.get(i)[0]==null||"".equals(list.get(i)[0])){
-			request.getSession().setAttribute("info", list.get(i)[1]+"不能为空");
-			ServletUtil.redirect(request, response,servlet,parameterName);
-			return false;
+    		request.getSession().setAttribute("info", list.get(i)[1]+"不能为空");
+    		ServletUtil.redirect(request, response,servlet,parameterName);
+    		return false;
     	}
     	}
     	return true;
@@ -104,12 +105,13 @@ public class ServletUtil {
     public static void checkdata(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
             String parameterName,String responsename, int ispass) throws ServletException, IOException {
-	    	if(ispass==0){
-				request.getSession().setAttribute("info", responsename+"失败");
-				ServletUtil.redirect(request, response, servlet, "remove_from");
-			}else{
-				request.getSession().setAttribute("info", responsename+"成功");
-				ServletUtil.redirect(request, response, servlet, "remove_to");
-			}
+        	if(ispass==0){
+    			request.getSession().setAttribute("info", responsename+"失败");
+    			ServletUtil.redirect(request, response, servlet, "remove_from");
+    		}else{
+    			request.getSession().setAttribute("info", responsename+"成功");
+    			ServletUtil.redirect(request, response, servlet, "remove_to");
+    		}
     }
+    
 }
