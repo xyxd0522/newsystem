@@ -5,10 +5,13 @@
  */
 package util;
 
+import db.DBMan;
+import db.DBMap;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -171,7 +174,7 @@ public class SDMCreater {
     private SDMCreater printClassOfRemove(PrintWriter out, String method) {
         list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
-        out.println("        return DBMan.getInstance().deleteWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
+        out.println("        return DBMan.getInstance().deleteNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
         out.println("    }");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -189,7 +192,7 @@ public class SDMCreater {
     private SDMCreater printClassOfUpdate(PrintWriter out, String method) {
         list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ", " + StringUtil.getUp(className) + " key" + StringUtil.getUp(className) + ") {");
-        out.println("        return DBMan.getInstance().updateWithoutThrow(" + StringUtil.getLow(className) + ", key" + StringUtil.getUp(className) + ", \"" + dataName + "\");");
+        out.println("        return DBMan.getInstance().updateNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", key" + StringUtil.getUp(className) + ", \"" + dataName + "\");");
         out.println("    }");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -213,7 +216,7 @@ public class SDMCreater {
     private SDMCreater printClassOfGet(PrintWriter out, String method) {
         list = Arithmetic.combiner(paramName, length);
         out.println("    public " + StringUtil.getUp(className) + " " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
-        out.println("        return DBMan.getInstance().queryByIdWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
+        out.println("        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
         out.println("    }");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -230,7 +233,7 @@ public class SDMCreater {
 
     private SDMCreater printClassOfGets(PrintWriter out, String method) {
         out.println("    public List<" + StringUtil.getUp(className) + "> " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
-        out.println("        return DBMan.getInstance().queryWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
+        out.println("        return DBMan.getInstance().queryNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
         out.println("    }");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -828,14 +831,34 @@ public class SDMCreater {
         return sw.toString();
     }
 
-    public static void main(String[] args) {
+    public static void buildFromDataBase(String dataName, String basePath, String packageName, int length) {
+        String sql = "SELECT TABLE_NAME tb FROM information_schema.`TABLES` WHERE TABLE_SCHEMA = ?";
+        DBMap m = DBMan.getInstance().queryWithoutThrow(sql, dataName);
+        LinkedList<Object> list = m.get("tb");
+        for (Object obj : list) {
+            sql = "SELECT COLUMN_NAME cn FROM information_schema.COLUMNS WHERE TABLE_NAME = ? AND TABLE_SCHEMA = ?";
+            DBMap tm = DBMan.getInstance().queryWithoutThrow(sql, obj.toString(), dataName);
+            LinkedList<Object> tList = tm.get("cn");
+            List<String> params = new ArrayList();
+            for (Object o : tList) {
+                params.add(o.toString());
+            }
+            System.out.println(StringUtil.getUp(obj.toString()));
+            System.out.println(params);
+            SDMCreater sdm = new SDMCreater();
+            sdm.setBasePath(basePath);
+            sdm.setPackageName(packageName);
+            sdm.setDataName(dataName);
+            sdm.setClassName(StringUtil.getUp(obj.toString()));
+            sdm.addParamNames(params);
+            sdm.setLength(length);
+            sdm.build();
+        }
+        System.out.println(m.get("tb"));
+        // new SDMCreater().setDataName(dataName).setBasePath(basePath);
+    }
 
-        String[] strs = {"logid", "body", "logdate", "adminid"};
-        new SDMCreater().setPackageName("com.news.linglian")
-                .setClassName("Log")
-                .setDataName("log")
-                .setBasePath("C:\\eclipse\\newsystem\\src")
-                .addParamNames(strs)
-                .build();
+    public static void main(String[] args) {
+        buildFromDataBase("oj", "c:/", "com.pq", 3);
     }
 }
