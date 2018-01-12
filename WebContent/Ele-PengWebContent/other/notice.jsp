@@ -32,7 +32,7 @@
 </div>
 
 <div class="notice layui-text">
-	非常抱歉，社区正在维护，稍后恢复 <br> <a href="http://www.layui.com/doc/" target="_blank">SunnyNews首页</a> <span style="padding:0 5px;"></span> <a href="http://www.layui.com/demo/" target="_blank">SunnyNews 2017最精彩新闻</a> <span style="padding:0 5px;"></span>
+	非常抱歉，社区正在维护，稍后恢复 <br> <a href="../index.jsp" target="_blank">SunnyNews首页</a> <span style="padding:0 5px;"></span> <a href="../case.jsp" target="_blank">SunnyNews 2017最精彩新闻</a> <span style="padding:0 5px;"></span>
 </div>
 
 </body>

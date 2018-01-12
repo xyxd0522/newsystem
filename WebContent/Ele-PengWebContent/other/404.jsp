@@ -21,13 +21,13 @@
       
       <!-- 未登入的状态 -->
       <li class="layui-nav-item">
-        <a class="iconfont icon-touxiang layui-hide-xs" href="../user/login.html"></a>
+        <a class="iconfont icon-touxiang layui-hide-xs" href="../user/login.jsp"></a>
       </li>
       <li class="layui-nav-item">
-        <a href="../user/login.html">登入</a>
+        <a href="../user/login.jsp">登入</a>
       </li>
       <li class="layui-nav-item">
-        <a href="../user/reg.html">注册</a>
+        <a href="../user/reg.jsp">注册</a>
       </li>
       <li class="layui-nav-item layui-hide-xs">
         <a href="" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
@@ -50,9 +50,9 @@
 </div>
 
 <div class="fly-footer">
-  <p><a href="" target="_blank">SunnyNews</a> 2018 &copy; <a href="" target="_blank">向阳出品</a></p>
+  <p><a href="https://github.com/xyxd0522" target="_blank">SunnyNews</a> 2018 &copy; <a href="https://github.com/xyxd0522" target="_blank">向阳出品</a></p>
   <p>
-    <a href="" target="_blank">微信公众号</a>
+    <a href="https://github.com/xyxd0522" target="_blank">微信公众号</a>
   </p>
 </div>
 

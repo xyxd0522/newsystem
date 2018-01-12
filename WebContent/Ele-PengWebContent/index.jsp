@@ -22,14 +22,14 @@
 					</a>
 					<ul class="layui-nav fly-nav layui-hide-xs">
 						<!-- 若要指定为那个模块 添加 layui-this class 如<li class="layui-nav-item layui-this"> -->
-						<li class="layui-nav-item">
-							<a href=""><i class="iconfont icon-jiaoliu"></i>通知</a>
+						<li class="layui-nav-item layui-this">
+							<a href="user/message.jsp"><i class="iconfont icon-jiaoliu"></i>通知</a>
 						</li>
 						<li class="layui-nav-item">
-							<a href=""><i class="layui-icon">&#xe705;</i>我发布的</a>
+							<a href="user/index.jsp"><i class="layui-icon">&#xe705;</i>我发布的</a>
 						</li>
 						<li class="layui-nav-item">
-							<a href="" target="_blank"><i class="layui-icon">&#xe609;</i>写新闻</a>
+							<a href="news/newsPost.jsp" target="_blank"><i class="layui-icon">&#xe609;</i>写新闻</a>
 						</li>
 					</ul>
 
@@ -37,13 +37,13 @@
 
 						<!-- 未登入的状态 -->
 						<!--<li class="layui-nav-item">
-        						<a class="iconfont icon-touxiang layui-hide-xs" href="user/login.html"></a>
+        						<a class="iconfont icon-touxiang layui-hide-xs" href="user/login.jsp"></a>
       						</li>
       						<li class="layui-nav-item">
-        						<a href="user/login.html">登入</a>
+        						<a href="user/login.jsp">登入</a>
       						</li>
       						<li class="layui-nav-item">
-        						<a href="user/reg.html">注册</a>
+        						<a href="user/reg.jsp">注册</a>
       						</li>
       						<li class="layui-nav-item layui-hide-xs">
         						<a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
@@ -62,13 +62,13 @@
 							</a>
 							<dl class="layui-nav-child">
 								<dd>
-									<a href="user/set.html"><i class="layui-icon">&#xe620;</i>基本设置</a>
+									<a href="user/set.jsp"><i class="layui-icon">&#xe620;</i>基本设置</a>
 								</dd>
 								<dd>
-									<a href="user/message.html"><i class="iconfont icon-tongzhi" style="top: 4px;"></i>我的消息</a>
+									<a href="user/message.jsp"><i class="iconfont icon-tongzhi" style="top: 4px;"></i>我的消息</a>
 								</dd>
 								<dd>
-									<a href="user/home.html"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a>
+									<a href="user/home.jsp"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a>
 								</dd>
 								<hr style="margin: 5px 0;">
 								<dd>
@@ -86,22 +86,22 @@
 							<a href="/">首页</a>
 						</li>
 						<li>
-							<a href="jie/index.html">讨论版&nbsp;&nbsp;<span class="layui-badge-dot"></span></a>
+							<a href="news/newsList.jsp">讨论版&nbsp;&nbsp;<span class="layui-badge-dot"></span></a>
 						</li>
 
 						<!-- 用户登入后显示 -->
 						<!-- 我收藏的贴 我发布的帖 
       						<li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li> 
-      						<li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html">我发表的贴</a></li> 
-      						<li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html#collection">我收藏的贴</a></li>
+      						<li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.jsp">我发布的</a></li> 
+      						<li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.jsp#collection">我收藏的</a></li>
      					-->
 					</ul>
 					<div class="fly-column-right layui-hide-xs">
 						<span class="fly-search"><i class="layui-icon"></i></span>
-						<a href="jie/add.html" class="layui-btn">发表新闻</a>
+						<a href="news/newsPost.jsp" class="layui-btn">发表新闻</a>
 					</div>
 					<div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;">
-						<a href="jie/add.html" class="layui-btn">发表新闻</a>
+						<a href="news/newsPost.jsp" class="layui-btn">发表新闻</a>
 					</div>
 				</div>
 			</div>
@@ -134,15 +134,15 @@
 								</div>
 								<ul class="fly-list">
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               								<a class="layui-badge">公告</a>
-              								<a href="jie/detail.html">SunnyNews 第三版</a>
+              								<a href="news/newsDetail.jsp">SunnyNews 第三版</a>
             							</h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>SunnyNews 官方</cite>
 												<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
 												<i class="layui-badge fly-badge-vip">VIP3</i>
@@ -160,15 +160,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               								<a class="layui-badge">公告</a>
-              								<a href="jie/detail.html">SunnyNews 第二版</a>
+              								<a href="news/newsDetail.jsp">SunnyNews 第二版</a>
             							</h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>SunnyNews 官方</cite>
 												<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
 												<i class="layui-badge fly-badge-vip">VIP3</i>
@@ -187,15 +187,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               								<a class="layui-badge">公告</a>
-              								<a href="jie/detail.html">SunnyNews 第一版</a>
+              								<a href="news/newsDetail.jsp">SunnyNews 第一版</a>
             							</h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>SunnyNews 官方</cite>
 												<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
 												<i class="layui-badge fly-badge-vip">VIP3</i>
@@ -213,15 +213,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               								<a class="layui-badge">娱乐</a>
-              								<a href="jie/detail.html">鹿晗和关晓彤在一起了！！</a>
+              								<a href="news/newsDetail.jsp">鹿晗和关晓彤在一起了！！</a>
             							</h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!-- <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>-->
 												<i class="layui-badge fly-badge-vip">VIP1</i>
@@ -242,6 +242,7 @@
 							</div>
 							<div class="fly-panel" style="margin-bottom: 0;">
 								<div class="fly-panel-title fly-filter">
+									<!-- 都是访问news/newsDetail.jsp 但是参数不同-->
 									<a href="" class="layui-this">综合</a>
 									<span class="fly-mid"></span>
 									<a href="">个性推荐</a>
@@ -255,15 +256,15 @@
 								</div>
 								<ul class="fly-list">
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -283,15 +284,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">科技</a>
-              <a href="jie/detail.html">IconFont</a>
+              <a href="news/newsDetail.jsp">IconFont</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭彭</cite>
 												<!--<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>-->
 												<i class="layui-badge fly-badge-vip">VIP3</i>
@@ -309,15 +310,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -337,15 +338,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="jie/detail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -365,15 +366,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -393,15 +394,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -421,15 +422,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -449,15 +450,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -477,15 +478,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -505,15 +506,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -533,15 +534,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -561,15 +562,15 @@
 										</div>
 									</li>
 									<li>
-										<a href="user/home.html" class="fly-avatar">
+										<a href="user/home.jsp" class="fly-avatar">
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
               <a class="layui-badge">娱乐</a>
-              <a href="jie/detail.html">朋友圈的惊天大新闻</a>
+              <a href="jie/detail.jsp">朋友圈的惊天大新闻</a>
             </h2>
 										<div class="fly-list-info">
-											<a href="user/home.html" link>
+											<a href="user/home.jsp" link>
 												<cite>小彭</cite>
 												<!--
                 <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
@@ -649,62 +650,62 @@
 								<dl>
 									<!--<i class="layui-icon fly-loading">&#xe63d;</i>-->
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
 									<dd>
-										<a href="user/home.html">
+										<a href="user/home.jsp">
 											<img src="img/logo.png" alt="userImg"><cite>小彭</cite><i>10次发布</i>
 										</a>
 									</dd>
@@ -762,7 +763,7 @@
 
 							<div class="fly-panel">
 								<div class="fly-panel-main">
-									<a href="http://layim.layui.com/?from=fly" target="_blank" class="fly-zanzhu" time-limit="2017.09.25-2099.01.01" style="background-color: #5FB878;">SunnyNews 向阳小队旗舰之作</a>
+									<a href="https://github.com/xyxd0522" target="_blank" class="fly-zanzhu" time-limit="2017.09.25-2099.01.01" style="background-color: #5FB878;">SunnyNews 向阳小队旗舰之作</a>
 								</div>
 								<div class="fly-panel" style="padding: 20px 0; text-align: center;">
 									<img src="http://img.blog.csdn.net/20170410111808727?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGluZ2xpYW4wNTIy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" style="max-width: 100%;" alt="layui">
@@ -800,11 +801,11 @@
 
 				<div class="fly-footer">
 					<p>
-						<a href="http://fly.layui.com/" target="_blank">SunnyNews</a> 2018 &copy;
-						<a href="http://www.layui.com/" target="_blank">向阳出品</a>
+						<a href="https://github.com/xyxd0522" target="_blank">SunnyNews</a> 2018 &copy;
+						<a href="https://github.com/xyxd0522" target="_blank">向阳出品</a>
 					</p>
 					<p>
-						<a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+						<a href="https://github.com/xyxd0522" target="_blank">微信公众号</a>
 					</p>
 				</div>
 

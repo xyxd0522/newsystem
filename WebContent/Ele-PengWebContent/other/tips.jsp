@@ -22,13 +22,13 @@
     </a>
     <ul class="layui-nav fly-nav layui-hide-xs">
       <li class="layui-nav-item layui-this">
-        <a href=""><i class="iconfont icon-jiaoliu"></i>通知</a>
+        <a href="message.jsp"><i class="iconfont icon-jiaoliu"></i>通知</a>
       </li>
       <li class="layui-nav-item">
-        <a href=""><i class="layui-icon">&#xe705;</i>我发布的</a>
+        <a href="index.jsp"><i class="layui-icon">&#xe705;</i>我发布的</a>
       </li>
       <li class="layui-nav-item">
-        <a href="" target="_blank"><i class="layui-icon">&#xe609;</i>写新闻</a>
+        <a href="../news/newsPost.jsp" target="_blank"><i class="layui-icon">&#xe609;</i>写新闻</a>
       </li>
     </ul>
     
@@ -76,24 +76,24 @@
   <div class="layui-container">
     <ul class="layui-clear" >
       <li class="layui-hide-xs layui-this" ><a href="/" >首页</a></li> 
-      <li><a href=""  >讨论版&nbsp;&nbsp;<span class="layui-badge-dot"></span></a></li> 
+      <li><a href="../news/newsList.jsp"  >讨论版&nbsp;&nbsp;<span class="layui-badge-dot"></span></a></li> 
       
       <!-- 用户登入后显示 -->
       <!-- 我收藏的贴 我发布的帖 
       <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li> 
       
       
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.html">我发表的贴</a></li> 
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.html#collection">我收藏的贴</a></li>
+      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.jsp">我发布的</a></li> 
+      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.jsp#collection">我收藏的</a></li>
      -->
     </ul> 
     
     <div class="fly-column-right layui-hide-xs"> 
       <span class="fly-search"><i class="layui-icon"></i></span> 
-      <a href="../news/newsPost.jsp" class="layui-btn">发表新闻</a> 
+      <a href="../news/newsPost.jsp" class="layui-btn">发布新闻</a> 
     </div> 
     <div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;"> 
-      <a href="../news/newsPost.jsp" class="layui-btn">发表新闻</a> 
+      <a href="../news/newsPost.jsp" class="layui-btn">发布新闻</a> 
     </div> 
   </div>
 </div>
@@ -108,9 +108,9 @@
 </div>
 
 <div class="fly-footer">
-  <p><a href="http://fly.layui.com/" target="_blank">SunnyNews</a> 2018 &copy; <a href="http://www.layui.com/" target="_blank">向阳出品</a></p>
+  <p><a href="https://github.com/xyxd0522" target="_blank">SunnyNews</a> 2018 &copy; <a href="https://github.com/xyxd0522" target="_blank">向阳出品</a></p>
   <p>
-    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    <a href="https://github.com/xyxd0522" target="_blank">微信公众号</a>
   </p>
 </div>
 

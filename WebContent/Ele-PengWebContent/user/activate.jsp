@@ -22,13 +22,13 @@
     </a>
     <ul class="layui-nav fly-nav layui-hide-xs">
       <li class="layui-nav-item layui-this">
-        <a href=""><i class="iconfont icon-jiaoliu"></i>通知</a>
+        <a href="message.jsp"><i class="iconfont icon-jiaoliu"></i>通知</a>
       </li>
       <li class="layui-nav-item">
-        <a href=""><i class="layui-icon">&#xe705;</i>我发布的</a>
+        <a href="index.jsp"><i class="layui-icon">&#xe705;</i>我发布的</a>
       </li>
       <li class="layui-nav-item">
-        <a href="" target="_blank"><i class="layui-icon">&#xe609;</i>写新闻</a>
+        <a href="../news/newsPost.jsp" target="_blank"><i class="layui-icon">&#xe609;</i>写新闻</a>
       </li>
     </ul>
     
@@ -36,13 +36,13 @@
       
       <!-- 未登入的状态 -->
       <!--<li class="layui-nav-item">
-        <a class="iconfont icon-touxiang layui-hide-xs" href="../user/login.jsp"></a>
+        <a class="iconfont icon-touxiang layui-hide-xs" href="login.jsp"></a>
       </li>
       <li class="layui-nav-item">
-        <a href="../user/login.jsp">登入</a>
+        <a href="login.jsp">登入</a>
       </li>
       <li class="layui-nav-item">
-        <a href="../user/reg.jsp">注册</a>
+        <a href="reg.jsp">注册</a>
       </li>
       <li class="layui-nav-item layui-hide-xs">
         <a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
@@ -61,9 +61,9 @@
           <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
         </a>
         <dl class="layui-nav-child">
-          <dd><a href="../user/set.jsp"><i class="layui-icon">&#xe620;</i>基本设置</a></dd>
-          <dd><a href="../user/message.jsp"><i class="iconfont icon-tongzhi" style="top: 4px;"></i>我的消息</a></dd>
-          <dd><a href="../user/home.jsp"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a></dd>
+          <dd><a href="set.jsp"><i class="layui-icon">&#xe620;</i>基本设置</a></dd>
+          <dd><a href="message.jsp"><i class="iconfont icon-tongzhi" style="top: 4px;"></i>我的消息</a></dd>
+          <dd><a href="home.jsp"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a></dd>
           <hr style="margin: 5px 0;">
           <dd><a href="../user/logout/" style="text-align: center;">退出</a></dd>
         </dl>
@@ -75,25 +75,25 @@
 <div class="layui-container fly-marginTop fly-user-main">
   <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
     <li class="layui-nav-item">
-      <a href="home.html">
+      <a href="home.jsp">
         <i class="layui-icon">&#xe609;</i>
         我的主页
       </a>
     </li>
     <li class="layui-nav-item layui-this">
-      <a href="index.html">
+      <a href="index.jsp">
         <i class="layui-icon">&#xe612;</i>
         用户中心
       </a>
     </li>
     <li class="layui-nav-item">
-      <a href="set.html">
+      <a href="set.jsp">
         <i class="layui-icon">&#xe620;</i>
         基本设置
       </a>
     </li>
     <li class="layui-nav-item">
-      <a href="message.html">
+      <a href="message.jsp">
         <i class="layui-icon">&#xe611;</i>
         我的消息
       </a>
@@ -130,7 +130,7 @@
             <div>
               1. 如果您未收到邮件，或激活链接失效，您可以
               <a class="layui-form-a" style="color:#4f99cf;" id="LAY-activate" href="javascript:;" email="{{user.email}}">重新发送邮件</a>，或者
-              <a class="layui-form-a" style="color:#4f99cf;" href="set.html">更换邮箱</a>；
+              <a class="layui-form-a" style="color:#4f99cf;" href="set.jsp">更换邮箱</a>；
             </div>
             <div>
               2. 如果您始终没有收到 SunnyNews 发送的邮件，请注意查看您邮箱中的垃圾邮件；
@@ -147,9 +147,9 @@
 </div>
 
 <div class="fly-footer">
-  <p><a href="http://fly.layui.com/" target="_blank">SunnyNews</a> 2018 &copy; <a href="http://www.layui.com/" target="_blank">向阳出品</a></p>
+  <p><a href="https://github.com/xyxd0522" target="_blank">SunnyNews</a> 2018 &copy; <a href="https://github.com/xyxd0522" target="_blank">向阳出品</a></p>
   <p>
-    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    <a href="https://github.com/xyxd0522" target="_blank">微信公众号</a>
   </p>
 </div>
 

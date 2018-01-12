@@ -23,13 +23,13 @@
     </a>
     <ul class="layui-nav fly-nav layui-hide-xs">
       <li class="layui-nav-item layui-this">
-        <a href=""><i class="iconfont icon-jiaoliu"></i>通知</a>
+        <a href="message.jsp"><i class="iconfont icon-jiaoliu"></i>通知</a>
       </li>
       <li class="layui-nav-item">
-        <a href=""><i class="layui-icon">&#xe705;</i>我发布的</a>
+        <a href="index.jsp"><i class="layui-icon">&#xe705;</i>我发布的</a>
       </li>
       <li class="layui-nav-item">
-        <a href="" target="_blank"><i class="layui-icon">&#xe609;</i>写新闻</a>
+        <a href="../news/newsPost.jsp" target="_blank"><i class="layui-icon">&#xe609;</i>写新闻</a>
       </li>
     </ul>
     
@@ -37,13 +37,13 @@
       
       <!-- 未登入的状态 -->
       <!--<li class="layui-nav-item">
-        <a class="iconfont icon-touxiang layui-hide-xs" href="../user/login.jsp"></a>
+        <a class="iconfont icon-touxiang layui-hide-xs" href="login.jsp"></a>
       </li>
       <li class="layui-nav-item">
-        <a href="../user/login.jsp">登入</a>
+        <a href="login.jsp">登入</a>
       </li>
       <li class="layui-nav-item">
-        <a href="../user/reg.jsp">注册</a>
+        <a href="reg.jsp">注册</a>
       </li>
       <li class="layui-nav-item layui-hide-xs">
         <a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
@@ -167,29 +167,38 @@
 </div>
 
 <div class="fly-footer">
-  <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
+  <p><a href="https://github.com/xyxd0522" target="_blank">SunnyNews</a> 2018 &copy; <a href="https://github.com/xyxd0522" target="_blank">向阳出品</a></p>
   <p>
-    <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
-    <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
-    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    <a href="https://github.com/xyxd0522" target="_blank">微信公众号</a>
   </p>
 </div>
 
+<script src="../comm/layui/layui.js"></script>
 <script>
-layui.cache.page = 'user';
+layui.cache.page = '';
 layui.cache.user = {
   username: '游客'
   ,uid: -1
-  ,avatar: '../../res/images/avatar/00.jpg'
+  ,avatar: '../img/logo.jpg'
   ,experience: 83
   ,sex: '男'
 };
 layui.config({
   version: "3.0.0"
-  ,base: '../../res/mods/'
+  ,base: '../comm/mods/'
 }).extend({
   fly: 'index'
-}).use('fly');
+}).use(['fly', 'face'], function(){
+  var $ = layui.$
+  ,fly = layui.fly;
+  //如果你是采用模版自带的编辑器，你需要开启以下语句来解析。
+  
+  $('.detail-body').each(function(){
+    var othis = $(this), html = othis.html();
+    othis.html(fly.content(html));
+  });
+ 
+});
 </script>
 <script>
 layui.use(['form', 'layedit', 'laydate'], function(){
