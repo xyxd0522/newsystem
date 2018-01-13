@@ -9,7 +9,7 @@ import db.DBMan;
 
 public class IUsernewstypeDaoImpl implements IUsernewstypeDao {
     public int update(Usernewstype usernewstype, Usernewstype keyUsernewstype) {
-        return DBMan.getInstance().updateNoSqlWithoutThrow(usernewstype, keyUsernewstype, "newsystem");
+        return DBMan.getInstance().updateNoSqlWithoutThrow(usernewstype, keyUsernewstype, "usernewstype");
     }
     public int updateOfUserNewsTypeId(Usernewstype usernewstype, String userNewsTypeId) {
         Usernewstype kUsernewstype = new Usernewstype();
@@ -68,7 +68,7 @@ public class IUsernewstypeDaoImpl implements IUsernewstypeDao {
         return update(usernewstype, kUsernewstype);
     }
     public int remove(Usernewstype usernewstype) {
-        return DBMan.getInstance().deleteNoSqlWithoutThrow(usernewstype, "newsystem");
+        return DBMan.getInstance().deleteNoSqlWithoutThrow(usernewstype, "usernewstype");
     }
     public int removeOfUserNewsTypeId(String userNewsTypeId) {
         Usernewstype usernewstype = new Usernewstype();
@@ -127,7 +127,7 @@ public class IUsernewstypeDaoImpl implements IUsernewstypeDao {
         return remove(usernewstype);
     }
     public int insert(Usernewstype usernewstype) {
-        return DBMan.getInstance().insertNoSqlWithoutThrow(usernewstype, "newsystem");
+        return DBMan.getInstance().insertNoSqlWithoutThrow(usernewstype, "usernewstype");
     }
     public int insertOfUserNewsTypeId(String userNewsTypeId) {
         Usernewstype usernewstype = new Usernewstype();
@@ -186,7 +186,7 @@ public class IUsernewstypeDaoImpl implements IUsernewstypeDao {
         return insert(usernewstype);
     }
     public Usernewstype getUsernewstype(Usernewstype usernewstype) {
-        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(usernewstype, "newsystem");
+        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(usernewstype, "usernewstype");
     }
     public Usernewstype getUsernewstypeOfUserNewsTypeId(String userNewsTypeId) {
         Usernewstype usernewstype = new Usernewstype();
@@ -245,7 +245,7 @@ public class IUsernewstypeDaoImpl implements IUsernewstypeDao {
         return getUsernewstype(usernewstype);
     }
     public List<Usernewstype> getUsernewstypes(Usernewstype usernewstype) {
-        return DBMan.getInstance().queryNoSqlWithoutThrow(usernewstype, "newsystem");
+        return DBMan.getInstance().queryNoSqlWithoutThrow(usernewstype, "usernewstype");
     }
     public List<Usernewstype> getUsernewstypesOfUserNewsTypeId(String userNewsTypeId) {
         Usernewstype usernewstype = new Usernewstype();

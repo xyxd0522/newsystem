@@ -9,7 +9,7 @@ import db.DBMan;
 
 public class INewsDaoImpl implements INewsDao {
     public int update(News news, News keyNews) {
-        return DBMan.getInstance().updateNoSqlWithoutThrow(news, keyNews, "newsystem");
+        return DBMan.getInstance().updateNoSqlWithoutThrow(news, keyNews, "news");
     }
     public int updateOfNewsId(News news, String newsId) {
         News kNews = new News();
@@ -717,7 +717,7 @@ public class INewsDaoImpl implements INewsDao {
         return update(news, kNews);
     }
     public int remove(News news) {
-        return DBMan.getInstance().deleteNoSqlWithoutThrow(news, "newsystem");
+        return DBMan.getInstance().deleteNoSqlWithoutThrow(news, "news");
     }
     public int removeOfNewsId(String newsId) {
         News news = new News();
@@ -1425,7 +1425,7 @@ public class INewsDaoImpl implements INewsDao {
         return remove(news);
     }
     public int insert(News news) {
-        return DBMan.getInstance().insertNoSqlWithoutThrow(news, "newsystem");
+        return DBMan.getInstance().insertNoSqlWithoutThrow(news, "news");
     }
     public int insertOfNewsId(String newsId) {
         News news = new News();
@@ -2133,7 +2133,7 @@ public class INewsDaoImpl implements INewsDao {
         return insert(news);
     }
     public News getNews(News news) {
-        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(news, "newsystem");
+        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(news, "news");
     }
     public News getNewsOfNewsId(String newsId) {
         News news = new News();
@@ -2841,7 +2841,7 @@ public class INewsDaoImpl implements INewsDao {
         return getNews(news);
     }
     public List<News> getNewss(News news) {
-        return DBMan.getInstance().queryNoSqlWithoutThrow(news, "newsystem");
+        return DBMan.getInstance().queryNoSqlWithoutThrow(news, "news");
     }
     public List<News> getNewssOfNewsId(String newsId) {
         News news = new News();

@@ -18,6 +18,7 @@ public class StringUtil {
     public static String getUp(String str) {
         return getUp(str, 1);
     }
+    
     public static String getUp(String str, int number) {
         if (str == null || str.length() == 0) {
             return "";
@@ -30,6 +31,7 @@ public class StringUtil {
     public static String getLow(String str) {
         return getLow(str, 1);
     }
+    
     public static String getLow(String str, int number) {
         if (str == null || str.length() == 0) {
             return "";
@@ -39,6 +41,7 @@ public class StringUtil {
         return str.substring(0, number).toLowerCase() + str.substring(number);
         }
     }
+    
 	public static String subInt(String a, String b) {
 		try {
 			if (a == null || "".equals(a)) {

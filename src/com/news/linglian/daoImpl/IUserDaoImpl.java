@@ -9,7 +9,7 @@ import db.DBMan;
 
 public class IUserDaoImpl implements IUserDao {
     public int update(User user, User keyUser) {
-        return DBMan.getInstance().updateNoSqlWithoutThrow(user, keyUser, "newsystem");
+        return DBMan.getInstance().updateNoSqlWithoutThrow(user, keyUser, "user");
     }
     public int updateOfUserId(User user, String userId) {
         User kUser = new User();
@@ -86,9 +86,9 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfDesc(User user, String desc) {
+    public int updateOfSignature(User user, String signature) {
         User kUser = new User();
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfImage(User user, String image) {
@@ -190,10 +190,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfUserIdAndDesc(User user, String userId, String desc) {
+    public int updateOfUserIdAndSignature(User user, String userId, String signature) {
         User kUser = new User();
         kUser.setUserId(userId);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfUserIdAndImage(User user, String userId, String image) {
@@ -292,10 +292,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfPasswordAndDesc(User user, String password, String desc) {
+    public int updateOfPasswordAndSignature(User user, String password, String signature) {
         User kUser = new User();
         kUser.setPassword(password);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfPasswordAndImage(User user, String password, String image) {
@@ -388,10 +388,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfNameAndDesc(User user, String name, String desc) {
+    public int updateOfNameAndSignature(User user, String name, String signature) {
         User kUser = new User();
         kUser.setName(name);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfNameAndImage(User user, String name, String image) {
@@ -478,10 +478,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfSexAndDesc(User user, String sex, String desc) {
+    public int updateOfSexAndSignature(User user, String sex, String signature) {
         User kUser = new User();
         kUser.setSex(sex);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfSexAndImage(User user, String sex, String image) {
@@ -562,10 +562,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfRegisterDateAndDesc(User user, String registerDate, String desc) {
+    public int updateOfRegisterDateAndSignature(User user, String registerDate, String signature) {
         User kUser = new User();
         kUser.setRegisterDate(registerDate);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfRegisterDateAndImage(User user, String registerDate, String image) {
@@ -640,10 +640,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfLoginDateAndDesc(User user, String loginDate, String desc) {
+    public int updateOfLoginDateAndSignature(User user, String loginDate, String signature) {
         User kUser = new User();
         kUser.setLoginDate(loginDate);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfLoginDateAndImage(User user, String loginDate, String image) {
@@ -712,10 +712,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfPhoneAndDesc(User user, String phone, String desc) {
+    public int updateOfPhoneAndSignature(User user, String phone, String signature) {
         User kUser = new User();
         kUser.setPhone(phone);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfPhoneAndImage(User user, String phone, String image) {
@@ -778,10 +778,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfEmailAndDesc(User user, String email, String desc) {
+    public int updateOfEmailAndSignature(User user, String email, String signature) {
         User kUser = new User();
         kUser.setEmail(email);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfEmailAndImage(User user, String email, String image) {
@@ -838,10 +838,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfMoneyAndDesc(User user, String money, String desc) {
+    public int updateOfMoneyAndSignature(User user, String money, String signature) {
         User kUser = new User();
         kUser.setMoney(money);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfMoneyAndImage(User user, String money, String image) {
@@ -892,10 +892,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfScoreAndDesc(User user, String score, String desc) {
+    public int updateOfScoreAndSignature(User user, String score, String signature) {
         User kUser = new User();
         kUser.setScore(score);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfScoreAndImage(User user, String score, String image) {
@@ -940,10 +940,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfPathAndDesc(User user, String path, String desc) {
+    public int updateOfPathAndSignature(User user, String path, String signature) {
         User kUser = new User();
         kUser.setPath(path);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfPathAndImage(User user, String path, String image) {
@@ -982,10 +982,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfParamAndDesc(User user, String param, String desc) {
+    public int updateOfParamAndSignature(User user, String param, String signature) {
         User kUser = new User();
         kUser.setParam(param);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfParamAndImage(User user, String param, String image) {
@@ -1018,10 +1018,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfLvlAndDesc(User user, String lvl, String desc) {
+    public int updateOfLvlAndSignature(User user, String lvl, String signature) {
         User kUser = new User();
         kUser.setLvl(lvl);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfLvlAndImage(User user, String lvl, String image) {
@@ -1048,10 +1048,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setUserIds(userIds);
         return update(user, kUser);
     }
-    public int updateOfNewIdsAndDesc(User user, String newIds, String desc) {
+    public int updateOfNewIdsAndSignature(User user, String newIds, String signature) {
         User kUser = new User();
         kUser.setNewIds(newIds);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfNewIdsAndImage(User user, String newIds, String image) {
@@ -1072,10 +1072,10 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
-    public int updateOfUserIdsAndDesc(User user, String userIds, String desc) {
+    public int updateOfUserIdsAndSignature(User user, String userIds, String signature) {
         User kUser = new User();
         kUser.setUserIds(userIds);
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         return update(user, kUser);
     }
     public int updateOfUserIdsAndImage(User user, String userIds, String image) {
@@ -1096,21 +1096,21 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
-    public int updateOfDescAndImage(User user, String desc, String image) {
+    public int updateOfSignatureAndImage(User user, String signature, String image) {
         User kUser = new User();
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         kUser.setImage(image);
         return update(user, kUser);
     }
-    public int updateOfDescAndFamous(User user, String desc, String famous) {
+    public int updateOfSignatureAndFamous(User user, String signature, String famous) {
         User kUser = new User();
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         kUser.setFamous(famous);
         return update(user, kUser);
     }
-    public int updateOfDescAndBUserIds(User user, String desc, String bUserIds) {
+    public int updateOfSignatureAndBUserIds(User user, String signature, String bUserIds) {
         User kUser = new User();
-        kUser.setDesc(desc);
+        kUser.setSignature(signature);
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
@@ -1133,7 +1133,7 @@ public class IUserDaoImpl implements IUserDao {
         return update(user, kUser);
     }
     public int remove(User user) {
-        return DBMan.getInstance().deleteNoSqlWithoutThrow(user, "newsystem");
+        return DBMan.getInstance().deleteNoSqlWithoutThrow(user, "user");
     }
     public int removeOfUserId(String userId) {
         User user = new User();
@@ -1210,9 +1210,9 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfDesc(String desc) {
+    public int removeOfSignature(String signature) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfImage(String image) {
@@ -1314,10 +1314,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfUserIdAndDesc(String userId, String desc) {
+    public int removeOfUserIdAndSignature(String userId, String signature) {
         User user = new User();
         user.setUserId(userId);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfUserIdAndImage(String userId, String image) {
@@ -1416,10 +1416,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfPasswordAndDesc(String password, String desc) {
+    public int removeOfPasswordAndSignature(String password, String signature) {
         User user = new User();
         user.setPassword(password);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfPasswordAndImage(String password, String image) {
@@ -1512,10 +1512,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfNameAndDesc(String name, String desc) {
+    public int removeOfNameAndSignature(String name, String signature) {
         User user = new User();
         user.setName(name);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfNameAndImage(String name, String image) {
@@ -1602,10 +1602,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfSexAndDesc(String sex, String desc) {
+    public int removeOfSexAndSignature(String sex, String signature) {
         User user = new User();
         user.setSex(sex);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfSexAndImage(String sex, String image) {
@@ -1686,10 +1686,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfRegisterDateAndDesc(String registerDate, String desc) {
+    public int removeOfRegisterDateAndSignature(String registerDate, String signature) {
         User user = new User();
         user.setRegisterDate(registerDate);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfRegisterDateAndImage(String registerDate, String image) {
@@ -1764,10 +1764,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfLoginDateAndDesc(String loginDate, String desc) {
+    public int removeOfLoginDateAndSignature(String loginDate, String signature) {
         User user = new User();
         user.setLoginDate(loginDate);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfLoginDateAndImage(String loginDate, String image) {
@@ -1836,10 +1836,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfPhoneAndDesc(String phone, String desc) {
+    public int removeOfPhoneAndSignature(String phone, String signature) {
         User user = new User();
         user.setPhone(phone);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfPhoneAndImage(String phone, String image) {
@@ -1902,10 +1902,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfEmailAndDesc(String email, String desc) {
+    public int removeOfEmailAndSignature(String email, String signature) {
         User user = new User();
         user.setEmail(email);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfEmailAndImage(String email, String image) {
@@ -1962,10 +1962,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfMoneyAndDesc(String money, String desc) {
+    public int removeOfMoneyAndSignature(String money, String signature) {
         User user = new User();
         user.setMoney(money);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfMoneyAndImage(String money, String image) {
@@ -2016,10 +2016,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfScoreAndDesc(String score, String desc) {
+    public int removeOfScoreAndSignature(String score, String signature) {
         User user = new User();
         user.setScore(score);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfScoreAndImage(String score, String image) {
@@ -2064,10 +2064,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfPathAndDesc(String path, String desc) {
+    public int removeOfPathAndSignature(String path, String signature) {
         User user = new User();
         user.setPath(path);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfPathAndImage(String path, String image) {
@@ -2106,10 +2106,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfParamAndDesc(String param, String desc) {
+    public int removeOfParamAndSignature(String param, String signature) {
         User user = new User();
         user.setParam(param);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfParamAndImage(String param, String image) {
@@ -2142,10 +2142,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfLvlAndDesc(String lvl, String desc) {
+    public int removeOfLvlAndSignature(String lvl, String signature) {
         User user = new User();
         user.setLvl(lvl);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfLvlAndImage(String lvl, String image) {
@@ -2172,10 +2172,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return remove(user);
     }
-    public int removeOfNewIdsAndDesc(String newIds, String desc) {
+    public int removeOfNewIdsAndSignature(String newIds, String signature) {
         User user = new User();
         user.setNewIds(newIds);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfNewIdsAndImage(String newIds, String image) {
@@ -2196,10 +2196,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
-    public int removeOfUserIdsAndDesc(String userIds, String desc) {
+    public int removeOfUserIdsAndSignature(String userIds, String signature) {
         User user = new User();
         user.setUserIds(userIds);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return remove(user);
     }
     public int removeOfUserIdsAndImage(String userIds, String image) {
@@ -2220,21 +2220,21 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
-    public int removeOfDescAndImage(String desc, String image) {
+    public int removeOfSignatureAndImage(String signature, String image) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setImage(image);
         return remove(user);
     }
-    public int removeOfDescAndFamous(String desc, String famous) {
+    public int removeOfSignatureAndFamous(String signature, String famous) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setFamous(famous);
         return remove(user);
     }
-    public int removeOfDescAndBUserIds(String desc, String bUserIds) {
+    public int removeOfSignatureAndBUserIds(String signature, String bUserIds) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setBUserIds(bUserIds);
         return remove(user);
     }
@@ -2257,7 +2257,7 @@ public class IUserDaoImpl implements IUserDao {
         return remove(user);
     }
     public int insert(User user) {
-        return DBMan.getInstance().insertNoSqlWithoutThrow(user, "newsystem");
+        return DBMan.getInstance().insertNoSqlWithoutThrow(user, "user");
     }
     public int insertOfUserId(String userId) {
         User user = new User();
@@ -2334,9 +2334,9 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfDesc(String desc) {
+    public int insertOfSignature(String signature) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfImage(String image) {
@@ -2438,10 +2438,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfUserIdAndDesc(String userId, String desc) {
+    public int insertOfUserIdAndSignature(String userId, String signature) {
         User user = new User();
         user.setUserId(userId);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfUserIdAndImage(String userId, String image) {
@@ -2540,10 +2540,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfPasswordAndDesc(String password, String desc) {
+    public int insertOfPasswordAndSignature(String password, String signature) {
         User user = new User();
         user.setPassword(password);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfPasswordAndImage(String password, String image) {
@@ -2636,10 +2636,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfNameAndDesc(String name, String desc) {
+    public int insertOfNameAndSignature(String name, String signature) {
         User user = new User();
         user.setName(name);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfNameAndImage(String name, String image) {
@@ -2726,10 +2726,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfSexAndDesc(String sex, String desc) {
+    public int insertOfSexAndSignature(String sex, String signature) {
         User user = new User();
         user.setSex(sex);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfSexAndImage(String sex, String image) {
@@ -2810,10 +2810,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfRegisterDateAndDesc(String registerDate, String desc) {
+    public int insertOfRegisterDateAndSignature(String registerDate, String signature) {
         User user = new User();
         user.setRegisterDate(registerDate);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfRegisterDateAndImage(String registerDate, String image) {
@@ -2888,10 +2888,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfLoginDateAndDesc(String loginDate, String desc) {
+    public int insertOfLoginDateAndSignature(String loginDate, String signature) {
         User user = new User();
         user.setLoginDate(loginDate);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfLoginDateAndImage(String loginDate, String image) {
@@ -2960,10 +2960,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfPhoneAndDesc(String phone, String desc) {
+    public int insertOfPhoneAndSignature(String phone, String signature) {
         User user = new User();
         user.setPhone(phone);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfPhoneAndImage(String phone, String image) {
@@ -3026,10 +3026,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfEmailAndDesc(String email, String desc) {
+    public int insertOfEmailAndSignature(String email, String signature) {
         User user = new User();
         user.setEmail(email);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfEmailAndImage(String email, String image) {
@@ -3086,10 +3086,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfMoneyAndDesc(String money, String desc) {
+    public int insertOfMoneyAndSignature(String money, String signature) {
         User user = new User();
         user.setMoney(money);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfMoneyAndImage(String money, String image) {
@@ -3140,10 +3140,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfScoreAndDesc(String score, String desc) {
+    public int insertOfScoreAndSignature(String score, String signature) {
         User user = new User();
         user.setScore(score);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfScoreAndImage(String score, String image) {
@@ -3188,10 +3188,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfPathAndDesc(String path, String desc) {
+    public int insertOfPathAndSignature(String path, String signature) {
         User user = new User();
         user.setPath(path);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfPathAndImage(String path, String image) {
@@ -3230,10 +3230,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfParamAndDesc(String param, String desc) {
+    public int insertOfParamAndSignature(String param, String signature) {
         User user = new User();
         user.setParam(param);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfParamAndImage(String param, String image) {
@@ -3266,10 +3266,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfLvlAndDesc(String lvl, String desc) {
+    public int insertOfLvlAndSignature(String lvl, String signature) {
         User user = new User();
         user.setLvl(lvl);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfLvlAndImage(String lvl, String image) {
@@ -3296,10 +3296,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return insert(user);
     }
-    public int insertOfNewIdsAndDesc(String newIds, String desc) {
+    public int insertOfNewIdsAndSignature(String newIds, String signature) {
         User user = new User();
         user.setNewIds(newIds);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfNewIdsAndImage(String newIds, String image) {
@@ -3320,10 +3320,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
-    public int insertOfUserIdsAndDesc(String userIds, String desc) {
+    public int insertOfUserIdsAndSignature(String userIds, String signature) {
         User user = new User();
         user.setUserIds(userIds);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return insert(user);
     }
     public int insertOfUserIdsAndImage(String userIds, String image) {
@@ -3344,21 +3344,21 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
-    public int insertOfDescAndImage(String desc, String image) {
+    public int insertOfSignatureAndImage(String signature, String image) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setImage(image);
         return insert(user);
     }
-    public int insertOfDescAndFamous(String desc, String famous) {
+    public int insertOfSignatureAndFamous(String signature, String famous) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setFamous(famous);
         return insert(user);
     }
-    public int insertOfDescAndBUserIds(String desc, String bUserIds) {
+    public int insertOfSignatureAndBUserIds(String signature, String bUserIds) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setBUserIds(bUserIds);
         return insert(user);
     }
@@ -3381,7 +3381,7 @@ public class IUserDaoImpl implements IUserDao {
         return insert(user);
     }
     public User getUser(User user) {
-        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(user, "newsystem");
+        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(user, "user");
     }
     public User getUserOfUserId(String userId) {
         User user = new User();
@@ -3458,9 +3458,9 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfDesc(String desc) {
+    public User getUserOfSignature(String signature) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfImage(String image) {
@@ -3562,10 +3562,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfUserIdAndDesc(String userId, String desc) {
+    public User getUserOfUserIdAndSignature(String userId, String signature) {
         User user = new User();
         user.setUserId(userId);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfUserIdAndImage(String userId, String image) {
@@ -3664,10 +3664,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfPasswordAndDesc(String password, String desc) {
+    public User getUserOfPasswordAndSignature(String password, String signature) {
         User user = new User();
         user.setPassword(password);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfPasswordAndImage(String password, String image) {
@@ -3760,10 +3760,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfNameAndDesc(String name, String desc) {
+    public User getUserOfNameAndSignature(String name, String signature) {
         User user = new User();
         user.setName(name);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfNameAndImage(String name, String image) {
@@ -3850,10 +3850,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfSexAndDesc(String sex, String desc) {
+    public User getUserOfSexAndSignature(String sex, String signature) {
         User user = new User();
         user.setSex(sex);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfSexAndImage(String sex, String image) {
@@ -3934,10 +3934,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfRegisterDateAndDesc(String registerDate, String desc) {
+    public User getUserOfRegisterDateAndSignature(String registerDate, String signature) {
         User user = new User();
         user.setRegisterDate(registerDate);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfRegisterDateAndImage(String registerDate, String image) {
@@ -4012,10 +4012,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfLoginDateAndDesc(String loginDate, String desc) {
+    public User getUserOfLoginDateAndSignature(String loginDate, String signature) {
         User user = new User();
         user.setLoginDate(loginDate);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfLoginDateAndImage(String loginDate, String image) {
@@ -4084,10 +4084,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfPhoneAndDesc(String phone, String desc) {
+    public User getUserOfPhoneAndSignature(String phone, String signature) {
         User user = new User();
         user.setPhone(phone);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfPhoneAndImage(String phone, String image) {
@@ -4150,10 +4150,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfEmailAndDesc(String email, String desc) {
+    public User getUserOfEmailAndSignature(String email, String signature) {
         User user = new User();
         user.setEmail(email);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfEmailAndImage(String email, String image) {
@@ -4210,10 +4210,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfMoneyAndDesc(String money, String desc) {
+    public User getUserOfMoneyAndSignature(String money, String signature) {
         User user = new User();
         user.setMoney(money);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfMoneyAndImage(String money, String image) {
@@ -4264,10 +4264,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfScoreAndDesc(String score, String desc) {
+    public User getUserOfScoreAndSignature(String score, String signature) {
         User user = new User();
         user.setScore(score);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfScoreAndImage(String score, String image) {
@@ -4312,10 +4312,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfPathAndDesc(String path, String desc) {
+    public User getUserOfPathAndSignature(String path, String signature) {
         User user = new User();
         user.setPath(path);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfPathAndImage(String path, String image) {
@@ -4354,10 +4354,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfParamAndDesc(String param, String desc) {
+    public User getUserOfParamAndSignature(String param, String signature) {
         User user = new User();
         user.setParam(param);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfParamAndImage(String param, String image) {
@@ -4390,10 +4390,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfLvlAndDesc(String lvl, String desc) {
+    public User getUserOfLvlAndSignature(String lvl, String signature) {
         User user = new User();
         user.setLvl(lvl);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfLvlAndImage(String lvl, String image) {
@@ -4420,10 +4420,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUser(user);
     }
-    public User getUserOfNewIdsAndDesc(String newIds, String desc) {
+    public User getUserOfNewIdsAndSignature(String newIds, String signature) {
         User user = new User();
         user.setNewIds(newIds);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfNewIdsAndImage(String newIds, String image) {
@@ -4444,10 +4444,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
-    public User getUserOfUserIdsAndDesc(String userIds, String desc) {
+    public User getUserOfUserIdsAndSignature(String userIds, String signature) {
         User user = new User();
         user.setUserIds(userIds);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUser(user);
     }
     public User getUserOfUserIdsAndImage(String userIds, String image) {
@@ -4468,21 +4468,21 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
-    public User getUserOfDescAndImage(String desc, String image) {
+    public User getUserOfSignatureAndImage(String signature, String image) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setImage(image);
         return getUser(user);
     }
-    public User getUserOfDescAndFamous(String desc, String famous) {
+    public User getUserOfSignatureAndFamous(String signature, String famous) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setFamous(famous);
         return getUser(user);
     }
-    public User getUserOfDescAndBUserIds(String desc, String bUserIds) {
+    public User getUserOfSignatureAndBUserIds(String signature, String bUserIds) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
@@ -4505,7 +4505,7 @@ public class IUserDaoImpl implements IUserDao {
         return getUser(user);
     }
     public List<User> getUsers(User user) {
-        return DBMan.getInstance().queryNoSqlWithoutThrow(user, "newsystem");
+        return DBMan.getInstance().queryNoSqlWithoutThrow(user, "user");
     }
     public List<User> getUsersOfUserId(String userId) {
         User user = new User();
@@ -4582,9 +4582,9 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfDesc(String desc) {
+    public List<User> getUsersOfSignature(String signature) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfImage(String image) {
@@ -4686,10 +4686,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfUserIdAndDesc(String userId, String desc) {
+    public List<User> getUsersOfUserIdAndSignature(String userId, String signature) {
         User user = new User();
         user.setUserId(userId);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfUserIdAndImage(String userId, String image) {
@@ -4788,10 +4788,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfPasswordAndDesc(String password, String desc) {
+    public List<User> getUsersOfPasswordAndSignature(String password, String signature) {
         User user = new User();
         user.setPassword(password);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfPasswordAndImage(String password, String image) {
@@ -4884,10 +4884,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfNameAndDesc(String name, String desc) {
+    public List<User> getUsersOfNameAndSignature(String name, String signature) {
         User user = new User();
         user.setName(name);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfNameAndImage(String name, String image) {
@@ -4974,10 +4974,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfSexAndDesc(String sex, String desc) {
+    public List<User> getUsersOfSexAndSignature(String sex, String signature) {
         User user = new User();
         user.setSex(sex);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfSexAndImage(String sex, String image) {
@@ -5058,10 +5058,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfRegisterDateAndDesc(String registerDate, String desc) {
+    public List<User> getUsersOfRegisterDateAndSignature(String registerDate, String signature) {
         User user = new User();
         user.setRegisterDate(registerDate);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfRegisterDateAndImage(String registerDate, String image) {
@@ -5136,10 +5136,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfLoginDateAndDesc(String loginDate, String desc) {
+    public List<User> getUsersOfLoginDateAndSignature(String loginDate, String signature) {
         User user = new User();
         user.setLoginDate(loginDate);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfLoginDateAndImage(String loginDate, String image) {
@@ -5208,10 +5208,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfPhoneAndDesc(String phone, String desc) {
+    public List<User> getUsersOfPhoneAndSignature(String phone, String signature) {
         User user = new User();
         user.setPhone(phone);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfPhoneAndImage(String phone, String image) {
@@ -5274,10 +5274,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfEmailAndDesc(String email, String desc) {
+    public List<User> getUsersOfEmailAndSignature(String email, String signature) {
         User user = new User();
         user.setEmail(email);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfEmailAndImage(String email, String image) {
@@ -5334,10 +5334,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfMoneyAndDesc(String money, String desc) {
+    public List<User> getUsersOfMoneyAndSignature(String money, String signature) {
         User user = new User();
         user.setMoney(money);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfMoneyAndImage(String money, String image) {
@@ -5388,10 +5388,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfScoreAndDesc(String score, String desc) {
+    public List<User> getUsersOfScoreAndSignature(String score, String signature) {
         User user = new User();
         user.setScore(score);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfScoreAndImage(String score, String image) {
@@ -5436,10 +5436,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfPathAndDesc(String path, String desc) {
+    public List<User> getUsersOfPathAndSignature(String path, String signature) {
         User user = new User();
         user.setPath(path);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfPathAndImage(String path, String image) {
@@ -5478,10 +5478,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfParamAndDesc(String param, String desc) {
+    public List<User> getUsersOfParamAndSignature(String param, String signature) {
         User user = new User();
         user.setParam(param);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfParamAndImage(String param, String image) {
@@ -5514,10 +5514,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfLvlAndDesc(String lvl, String desc) {
+    public List<User> getUsersOfLvlAndSignature(String lvl, String signature) {
         User user = new User();
         user.setLvl(lvl);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfLvlAndImage(String lvl, String image) {
@@ -5544,10 +5544,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setUserIds(userIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfNewIdsAndDesc(String newIds, String desc) {
+    public List<User> getUsersOfNewIdsAndSignature(String newIds, String signature) {
         User user = new User();
         user.setNewIds(newIds);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfNewIdsAndImage(String newIds, String image) {
@@ -5568,10 +5568,10 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfUserIdsAndDesc(String userIds, String desc) {
+    public List<User> getUsersOfUserIdsAndSignature(String userIds, String signature) {
         User user = new User();
         user.setUserIds(userIds);
-        user.setDesc(desc);
+        user.setSignature(signature);
         return getUsers(user);
     }
     public List<User> getUsersOfUserIdsAndImage(String userIds, String image) {
@@ -5592,21 +5592,21 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
-    public List<User> getUsersOfDescAndImage(String desc, String image) {
+    public List<User> getUsersOfSignatureAndImage(String signature, String image) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setImage(image);
         return getUsers(user);
     }
-    public List<User> getUsersOfDescAndFamous(String desc, String famous) {
+    public List<User> getUsersOfSignatureAndFamous(String signature, String famous) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setFamous(famous);
         return getUsers(user);
     }
-    public List<User> getUsersOfDescAndBUserIds(String desc, String bUserIds) {
+    public List<User> getUsersOfSignatureAndBUserIds(String signature, String bUserIds) {
         User user = new User();
-        user.setDesc(desc);
+        user.setSignature(signature);
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }

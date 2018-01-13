@@ -9,7 +9,7 @@ import db.DBMan;
 
 public class IEmailDaoImpl implements IEmailDao {
     public int update(Email email, Email keyEmail) {
-        return DBMan.getInstance().updateNoSqlWithoutThrow(email, keyEmail, "newsystem");
+        return DBMan.getInstance().updateNoSqlWithoutThrow(email, keyEmail, "email");
     }
     public int updateOfEmailId(Email email, String emailId) {
         Email kEmail = new Email();
@@ -220,7 +220,7 @@ public class IEmailDaoImpl implements IEmailDao {
         return update(email, kEmail);
     }
     public int remove(Email email) {
-        return DBMan.getInstance().deleteNoSqlWithoutThrow(email, "newsystem");
+        return DBMan.getInstance().deleteNoSqlWithoutThrow(email, "email");
     }
     public int removeOfEmailId(String emailId) {
         Email email = new Email();
@@ -431,7 +431,7 @@ public class IEmailDaoImpl implements IEmailDao {
         return remove(email);
     }
     public int insert(Email email) {
-        return DBMan.getInstance().insertNoSqlWithoutThrow(email, "newsystem");
+        return DBMan.getInstance().insertNoSqlWithoutThrow(email, "email");
     }
     public int insertOfEmailId(String emailId) {
         Email email = new Email();
@@ -642,7 +642,7 @@ public class IEmailDaoImpl implements IEmailDao {
         return insert(email);
     }
     public Email getEmail(Email email) {
-        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(email, "newsystem");
+        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(email, "email");
     }
     public Email getEmailOfEmailId(String emailId) {
         Email email = new Email();
@@ -853,7 +853,7 @@ public class IEmailDaoImpl implements IEmailDao {
         return getEmail(email);
     }
     public List<Email> getEmails(Email email) {
-        return DBMan.getInstance().queryNoSqlWithoutThrow(email, "newsystem");
+        return DBMan.getInstance().queryNoSqlWithoutThrow(email, "email");
     }
     public List<Email> getEmailsOfEmailId(String emailId) {
         Email email = new Email();

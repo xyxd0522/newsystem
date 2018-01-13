@@ -16,7 +16,7 @@ public class User {
     private String lvl;
     private String newIds;
     private String userIds;
-    private String desc;
+    private String signature;
     private String image;
     private String famous;
     private String bUserIds;
@@ -141,12 +141,12 @@ public class User {
         this.userIds = userIds;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getSignature() {
+        return signature;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 
     public String getImage() {
@@ -175,7 +175,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", sex=" + sex + ", registerDate=" + registerDate + ", loginDate=" + loginDate + ", phone=" + phone + ", email=" + email + ", money=" + money + ", score=" + score + ", path=" + path + ", param=" + param + ", lvl=" + lvl + ", newIds=" + newIds + ", userIds=" + userIds + ", desc=" + desc + ", image=" + image + ", famous=" + famous + ", bUserIds=" + bUserIds + ", ]";
+        return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", sex=" + sex + ", registerDate=" + registerDate + ", loginDate=" + loginDate + ", phone=" + phone + ", email=" + email + ", money=" + money + ", score=" + score + ", path=" + path + ", param=" + param + ", lvl=" + lvl + ", newIds=" + newIds + ", userIds=" + userIds + ", signature=" + signature + ", image=" + image + ", famous=" + famous + ", bUserIds=" + bUserIds + ", ]";
     }
 
 }

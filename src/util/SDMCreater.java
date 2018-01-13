@@ -25,14 +25,12 @@ public class SDMCreater {
     private String packageName = null; // 包名，必选
     private List<String> paramName = null; // 属性名， 必选
     private String className = null; // 类名， 必选
-    private String dataName = null; // 数据库表明， 必选
     private List<List<String>> list = null;
     private int length = 0;
 
     public final SDMCreater reset() {
         packageName = null;
         className = null;
-        dataName = null;
         paramName = new ArrayList();
         basePath = "./";
         length = 0;
@@ -156,7 +154,7 @@ public class SDMCreater {
     private SDMCreater printClassOfInsert(PrintWriter out, String method) {
         list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
-        out.println("        return DBMan.getInstance().insertNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
+        out.println("        return DBMan.getInstance().insertNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + StringUtil.getLow(className) + "\");");
         out.println("    }");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -618,11 +616,6 @@ public class SDMCreater {
         return this;
     }
 
-    public SDMCreater setDataName(String dataName) {
-        this.dataName = dataName;
-        return this;
-    }
-
     public SDMCreater setLength(int length) {
         this.length = length;
         return this;
@@ -850,7 +843,6 @@ public class SDMCreater {
             SDMCreater sdm = new SDMCreater();
             sdm.setBasePath(basePath);
             sdm.setPackageName(packageName);
-            sdm.setDataName(dataName);
             sdm.setClassName(StringUtil.getUp(obj.toString()));
             sdm.addParamNames(params);
             sdm.setLength(length);
