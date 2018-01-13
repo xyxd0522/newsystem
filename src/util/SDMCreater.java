@@ -174,7 +174,7 @@ public class SDMCreater {
     private SDMCreater printClassOfRemove(PrintWriter out, String method) {
         list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
-        out.println("        return DBMan.getInstance().deleteNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
+        out.println("        return DBMan.getInstance().deleteNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + StringUtil.getLow(className) + "\");");
         out.println("    }");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -192,7 +192,7 @@ public class SDMCreater {
     private SDMCreater printClassOfUpdate(PrintWriter out, String method) {
         list = Arithmetic.combiner(paramName, length);
         out.println("    public int " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ", " + StringUtil.getUp(className) + " key" + StringUtil.getUp(className) + ") {");
-        out.println("        return DBMan.getInstance().updateNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", key" + StringUtil.getUp(className) + ", \"" + dataName + "\");");
+        out.println("        return DBMan.getInstance().updateNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", key" + StringUtil.getUp(className) + ", \"" + StringUtil.getLow(className) + "\");");
         out.println("    }");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -216,7 +216,7 @@ public class SDMCreater {
     private SDMCreater printClassOfGet(PrintWriter out, String method) {
         list = Arithmetic.combiner(paramName, length);
         out.println("    public " + StringUtil.getUp(className) + " " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
-        out.println("        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
+        out.println("        return DBMan.getInstance().queryByIdNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + StringUtil.getLow(className) + "\");");
         out.println("    }");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();
@@ -233,7 +233,7 @@ public class SDMCreater {
 
     private SDMCreater printClassOfGets(PrintWriter out, String method) {
         out.println("    public List<" + StringUtil.getUp(className) + "> " + method + "(" + StringUtil.getUp(className) + " " + StringUtil.getLow(className) + ") {");
-        out.println("        return DBMan.getInstance().queryNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + dataName + "\");");
+        out.println("        return DBMan.getInstance().queryNoSqlWithoutThrow(" + StringUtil.getLow(className) + ", \"" + StringUtil.getLow(className) + "\");");
         out.println("    }");
         for (List<String> l : list) {
             StringBuffer sb = new StringBuffer();

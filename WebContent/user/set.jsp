@@ -116,7 +116,7 @@
   <div class="fly-panel fly-panel-user" pad20>
     <div class="layui-tab layui-tab-brief" lay-filter="user">
       <ul class="layui-tab-title" id="LAY_mine">
-        <li class="layui-this" lay-id="info">我的资料</li>
+        <li class="layui-this"  lay-id="info">我的资料</li>
         <li lay-id="avatar">头像</li>
         <li lay-id="pass">密码</li>
         <li lay-id="bind">帐号绑定</li>
