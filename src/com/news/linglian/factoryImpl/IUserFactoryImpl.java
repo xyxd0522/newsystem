@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import util.ServletUtil;
-import util.StringListBuilder;
+import util.StringArrayListBuilder;
 
 import com.news.linglian.entity.User;
 import com.news.linglian.factory.IServletFactory;
@@ -67,7 +67,7 @@ public class IUserFactoryImpl implements IServletFactory {
 		// TODO Auto-generated method stub
 		String userId = request.getParameter("userId");
 		if(ServletUtil.checkIdentity(request, response, servlet, "query_from")){
-			List<String[] > list = new StringListBuilder()
+			List<String[] > list = new StringArrayListBuilder()
 			.addString(userId,"用户id")
 			.build();
 			if(ServletUtil.isNull(request, response, servlet, "query_from", list)){
@@ -112,7 +112,7 @@ public class IUserFactoryImpl implements IServletFactory {
 		String quiz2 =request.getParameter("quiz2");
 		String quiz3 =request.getParameter("quiz3");
 		String vercode = request.getParameter("vercode");
-		List<String[] > list = new StringListBuilder()
+		List<String[] > list = new StringArrayListBuilder()
 				.addString(email, "邮箱")
 				.addString(username, "昵称")
 				.addString(password, "密码")
@@ -150,7 +150,7 @@ public class IUserFactoryImpl implements IServletFactory {
 		// TODO Auto-generated method stub
 			String userId = request.getParameter("userId");
 		if(ServletUtil.checkIdentity(request, response, servlet, "remove_from")){
-			List<String[] > list = new StringListBuilder()
+			List<String[] > list = new StringArrayListBuilder()
 			.addString(userId,"用户id")
 			.build();
 			if(ServletUtil.isNull(request, response, servlet, "remove_from", list)){
@@ -170,7 +170,7 @@ public class IUserFactoryImpl implements IServletFactory {
 		String email =request.getParameter("email");
 		String password = request.getParameter("pass");
 		String vercode = request.getParameter("vercode");
-		List<String[] > list = new StringListBuilder()
+		List<String[] > list = new StringArrayListBuilder()
 		.addString(email,"邮箱")
 		.addString(password,"密码")
 		.addString(vercode,"验证码")

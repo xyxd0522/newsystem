@@ -3,20 +3,20 @@ package util;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StringListBuilder {
+public class StringArrayListBuilder {
 
     List<String[]> list = null;
 
-    public StringListBuilder() {
+    public StringArrayListBuilder() {
         list = new ArrayList<String[]>();
     }
 
-    public StringListBuilder(List<String[]> list) {
+    public StringArrayListBuilder(List<String[]> list) {
         super();
         this.list = list;
     }
 
-    public StringListBuilder addString(String... strs) {
+    public StringArrayListBuilder addString(String... strs) {
         list.add(strs);
         return this;
     }
