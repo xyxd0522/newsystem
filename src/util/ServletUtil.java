@@ -72,7 +72,7 @@ public class ServletUtil {
      * @param b
      * @return
      */
-    private static boolean equalOfObject(Object a, Object b) {
+    public static boolean equalOfObject(Object a, Object b) {
         if (a == b) {
             return true;
         }
@@ -92,7 +92,7 @@ public class ServletUtil {
      * @param b
      * @return
      */
-    private static boolean isBigOfObject(Object a, Object b) {
+    public static boolean isBigOfObject(Object a, Object b) {
         if (a == null) {
             a = "0";
         }
@@ -112,7 +112,7 @@ public class ServletUtil {
      * @param b
      * @return
      */
-    private static boolean isSmallOfObject(Object a, Object b) {
+    public static boolean isSmallOfObject(Object a, Object b) {
         if (a == null) {
             a = "0";
         }
@@ -132,7 +132,7 @@ public class ServletUtil {
      * @param b
      * @return
      */
-    private static boolean equalOfClass(Object a, Object b) {
+    public static boolean equalOfClass(Object a, Object b) {
         return equalOfClass(a, b.getClass());
     }
 
@@ -143,7 +143,7 @@ public class ServletUtil {
      * @param b
      * @return
      */
-    private static boolean equalOfClass(Object a, Class b) {
+    public static boolean equalOfClass(Object a, Class b) {
         if (b == null) {
             return false;
         }

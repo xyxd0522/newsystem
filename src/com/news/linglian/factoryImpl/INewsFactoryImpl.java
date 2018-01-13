@@ -95,9 +95,13 @@ public class INewsFactoryImpl implements IServletFactory {
 		
 		List<News> allNews = new ArrayList<News>();
 		allNews=ias.getNewss(new News());
+		System.out.println(allNews);
 		String page = request.getParameter("page");
+		if (ServletUtil.equalOfObject(page, null)) {
+			page = "1";
+		}
 		List<News> pageNews = new ArrayList<News>();
-		for(int i =0; i<10; i++)
+		for(int i =0; i<10 && i < allNews.size(); i++)
 		{
 			pageNews.add(allNews.get(((Integer.parseInt(page)-1)*10)+i));
 		}
@@ -189,7 +193,7 @@ public class INewsFactoryImpl implements IServletFactory {
 			news.setBody(body);
 			news.setTitle(title);
 			news.setNewsId(newsId);
-			ServletUtil.checkdata(request, response, servlet, "update_from", "修改", ias.update(news, news));
+			ServletUtil.checkdata(request, response, servlet, "update_from", "修改", ias.updateOfNewsId(news, newsId));
 		}
 	}
 }

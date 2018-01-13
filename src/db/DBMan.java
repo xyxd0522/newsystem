@@ -114,7 +114,7 @@ public class DBMan {
                 .addDataName(dataName)
                 .addAfterWheres(ClassUtil.getNameNotNull(t)).build();
         System.out.println(sql);
-        return (List<T>) queryWithoutThrow(sql, t.getClass(),
+        return (List<T>) queryWithoutThrow(t.getClass(), sql,
                 ClassUtil.getValueNotNull(t));
     }
 

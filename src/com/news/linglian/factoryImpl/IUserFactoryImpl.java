@@ -1,14 +1,15 @@
 package com.news.linglian.factoryImpl;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import util.ServletCheckBuilder;
 import util.ServletUtil;
 import util.StringArrayListBuilder;
 
@@ -169,21 +170,17 @@ public class IUserFactoryImpl implements IServletFactory {
     protected void doLogin(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub		
-        String email = request.getParameter("email");
-        String password = request.getParameter("pass");
-        String vercode = request.getParameter("vercode");
-        List<String[]> list = new StringArrayListBuilder()
-                .addString(email, "邮箱")
-                .addString(password, "密码")
-                .addString(vercode, "验证码")
-                .build();
-        if (ServletUtil.isNull(request, response, servlet, "login_from", list)) {
-            if (request.getSession().getAttribute("token").equals(vercode)) {
+    	Map<String, Object> map = new ServletCheckBuilder(request, response, servlet, "login_from")
+    		.addNp("email", "邮箱")
+    		.addNp("pass", "密码")
+    		.addNp("vercode", "验证码")
+    		.build();
+        if (map != null) {
+            if (!request.getSession().getAttribute("token").equals(map.get("par_vercode"))) {
                 request.getSession().setAttribute("info", "验证码错误");
                 ServletUtil.redirect(request, response, servlet, "login_from");
             } else {
-                User user = ias.getUserOfPasswordAndEmail(password, email);
+                User user = ias.getUserOfPasswordAndEmail(map.get("par_pass").toString(), map.get("par_email").toString());
                 if (user == null) {
                     request.getSession().setAttribute("info", "邮箱或者密码错误!");
                     ServletUtil.redirect(request, response, servlet, "login_from");

@@ -18,8 +18,14 @@ import com.news.linglian.factory.IServletFactory;
 		@WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.INewsFactoryImpl"),
 		@WebInitParam(name = "login_from", value = "NewFile.jsp"),
 		@WebInitParam(name = "login_to", value = "NewFile.jsp"),
-		@WebInitParam(name = "query_from", value = "NewFile.jsp"),
-		@WebInitParam(name = "query_to", value = "NewFile.jsp"),
+		@WebInitParam(name = "queryOfId_from", value = "NewFile.jsp"),
+		@WebInitParam(name = "queryOfId_to", value = "NewFile.jsp"),
+		@WebInitParam(name = "remove_from", value = "NewFile.jsp"),
+		@WebInitParam(name = "remove_to", value = "NewFile.jsp"),
+		@WebInitParam(name = "update_from", value = "NewFile.jsp"),
+		@WebInitParam(name = "update_to", value = "NewFile.jsp"),
+		@WebInitParam(name = "queryAll_from", value = "NewFile.jsp"),
+		@WebInitParam(name = "queryAll_to", value = "NewFile.jsp"),
 		@WebInitParam(name = "insert_to", value = "index.jsp"),
 		@WebInitParam(name = "insert_from", value = "user/reg.jsp")})
 public class NewsAction extends HttpServlet {

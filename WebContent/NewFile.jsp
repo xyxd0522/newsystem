@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-${info }
+${pageNews}
+${info}
 <a href="${pageContext.request.contextPath}/UserAction.do?method=login&email=123&pass=123&vercode=${sessionScope.token}">login</a>
-<a href="${pageContext.request.contextPath}/UserAction.do?method=remove&userId=1">asdasd</a>
+<a href="${pageContext.request.contextPath}/NewsAction.do?method=queryAll&userId=1">asdasd</a>
             <form action="${pageContext.request.contextPath}/UserAction.do?method=insert"  method="post">
               <div class="layui-form-item">
                 <label for="L_email" class="layui-form-label">邮箱</label>
