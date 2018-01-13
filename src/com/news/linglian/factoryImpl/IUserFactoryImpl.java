@@ -36,24 +36,24 @@ public class IUserFactoryImpl implements IServletFactory {
 	 */
 	@Override
 	public void doThing(HttpServletRequest request,
-			HttpServletResponse response, HttpServlet serlvet,
+			HttpServletResponse response, HttpServlet servlet,
 			String factoryName) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		switch (factoryName) {
 		case "login":
-			doLogin(request, response, serlvet);
+			doLogin(request, response, servlet);
 			break;
 		case "remove":
-			doRemove(request, response, serlvet);
+			doRemove(request, response, servlet);
 			break;
 		case "insert":
-			doInsert(request, response, serlvet);
+			doInsert(request, response, servlet);
 			break;
 		case "update":
-			doUpdate(request, response, serlvet);
+			doUpdate(request, response, servlet);
 			break;
 		case "query":
-			doQuery(request, response, serlvet);
+			doQuery(request, response, servlet);
 			break;
 		}
 	}
@@ -67,9 +67,9 @@ public class IUserFactoryImpl implements IServletFactory {
 		// TODO Auto-generated method stub
 		String userId = request.getParameter("userId");
 		if(ServletUtil.checkIdentity(request, response, servlet, "query_from")){
-			String[] a={userId,"用户id"};
-			List<String[] > list= new ArrayList<String[] >();
-			list.add(a);
+			List<String[] > list = new StringListBuilder()
+			.addString(userId,"用户id")
+			.build();
 			if(ServletUtil.isNull(request, response, servlet, "query_from", list)){
 			if((ias.getUserOfUserId(userId))==null){
 				request.getSession().setAttribute("info", "获取失败");
@@ -148,15 +148,13 @@ public class IUserFactoryImpl implements IServletFactory {
 			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-			String userid = request.getParameter("userid");
+			String userId = request.getParameter("userId");
 		if(ServletUtil.checkIdentity(request, response, servlet, "remove_from")){
-			String[] a={userid,"用户id"};
-			List<String[] > list= new ArrayList<String[] >();
-			list.add(a);
+			List<String[] > list = new StringListBuilder()
+			.addString(userId,"用户id")
+			.build();
 			if(ServletUtil.isNull(request, response, servlet, "remove_from", list)){
-				User user=new User();
-				user.setUserId(userid);
-				ServletUtil.checkdata(request, response, servlet, "remove_from", "删除", ias.removeOfBUserIds(userid));	
+				ServletUtil.checkdata(request, response, servlet, "remove_from", "删除", ias.removeOfBUserIds(userId));	
 			}
 		}
 	}
@@ -172,13 +170,11 @@ public class IUserFactoryImpl implements IServletFactory {
 		String email =request.getParameter("email");
 		String password = request.getParameter("pass");
 		String vercode = request.getParameter("vercode");
-		String[] a={email,"邮箱"};
-		String[] b={password,"密码"};
-		String[] c={vercode,"验证码"};
-		List<String[] > list= new ArrayList<String[] >();
-		list.add(a);
-		list.add(b);
-		list.add(c);
+		List<String[] > list = new StringListBuilder()
+		.addString(email,"邮箱")
+		.addString(password,"密码")
+		.addString(vercode,"验证码")
+		.build();
 		if(ServletUtil.isNull(request, response, servlet, "login_from", list)){
 			if(request.getSession().getAttribute("token").equals(vercode)){
 				request.getSession().setAttribute("info", "验证码错误");
