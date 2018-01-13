@@ -63,6 +63,8 @@ public class ServletUtil {
                 .getInitParameter(parameterName));
     }
 
+    // <editor-fold defaultstate="collapsed" desc="私有函数">         
+
     /**
      * 判断二个对象是否相等
      *
@@ -169,12 +171,8 @@ public class ServletUtil {
             HttpServletResponse response, HttpServlet servlet,
             String parameterName, Object obj, String alert, Class<T> clazz)
             throws ServletException, IOException {
-        if (!(clazz.isInstance(obj))) {
-            request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, servlet, parameterName);
-            return false;
-        }
-        return true;
+        return checkClassOfObject(request, response, servlet.getServletConfig()
+                .getInitParameter(parameterName), obj, alert, clazz);
     }
 
     /**
@@ -218,12 +216,8 @@ public class ServletUtil {
             HttpServletResponse response, HttpServlet servlet,
             String parameterName, Object obj, String alert)
             throws ServletException, IOException {
-        if (equalOfObject(obj, null)) {
-            request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, servlet, parameterName);
-            return false;
-        }
-        return true;
+        return checkNullOfObject(request, response, servlet.getServletConfig()
+                .getInitParameter(parameterName), obj, alert);
     }
 
     /**
@@ -251,19 +245,45 @@ public class ServletUtil {
     }
 
     private static boolean checkEqualOfObject(HttpServletRequest request,
-            HttpServletResponse response, HttpServlet servlet,
-            String parameterName, Object obj1, Object obj2,
-            String alert, boolean flag) throws ServletException, IOException {
+            HttpServletResponse response, String page,
+            Object obj1, Object obj2, String alert,
+            boolean flag) throws ServletException, IOException {
         // 相等，且选择相等时执行跳转，执行跳转成功
         if (equalOfObject(obj1, obj2) && flag) {
             request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, servlet, parameterName);
+            ServletUtil.redirect(request, response, page);
             return true;
         } else if (flag) { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return false;
         } else { // 不相等，且选择不相等时执行跳转，执行跳转成功
             request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, servlet, parameterName);
+            ServletUtil.redirect(request, response, page);
+            return true;
+        }
+    }
+
+    private static boolean checkEqualOfObject(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet,
+            String parameterName, Object obj1, Object obj2,
+            String alert, boolean flag) throws ServletException, IOException {
+        return checkEqualOfObject(request, response, servlet.getServletConfig()
+                .getInitParameter(parameterName), obj1, obj2, alert, flag);
+    }
+
+    private static boolean checkEqualOfClass(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            Object obj1, Object obj2, String alert,
+            boolean flag) throws ServletException, IOException {
+        // 相等，且选择相等时执行跳转，执行跳转成功
+        if (equalOfClass(obj1, obj2.getClass()) && flag) {
+            request.getSession().setAttribute("info", alert);
+            ServletUtil.redirect(request, response, page);
+            return true;
+        } else if (flag) { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
+            return false;
+        } else { // 不相等，且选择不相等时执行跳转，执行跳转成功
+            request.getSession().setAttribute("info", alert);
+            ServletUtil.redirect(request, response, page);
             return true;
         }
     }
@@ -272,16 +292,24 @@ public class ServletUtil {
             HttpServletResponse response, HttpServlet servlet,
             String parameterName, Object obj1, Object obj2,
             String alert, boolean flag) throws ServletException, IOException {
+        return checkEqualOfClass(request, response, servlet.getServletConfig()
+                .getInitParameter(parameterName), obj1, obj2, alert, flag);
+    }
+
+    private static boolean checkIsBigOfObject(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            Object obj1, Object obj2, String alert,
+            boolean flag) throws ServletException, IOException {
         // 相等，且选择相等时执行跳转，执行跳转成功
-        if (equalOfClass(obj1, obj2.getClass()) && flag) {
+        if (isBigOfObject(obj1, obj2) && flag) {
             request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, servlet, parameterName);
+            ServletUtil.redirect(request, response, page);
             return true;
         } else if (flag) { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return false;
         } else { // 不相等，且选择不相等时执行跳转，执行跳转成功
             request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, servlet, parameterName);
+            ServletUtil.redirect(request, response, page);
             return true;
         }
     }
@@ -290,16 +318,23 @@ public class ServletUtil {
             HttpServletResponse response, HttpServlet servlet,
             String parameterName, Object obj1, Object obj2,
             String alert, boolean flag) throws ServletException, IOException {
+        return checkIsBigOfObject(request, response, servlet.getServletConfig()
+                .getInitParameter(parameterName), obj1, obj2, alert, flag);
+    }
+
+    private static boolean checkIsSmallOfObject(HttpServletRequest request,
+            HttpServletResponse response, String page, Object obj1, Object obj2,
+            String alert, boolean flag) throws ServletException, IOException {
         // 相等，且选择相等时执行跳转，执行跳转成功
-        if (isBigOfObject(obj1, obj2) && flag) {
+        if (isSmallOfObject(obj1, obj2.getClass()) && flag) {
             request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, servlet, parameterName);
+            ServletUtil.redirect(request, response, page);
             return true;
         } else if (flag) { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return false;
         } else { // 不相等，且选择不相等时执行跳转，执行跳转成功
             request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, servlet, parameterName);
+            ServletUtil.redirect(request, response, page);
             return true;
         }
     }
@@ -308,20 +343,12 @@ public class ServletUtil {
             HttpServletResponse response, HttpServlet servlet,
             String parameterName, Object obj1, Object obj2,
             String alert, boolean flag) throws ServletException, IOException {
-        // 相等，且选择相等时执行跳转，执行跳转成功
-        if (isSmallOfObject(obj1, obj2.getClass()) && flag) {
-            request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, servlet, parameterName);
-            return true;
-        } else if (flag) { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
-            return false;
-        } else { // 不相等，且选择不相等时执行跳转，执行跳转成功
-            request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, servlet, parameterName);
-            return true;
-        }
+        return checkIsSmallOfObject(request, response, servlet.getServletConfig()
+                .getInitParameter(parameterName), obj1, obj2, alert, flag);
     }
 
+    // </editor-fold>  
+    // <editor-fold defaultstate="collapsed" desc="公有函数">      
     /**
      * 判断Session是否为空（根据Servlet初始化参数跳转页面）
      *
@@ -493,6 +520,24 @@ public class ServletUtil {
                 request.getSession().getAttribute(ses), alert, flag);
     }
 
+    public static boolean equalObjectOfParAndSes(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String par, String ses, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkEqualOfObject(request,
+                response, page, request.getParameter(par),
+                request.getSession().getAttribute(ses), alert, flag);
+    }
+
+    public static boolean equalClassOfParAndSes(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String par, String ses, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkEqualOfClass(request,
+                response, page, request.getParameter(par),
+                request.getSession().getAttribute(ses), alert, flag);
+    }
+
     public static boolean equalClassOfParAndSes(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
             String parameterName, String par, String ses, String alert, boolean flag)
@@ -503,39 +548,75 @@ public class ServletUtil {
     }
 
     public static boolean equalObjectOfParAndPar(HttpServletRequest request,
-            HttpServletResponse response, HttpServlet servlet,
-            String parameterName, String par, String ses, String alert, boolean flag)
+            HttpServletResponse response, String page,
+            String par1, String par2, String alert, boolean flag)
             throws ServletException, IOException {
         return checkEqualOfObject(request,
-                response, servlet, parameterName, request.getParameter(par),
-                request.getParameter(ses), alert, flag);
+                response, page, request.getParameter(par1),
+                request.getParameter(par2), alert, flag);
+    }
+
+    public static boolean equalObjectOfParAndPar(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet,
+            String parameterName, String par1, String par2, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkEqualOfObject(request,
+                response, servlet, parameterName, request.getParameter(par1),
+                request.getParameter(par2), alert, flag);
+    }
+
+    public static boolean equalClassOfParAndPar(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String par1, String par2, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkEqualOfClass(request,
+                response, page, request.getParameter(par1),
+                request.getParameter(par2), alert, flag);
     }
 
     public static boolean equalClassOfParAndPar(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
-            String parameterName, String par, String ses, String alert, boolean flag)
+            String parameterName, String par1, String par2, String alert, boolean flag)
             throws ServletException, IOException {
         return checkEqualOfClass(request,
-                response, servlet, parameterName, request.getParameter(par),
-                request.getParameter(ses), alert, flag);
+                response, servlet, parameterName, request.getParameter(par1),
+                request.getParameter(par2), alert, flag);
+    }
+
+    public static boolean equalObjectOfSesAndSes(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String ses1, String ses2, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkEqualOfObject(request,
+                response, page, request.getSession().getAttribute(ses1),
+                request.getSession().getAttribute(ses2), alert, flag);
     }
 
     public static boolean equalObjectOfSesAndSes(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
-            String parameterName, String par, String ses, String alert, boolean flag)
+            String parameterName, String ses1, String ses2, String alert, boolean flag)
             throws ServletException, IOException {
         return checkEqualOfObject(request,
-                response, servlet, parameterName, request.getSession().getAttribute(par),
-                request.getSession().getAttribute(ses), alert, flag);
+                response, servlet, parameterName, request.getSession().getAttribute(ses1),
+                request.getSession().getAttribute(ses2), alert, flag);
+    }
+
+    public static boolean equalClassOfSesAndSes(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String ses1, String ses2, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkEqualOfClass(request,
+                response, page, request.getSession().getAttribute(ses1),
+                request.getSession().getAttribute(ses2), alert, flag);
     }
 
     public static boolean equalClassOfSesAndSes(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
-            String parameterName, String par, String ses, String alert, boolean flag)
+            String parameterName, String ses1, String ses2, String alert, boolean flag)
             throws ServletException, IOException {
         return checkEqualOfClass(request,
-                response, servlet, parameterName, request.getSession().getAttribute(par),
-                request.getSession().getAttribute(ses), alert, flag);
+                response, servlet, parameterName, request.getSession().getAttribute(ses1),
+                request.getSession().getAttribute(ses2), alert, flag);
     }
 
     public static boolean isBigObjectOfParAndSes(HttpServletRequest request,
@@ -549,11 +630,11 @@ public class ServletUtil {
 
     public static boolean isBigObjectOfParAndPar(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
-            String parameterName, String par, String ses, String alert, boolean flag)
+            String parameterName, String par1, String par2, String alert, boolean flag)
             throws ServletException, IOException {
         return checkIsBigOfObject(request,
-                response, servlet, parameterName, request.getParameter(par),
-                request.getParameter(ses), alert, flag);
+                response, servlet, parameterName, request.getParameter(par1),
+                request.getParameter(par2), alert, flag);
     }
 
     public static boolean isBigObjectOfSesAndSes(HttpServletRequest request,
@@ -563,6 +644,33 @@ public class ServletUtil {
         return checkIsBigOfObject(request,
                 response, servlet, parameterName, request.getSession().getAttribute(par),
                 request.getSession().getAttribute(ses), alert, flag);
+    }
+
+    public static boolean isBigObjectOfParAndSes(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String par, String ses, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkIsBigOfObject(request,
+                response, page, request.getParameter(par),
+                request.getSession().getAttribute(ses), alert, flag);
+    }
+
+    public static boolean isBigObjectOfParAndPar(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String par1, String par2, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkIsBigOfObject(request,
+                response, page, request.getParameter(par1),
+                request.getParameter(par2), alert, flag);
+    }
+
+    public static boolean isBigObjectOfSesAndSes(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String ses1, String ses2, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkIsBigOfObject(request,
+                response, page, request.getSession().getAttribute(ses1),
+                request.getSession().getAttribute(ses2), alert, flag);
     }
 
     public static boolean isSmallObjectOfParAndSes(HttpServletRequest request,
@@ -576,22 +684,51 @@ public class ServletUtil {
 
     public static boolean isSmallObjectOfParAndPar(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
-            String parameterName, String par, String ses, String alert, boolean flag)
+            String parameterName, String par1, String par2, String alert, boolean flag)
             throws ServletException, IOException {
         return checkIsSmallOfObject(request,
-                response, servlet, parameterName, request.getParameter(par),
-                request.getParameter(ses), alert, flag);
+                response, servlet, parameterName, request.getParameter(par1),
+                request.getParameter(par2), alert, flag);
     }
 
     public static boolean isSmallObjectOfSesAndSes(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
-            String parameterName, String par, String ses, String alert, boolean flag)
+            String parameterName, String ses1, String ses2, String alert, boolean flag)
             throws ServletException, IOException {
         return checkIsSmallOfObject(request,
-                response, servlet, parameterName, request.getSession().getAttribute(par),
+                response, servlet, parameterName, request.getSession().getAttribute(ses1),
+                request.getSession().getAttribute(ses2), alert, flag);
+    }
+
+    public static boolean isSmallObjectOfParAndSes(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String par, String ses, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkIsSmallOfObject(request,
+                response, page, request.getParameter(par),
                 request.getSession().getAttribute(ses), alert, flag);
     }
 
+    public static boolean isSmallObjectOfParAndPar(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String par1, String par2, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkIsSmallOfObject(request,
+                response, page, request.getParameter(par1),
+                request.getParameter(par2), alert, flag);
+    }
+
+    public static boolean isSmallObjectOfSesAndSes(HttpServletRequest request,
+            HttpServletResponse response, String page,
+            String ses1, String ses2, String alert, boolean flag)
+            throws ServletException, IOException {
+        return checkIsSmallOfObject(request,
+                response, page, request.getSession().getAttribute(ses1),
+                request.getSession().getAttribute(ses2), alert, flag);
+    }
+
+    // </editor-fold>   
+    
     /**
      * 验证登录
      *
