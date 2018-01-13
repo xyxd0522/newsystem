@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import util.ServletUtil;
 import util.StringListBuilder;
 
-import com.linglian.util.ServletUtil;
 import com.news.linglian.entity.User;
 import com.news.linglian.factory.IServletFactory;
 import com.news.linglian.service.IUserService;
@@ -65,18 +65,18 @@ public class IUserFactoryImpl implements IServletFactory {
 			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String userid = request.getParameter("userid");
+		String userId = request.getParameter("userId");
 		if(ServletUtil.checkIdentity(request, response, servlet, "query_from")){
-			String[] a={userid,"用户id"};
+			String[] a={userId,"用户id"};
 			List<String[] > list= new ArrayList<String[] >();
 			list.add(a);
 			if(ServletUtil.isNull(request, response, servlet, "query_from", list)){
-			if((ias.getUserOfUserId(userid))==null){
+			if((ias.getUserOfUserId(userId))==null){
 				request.getSession().setAttribute("info", "获取失败");
 				ServletUtil.redirect(request, response, servlet, "query_from");
 			}else{
 				request.getSession().setAttribute("info", "获取成功");
-				request.getSession().setAttribute("user", ias.getUserOfUserId(userid));
+				request.getSession().setAttribute("user", ias.getUserOfUserId(userId));
 				ServletUtil.forward(request, response, servlet, "query_to");
 			}
 		}
@@ -117,14 +117,13 @@ public class IUserFactoryImpl implements IServletFactory {
 				.addString(username, "昵称")
 				.addString(password, "密码")
 				.addString(repassword, "重复密码")
-				.addString(new String(quiz1.getBytes("GBK"),"utf-8"), "省份")
-				.addString(new String(quiz2.getBytes("GBK"),"utf-8"), "城市")
-				.addString(new String(quiz3.getBytes("GBK"),"utf-8"), "区/县")
+				.addString(quiz1, "省份")
+				.addString(quiz2, "城市")
+				.addString(quiz3, "区/县")
 				.addString(vercode, "验证码")
 				.build();
 		if(ServletUtil.isNull(request, response, servlet, "insert_from", list)){
 			if(!request.getSession().getAttribute("token").toString().equals(vercode)){
-				System.out.println(request.getSession().getAttribute("token"));
 				request.getSession().setAttribute("info", "验证码错误");
 	    		ServletUtil.redirect(request, response,servlet,"insert_from");					
 			} else if (password.equals(repassword)) {
@@ -181,7 +180,7 @@ public class IUserFactoryImpl implements IServletFactory {
 		list.add(b);
 		list.add(c);
 		if(ServletUtil.isNull(request, response, servlet, "login_from", list)){
-			if(!request.getSession().getAttribute("token").equals(vercode)){
+			if(request.getSession().getAttribute("token").equals(vercode)){
 				request.getSession().setAttribute("info", "验证码错误");
 	    		ServletUtil.redirect(request, response,servlet,"login_from");					
 			}else{
@@ -190,7 +189,7 @@ public class IUserFactoryImpl implements IServletFactory {
 				request.getSession().setAttribute("info", "邮箱或者密码错误!");
 				ServletUtil.redirect(request, response, servlet, "login_from");
 			} else {
-				request.getSession().setAttribute("identity", email);
+				request.getSession().setAttribute("identity", user);
 				request.getSession().setAttribute("info", "登录成功!");
 				ServletUtil.redirect(request, response, servlet, "login_to");
 			}

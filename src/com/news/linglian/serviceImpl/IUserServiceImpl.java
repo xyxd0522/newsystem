@@ -62,8 +62,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfUserIds(User user, String userIds) {
         return dao.updateOfUserIds(user, userIds);
     }
-    public int updateOfDesc(User user, String desc) {
-        return dao.updateOfDesc(user, desc);
+    public int updateOfSignature(User user, String signature) {
+        return dao.updateOfSignature(user, signature);
     }
     public int updateOfImage(User user, String image) {
         return dao.updateOfImage(user, image);
@@ -116,8 +116,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfUserIdAndUserIds(User user, String userId, String userIds) {
         return dao.updateOfUserIdAndUserIds(user, userId, userIds);
     }
-    public int updateOfUserIdAndDesc(User user, String userId, String desc) {
-        return dao.updateOfUserIdAndDesc(user, userId, desc);
+    public int updateOfUserIdAndSignature(User user, String userId, String signature) {
+        return dao.updateOfUserIdAndSignature(user, userId, signature);
     }
     public int updateOfUserIdAndImage(User user, String userId, String image) {
         return dao.updateOfUserIdAndImage(user, userId, image);
@@ -167,8 +167,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfPasswordAndUserIds(User user, String password, String userIds) {
         return dao.updateOfPasswordAndUserIds(user, password, userIds);
     }
-    public int updateOfPasswordAndDesc(User user, String password, String desc) {
-        return dao.updateOfPasswordAndDesc(user, password, desc);
+    public int updateOfPasswordAndSignature(User user, String password, String signature) {
+        return dao.updateOfPasswordAndSignature(user, password, signature);
     }
     public int updateOfPasswordAndImage(User user, String password, String image) {
         return dao.updateOfPasswordAndImage(user, password, image);
@@ -215,8 +215,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfNameAndUserIds(User user, String name, String userIds) {
         return dao.updateOfNameAndUserIds(user, name, userIds);
     }
-    public int updateOfNameAndDesc(User user, String name, String desc) {
-        return dao.updateOfNameAndDesc(user, name, desc);
+    public int updateOfNameAndSignature(User user, String name, String signature) {
+        return dao.updateOfNameAndSignature(user, name, signature);
     }
     public int updateOfNameAndImage(User user, String name, String image) {
         return dao.updateOfNameAndImage(user, name, image);
@@ -260,8 +260,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfSexAndUserIds(User user, String sex, String userIds) {
         return dao.updateOfSexAndUserIds(user, sex, userIds);
     }
-    public int updateOfSexAndDesc(User user, String sex, String desc) {
-        return dao.updateOfSexAndDesc(user, sex, desc);
+    public int updateOfSexAndSignature(User user, String sex, String signature) {
+        return dao.updateOfSexAndSignature(user, sex, signature);
     }
     public int updateOfSexAndImage(User user, String sex, String image) {
         return dao.updateOfSexAndImage(user, sex, image);
@@ -302,8 +302,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfRegisterDateAndUserIds(User user, String registerDate, String userIds) {
         return dao.updateOfRegisterDateAndUserIds(user, registerDate, userIds);
     }
-    public int updateOfRegisterDateAndDesc(User user, String registerDate, String desc) {
-        return dao.updateOfRegisterDateAndDesc(user, registerDate, desc);
+    public int updateOfRegisterDateAndSignature(User user, String registerDate, String signature) {
+        return dao.updateOfRegisterDateAndSignature(user, registerDate, signature);
     }
     public int updateOfRegisterDateAndImage(User user, String registerDate, String image) {
         return dao.updateOfRegisterDateAndImage(user, registerDate, image);
@@ -341,8 +341,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfLoginDateAndUserIds(User user, String loginDate, String userIds) {
         return dao.updateOfLoginDateAndUserIds(user, loginDate, userIds);
     }
-    public int updateOfLoginDateAndDesc(User user, String loginDate, String desc) {
-        return dao.updateOfLoginDateAndDesc(user, loginDate, desc);
+    public int updateOfLoginDateAndSignature(User user, String loginDate, String signature) {
+        return dao.updateOfLoginDateAndSignature(user, loginDate, signature);
     }
     public int updateOfLoginDateAndImage(User user, String loginDate, String image) {
         return dao.updateOfLoginDateAndImage(user, loginDate, image);
@@ -377,8 +377,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfPhoneAndUserIds(User user, String phone, String userIds) {
         return dao.updateOfPhoneAndUserIds(user, phone, userIds);
     }
-    public int updateOfPhoneAndDesc(User user, String phone, String desc) {
-        return dao.updateOfPhoneAndDesc(user, phone, desc);
+    public int updateOfPhoneAndSignature(User user, String phone, String signature) {
+        return dao.updateOfPhoneAndSignature(user, phone, signature);
     }
     public int updateOfPhoneAndImage(User user, String phone, String image) {
         return dao.updateOfPhoneAndImage(user, phone, image);
@@ -410,8 +410,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfEmailAndUserIds(User user, String email, String userIds) {
         return dao.updateOfEmailAndUserIds(user, email, userIds);
     }
-    public int updateOfEmailAndDesc(User user, String email, String desc) {
-        return dao.updateOfEmailAndDesc(user, email, desc);
+    public int updateOfEmailAndSignature(User user, String email, String signature) {
+        return dao.updateOfEmailAndSignature(user, email, signature);
     }
     public int updateOfEmailAndImage(User user, String email, String image) {
         return dao.updateOfEmailAndImage(user, email, image);
@@ -440,8 +440,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfMoneyAndUserIds(User user, String money, String userIds) {
         return dao.updateOfMoneyAndUserIds(user, money, userIds);
     }
-    public int updateOfMoneyAndDesc(User user, String money, String desc) {
-        return dao.updateOfMoneyAndDesc(user, money, desc);
+    public int updateOfMoneyAndSignature(User user, String money, String signature) {
+        return dao.updateOfMoneyAndSignature(user, money, signature);
     }
     public int updateOfMoneyAndImage(User user, String money, String image) {
         return dao.updateOfMoneyAndImage(user, money, image);
@@ -467,8 +467,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfScoreAndUserIds(User user, String score, String userIds) {
         return dao.updateOfScoreAndUserIds(user, score, userIds);
     }
-    public int updateOfScoreAndDesc(User user, String score, String desc) {
-        return dao.updateOfScoreAndDesc(user, score, desc);
+    public int updateOfScoreAndSignature(User user, String score, String signature) {
+        return dao.updateOfScoreAndSignature(user, score, signature);
     }
     public int updateOfScoreAndImage(User user, String score, String image) {
         return dao.updateOfScoreAndImage(user, score, image);
@@ -491,8 +491,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfPathAndUserIds(User user, String path, String userIds) {
         return dao.updateOfPathAndUserIds(user, path, userIds);
     }
-    public int updateOfPathAndDesc(User user, String path, String desc) {
-        return dao.updateOfPathAndDesc(user, path, desc);
+    public int updateOfPathAndSignature(User user, String path, String signature) {
+        return dao.updateOfPathAndSignature(user, path, signature);
     }
     public int updateOfPathAndImage(User user, String path, String image) {
         return dao.updateOfPathAndImage(user, path, image);
@@ -512,8 +512,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfParamAndUserIds(User user, String param, String userIds) {
         return dao.updateOfParamAndUserIds(user, param, userIds);
     }
-    public int updateOfParamAndDesc(User user, String param, String desc) {
-        return dao.updateOfParamAndDesc(user, param, desc);
+    public int updateOfParamAndSignature(User user, String param, String signature) {
+        return dao.updateOfParamAndSignature(user, param, signature);
     }
     public int updateOfParamAndImage(User user, String param, String image) {
         return dao.updateOfParamAndImage(user, param, image);
@@ -530,8 +530,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfLvlAndUserIds(User user, String lvl, String userIds) {
         return dao.updateOfLvlAndUserIds(user, lvl, userIds);
     }
-    public int updateOfLvlAndDesc(User user, String lvl, String desc) {
-        return dao.updateOfLvlAndDesc(user, lvl, desc);
+    public int updateOfLvlAndSignature(User user, String lvl, String signature) {
+        return dao.updateOfLvlAndSignature(user, lvl, signature);
     }
     public int updateOfLvlAndImage(User user, String lvl, String image) {
         return dao.updateOfLvlAndImage(user, lvl, image);
@@ -545,8 +545,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfNewIdsAndUserIds(User user, String newIds, String userIds) {
         return dao.updateOfNewIdsAndUserIds(user, newIds, userIds);
     }
-    public int updateOfNewIdsAndDesc(User user, String newIds, String desc) {
-        return dao.updateOfNewIdsAndDesc(user, newIds, desc);
+    public int updateOfNewIdsAndSignature(User user, String newIds, String signature) {
+        return dao.updateOfNewIdsAndSignature(user, newIds, signature);
     }
     public int updateOfNewIdsAndImage(User user, String newIds, String image) {
         return dao.updateOfNewIdsAndImage(user, newIds, image);
@@ -557,8 +557,8 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfNewIdsAndBUserIds(User user, String newIds, String bUserIds) {
         return dao.updateOfNewIdsAndBUserIds(user, newIds, bUserIds);
     }
-    public int updateOfUserIdsAndDesc(User user, String userIds, String desc) {
-        return dao.updateOfUserIdsAndDesc(user, userIds, desc);
+    public int updateOfUserIdsAndSignature(User user, String userIds, String signature) {
+        return dao.updateOfUserIdsAndSignature(user, userIds, signature);
     }
     public int updateOfUserIdsAndImage(User user, String userIds, String image) {
         return dao.updateOfUserIdsAndImage(user, userIds, image);
@@ -569,14 +569,14 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfUserIdsAndBUserIds(User user, String userIds, String bUserIds) {
         return dao.updateOfUserIdsAndBUserIds(user, userIds, bUserIds);
     }
-    public int updateOfDescAndImage(User user, String desc, String image) {
-        return dao.updateOfDescAndImage(user, desc, image);
+    public int updateOfSignatureAndImage(User user, String signature, String image) {
+        return dao.updateOfSignatureAndImage(user, signature, image);
     }
-    public int updateOfDescAndFamous(User user, String desc, String famous) {
-        return dao.updateOfDescAndFamous(user, desc, famous);
+    public int updateOfSignatureAndFamous(User user, String signature, String famous) {
+        return dao.updateOfSignatureAndFamous(user, signature, famous);
     }
-    public int updateOfDescAndBUserIds(User user, String desc, String bUserIds) {
-        return dao.updateOfDescAndBUserIds(user, desc, bUserIds);
+    public int updateOfSignatureAndBUserIds(User user, String signature, String bUserIds) {
+        return dao.updateOfSignatureAndBUserIds(user, signature, bUserIds);
     }
     public int updateOfImageAndFamous(User user, String image, String famous) {
         return dao.updateOfImageAndFamous(user, image, famous);
@@ -635,8 +635,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfUserIds(String userIds) {
         return dao.removeOfUserIds(userIds);
     }
-    public int removeOfDesc(String desc) {
-        return dao.removeOfDesc(desc);
+    public int removeOfSignature(String signature) {
+        return dao.removeOfSignature(signature);
     }
     public int removeOfImage(String image) {
         return dao.removeOfImage(image);
@@ -689,8 +689,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfUserIdAndUserIds(String userId, String userIds) {
         return dao.removeOfUserIdAndUserIds(userId, userIds);
     }
-    public int removeOfUserIdAndDesc(String userId, String desc) {
-        return dao.removeOfUserIdAndDesc(userId, desc);
+    public int removeOfUserIdAndSignature(String userId, String signature) {
+        return dao.removeOfUserIdAndSignature(userId, signature);
     }
     public int removeOfUserIdAndImage(String userId, String image) {
         return dao.removeOfUserIdAndImage(userId, image);
@@ -740,8 +740,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfPasswordAndUserIds(String password, String userIds) {
         return dao.removeOfPasswordAndUserIds(password, userIds);
     }
-    public int removeOfPasswordAndDesc(String password, String desc) {
-        return dao.removeOfPasswordAndDesc(password, desc);
+    public int removeOfPasswordAndSignature(String password, String signature) {
+        return dao.removeOfPasswordAndSignature(password, signature);
     }
     public int removeOfPasswordAndImage(String password, String image) {
         return dao.removeOfPasswordAndImage(password, image);
@@ -788,8 +788,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfNameAndUserIds(String name, String userIds) {
         return dao.removeOfNameAndUserIds(name, userIds);
     }
-    public int removeOfNameAndDesc(String name, String desc) {
-        return dao.removeOfNameAndDesc(name, desc);
+    public int removeOfNameAndSignature(String name, String signature) {
+        return dao.removeOfNameAndSignature(name, signature);
     }
     public int removeOfNameAndImage(String name, String image) {
         return dao.removeOfNameAndImage(name, image);
@@ -833,8 +833,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfSexAndUserIds(String sex, String userIds) {
         return dao.removeOfSexAndUserIds(sex, userIds);
     }
-    public int removeOfSexAndDesc(String sex, String desc) {
-        return dao.removeOfSexAndDesc(sex, desc);
+    public int removeOfSexAndSignature(String sex, String signature) {
+        return dao.removeOfSexAndSignature(sex, signature);
     }
     public int removeOfSexAndImage(String sex, String image) {
         return dao.removeOfSexAndImage(sex, image);
@@ -875,8 +875,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfRegisterDateAndUserIds(String registerDate, String userIds) {
         return dao.removeOfRegisterDateAndUserIds(registerDate, userIds);
     }
-    public int removeOfRegisterDateAndDesc(String registerDate, String desc) {
-        return dao.removeOfRegisterDateAndDesc(registerDate, desc);
+    public int removeOfRegisterDateAndSignature(String registerDate, String signature) {
+        return dao.removeOfRegisterDateAndSignature(registerDate, signature);
     }
     public int removeOfRegisterDateAndImage(String registerDate, String image) {
         return dao.removeOfRegisterDateAndImage(registerDate, image);
@@ -914,8 +914,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfLoginDateAndUserIds(String loginDate, String userIds) {
         return dao.removeOfLoginDateAndUserIds(loginDate, userIds);
     }
-    public int removeOfLoginDateAndDesc(String loginDate, String desc) {
-        return dao.removeOfLoginDateAndDesc(loginDate, desc);
+    public int removeOfLoginDateAndSignature(String loginDate, String signature) {
+        return dao.removeOfLoginDateAndSignature(loginDate, signature);
     }
     public int removeOfLoginDateAndImage(String loginDate, String image) {
         return dao.removeOfLoginDateAndImage(loginDate, image);
@@ -950,8 +950,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfPhoneAndUserIds(String phone, String userIds) {
         return dao.removeOfPhoneAndUserIds(phone, userIds);
     }
-    public int removeOfPhoneAndDesc(String phone, String desc) {
-        return dao.removeOfPhoneAndDesc(phone, desc);
+    public int removeOfPhoneAndSignature(String phone, String signature) {
+        return dao.removeOfPhoneAndSignature(phone, signature);
     }
     public int removeOfPhoneAndImage(String phone, String image) {
         return dao.removeOfPhoneAndImage(phone, image);
@@ -983,8 +983,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfEmailAndUserIds(String email, String userIds) {
         return dao.removeOfEmailAndUserIds(email, userIds);
     }
-    public int removeOfEmailAndDesc(String email, String desc) {
-        return dao.removeOfEmailAndDesc(email, desc);
+    public int removeOfEmailAndSignature(String email, String signature) {
+        return dao.removeOfEmailAndSignature(email, signature);
     }
     public int removeOfEmailAndImage(String email, String image) {
         return dao.removeOfEmailAndImage(email, image);
@@ -1013,8 +1013,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfMoneyAndUserIds(String money, String userIds) {
         return dao.removeOfMoneyAndUserIds(money, userIds);
     }
-    public int removeOfMoneyAndDesc(String money, String desc) {
-        return dao.removeOfMoneyAndDesc(money, desc);
+    public int removeOfMoneyAndSignature(String money, String signature) {
+        return dao.removeOfMoneyAndSignature(money, signature);
     }
     public int removeOfMoneyAndImage(String money, String image) {
         return dao.removeOfMoneyAndImage(money, image);
@@ -1040,8 +1040,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfScoreAndUserIds(String score, String userIds) {
         return dao.removeOfScoreAndUserIds(score, userIds);
     }
-    public int removeOfScoreAndDesc(String score, String desc) {
-        return dao.removeOfScoreAndDesc(score, desc);
+    public int removeOfScoreAndSignature(String score, String signature) {
+        return dao.removeOfScoreAndSignature(score, signature);
     }
     public int removeOfScoreAndImage(String score, String image) {
         return dao.removeOfScoreAndImage(score, image);
@@ -1064,8 +1064,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfPathAndUserIds(String path, String userIds) {
         return dao.removeOfPathAndUserIds(path, userIds);
     }
-    public int removeOfPathAndDesc(String path, String desc) {
-        return dao.removeOfPathAndDesc(path, desc);
+    public int removeOfPathAndSignature(String path, String signature) {
+        return dao.removeOfPathAndSignature(path, signature);
     }
     public int removeOfPathAndImage(String path, String image) {
         return dao.removeOfPathAndImage(path, image);
@@ -1085,8 +1085,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfParamAndUserIds(String param, String userIds) {
         return dao.removeOfParamAndUserIds(param, userIds);
     }
-    public int removeOfParamAndDesc(String param, String desc) {
-        return dao.removeOfParamAndDesc(param, desc);
+    public int removeOfParamAndSignature(String param, String signature) {
+        return dao.removeOfParamAndSignature(param, signature);
     }
     public int removeOfParamAndImage(String param, String image) {
         return dao.removeOfParamAndImage(param, image);
@@ -1103,8 +1103,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfLvlAndUserIds(String lvl, String userIds) {
         return dao.removeOfLvlAndUserIds(lvl, userIds);
     }
-    public int removeOfLvlAndDesc(String lvl, String desc) {
-        return dao.removeOfLvlAndDesc(lvl, desc);
+    public int removeOfLvlAndSignature(String lvl, String signature) {
+        return dao.removeOfLvlAndSignature(lvl, signature);
     }
     public int removeOfLvlAndImage(String lvl, String image) {
         return dao.removeOfLvlAndImage(lvl, image);
@@ -1118,8 +1118,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfNewIdsAndUserIds(String newIds, String userIds) {
         return dao.removeOfNewIdsAndUserIds(newIds, userIds);
     }
-    public int removeOfNewIdsAndDesc(String newIds, String desc) {
-        return dao.removeOfNewIdsAndDesc(newIds, desc);
+    public int removeOfNewIdsAndSignature(String newIds, String signature) {
+        return dao.removeOfNewIdsAndSignature(newIds, signature);
     }
     public int removeOfNewIdsAndImage(String newIds, String image) {
         return dao.removeOfNewIdsAndImage(newIds, image);
@@ -1130,8 +1130,8 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfNewIdsAndBUserIds(String newIds, String bUserIds) {
         return dao.removeOfNewIdsAndBUserIds(newIds, bUserIds);
     }
-    public int removeOfUserIdsAndDesc(String userIds, String desc) {
-        return dao.removeOfUserIdsAndDesc(userIds, desc);
+    public int removeOfUserIdsAndSignature(String userIds, String signature) {
+        return dao.removeOfUserIdsAndSignature(userIds, signature);
     }
     public int removeOfUserIdsAndImage(String userIds, String image) {
         return dao.removeOfUserIdsAndImage(userIds, image);
@@ -1142,14 +1142,14 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfUserIdsAndBUserIds(String userIds, String bUserIds) {
         return dao.removeOfUserIdsAndBUserIds(userIds, bUserIds);
     }
-    public int removeOfDescAndImage(String desc, String image) {
-        return dao.removeOfDescAndImage(desc, image);
+    public int removeOfSignatureAndImage(String signature, String image) {
+        return dao.removeOfSignatureAndImage(signature, image);
     }
-    public int removeOfDescAndFamous(String desc, String famous) {
-        return dao.removeOfDescAndFamous(desc, famous);
+    public int removeOfSignatureAndFamous(String signature, String famous) {
+        return dao.removeOfSignatureAndFamous(signature, famous);
     }
-    public int removeOfDescAndBUserIds(String desc, String bUserIds) {
-        return dao.removeOfDescAndBUserIds(desc, bUserIds);
+    public int removeOfSignatureAndBUserIds(String signature, String bUserIds) {
+        return dao.removeOfSignatureAndBUserIds(signature, bUserIds);
     }
     public int removeOfImageAndFamous(String image, String famous) {
         return dao.removeOfImageAndFamous(image, famous);
@@ -1208,8 +1208,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfUserIds(String userIds) {
         return dao.insertOfUserIds(userIds);
     }
-    public int insertOfDesc(String desc) {
-        return dao.insertOfDesc(desc);
+    public int insertOfSignature(String signature) {
+        return dao.insertOfSignature(signature);
     }
     public int insertOfImage(String image) {
         return dao.insertOfImage(image);
@@ -1262,8 +1262,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfUserIdAndUserIds(String userId, String userIds) {
         return dao.insertOfUserIdAndUserIds(userId, userIds);
     }
-    public int insertOfUserIdAndDesc(String userId, String desc) {
-        return dao.insertOfUserIdAndDesc(userId, desc);
+    public int insertOfUserIdAndSignature(String userId, String signature) {
+        return dao.insertOfUserIdAndSignature(userId, signature);
     }
     public int insertOfUserIdAndImage(String userId, String image) {
         return dao.insertOfUserIdAndImage(userId, image);
@@ -1313,8 +1313,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfPasswordAndUserIds(String password, String userIds) {
         return dao.insertOfPasswordAndUserIds(password, userIds);
     }
-    public int insertOfPasswordAndDesc(String password, String desc) {
-        return dao.insertOfPasswordAndDesc(password, desc);
+    public int insertOfPasswordAndSignature(String password, String signature) {
+        return dao.insertOfPasswordAndSignature(password, signature);
     }
     public int insertOfPasswordAndImage(String password, String image) {
         return dao.insertOfPasswordAndImage(password, image);
@@ -1361,8 +1361,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfNameAndUserIds(String name, String userIds) {
         return dao.insertOfNameAndUserIds(name, userIds);
     }
-    public int insertOfNameAndDesc(String name, String desc) {
-        return dao.insertOfNameAndDesc(name, desc);
+    public int insertOfNameAndSignature(String name, String signature) {
+        return dao.insertOfNameAndSignature(name, signature);
     }
     public int insertOfNameAndImage(String name, String image) {
         return dao.insertOfNameAndImage(name, image);
@@ -1406,8 +1406,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfSexAndUserIds(String sex, String userIds) {
         return dao.insertOfSexAndUserIds(sex, userIds);
     }
-    public int insertOfSexAndDesc(String sex, String desc) {
-        return dao.insertOfSexAndDesc(sex, desc);
+    public int insertOfSexAndSignature(String sex, String signature) {
+        return dao.insertOfSexAndSignature(sex, signature);
     }
     public int insertOfSexAndImage(String sex, String image) {
         return dao.insertOfSexAndImage(sex, image);
@@ -1448,8 +1448,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfRegisterDateAndUserIds(String registerDate, String userIds) {
         return dao.insertOfRegisterDateAndUserIds(registerDate, userIds);
     }
-    public int insertOfRegisterDateAndDesc(String registerDate, String desc) {
-        return dao.insertOfRegisterDateAndDesc(registerDate, desc);
+    public int insertOfRegisterDateAndSignature(String registerDate, String signature) {
+        return dao.insertOfRegisterDateAndSignature(registerDate, signature);
     }
     public int insertOfRegisterDateAndImage(String registerDate, String image) {
         return dao.insertOfRegisterDateAndImage(registerDate, image);
@@ -1487,8 +1487,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfLoginDateAndUserIds(String loginDate, String userIds) {
         return dao.insertOfLoginDateAndUserIds(loginDate, userIds);
     }
-    public int insertOfLoginDateAndDesc(String loginDate, String desc) {
-        return dao.insertOfLoginDateAndDesc(loginDate, desc);
+    public int insertOfLoginDateAndSignature(String loginDate, String signature) {
+        return dao.insertOfLoginDateAndSignature(loginDate, signature);
     }
     public int insertOfLoginDateAndImage(String loginDate, String image) {
         return dao.insertOfLoginDateAndImage(loginDate, image);
@@ -1523,8 +1523,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfPhoneAndUserIds(String phone, String userIds) {
         return dao.insertOfPhoneAndUserIds(phone, userIds);
     }
-    public int insertOfPhoneAndDesc(String phone, String desc) {
-        return dao.insertOfPhoneAndDesc(phone, desc);
+    public int insertOfPhoneAndSignature(String phone, String signature) {
+        return dao.insertOfPhoneAndSignature(phone, signature);
     }
     public int insertOfPhoneAndImage(String phone, String image) {
         return dao.insertOfPhoneAndImage(phone, image);
@@ -1556,8 +1556,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfEmailAndUserIds(String email, String userIds) {
         return dao.insertOfEmailAndUserIds(email, userIds);
     }
-    public int insertOfEmailAndDesc(String email, String desc) {
-        return dao.insertOfEmailAndDesc(email, desc);
+    public int insertOfEmailAndSignature(String email, String signature) {
+        return dao.insertOfEmailAndSignature(email, signature);
     }
     public int insertOfEmailAndImage(String email, String image) {
         return dao.insertOfEmailAndImage(email, image);
@@ -1586,8 +1586,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfMoneyAndUserIds(String money, String userIds) {
         return dao.insertOfMoneyAndUserIds(money, userIds);
     }
-    public int insertOfMoneyAndDesc(String money, String desc) {
-        return dao.insertOfMoneyAndDesc(money, desc);
+    public int insertOfMoneyAndSignature(String money, String signature) {
+        return dao.insertOfMoneyAndSignature(money, signature);
     }
     public int insertOfMoneyAndImage(String money, String image) {
         return dao.insertOfMoneyAndImage(money, image);
@@ -1613,8 +1613,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfScoreAndUserIds(String score, String userIds) {
         return dao.insertOfScoreAndUserIds(score, userIds);
     }
-    public int insertOfScoreAndDesc(String score, String desc) {
-        return dao.insertOfScoreAndDesc(score, desc);
+    public int insertOfScoreAndSignature(String score, String signature) {
+        return dao.insertOfScoreAndSignature(score, signature);
     }
     public int insertOfScoreAndImage(String score, String image) {
         return dao.insertOfScoreAndImage(score, image);
@@ -1637,8 +1637,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfPathAndUserIds(String path, String userIds) {
         return dao.insertOfPathAndUserIds(path, userIds);
     }
-    public int insertOfPathAndDesc(String path, String desc) {
-        return dao.insertOfPathAndDesc(path, desc);
+    public int insertOfPathAndSignature(String path, String signature) {
+        return dao.insertOfPathAndSignature(path, signature);
     }
     public int insertOfPathAndImage(String path, String image) {
         return dao.insertOfPathAndImage(path, image);
@@ -1658,8 +1658,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfParamAndUserIds(String param, String userIds) {
         return dao.insertOfParamAndUserIds(param, userIds);
     }
-    public int insertOfParamAndDesc(String param, String desc) {
-        return dao.insertOfParamAndDesc(param, desc);
+    public int insertOfParamAndSignature(String param, String signature) {
+        return dao.insertOfParamAndSignature(param, signature);
     }
     public int insertOfParamAndImage(String param, String image) {
         return dao.insertOfParamAndImage(param, image);
@@ -1676,8 +1676,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfLvlAndUserIds(String lvl, String userIds) {
         return dao.insertOfLvlAndUserIds(lvl, userIds);
     }
-    public int insertOfLvlAndDesc(String lvl, String desc) {
-        return dao.insertOfLvlAndDesc(lvl, desc);
+    public int insertOfLvlAndSignature(String lvl, String signature) {
+        return dao.insertOfLvlAndSignature(lvl, signature);
     }
     public int insertOfLvlAndImage(String lvl, String image) {
         return dao.insertOfLvlAndImage(lvl, image);
@@ -1691,8 +1691,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfNewIdsAndUserIds(String newIds, String userIds) {
         return dao.insertOfNewIdsAndUserIds(newIds, userIds);
     }
-    public int insertOfNewIdsAndDesc(String newIds, String desc) {
-        return dao.insertOfNewIdsAndDesc(newIds, desc);
+    public int insertOfNewIdsAndSignature(String newIds, String signature) {
+        return dao.insertOfNewIdsAndSignature(newIds, signature);
     }
     public int insertOfNewIdsAndImage(String newIds, String image) {
         return dao.insertOfNewIdsAndImage(newIds, image);
@@ -1703,8 +1703,8 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfNewIdsAndBUserIds(String newIds, String bUserIds) {
         return dao.insertOfNewIdsAndBUserIds(newIds, bUserIds);
     }
-    public int insertOfUserIdsAndDesc(String userIds, String desc) {
-        return dao.insertOfUserIdsAndDesc(userIds, desc);
+    public int insertOfUserIdsAndSignature(String userIds, String signature) {
+        return dao.insertOfUserIdsAndSignature(userIds, signature);
     }
     public int insertOfUserIdsAndImage(String userIds, String image) {
         return dao.insertOfUserIdsAndImage(userIds, image);
@@ -1715,14 +1715,14 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfUserIdsAndBUserIds(String userIds, String bUserIds) {
         return dao.insertOfUserIdsAndBUserIds(userIds, bUserIds);
     }
-    public int insertOfDescAndImage(String desc, String image) {
-        return dao.insertOfDescAndImage(desc, image);
+    public int insertOfSignatureAndImage(String signature, String image) {
+        return dao.insertOfSignatureAndImage(signature, image);
     }
-    public int insertOfDescAndFamous(String desc, String famous) {
-        return dao.insertOfDescAndFamous(desc, famous);
+    public int insertOfSignatureAndFamous(String signature, String famous) {
+        return dao.insertOfSignatureAndFamous(signature, famous);
     }
-    public int insertOfDescAndBUserIds(String desc, String bUserIds) {
-        return dao.insertOfDescAndBUserIds(desc, bUserIds);
+    public int insertOfSignatureAndBUserIds(String signature, String bUserIds) {
+        return dao.insertOfSignatureAndBUserIds(signature, bUserIds);
     }
     public int insertOfImageAndFamous(String image, String famous) {
         return dao.insertOfImageAndFamous(image, famous);
@@ -1781,8 +1781,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfUserIds(String userIds) {
         return dao.getUserOfUserIds(userIds);
     }
-    public User getUserOfDesc(String desc) {
-        return dao.getUserOfDesc(desc);
+    public User getUserOfSignature(String signature) {
+        return dao.getUserOfSignature(signature);
     }
     public User getUserOfImage(String image) {
         return dao.getUserOfImage(image);
@@ -1835,8 +1835,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfUserIdAndUserIds(String userId, String userIds) {
         return dao.getUserOfUserIdAndUserIds(userId, userIds);
     }
-    public User getUserOfUserIdAndDesc(String userId, String desc) {
-        return dao.getUserOfUserIdAndDesc(userId, desc);
+    public User getUserOfUserIdAndSignature(String userId, String signature) {
+        return dao.getUserOfUserIdAndSignature(userId, signature);
     }
     public User getUserOfUserIdAndImage(String userId, String image) {
         return dao.getUserOfUserIdAndImage(userId, image);
@@ -1886,8 +1886,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfPasswordAndUserIds(String password, String userIds) {
         return dao.getUserOfPasswordAndUserIds(password, userIds);
     }
-    public User getUserOfPasswordAndDesc(String password, String desc) {
-        return dao.getUserOfPasswordAndDesc(password, desc);
+    public User getUserOfPasswordAndSignature(String password, String signature) {
+        return dao.getUserOfPasswordAndSignature(password, signature);
     }
     public User getUserOfPasswordAndImage(String password, String image) {
         return dao.getUserOfPasswordAndImage(password, image);
@@ -1934,8 +1934,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfNameAndUserIds(String name, String userIds) {
         return dao.getUserOfNameAndUserIds(name, userIds);
     }
-    public User getUserOfNameAndDesc(String name, String desc) {
-        return dao.getUserOfNameAndDesc(name, desc);
+    public User getUserOfNameAndSignature(String name, String signature) {
+        return dao.getUserOfNameAndSignature(name, signature);
     }
     public User getUserOfNameAndImage(String name, String image) {
         return dao.getUserOfNameAndImage(name, image);
@@ -1979,8 +1979,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfSexAndUserIds(String sex, String userIds) {
         return dao.getUserOfSexAndUserIds(sex, userIds);
     }
-    public User getUserOfSexAndDesc(String sex, String desc) {
-        return dao.getUserOfSexAndDesc(sex, desc);
+    public User getUserOfSexAndSignature(String sex, String signature) {
+        return dao.getUserOfSexAndSignature(sex, signature);
     }
     public User getUserOfSexAndImage(String sex, String image) {
         return dao.getUserOfSexAndImage(sex, image);
@@ -2021,8 +2021,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfRegisterDateAndUserIds(String registerDate, String userIds) {
         return dao.getUserOfRegisterDateAndUserIds(registerDate, userIds);
     }
-    public User getUserOfRegisterDateAndDesc(String registerDate, String desc) {
-        return dao.getUserOfRegisterDateAndDesc(registerDate, desc);
+    public User getUserOfRegisterDateAndSignature(String registerDate, String signature) {
+        return dao.getUserOfRegisterDateAndSignature(registerDate, signature);
     }
     public User getUserOfRegisterDateAndImage(String registerDate, String image) {
         return dao.getUserOfRegisterDateAndImage(registerDate, image);
@@ -2060,8 +2060,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfLoginDateAndUserIds(String loginDate, String userIds) {
         return dao.getUserOfLoginDateAndUserIds(loginDate, userIds);
     }
-    public User getUserOfLoginDateAndDesc(String loginDate, String desc) {
-        return dao.getUserOfLoginDateAndDesc(loginDate, desc);
+    public User getUserOfLoginDateAndSignature(String loginDate, String signature) {
+        return dao.getUserOfLoginDateAndSignature(loginDate, signature);
     }
     public User getUserOfLoginDateAndImage(String loginDate, String image) {
         return dao.getUserOfLoginDateAndImage(loginDate, image);
@@ -2096,8 +2096,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfPhoneAndUserIds(String phone, String userIds) {
         return dao.getUserOfPhoneAndUserIds(phone, userIds);
     }
-    public User getUserOfPhoneAndDesc(String phone, String desc) {
-        return dao.getUserOfPhoneAndDesc(phone, desc);
+    public User getUserOfPhoneAndSignature(String phone, String signature) {
+        return dao.getUserOfPhoneAndSignature(phone, signature);
     }
     public User getUserOfPhoneAndImage(String phone, String image) {
         return dao.getUserOfPhoneAndImage(phone, image);
@@ -2129,8 +2129,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfEmailAndUserIds(String email, String userIds) {
         return dao.getUserOfEmailAndUserIds(email, userIds);
     }
-    public User getUserOfEmailAndDesc(String email, String desc) {
-        return dao.getUserOfEmailAndDesc(email, desc);
+    public User getUserOfEmailAndSignature(String email, String signature) {
+        return dao.getUserOfEmailAndSignature(email, signature);
     }
     public User getUserOfEmailAndImage(String email, String image) {
         return dao.getUserOfEmailAndImage(email, image);
@@ -2159,8 +2159,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfMoneyAndUserIds(String money, String userIds) {
         return dao.getUserOfMoneyAndUserIds(money, userIds);
     }
-    public User getUserOfMoneyAndDesc(String money, String desc) {
-        return dao.getUserOfMoneyAndDesc(money, desc);
+    public User getUserOfMoneyAndSignature(String money, String signature) {
+        return dao.getUserOfMoneyAndSignature(money, signature);
     }
     public User getUserOfMoneyAndImage(String money, String image) {
         return dao.getUserOfMoneyAndImage(money, image);
@@ -2186,8 +2186,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfScoreAndUserIds(String score, String userIds) {
         return dao.getUserOfScoreAndUserIds(score, userIds);
     }
-    public User getUserOfScoreAndDesc(String score, String desc) {
-        return dao.getUserOfScoreAndDesc(score, desc);
+    public User getUserOfScoreAndSignature(String score, String signature) {
+        return dao.getUserOfScoreAndSignature(score, signature);
     }
     public User getUserOfScoreAndImage(String score, String image) {
         return dao.getUserOfScoreAndImage(score, image);
@@ -2210,8 +2210,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfPathAndUserIds(String path, String userIds) {
         return dao.getUserOfPathAndUserIds(path, userIds);
     }
-    public User getUserOfPathAndDesc(String path, String desc) {
-        return dao.getUserOfPathAndDesc(path, desc);
+    public User getUserOfPathAndSignature(String path, String signature) {
+        return dao.getUserOfPathAndSignature(path, signature);
     }
     public User getUserOfPathAndImage(String path, String image) {
         return dao.getUserOfPathAndImage(path, image);
@@ -2231,8 +2231,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfParamAndUserIds(String param, String userIds) {
         return dao.getUserOfParamAndUserIds(param, userIds);
     }
-    public User getUserOfParamAndDesc(String param, String desc) {
-        return dao.getUserOfParamAndDesc(param, desc);
+    public User getUserOfParamAndSignature(String param, String signature) {
+        return dao.getUserOfParamAndSignature(param, signature);
     }
     public User getUserOfParamAndImage(String param, String image) {
         return dao.getUserOfParamAndImage(param, image);
@@ -2249,8 +2249,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfLvlAndUserIds(String lvl, String userIds) {
         return dao.getUserOfLvlAndUserIds(lvl, userIds);
     }
-    public User getUserOfLvlAndDesc(String lvl, String desc) {
-        return dao.getUserOfLvlAndDesc(lvl, desc);
+    public User getUserOfLvlAndSignature(String lvl, String signature) {
+        return dao.getUserOfLvlAndSignature(lvl, signature);
     }
     public User getUserOfLvlAndImage(String lvl, String image) {
         return dao.getUserOfLvlAndImage(lvl, image);
@@ -2264,8 +2264,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfNewIdsAndUserIds(String newIds, String userIds) {
         return dao.getUserOfNewIdsAndUserIds(newIds, userIds);
     }
-    public User getUserOfNewIdsAndDesc(String newIds, String desc) {
-        return dao.getUserOfNewIdsAndDesc(newIds, desc);
+    public User getUserOfNewIdsAndSignature(String newIds, String signature) {
+        return dao.getUserOfNewIdsAndSignature(newIds, signature);
     }
     public User getUserOfNewIdsAndImage(String newIds, String image) {
         return dao.getUserOfNewIdsAndImage(newIds, image);
@@ -2276,8 +2276,8 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfNewIdsAndBUserIds(String newIds, String bUserIds) {
         return dao.getUserOfNewIdsAndBUserIds(newIds, bUserIds);
     }
-    public User getUserOfUserIdsAndDesc(String userIds, String desc) {
-        return dao.getUserOfUserIdsAndDesc(userIds, desc);
+    public User getUserOfUserIdsAndSignature(String userIds, String signature) {
+        return dao.getUserOfUserIdsAndSignature(userIds, signature);
     }
     public User getUserOfUserIdsAndImage(String userIds, String image) {
         return dao.getUserOfUserIdsAndImage(userIds, image);
@@ -2288,14 +2288,14 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfUserIdsAndBUserIds(String userIds, String bUserIds) {
         return dao.getUserOfUserIdsAndBUserIds(userIds, bUserIds);
     }
-    public User getUserOfDescAndImage(String desc, String image) {
-        return dao.getUserOfDescAndImage(desc, image);
+    public User getUserOfSignatureAndImage(String signature, String image) {
+        return dao.getUserOfSignatureAndImage(signature, image);
     }
-    public User getUserOfDescAndFamous(String desc, String famous) {
-        return dao.getUserOfDescAndFamous(desc, famous);
+    public User getUserOfSignatureAndFamous(String signature, String famous) {
+        return dao.getUserOfSignatureAndFamous(signature, famous);
     }
-    public User getUserOfDescAndBUserIds(String desc, String bUserIds) {
-        return dao.getUserOfDescAndBUserIds(desc, bUserIds);
+    public User getUserOfSignatureAndBUserIds(String signature, String bUserIds) {
+        return dao.getUserOfSignatureAndBUserIds(signature, bUserIds);
     }
     public User getUserOfImageAndFamous(String image, String famous) {
         return dao.getUserOfImageAndFamous(image, famous);
@@ -2354,8 +2354,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfUserIds(String userIds) {
         return dao.getUsersOfUserIds(userIds);
     }
-    public List<User> getUsersOfDesc(String desc) {
-        return dao.getUsersOfDesc(desc);
+    public List<User> getUsersOfSignature(String signature) {
+        return dao.getUsersOfSignature(signature);
     }
     public List<User> getUsersOfImage(String image) {
         return dao.getUsersOfImage(image);
@@ -2408,8 +2408,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfUserIdAndUserIds(String userId, String userIds) {
         return dao.getUsersOfUserIdAndUserIds(userId, userIds);
     }
-    public List<User> getUsersOfUserIdAndDesc(String userId, String desc) {
-        return dao.getUsersOfUserIdAndDesc(userId, desc);
+    public List<User> getUsersOfUserIdAndSignature(String userId, String signature) {
+        return dao.getUsersOfUserIdAndSignature(userId, signature);
     }
     public List<User> getUsersOfUserIdAndImage(String userId, String image) {
         return dao.getUsersOfUserIdAndImage(userId, image);
@@ -2459,8 +2459,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfPasswordAndUserIds(String password, String userIds) {
         return dao.getUsersOfPasswordAndUserIds(password, userIds);
     }
-    public List<User> getUsersOfPasswordAndDesc(String password, String desc) {
-        return dao.getUsersOfPasswordAndDesc(password, desc);
+    public List<User> getUsersOfPasswordAndSignature(String password, String signature) {
+        return dao.getUsersOfPasswordAndSignature(password, signature);
     }
     public List<User> getUsersOfPasswordAndImage(String password, String image) {
         return dao.getUsersOfPasswordAndImage(password, image);
@@ -2507,8 +2507,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfNameAndUserIds(String name, String userIds) {
         return dao.getUsersOfNameAndUserIds(name, userIds);
     }
-    public List<User> getUsersOfNameAndDesc(String name, String desc) {
-        return dao.getUsersOfNameAndDesc(name, desc);
+    public List<User> getUsersOfNameAndSignature(String name, String signature) {
+        return dao.getUsersOfNameAndSignature(name, signature);
     }
     public List<User> getUsersOfNameAndImage(String name, String image) {
         return dao.getUsersOfNameAndImage(name, image);
@@ -2552,8 +2552,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfSexAndUserIds(String sex, String userIds) {
         return dao.getUsersOfSexAndUserIds(sex, userIds);
     }
-    public List<User> getUsersOfSexAndDesc(String sex, String desc) {
-        return dao.getUsersOfSexAndDesc(sex, desc);
+    public List<User> getUsersOfSexAndSignature(String sex, String signature) {
+        return dao.getUsersOfSexAndSignature(sex, signature);
     }
     public List<User> getUsersOfSexAndImage(String sex, String image) {
         return dao.getUsersOfSexAndImage(sex, image);
@@ -2594,8 +2594,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfRegisterDateAndUserIds(String registerDate, String userIds) {
         return dao.getUsersOfRegisterDateAndUserIds(registerDate, userIds);
     }
-    public List<User> getUsersOfRegisterDateAndDesc(String registerDate, String desc) {
-        return dao.getUsersOfRegisterDateAndDesc(registerDate, desc);
+    public List<User> getUsersOfRegisterDateAndSignature(String registerDate, String signature) {
+        return dao.getUsersOfRegisterDateAndSignature(registerDate, signature);
     }
     public List<User> getUsersOfRegisterDateAndImage(String registerDate, String image) {
         return dao.getUsersOfRegisterDateAndImage(registerDate, image);
@@ -2633,8 +2633,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfLoginDateAndUserIds(String loginDate, String userIds) {
         return dao.getUsersOfLoginDateAndUserIds(loginDate, userIds);
     }
-    public List<User> getUsersOfLoginDateAndDesc(String loginDate, String desc) {
-        return dao.getUsersOfLoginDateAndDesc(loginDate, desc);
+    public List<User> getUsersOfLoginDateAndSignature(String loginDate, String signature) {
+        return dao.getUsersOfLoginDateAndSignature(loginDate, signature);
     }
     public List<User> getUsersOfLoginDateAndImage(String loginDate, String image) {
         return dao.getUsersOfLoginDateAndImage(loginDate, image);
@@ -2669,8 +2669,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfPhoneAndUserIds(String phone, String userIds) {
         return dao.getUsersOfPhoneAndUserIds(phone, userIds);
     }
-    public List<User> getUsersOfPhoneAndDesc(String phone, String desc) {
-        return dao.getUsersOfPhoneAndDesc(phone, desc);
+    public List<User> getUsersOfPhoneAndSignature(String phone, String signature) {
+        return dao.getUsersOfPhoneAndSignature(phone, signature);
     }
     public List<User> getUsersOfPhoneAndImage(String phone, String image) {
         return dao.getUsersOfPhoneAndImage(phone, image);
@@ -2702,8 +2702,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfEmailAndUserIds(String email, String userIds) {
         return dao.getUsersOfEmailAndUserIds(email, userIds);
     }
-    public List<User> getUsersOfEmailAndDesc(String email, String desc) {
-        return dao.getUsersOfEmailAndDesc(email, desc);
+    public List<User> getUsersOfEmailAndSignature(String email, String signature) {
+        return dao.getUsersOfEmailAndSignature(email, signature);
     }
     public List<User> getUsersOfEmailAndImage(String email, String image) {
         return dao.getUsersOfEmailAndImage(email, image);
@@ -2732,8 +2732,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfMoneyAndUserIds(String money, String userIds) {
         return dao.getUsersOfMoneyAndUserIds(money, userIds);
     }
-    public List<User> getUsersOfMoneyAndDesc(String money, String desc) {
-        return dao.getUsersOfMoneyAndDesc(money, desc);
+    public List<User> getUsersOfMoneyAndSignature(String money, String signature) {
+        return dao.getUsersOfMoneyAndSignature(money, signature);
     }
     public List<User> getUsersOfMoneyAndImage(String money, String image) {
         return dao.getUsersOfMoneyAndImage(money, image);
@@ -2759,8 +2759,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfScoreAndUserIds(String score, String userIds) {
         return dao.getUsersOfScoreAndUserIds(score, userIds);
     }
-    public List<User> getUsersOfScoreAndDesc(String score, String desc) {
-        return dao.getUsersOfScoreAndDesc(score, desc);
+    public List<User> getUsersOfScoreAndSignature(String score, String signature) {
+        return dao.getUsersOfScoreAndSignature(score, signature);
     }
     public List<User> getUsersOfScoreAndImage(String score, String image) {
         return dao.getUsersOfScoreAndImage(score, image);
@@ -2783,8 +2783,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfPathAndUserIds(String path, String userIds) {
         return dao.getUsersOfPathAndUserIds(path, userIds);
     }
-    public List<User> getUsersOfPathAndDesc(String path, String desc) {
-        return dao.getUsersOfPathAndDesc(path, desc);
+    public List<User> getUsersOfPathAndSignature(String path, String signature) {
+        return dao.getUsersOfPathAndSignature(path, signature);
     }
     public List<User> getUsersOfPathAndImage(String path, String image) {
         return dao.getUsersOfPathAndImage(path, image);
@@ -2804,8 +2804,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfParamAndUserIds(String param, String userIds) {
         return dao.getUsersOfParamAndUserIds(param, userIds);
     }
-    public List<User> getUsersOfParamAndDesc(String param, String desc) {
-        return dao.getUsersOfParamAndDesc(param, desc);
+    public List<User> getUsersOfParamAndSignature(String param, String signature) {
+        return dao.getUsersOfParamAndSignature(param, signature);
     }
     public List<User> getUsersOfParamAndImage(String param, String image) {
         return dao.getUsersOfParamAndImage(param, image);
@@ -2822,8 +2822,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfLvlAndUserIds(String lvl, String userIds) {
         return dao.getUsersOfLvlAndUserIds(lvl, userIds);
     }
-    public List<User> getUsersOfLvlAndDesc(String lvl, String desc) {
-        return dao.getUsersOfLvlAndDesc(lvl, desc);
+    public List<User> getUsersOfLvlAndSignature(String lvl, String signature) {
+        return dao.getUsersOfLvlAndSignature(lvl, signature);
     }
     public List<User> getUsersOfLvlAndImage(String lvl, String image) {
         return dao.getUsersOfLvlAndImage(lvl, image);
@@ -2837,8 +2837,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfNewIdsAndUserIds(String newIds, String userIds) {
         return dao.getUsersOfNewIdsAndUserIds(newIds, userIds);
     }
-    public List<User> getUsersOfNewIdsAndDesc(String newIds, String desc) {
-        return dao.getUsersOfNewIdsAndDesc(newIds, desc);
+    public List<User> getUsersOfNewIdsAndSignature(String newIds, String signature) {
+        return dao.getUsersOfNewIdsAndSignature(newIds, signature);
     }
     public List<User> getUsersOfNewIdsAndImage(String newIds, String image) {
         return dao.getUsersOfNewIdsAndImage(newIds, image);
@@ -2849,8 +2849,8 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfNewIdsAndBUserIds(String newIds, String bUserIds) {
         return dao.getUsersOfNewIdsAndBUserIds(newIds, bUserIds);
     }
-    public List<User> getUsersOfUserIdsAndDesc(String userIds, String desc) {
-        return dao.getUsersOfUserIdsAndDesc(userIds, desc);
+    public List<User> getUsersOfUserIdsAndSignature(String userIds, String signature) {
+        return dao.getUsersOfUserIdsAndSignature(userIds, signature);
     }
     public List<User> getUsersOfUserIdsAndImage(String userIds, String image) {
         return dao.getUsersOfUserIdsAndImage(userIds, image);
@@ -2861,14 +2861,14 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfUserIdsAndBUserIds(String userIds, String bUserIds) {
         return dao.getUsersOfUserIdsAndBUserIds(userIds, bUserIds);
     }
-    public List<User> getUsersOfDescAndImage(String desc, String image) {
-        return dao.getUsersOfDescAndImage(desc, image);
+    public List<User> getUsersOfSignatureAndImage(String signature, String image) {
+        return dao.getUsersOfSignatureAndImage(signature, image);
     }
-    public List<User> getUsersOfDescAndFamous(String desc, String famous) {
-        return dao.getUsersOfDescAndFamous(desc, famous);
+    public List<User> getUsersOfSignatureAndFamous(String signature, String famous) {
+        return dao.getUsersOfSignatureAndFamous(signature, famous);
     }
-    public List<User> getUsersOfDescAndBUserIds(String desc, String bUserIds) {
-        return dao.getUsersOfDescAndBUserIds(desc, bUserIds);
+    public List<User> getUsersOfSignatureAndBUserIds(String signature, String bUserIds) {
+        return dao.getUsersOfSignatureAndBUserIds(signature, bUserIds);
     }
     public List<User> getUsersOfImageAndFamous(String image, String famous) {
         return dao.getUsersOfImageAndFamous(image, famous);
