@@ -5,6 +5,7 @@ import java.util.List;
 import com.news.linglian.entity.News;
 
 public interface INewsDao {
+	public List<News> queryAllNews();
     public int update(News news, News keyNews);
     public int updateOfNewsId(News news, String newsId);
     public int updateOfTitle(News news, String title);

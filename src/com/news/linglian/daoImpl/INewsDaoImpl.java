@@ -1,13 +1,28 @@
 package com.news.linglian.daoImpl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.news.linglian.entity.News;
-
 import com.news.linglian.dao.INewsDao;
+
 import db.DBMan;
 
 public class INewsDaoImpl implements INewsDao {
+
+	public List<News> queryAllNews() {
+		String sql = "select * from news order by search desc";
+		try {
+			return DBMan.getInstance().query(News.class, sql);
+		} catch (ClassNotFoundException | InstantiationException
+				| InvocationTargetException | IllegalAccessException
+				| SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
     public int update(News news, News keyNews) {
         return DBMan.getInstance().updateNoSqlWithoutThrow(news, keyNews, "news");
     }

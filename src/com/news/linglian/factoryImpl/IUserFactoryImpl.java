@@ -71,6 +71,7 @@ public class IUserFactoryImpl implements IServletFactory {
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
+    	String userId = request.getParameter("userId");
         if (ServletUtil.checkIdentity(request, response, servlet, "query_from")) {
             List<String[]> list = new StringArrayListBuilder()
                     .addString(userId, "用户id")

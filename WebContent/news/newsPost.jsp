@@ -84,9 +84,9 @@
         </ul>
         <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
           <div class="layui-tab-item layui-show">
-            <form action="" method="post">
+            <form action="NewsAction.do?method=insert?newsTypeId=1" method="post">
               <div class="layui-row layui-col-space15 layui-form-item">
-                <div class="layui-col-md3">
+                <!--  <div class="layui-col-md3">
                   <label class="layui-form-label">所在专栏</label>
                   <div class="layui-input-block">
                     <select lay-verify="required" name="class" lay-filter="column"> 
@@ -98,20 +98,7 @@
                       <option value="168">公告</option> 
                     </select>
                   </div>
-                </div>
-                <div class="layui-col-md3">
-                  <label class="layui-form-label">所在专栏</label>
-                  <div class="layui-input-block">
-                    <select lay-verify="required" name="class" lay-filter="column"> 
-                      <option></option> 
-                      <option value="0">发布新闻</option> 
-                      <option value="99">编辑新闻</option> 
-                      <option value="100">讨论版</option> 
-                      <option value="101">即时通讯</option> 
-                      <option value="168">公告</option> 
-                    </select>
-                  </div>
-                </div>
+                </div>-->
                 <div class="layui-col-md9">
                   <label for="L_title" class="layui-form-label">标题</label>
                   <div class="layui-input-block">
@@ -141,7 +128,7 @@
                 </div>
               </div>
               <div class="layui-form-item">
-                <button class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
+                <button class="layui-btn" lay-submit>立即发布</button>
               </div>
             </form>
           </div>

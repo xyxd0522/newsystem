@@ -1,15 +1,25 @@
 package com.news.linglian.factoryImpl;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import util.MapUtil;
+import util.ServletCheckBuilder;
 import util.ServletUtil;
 import util.StringArrayListBuilder;
+
+import com.news.linglian.action.NewsAction;
 import com.news.linglian.entity.News;
+import com.news.linglian.entity.Newstype;
 import com.news.linglian.entity.User;
 import com.news.linglian.factory.IServletFactory;
 import com.news.linglian.service.INewsService;
@@ -56,8 +66,6 @@ public class INewsFactoryImpl implements IServletFactory {
 		case "queryAll":
 			doQueryAll(request, response, servlet);
 			break;
-		case "hotSearch":
-			doHotSearch(request, response, servlet);
 		}
 	}
 	/*
@@ -66,7 +74,7 @@ public class INewsFactoryImpl implements IServletFactory {
 	protected void doQueryOfId(HttpServletRequest request,
 			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
 		String newsId =request.getParameter("newsId");
 		List<String[] > list = new StringArrayListBuilder()
 		.addString(newsId,"新闻id")
@@ -143,25 +151,26 @@ public class INewsFactoryImpl implements IServletFactory {
 			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String title = request.getParameter("title");
-		String body=request.getParameter("body");
-		String newsTypeId =request.getParameter("newsTypeId");
-		String userId =request.getParameter("userId");
-		String money =request.getParameter("money");
-		List<String[] > list = new StringArrayListBuilder()
-		.addString(title,"标题")
-		.addString(body,"内容")
-		.addString(newsTypeId,"新闻类型")
-		.addString("UserId","发布人编号")
-		.addString(money,"阳光值")
+		Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "insert_from")
+		.addNp("title","新闻标题不能为空")
+		.addNp("body", "新闻内容不能为空")
+		.addNp("newsTypeId", "新闻类型不能为空")
+		.addNp("userId", "用户id不能为空")
 		.build();
-		if(ServletUtil.isNull(request, response, servlet, "insert_from", list)){
+		if (tMap != null) {
+			SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String insertNewDate = tempDate.format(new Date(System.currentTimeMillis()));
+			System.out.println(insertNewDate);
+			Map<String, String> m = MapUtil.soss(tMap);
 			News news =new News();
-			news.setNewsTypeId(newsTypeId);
-			news.setBody(body);
-			news.setTitle(title);
-			news.setUserId(userId);
+			news.setTitle(m.get("par_title"));
+			news.setBody(m.get("par_body"));
+			news.setNewsTypeId(m.get("par_newsTypeId"));
+			news.setUserId(m.get("userId"));
+			news.setTime(insertNewDate);
+			System.out.println(news);
 			ServletUtil.checkdata(request, response, servlet, "insert_from", "插入", ias.insert(news));
+			
 		}
 		
 	}
@@ -198,28 +207,6 @@ public class INewsFactoryImpl implements IServletFactory {
 			news.setNewsId(newsId);
 			ServletUtil.checkdata(request, response, servlet, "update_from", "修改", ias.updateOfNewsId(news, newsId));
 		}
-	}
-	protected void doHotSearch(HttpServletRequest request,
-			HttpServletResponse response, HttpServlet servlet)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		List<News> allNews = new ArrayList<News>();
-		allNews=ias.getNewss(new News());
-		List<News> arrayNews = new ArrayList<News>();
-		
-		for (int out = 0; out < allNews.size(); out++) {
-			for (int in = allNews.size() - 1; in > out; in--) {
-			if (allNews.get(in).getSearch() > allNews.get(in-1).getSearch() {
-			temp = allNews.get(in).getSearch();
-			allNews.get(in).getSearch() = allNews.get(in-1).getSearch();
-			allNews.get(in-1).getSearch() = temp;
-			}
-			}
-			}
-		allNews.get(0).getSearch();
-		
-		
-		
 	}
 	
 }
