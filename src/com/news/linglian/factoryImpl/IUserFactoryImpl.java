@@ -17,6 +17,7 @@ import com.news.linglian.entity.User;
 import com.news.linglian.factory.IServletFactory;
 import com.news.linglian.service.IUserService;
 import com.news.linglian.serviceImpl.IUserServiceImpl;
+import util.MapUtil;
 
 /**
  *
@@ -70,7 +71,6 @@ public class IUserFactoryImpl implements IServletFactory {
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-        String userId = request.getParameter("userId");
         if (ServletUtil.checkIdentity(request, response, servlet, "query_from")) {
             List<String[]> list = new StringArrayListBuilder()
                     .addString(userId, "用户id")
@@ -95,7 +95,7 @@ public class IUserFactoryImpl implements IServletFactory {
     protected void doUpdate(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
-		// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
     }
 
@@ -107,40 +107,29 @@ public class IUserFactoryImpl implements IServletFactory {
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-        String email = request.getParameter("email");
-        String username = request.getParameter("username");
-        String password = request.getParameter("pass");
-        String repassword = request.getParameter("repass");
-        String quiz1 = request.getParameter("quiz1");
-        String quiz2 = request.getParameter("quiz2");
-        String quiz3 = request.getParameter("quiz3");
-        String vercode = request.getParameter("vercode");
-        List<String[]> list = new StringArrayListBuilder()
-                .addString(email, "邮箱")
-                .addString(username, "昵称")
-                .addString(password, "密码")
-                .addString(repassword, "重复密码")
-                .addString(quiz1, "省份")
-                .addString(quiz2, "城市")
-                .addString(quiz3, "区/县")
-                .addString(vercode, "验证码")
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "insert_from")
+                .addNp("email", "邮箱不能为空")
+                .addNp("username", "昵称不能为空")
+                .addNp("pass", "密码不能为空")
+                .addNp("repass", "确认密码不能为空")
+                .addNp("quiz1", "省份不能为空")
+                .addNp("quiz2", "城市不能为空")
+                .addNp("quiz3", "区/县不能为空")
+                .addNp("vercode", "验证码不能为空")
+                .addEpp("pass", "repass", "二次密码不相同", false)
+                .addEps("vercode", "token", "验证码错误", false)
                 .build();
-        if (ServletUtil.isNull(request, response, servlet, "insert_from", list)) {
-            if (!request.getSession().getAttribute("token").toString().equals(vercode)) {
-                request.getSession().setAttribute("info", "验证码错误");
-                ServletUtil.redirect(request, response, servlet, "insert_from");
-            } else if (password.equals(repassword)) {
-                User user = new User();
-                user.setName(username);
-                user.setEmail(email);
-                user.setPassword(password);
-                user.setPath(quiz1 + "," + quiz2 + "," + quiz3);
-                System.out.println(user.getPath());
-                ServletUtil.checkdata(request, response, servlet, "insert_from", "插入", ias.insert(user));
-            } else {
-                request.getSession().setAttribute("info", "二次密码不相同");
-                ServletUtil.redirect(request, response, servlet, "insert_from");
-            }
+        if (tMap != null) {
+            System.out.println(tMap);
+            Map<String, String> m = MapUtil.soss(tMap);
+            System.out.println(m);
+            User user = new User();
+            user.setName(m.get("par_username"));
+            user.setEmail(m.get("par_email"));
+            user.setPassword(m.get("par_pass"));
+            user.setPath(m.get("par_quiz1") + "," + m.get("par_quiz2") + "," + m.get("par_quiz3"));
+            System.out.println(user);
+            ServletUtil.checkdata(request, response, servlet, "insert_from", "插入", ias.insert(user));
         }
     }
 
@@ -170,11 +159,11 @@ public class IUserFactoryImpl implements IServletFactory {
     protected void doLogin(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
-    	Map<String, Object> map = new ServletCheckBuilder(request, response, servlet, "login_from")
-    		.addNp("email", "邮箱")
-    		.addNp("pass", "密码")
-    		.addNp("vercode", "验证码")
-    		.build();
+        Map<String, Object> map = new ServletCheckBuilder(request, response, servlet, "login_from")
+                .addNp("email", "邮箱")
+                .addNp("pass", "密码")
+                .addNp("vercode", "验证码")
+                .build();
         if (map != null) {
             if (request.getSession().getAttribute("token").equals(map.get("par_vercode"))) {
                 request.getSession().setAttribute("info", "验证码错误");
