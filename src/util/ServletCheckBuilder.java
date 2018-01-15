@@ -45,9 +45,9 @@ public class ServletCheckBuilder {
         checkNullListOfPar = new ArrayList();
         listMap.put("checkNullListOfPar", checkNullListOfPar);
         checkNullListOfSes = new ArrayList();
-        listMap.put("checkClassListOfSes", checkClassListOfSes);
+        listMap.put("checkNullListOfSes", checkNullListOfSes);
         checkClassListOfPar = new ArrayList();
-        listMap.put("checkNullListOfPar", checkNullListOfPar);
+        listMap.put("checkClassListOfPar", checkClassListOfPar);
         checkClassListOfSes = new ArrayList();
         listMap.put("checkClassListOfSes", checkClassListOfSes);
         checkEqualListOfParAndPar = new ArrayList();
@@ -82,7 +82,6 @@ public class ServletCheckBuilder {
     }
 
     // <editor-fold defaultstate="collapsed" desc="公有函数">    
-
     private void add(String listName, Checker c) {
         listMap.get(listName).add(c);
     }
@@ -105,76 +104,100 @@ public class ServletCheckBuilder {
         return addNs(ses, alert, defaultRedirectParameterName);
     }
 
-    public ServletCheckBuilder addCp(String par, String alert, String parameter) {
-        add("checkClassListOfPar", new Checker(par, alert, parameter));
+    public ServletCheckBuilder addCp(String par, String alert, Class clazz, String parameter) {
+        add("checkClassListOfPar", new Checker(par, alert, parameter, clazz));
         return this;
     }
 
-    public ServletCheckBuilder addCp(String par, String alert) {
-        return addCp(par, alert, defaultRedirectParameterName);
+    public ServletCheckBuilder addCp(String par, String alert, Class clazz) {
+        return addCp(par, alert, clazz, defaultRedirectParameterName);
     }
 
-    public ServletCheckBuilder addCs(String ses, String alert, String parameter) {
+    public ServletCheckBuilder addCs(String ses, String alert, Class clazz, String parameter) {
         add("checkClassListOfSes", new Checker(ses, alert, parameter));
         return this;
     }
 
-    public ServletCheckBuilder addCs(String ses, String alert) {
-        return addCs(ses, alert, defaultRedirectParameterName);
+    public ServletCheckBuilder addCs(String ses, String alert, Class clazz) {
+        return addCs(ses, alert, clazz, defaultRedirectParameterName);
     }
 
-    public ServletCheckBuilder addEpp(String par1, String par2, String alert, String parameter) {
-        add("checkEqualListOfParAndPar", new Checker(par1, par2, alert, parameter));
+    public ServletCheckBuilder addEpp(String par1, String par2, String alert, String parameter, boolean flag) {
+        add("checkEqualListOfParAndPar", new Checker(par1, par2, alert, parameter, flag));
         return this;
     }
 
     public ServletCheckBuilder addEpp(String par1, String par2, String alert) {
-        return addEpp(par1, par2, alert, defaultRedirectParameterName);
+        return addEpp(par1, par2, alert, defaultRedirectParameterName, true);
     }
 
-    public ServletCheckBuilder addEps(String par, String ses, String alert, String parameter) {
-        add("checkEqualListOfParAndSes", new Checker(par, ses, alert, parameter));
+    public ServletCheckBuilder addEpp(String par1, String par2, String alert, boolean flag) {
+        return addEpp(par1, par2, alert, defaultRedirectParameterName, flag);
+    }
+
+    public ServletCheckBuilder addEps(String par, String ses, String alert, String parameter, boolean flag) {
+        add("checkEqualListOfParAndSes", new Checker(par, ses, alert, parameter, flag));
         return this;
+    }
+
+    public ServletCheckBuilder addEps(String par, String ses, String alert, boolean flag) {
+        return addEps(par, ses, alert, defaultRedirectParameterName, flag);
     }
 
     public ServletCheckBuilder addEps(String par, String ses, String alert) {
-        return addEps(par, ses, alert, defaultRedirectParameterName);
+        return addEps(par, ses, alert, defaultRedirectParameterName, true);
     }
 
-    public ServletCheckBuilder addEss(String ses1, String ses2, String alert, String parameter) {
-        add("checkEqualListOfSesAndSes", new Checker(ses1, ses2, alert, parameter));
+    public ServletCheckBuilder addEss(String ses1, String ses2, String alert, String parameter, boolean flag) {
+        add("checkEqualListOfSesAndSes", new Checker(ses1, ses2, alert, parameter, flag));
         return this;
+    }
+
+    public ServletCheckBuilder addEss(String ses1, String ses2, String alert, boolean flag) {
+        return addEss(ses1, ses2, alert, defaultRedirectParameterName, flag);
     }
 
     public ServletCheckBuilder addEss(String ses1, String ses2, String alert) {
-        return addEss(ses1, ses2, alert, defaultRedirectParameterName);
+        return addEss(ses1, ses2, alert, defaultRedirectParameterName, true);
     }
 
-    public ServletCheckBuilder addCpp(String par1, String par2, String alert, String parameter) {
-        add("checkEqualClassListOfParAndPar", new Checker(par1, par2, alert, parameter));
+    public ServletCheckBuilder addCpp(String par1, String par2, String alert, String parameter, boolean flag) {
+        add("checkEqualClassListOfParAndPar", new Checker(par1, par2, alert, parameter, flag));
         return this;
+    }
+
+    public ServletCheckBuilder addCpp(String par1, String par2, String alert, boolean flag) {
+        return addCpp(par1, par2, alert, defaultRedirectParameterName, flag);
     }
 
     public ServletCheckBuilder addCpp(String par1, String par2, String alert) {
-        return addCpp(par1, par2, alert, defaultRedirectParameterName);
+        return addCpp(par1, par2, alert, defaultRedirectParameterName, true);
     }
 
-    public ServletCheckBuilder addCps(String par, String ses, String alert, String parameter) {
-        add("checkEqualClassListOfParAndSes", new Checker(par, ses, alert, parameter));
+    public ServletCheckBuilder addCps(String par, String ses, String alert, String parameter, boolean flag) {
+        add("checkEqualClassListOfParAndSes", new Checker(par, ses, alert, parameter, flag));
         return this;
+    }
+
+    public ServletCheckBuilder addCps(String par, String ses, String alert, boolean flag) {
+        return addCps(par, ses, alert, defaultRedirectParameterName, flag);
     }
 
     public ServletCheckBuilder addCps(String par, String ses, String alert) {
-        return addCps(par, ses, alert, defaultRedirectParameterName);
+        return addCps(par, ses, alert, defaultRedirectParameterName, true);
     }
 
-    public ServletCheckBuilder addCss(String ses1, String ses2, String alert, String parameter) {
-        add("checkEqualClassListOfSesAndSes", new Checker(ses1, ses2, alert, parameter));
+    public ServletCheckBuilder addCss(String ses1, String ses2, String alert, String parameter, boolean flag) {
+        add("checkEqualClassListOfSesAndSes", new Checker(ses1, ses2, alert, parameter, flag));
         return this;
     }
 
+    public ServletCheckBuilder addCss(String ses1, String ses2, String alert, boolean flag) {
+        return addCss(ses1, ses2, alert, defaultRedirectParameterName, flag);
+    }
+
     public ServletCheckBuilder addCss(String ses1, String ses2, String alert) {
-        return addCss(ses1, ses2, alert, defaultRedirectParameterName);
+        return addCss(ses1, ses2, alert, defaultRedirectParameterName, true);
     }
 
     public ServletCheckBuilder addBpp(String par1, String par2, String alert, String parameter) {
@@ -232,42 +255,46 @@ public class ServletCheckBuilder {
     }
 
     // </editor-fold>   
-    
     // <editor-fold defaultstate="collapsed" desc="私有函数"> 
     private void putMapOfSes(Checker c) {
-    	if (!m.containsKey("par_" + c.param)) {
-    		m.put("par_" + c.param, request.getSession().getAttribute(c.param));
-    	}
-    } 
+        if (!m.containsKey("par_" + c.param)) {
+            m.put("par_" + c.param, request.getSession().getAttribute(c.param));
+        }
+    }
+
     private void putMapOfPar(Checker c) {
-    	if (!m.containsKey("par_" + c.param)) {
-    		m.put("par_" + c.param, request.getParameter(c.param));
-    	}
+        if (!m.containsKey("par_" + c.param)) {
+            m.put("par_" + c.param, request.getParameter(c.param));
+        }
     }
+
     private void putMapOfParAndPar(Checker c) {
-    	if (!m.containsKey("par_" + c.param2)) {
-    		m.put("par_" + c.param2, request.getParameter(c.param2));
-    	}
-    	if (!m.containsKey("par_" + c.param)) {
-    		m.put("par_" + c.param2, request.getParameter(c.param2));
-    	}
+        if (!m.containsKey("par_" + c.param)) {
+            m.put("par_" + c.param, request.getParameter(c.param));
+        }
+        if (!m.containsKey("par_" + c.param)) {
+            m.put("par_" + c.param2, request.getParameter(c.param2));
+        }
     }
+
     private void putMapOfParAndSes(Checker c) {
-    	if (!m.containsKey("par_" + c.param2)) {
-    		m.put("par_" + c.param2, request.getParameter(c.param2));
-    	}
-    	if (!m.containsKey("par_" + c.param)) {
-    		m.put("par_" + c.param2, request.getSession().getAttribute(c.param2));
-    	}
+        if (!m.containsKey("par_" + c.param)) {
+            m.put("par_" + c.param, request.getParameter(c.param));
+        }
+        if (!m.containsKey("par_" + c.param)) {
+            m.put("par_" + c.param2, request.getSession().getAttribute(c.param2));
+        }
     }
+
     private void putMapOfSesAndSes(Checker c) {
-    	if (!m.containsKey("par_" + c.param2)) {
-    		m.put("par_" + c.param2, request.getSession().getAttribute(c.param2));
-    	}
-    	if (!m.containsKey("par_" + c.param)) {
-    		m.put("par_" + c.param2, request.getSession().getAttribute(c.param2));
-    	}
+        if (!m.containsKey("par_" + c.param)) {
+            m.put("par_" + c.param, request.getSession().getAttribute(c.param));
+        }
+        if (!m.containsKey("par_" + c.param)) {
+            m.put("par_" + c.param2, request.getSession().getAttribute(c.param2));
+        }
     }
+
     /**
      * 检查Par表是否为空
      *
@@ -277,7 +304,7 @@ public class ServletCheckBuilder {
      */
     private boolean checkNullListOfPar() throws ServletException, IOException {
         for (Checker c : checkNullListOfPar) {
-        	putMapOfPar(c);
+            putMapOfPar(c);
             if (!ServletUtil.checkNullOfPar(request, response, servlet,
                     c.parameterName, c.param, c.alert)) {
                 return false;
@@ -295,7 +322,7 @@ public class ServletCheckBuilder {
      */
     private boolean checkNullListOfSes() throws ServletException, IOException {
         for (Checker c : checkNullListOfSes) {
-        	putMapOfSes(c);
+            putMapOfSes(c);
             if (!ServletUtil.checkNullOfSes(request, response, servlet,
                     c.parameterName, c.param, c.alert)) {
                 return false;
@@ -313,9 +340,9 @@ public class ServletCheckBuilder {
      */
     private boolean checkClassListOfPar() throws ServletException, IOException {
         for (Checker c : checkClassListOfPar) {
-        	putMapOfPar(c);
+            putMapOfPar(c);
             if (!ServletUtil.checkClassOfPar(request, response, servlet,
-                    c.parameterName, c.param, c.alert, c.classz)) {
+                    c.parameterName, c.param, c.alert, c.claszz)) {
                 return false;
             }
         }
@@ -331,9 +358,9 @@ public class ServletCheckBuilder {
      */
     private boolean checkClassListOfSes() throws ServletException, IOException {
         for (Checker c : checkNullListOfSes) {
-        	putMapOfSes(c);
+            putMapOfSes(c);
             if (!ServletUtil.checkClassOfSes(request, response, servlet,
-                    c.parameterName, c.param, c.alert, c.classz)) {
+                    c.parameterName, c.param, c.alert, c.claszz)) {
                 return false;
             }
         }
@@ -349,9 +376,9 @@ public class ServletCheckBuilder {
      */
     private boolean checkEqualListOfParAndPar() throws ServletException, IOException {
         for (Checker c : checkEqualListOfParAndPar) {
-        	putMapOfParAndPar(c);
+            putMapOfParAndPar(c);
             if (!ServletUtil.equalObjectOfParAndPar(request, response, servlet,
-                    c.parameterName, c.param, c.param2, c.alert, true)) {
+                    c.parameterName, c.param, c.param2, c.alert, c.flag)) {
                 return false;
             }
         }
@@ -367,9 +394,9 @@ public class ServletCheckBuilder {
      */
     private boolean checkEqualListOfParAndSes() throws ServletException, IOException {
         for (Checker c : checkEqualListOfParAndSes) {
-        	putMapOfParAndSes(c);
+            putMapOfParAndSes(c);
             if (!ServletUtil.equalObjectOfParAndSes(request, response, servlet,
-                    c.parameterName, c.param, c.param2, c.alert, true)) {
+                    c.parameterName, c.param, c.param2, c.alert, c.flag)) {
                 return false;
             }
         }
@@ -384,10 +411,10 @@ public class ServletCheckBuilder {
      * @throws IOException
      */
     private boolean checkEqualListOfSesAndSes() throws ServletException, IOException {
-        for (Checker c : checkEqualListOfParAndSes) {
-        	putMapOfSesAndSes(c);
+        for (Checker c : checkEqualListOfSesAndSes) {
+            putMapOfSesAndSes(c);
             if (!ServletUtil.equalObjectOfSesAndSes(request, response, servlet,
-                    c.parameterName, c.param, c.param2, c.alert, true)) {
+                    c.parameterName, c.param, c.param2, c.alert, c.flag)) {
                 return false;
             }
         }
@@ -403,9 +430,9 @@ public class ServletCheckBuilder {
      */
     private boolean checkEqualClassListOfParAndPar() throws ServletException, IOException {
         for (Checker c : checkEqualClassListOfParAndPar) {
-        	putMapOfParAndPar(c);
+            putMapOfParAndPar(c);
             if (!ServletUtil.equalClassOfParAndPar(request, response, servlet,
-                    c.parameterName, c.param, c.param2, c.alert, true)) {
+                    c.parameterName, c.param, c.param2, c.alert, c.flag)) {
                 return false;
             }
         }
@@ -421,9 +448,9 @@ public class ServletCheckBuilder {
      */
     private boolean checkEqualClassListOfParAndSes() throws ServletException, IOException {
         for (Checker c : checkEqualClassListOfParAndSes) {
-        	putMapOfParAndSes(c);
+            putMapOfParAndSes(c);
             if (!ServletUtil.equalClassOfParAndSes(request, response, servlet,
-                    c.parameterName, c.param, c.param2, c.alert, true)) {
+                    c.parameterName, c.param, c.param2, c.alert, c.flag)) {
                 return false;
             }
         }
@@ -438,10 +465,10 @@ public class ServletCheckBuilder {
      * @throws IOException
      */
     private boolean checkEqualClassListOfSesAndSes() throws ServletException, IOException {
-        for (Checker c : checkEqualClassListOfParAndSes) {
-        	putMapOfSesAndSes(c);
+        for (Checker c : checkEqualClassListOfSesAndSes) {
+            putMapOfSesAndSes(c);
             if (!ServletUtil.equalClassOfSesAndSes(request, response, servlet,
-                    c.parameterName, c.param, c.param2, c.alert, true)) {
+                    c.parameterName, c.param, c.param2, c.alert, c.flag)) {
                 return false;
             }
         }
@@ -457,7 +484,7 @@ public class ServletCheckBuilder {
      */
     private boolean checkIsBigListOfParAndSes() throws ServletException, IOException {
         for (Checker c : checkIsBigListOfParAndSes) {
-        	putMapOfParAndSes(c);
+            putMapOfParAndSes(c);
             if (!ServletUtil.isBigObjectOfParAndSes(request, response, servlet,
                     c.parameterName, c.param, c.param2, c.alert, true)) {
                 return false;
@@ -475,7 +502,7 @@ public class ServletCheckBuilder {
      */
     private boolean checkIsBigListOfSesAndSes() throws ServletException, IOException {
         for (Checker c : checkIsBigListOfSesAndSes) {
-        	putMapOfSesAndSes(c);
+            putMapOfSesAndSes(c);
             if (!ServletUtil.isBigObjectOfSesAndSes(request, response, servlet,
                     c.parameterName, c.param, c.param2, c.alert, true)) {
                 return false;
@@ -493,7 +520,7 @@ public class ServletCheckBuilder {
      */
     private boolean checkIsBigListOfParAndPar() throws ServletException, IOException {
         for (Checker c : checkIsBigListOfParAndPar) {
-        	putMapOfParAndPar(c);
+            putMapOfParAndPar(c);
             if (!ServletUtil.isBigObjectOfParAndPar(request, response, servlet,
                     c.parameterName, c.param, c.param2, c.alert, true)) {
                 return false;
@@ -511,7 +538,7 @@ public class ServletCheckBuilder {
      */
     private boolean checkIsSmallListOfParAndSes() throws ServletException, IOException {
         for (Checker c : checkIsSmallListOfParAndSes) {
-        	putMapOfParAndSes(c);
+            putMapOfParAndSes(c);
             if (!ServletUtil.isSmallObjectOfParAndSes(request, response, servlet,
                     c.parameterName, c.param, c.param2, c.alert, true)) {
                 return false;
@@ -529,7 +556,7 @@ public class ServletCheckBuilder {
      */
     private boolean checkIsSmallListOfSesAndSes() throws ServletException, IOException {
         for (Checker c : checkIsSmallListOfSesAndSes) {
-        	putMapOfSesAndSes(c);
+            putMapOfSesAndSes(c);
             if (!ServletUtil.isSmallObjectOfSesAndSes(request, response, servlet,
                     c.parameterName, c.param, c.param2, c.alert, true)) {
                 return false;
@@ -547,7 +574,7 @@ public class ServletCheckBuilder {
      */
     private boolean checkIsSmallListOfParAndPar() throws ServletException, IOException {
         for (Checker c : checkIsSmallListOfParAndPar) {
-        	putMapOfParAndPar(c);
+            putMapOfParAndPar(c);
             if (!ServletUtil.isSmallObjectOfParAndPar(request, response, servlet,
                     c.parameterName, c.param, c.param2, c.alert, true)) {
                 return false;
@@ -569,7 +596,7 @@ public class ServletCheckBuilder {
         if (!checkClassListOfSes()) {
             return null;
         }
-        if (!checkNullListOfPar()) {
+        if (!checkClassListOfPar()) {
             return null;
         }
         if (!checkClassListOfSes()) {
@@ -619,10 +646,10 @@ public class ServletCheckBuilder {
 
         public String param;
         public String param2;
-        public boolean flag;
         public String alert;
         public String parameterName;
-        public Class<T> classz;
+        public boolean flag;
+        public Class<T> claszz;
 
         public Checker(String param, String alert, String parameterName) {
             this.param = param;
@@ -634,12 +661,20 @@ public class ServletCheckBuilder {
             this.param = param;
             this.alert = alert;
             this.parameterName = parameterName;
-            this.classz = classz;
+            this.claszz = classz;
         }
 
         public Checker(String param, String param2, String alert, String parameterName) {
             this.param = param;
             this.param2 = param2;
+            this.alert = alert;
+            this.parameterName = parameterName;
+        }
+
+        public Checker(String param, String param2, String alert, String parameterName, boolean flag) {
+            this.param = param;
+            this.param2 = param2;
+            this.flag = flag;
             this.alert = alert;
             this.parameterName = parameterName;
         }

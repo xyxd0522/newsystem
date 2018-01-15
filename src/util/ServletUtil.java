@@ -64,7 +64,6 @@ public class ServletUtil {
     }
 
     // <editor-fold defaultstate="collapsed" desc="私有函数">         
-
     /**
      * 判断二个对象是否相等
      *
@@ -75,6 +74,9 @@ public class ServletUtil {
     public static boolean equalOfObject(Object a, Object b) {
         if (a == b) {
             return true;
+        }
+        if (a == null) {
+            a = "";
         }
         if (b == null) {
             b = "";
@@ -144,6 +146,9 @@ public class ServletUtil {
      * @return
      */
     public static boolean equalOfClass(Object a, Class b) {
+        if (a == null) {
+            return false;
+        }
         if (b == null) {
             return false;
         }
@@ -248,16 +253,12 @@ public class ServletUtil {
             HttpServletResponse response, String page,
             Object obj1, Object obj2, String alert,
             boolean flag) throws ServletException, IOException {
-        // 相等，且选择相等时执行跳转，执行跳转成功
-        if (equalOfObject(obj1, obj2) && flag) {
+        // 相等情况与选择的相等时
+        if (equalOfObject(obj1, obj2) == flag) {
             request.getSession().setAttribute("info", alert);
             ServletUtil.redirect(request, response, page);
-            return true;
-        } else if (flag) { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return false;
-        } else { // 不相等，且选择不相等时执行跳转，执行跳转成功
-            request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, page);
+        } else {
             return true;
         }
     }
@@ -274,16 +275,12 @@ public class ServletUtil {
             HttpServletResponse response, String page,
             Object obj1, Object obj2, String alert,
             boolean flag) throws ServletException, IOException {
-        // 相等，且选择相等时执行跳转，执行跳转成功
-        if (equalOfClass(obj1, obj2.getClass()) && flag) {
+        // 相等情况与选择的相等时
+        if (equalOfClass(obj1, obj2.getClass()) == flag) {
             request.getSession().setAttribute("info", alert);
             ServletUtil.redirect(request, response, page);
-            return true;
-        } else if (flag) { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return false;
-        } else { // 不相等，且选择不相等时执行跳转，执行跳转成功
-            request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, page);
+        } else { //其他情况
             return true;
         }
     }
@@ -301,17 +298,13 @@ public class ServletUtil {
             Object obj1, Object obj2, String alert,
             boolean flag) throws ServletException, IOException {
         // 相等，且选择相等时执行跳转，执行跳转成功
-        if (isBigOfObject(obj1, obj2) && flag) {
+        if (isBigOfObject(obj1, obj2) == flag) {
             request.getSession().setAttribute("info", alert);
             ServletUtil.redirect(request, response, page);
-            return true;
-        } else if (flag) { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return false;
-        } else { // 不相等，且选择不相等时执行跳转，执行跳转成功
-            request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, page);
+        } else { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return true;
-        }
+        } 
     }
 
     private static boolean checkIsBigOfObject(HttpServletRequest request,
@@ -326,17 +319,13 @@ public class ServletUtil {
             HttpServletResponse response, String page, Object obj1, Object obj2,
             String alert, boolean flag) throws ServletException, IOException {
         // 相等，且选择相等时执行跳转，执行跳转成功
-        if (isSmallOfObject(obj1, obj2.getClass()) && flag) {
+        if (isSmallOfObject(obj1, obj2.getClass()) == flag) {
             request.getSession().setAttribute("info", alert);
             ServletUtil.redirect(request, response, page);
-            return true;
-        } else if (flag) { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return false;
-        } else { // 不相等，且选择不相等时执行跳转，执行跳转成功
-            request.getSession().setAttribute("info", alert);
-            ServletUtil.redirect(request, response, page);
+        } else { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return true;
-        }
+        } 
     }
 
     private static boolean checkIsSmallOfObject(HttpServletRequest request,
@@ -728,7 +717,6 @@ public class ServletUtil {
     }
 
     // </editor-fold>   
-    
     /**
      * 验证登录
      *
