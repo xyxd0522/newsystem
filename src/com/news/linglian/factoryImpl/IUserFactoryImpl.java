@@ -176,7 +176,7 @@ public class IUserFactoryImpl implements IServletFactory {
     		.addNp("vercode", "验证码")
     		.build();
         if (map != null) {
-            if (!request.getSession().getAttribute("token").equals(map.get("par_vercode"))) {
+            if (request.getSession().getAttribute("token").equals(map.get("par_vercode"))) {
                 request.getSession().setAttribute("info", "验证码错误");
                 ServletUtil.redirect(request, response, servlet, "login_from");
             } else {

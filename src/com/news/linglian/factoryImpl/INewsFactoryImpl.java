@@ -55,6 +55,9 @@ public class INewsFactoryImpl implements IServletFactory {
 			break;
 		case "queryAll":
 			doQueryAll(request, response, servlet);
+			break;
+		case "hotSearch":
+			doHotSearch(request, response, servlet);
 		}
 	}
 	/*
@@ -196,4 +199,27 @@ public class INewsFactoryImpl implements IServletFactory {
 			ServletUtil.checkdata(request, response, servlet, "update_from", "修改", ias.updateOfNewsId(news, newsId));
 		}
 	}
+	protected void doHotSearch(HttpServletRequest request,
+			HttpServletResponse response, HttpServlet servlet)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		List<News> allNews = new ArrayList<News>();
+		allNews=ias.getNewss(new News());
+		List<News> arrayNews = new ArrayList<News>();
+		
+		for (int out = 0; out < allNews.size(); out++) {
+			for (int in = allNews.size() - 1; in > out; in--) {
+			if (allNews.get(in).getSearch() > allNews.get(in-1).getSearch() {
+			temp = allNews.get(in).getSearch();
+			allNews.get(in).getSearch() = allNews.get(in-1).getSearch();
+			allNews.get(in-1).getSearch() = temp;
+			}
+			}
+			}
+		allNews.get(0).getSearch();
+		
+		
+		
+	}
+	
 }
