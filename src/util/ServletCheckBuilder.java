@@ -257,8 +257,8 @@ public class ServletCheckBuilder {
     // </editor-fold>   
     // <editor-fold defaultstate="collapsed" desc="私有函数"> 
     private void putMapOfSes(Checker c) {
-        if (!m.containsKey("par_" + c.param)) {
-            m.put("par_" + c.param, request.getSession().getAttribute(c.param));
+        if (!m.containsKey("ses_" + c.param)) {
+            m.put("ses_" + c.param, request.getSession().getAttribute(c.param));
         }
     }
 
@@ -281,17 +281,17 @@ public class ServletCheckBuilder {
         if (!m.containsKey("par_" + c.param)) {
             m.put("par_" + c.param, request.getParameter(c.param));
         }
-        if (!m.containsKey("par_" + c.param)) {
-            m.put("par_" + c.param2, request.getSession().getAttribute(c.param2));
+        if (!m.containsKey("ses_" + c.param)) {
+            m.put("ses_" + c.param2, request.getSession().getAttribute(c.param2));
         }
     }
 
     private void putMapOfSesAndSes(Checker c) {
-        if (!m.containsKey("par_" + c.param)) {
-            m.put("par_" + c.param, request.getSession().getAttribute(c.param));
+        if (!m.containsKey("ses_" + c.param)) {
+            m.put("ses_" + c.param, request.getSession().getAttribute(c.param));
         }
         if (!m.containsKey("par_" + c.param)) {
-            m.put("par_" + c.param2, request.getSession().getAttribute(c.param2));
+            m.put("ses_" + c.param2, request.getSession().getAttribute(c.param2));
         }
     }
 
