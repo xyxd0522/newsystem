@@ -84,7 +84,7 @@
         </ul>
         <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
           <div class="layui-tab-item layui-show">
-            <form action="NewsAction.do?method=insert?newsTypeId=1" method="post">
+            <form action="NewsAction.do?method=insert&newsTypeId=1&userId=1" method="post">
               <div class="layui-row layui-col-space15 layui-form-item">
                 <!--  <div class="layui-col-md3">
                   <label class="layui-form-label">所在专栏</label>
@@ -112,7 +112,7 @@
                   <textarea id="L_content" name="content" required lay-verify="required" placeholder="编辑内容" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
                 </div>
               </div>
-              <div class="layui-form-item">
+              <!--  <div class="layui-form-item">
                 <div class="layui-inline">
                   <label class="layui-form-label">悬赏阳光值</label>
                   <div class="layui-input-inline" style="width: 190px;">
@@ -126,7 +126,7 @@
                   </div>
                   <div class="layui-form-mid layui-word-aux">发布后无法更改阳光值</div>
                 </div>
-              </div>
+              </div>-->
               <div class="layui-form-item">
                 <button class="layui-btn" lay-submit>立即发布</button>
               </div>
