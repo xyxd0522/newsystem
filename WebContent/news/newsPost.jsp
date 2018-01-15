@@ -84,7 +84,7 @@
         </ul>
         <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
           <div class="layui-tab-item layui-show">
-            <form action="NewsAction.do?method=insert&newsTypeId=1&userId=1" method="post">
+            <form action="${pageContext.request.contextPath}/NewsAction.do?method=insert&newsTypeId=1method="post">
               <div class="layui-row layui-col-space15 layui-form-item">
                 <!--  <div class="layui-col-md3">
                   <label class="layui-form-label">所在专栏</label>
@@ -109,7 +109,7 @@
               </div>
               <div class="layui-form-item layui-form-text">
                 <div class="layui-input-block">
-                  <textarea id="L_content" name="content" required lay-verify="required" placeholder="编辑内容" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
+                  <textarea id="L_content" name="body" required lay-verify="required" placeholder="编辑内容" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
                 </div>
               </div>
               <!--  <div class="layui-form-item">

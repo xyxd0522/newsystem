@@ -155,7 +155,8 @@ public class INewsFactoryImpl implements IServletFactory {
 		.addNp("title","新闻标题不能为空")
 		.addNp("body", "新闻内容不能为空")
 		.addNp("newsTypeId", "新闻类型不能为空")
-		.addNp("userId", "用户id不能为空")
+		.addNs("userId", "用户id不能为空")
+		.addNs("path", "用户地址不能为空")
 		.build();
 		if (tMap != null) {
 			SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -166,10 +167,11 @@ public class INewsFactoryImpl implements IServletFactory {
 			news.setTitle(m.get("par_title"));
 			news.setBody(m.get("par_body"));
 			news.setNewsTypeId(m.get("par_newsTypeId"));
-			news.setUserId(m.get("userId"));
+			news.setUserId(m.get("par_userId"));
 			news.setTime(insertNewDate);
+			news.setPath(m.get("par_path"));
 			System.out.println(news);
-			ServletUtil.checkdata(request, response, servlet, "insert_from", "插入", ias.insert(news));
+			ServletUtil.dataOfSetReqRedirect(request, response, servlet, "insert_to", "insert_from", "插入", ias.insert(news), "news");
 			
 		}
 		
@@ -205,7 +207,7 @@ public class INewsFactoryImpl implements IServletFactory {
 			news.setBody(body);
 			news.setTitle(title);
 			news.setNewsId(newsId);
-			ServletUtil.checkdata(request, response, servlet, "update_from", "修改", ias.updateOfNewsId(news, newsId));
+			ServletUtil.dataOfSetReqRedirect(request, response, servlet, "insert_to", "insert_from", "插入", ias.updateOfNewsId(news, newsId), "news");
 		}
 	}
 	

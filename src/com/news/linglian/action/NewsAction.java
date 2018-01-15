@@ -27,7 +27,7 @@ import com.news.linglian.factory.IServletFactory;
 		@WebInitParam(name = "queryAll_from", value = "NewFile.jsp"),
 		@WebInitParam(name = "queryAll_to", value = "NewFile.jsp"),
 		@WebInitParam(name = "insert_to", value = "NewFile.jsp"),
-		@WebInitParam(name = "insert_from", value = "news/newsPost.jsp")})
+		@WebInitParam(name = "insert_from", value = "NewFile.jsp")})
 public class NewsAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

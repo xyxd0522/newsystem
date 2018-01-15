@@ -756,14 +756,14 @@ public class ServletUtil {
      */
     public static void checkdata(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
-            String parameterName, String responsename, int ispass)
+            String rparameterName, String responsename, int ispass)
             throws ServletException, IOException {
         if (ispass == 0) {
             request.getSession().setAttribute("info", responsename + "失败");
-            ServletUtil.redirect(request, response, servlet, parameterName);
+            ServletUtil.redirect(request, response, servlet, rparameterName);
         } else {
             request.getSession().setAttribute("info", responsename + "成功");
-            ServletUtil.redirect(request, response, servlet, parameterName);
+            ServletUtil.redirect(request, response, servlet, rparameterName);
         }
     }
 
