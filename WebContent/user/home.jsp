@@ -107,10 +107,10 @@
                                 -->
                         </h1>
 
-                        <p style="padding: 10px 0; color: #5FB878;">认证信息：SunnyNews 官方维护</p>
+                        <p style="padding: 10px 0; color: #5FB878;">${sessionScope.user.signature}</p>
 
                         <p class="fly-home-info">
-                                <i class="iconfont icon-kiss" title="阳光值"></i><span style="color: #FF7200;">66666 <i class="layui-icon">&#xe65e;</i></span>
+                                <i class="iconfont" title="阳光值"><i class="layui-icon">&#xe65e;</i></i><span style="color: #FF7200;">${sessionScope.user.money}</span>
                                 <i class="iconfont icon-shijian"></i><span>2015-6-17 加入</span>
                                 <i class="iconfont icon-chengshi"></i><span>来自杭州</span>
                         </p>
