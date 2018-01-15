@@ -767,7 +767,38 @@ public class ServletUtil {
         }
     }
 
-    public static boolean dataOfSetSes(HttpServletRequest request,
+    public static boolean dataOfSetSesRredirect(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet,
+            String rightPar, String badPart, String alert, Object obj, String param)
+            throws ServletException, IOException {
+        if (obj == null) {
+            request.getSession().setAttribute("info", alert + "失败");
+            ServletUtil.redirect(request, response, servlet, rightPar);
+            return false;
+        } else {
+            request.getSession().setAttribute(param, obj);
+            request.getSession().setAttribute("info", alert + "成功");
+            ServletUtil.redirect(request, response, servlet, badPart);
+            return true;
+        }
+    }
+
+    public static boolean dataOfSetReqRedirect(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet,
+            String rightPar, String badPart, String alert, Object obj, String param)
+            throws ServletException, IOException {
+        if (obj == null) {
+            request.getSession().setAttribute("info", alert + "失败");
+            ServletUtil.redirect(request, response, servlet, rightPar);
+            return false;
+        } else {
+            request.setAttribute(param, obj);
+            request.getSession().setAttribute("info", alert + "成功");
+            ServletUtil.redirect(request, response, servlet, badPart);
+            return true;
+        }
+    }
+    public static boolean dataOfSetSesForward(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
             String rightPar, String badPart, String alert, Object obj, String param)
             throws ServletException, IOException {
@@ -783,7 +814,7 @@ public class ServletUtil {
         }
     }
 
-    public static boolean dataOfSetReq(HttpServletRequest request,
+    public static boolean dataOfSetReqForward(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
             String rightPar, String badPart, String alert, Object obj, String param)
             throws ServletException, IOException {

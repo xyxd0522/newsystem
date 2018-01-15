@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
         <head>
@@ -111,7 +114,7 @@
                                                                                 <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
                                                                         </div>
                                                                         <div class="layui-form-mid">
-                                                                                <span style="color: #c00;"><img src="../token.do"></img></span>
+                                                                                <span style="color: #c00;"><img src="${pageContext.request.contextPath}/token.do"></img></span>
                                                                         </div>
                                                                 </div>
                                                                 <div class="layui-form-item">

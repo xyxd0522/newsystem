@@ -78,7 +78,7 @@ public class IUserFactoryImpl implements IServletFactory {
         if (tMap != null) {
             Map<String, String> m = MapUtil.soss(tMap);
             String userId = m.get("par_userId");
-            ServletUtil.dataOfSetReq(request, response, servlet,
+            ServletUtil.dataOfSetReqForward(request, response, servlet,
                     "query_from", "query_to", "获取",
                     ias.getUserOfUserId(userId), "user");
         }
@@ -161,7 +161,7 @@ public class IUserFactoryImpl implements IServletFactory {
         if (tMap != null) {
             Map<String, String> m = MapUtil.soss(tMap);
             User user = ias.getUserOfPasswordAndEmail(m.get("par_pass"), m.get("par_email"));
-            ServletUtil.dataOfSetSes(request, response, servlet,
+            ServletUtil.dataOfSetSesRredirect(request, response, servlet,
                     "login_from", "login_to", "登录",
                     user, "identity");
             request.getSession().setAttribute("user", user);
