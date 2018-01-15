@@ -56,8 +56,7 @@ public class IdenityFilter implements Filter {
         if (flag) {
             filterChain.doFilter(request, response);
         } else {
-            String userName = (String) session.getAttribute("identity");
-            if (userName != null) {
+            if (session.getAttribute("identity") != null) {
                 filterChain.doFilter(request, response);
             } else {
                 request.getRequestDispatcher("/" + request.getContextPath() + "user/login.jsp").forward(request, response);

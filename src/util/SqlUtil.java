@@ -270,6 +270,7 @@ public class SqlUtil {
         addDataName();
         addWhere();
         addLast();
+        System.out.println(strBuffer.toString());
         return strBuffer.toString();
     }
 
