@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,6 +72,7 @@
   </div>
 </div>
 
+<div class="layui-container fly-marginTop fly-user-main">
 <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
   <li class="layui-nav-item">
     <a href="home.jsp">
@@ -111,7 +110,7 @@
 </div>
 <div class="site-mobile-shade"></div>
   
-  
+<div style="width:955px;height:600px;padding-left:215px;">
   <div class="fly-panel fly-panel-user" pad20>
 	  <div class="layui-tab layui-tab-brief" lay-filter="user" id="LAY_msg" style="margin-top: 15px;">
 	    <button class="layui-btn layui-btn-danger" id="LAY_delallmsg">清空全部消息</button>
@@ -134,7 +133,7 @@
       </div>
 	  </div>
 	</div>
-
+</div>
 </div>
 
 

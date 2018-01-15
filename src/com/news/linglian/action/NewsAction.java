@@ -26,6 +26,8 @@ import com.news.linglian.factory.IServletFactory;
 		@WebInitParam(name = "update_to", value = "NewFile.jsp"),
 		@WebInitParam(name = "queryAll_from", value = "NewFile.jsp"),
 		@WebInitParam(name = "queryAll_to", value = "NewFile.jsp"),
+		@WebInitParam(name = "queryByNewsdate_from", value = "NewFile.jsp"),
+		@WebInitParam(name = "queryByNewsdate_to", value = "index.jsp"),
 		@WebInitParam(name = "insert_to", value = "index.jsp"),
 		@WebInitParam(name = "insert_from", value = "user/reg.jsp")})
 public class NewsAction extends HttpServlet {

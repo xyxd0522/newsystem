@@ -38,7 +38,8 @@
 					<ul class="layui-nav fly-nav-user">
 
 						<!-- 未登入的状态 -->
-						<!--<li class="layui-nav-item">
+						<!-- 
+						<li class="layui-nav-item">
         						<a class="iconfont icon-touxiang layui-hide-xs" href="user/login.jsp"></a>
       						</li>
       						<li class="layui-nav-item">
@@ -52,9 +53,10 @@
       						</li>
       						<li class="layui-nav-item layui-hide-xs">
         						<a href="/app/weibo/" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" title="微博登入" class="iconfont icon-weibo"></a>
-      						</li>-->
+      						</li>
+      					 -->
 						<!-- 登入后的状态 -->
-
+						
 						<li class="layui-nav-item">
 							<a class="fly-nav-avatar" href="javascript:;">
 								<cite class="layui-hide-xs">小彭</cite>
@@ -78,6 +80,8 @@
 								</dd>
 							</dl>
 						</li>
+						 
+						
 					</ul>
 				</div>
 			</div>
@@ -245,13 +249,13 @@
 							<div class="fly-panel" style="margin-bottom: 0;">
 								<div class="fly-panel-title fly-filter">
 									<!-- 都是访问news/newsDetail.jsp 但是参数不同-->
-									<a href="" class="layui-this">综合</a>
+									<a href="newsAction.do/method=queryAll" class="layui-this">综合</a>
 									<span class="fly-mid"></span>
 									<a href="">个性推荐</a>
 									<span class="fly-mid"></span>
 									<a href="">精品</a>
 									<span class="fly-filter-right layui-hide-xs">
-            							<a href="" class="layui-this">按最新</a>
+            							<a href="${pageContext.request.contextPath }NewsAction.do?method=queryByNewsdate" class="layui-this">按最新</a>
             							<span class="fly-mid"></span>
 										<a href="">按热搜</a>
 									</span>
@@ -262,24 +266,24 @@
 											<img src="img/logo.png" alt="">
 										</a>
 										<h2>
-              <a class="layui-badge">娱乐</a>
-              <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
-            </h2>
+              								<a class="layui-badge">${requestScope.news.typename }</a>
+              								<a href="news/newsDetail.jsp">${requestScope.news.title }</a>
+            							</h2>
 										<div class="fly-list-info">
 											<a href="user/home.jsp" link>
-												<cite>小彭</cite>
+												<cite>${requestScope.news.userid }</cite>
 												<!--
-                <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                <i class="layui-badge fly-badge-vip">VIP3</i>
-                -->
+                									<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                									<i class="layui-badge fly-badge-vip">VIP3</i>
+                									-->
 											</a>
-											<span>刚刚</span>
+											<span>${requestScope.news.newsdate }</span>
 
 											<span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
 											<!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
 											<span class="fly-list-nums"> 
-                <i class="iconfont icon-pinglun1" title="评论"></i> 10
-              </span>
+                								<i class="iconfont icon-pinglun1" title="评论"></i> 10
+              								</span>
 										</div>
 										<div class="fly-list-badge">
 											<!--<span class="layui-badge layui-bg-red">精帖</span>-->

@@ -3548,4 +3548,5 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+	
 }

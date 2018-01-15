@@ -10,5 +10,5 @@ import javax.servlet.http.HttpServletResponse;
 public interface IServletFactory {
 	public void doThing(HttpServletRequest request,
 			HttpServletResponse response, HttpServlet serlvet,
-			String factoryName) throws ServletException, IOException;
+			String method) throws ServletException, IOException;
 }

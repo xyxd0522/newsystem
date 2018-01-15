@@ -16,6 +16,9 @@ import com.news.linglian.service.INewsService;
 import com.news.linglian.service.IUserService;
 import com.news.linglian.serviceImpl.INewsServiceImpl;
 import com.news.linglian.serviceImpl.IUserServiceImpl;
+import com.news.linglian.serviceNImpl.INewsdateServiceNImpl;
+
+import cn.newsw.linglian.serviceN.INewsdateServiceN;
 /**
  * 
  * INewsFactoryImpl.java
@@ -27,7 +30,7 @@ import com.news.linglian.serviceImpl.IUserServiceImpl;
 public class INewsFactoryImpl implements IServletFactory {
 
 	private INewsService ias = null;
-	
+	public static List<News> news = null;
 	
 	public INewsFactoryImpl() {
 		ias = new INewsServiceImpl();	
@@ -55,8 +58,21 @@ public class INewsFactoryImpl implements IServletFactory {
 			break;
 		case "queryAll":
 			doQueryAll(request, response, servlet);
+			break;
+		case "queryByNewsdate":
+			doQueryByNewsdate(request,response,servlet);
 		}
 	}
+	/*
+	 * 根据newsdate查询最新新闻
+	 */
+	private void doQueryByNewsdate(HttpServletRequest request, HttpServletResponse response, HttpServlet servlet) {
+		INewsdateServiceN newsservice = new INewsdateServiceNImpl();
+		List<News> news = newsservice.queryByNewsdate();
+		
+	}
+	
+	
 	/*
 	 * 根据id查询新闻详情
 	 */
@@ -195,5 +211,9 @@ public class INewsFactoryImpl implements IServletFactory {
 			news.setNewsId(newsId);
 			ServletUtil.checkdata(request, response, servlet, "update_from", "修改", ias.updateOfNewsId(news, newsId));
 		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(news);
 	}
 }

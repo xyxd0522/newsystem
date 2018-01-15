@@ -610,4 +610,5 @@ public interface INewsService {
     public List<News> getNewssOfTimeAndSearch(String time, String search);
     public List<News> getNewssOfTimeAndBUserIds(String time, String bUserIds);
     public List<News> getNewssOfSearchAndBUserIds(String search, String bUserIds);
+	
 }
