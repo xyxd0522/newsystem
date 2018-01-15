@@ -64,8 +64,52 @@ public class IUserFactoryImpl implements IServletFactory {
                 doQuery(request, response, servlet);
                 break;
             case "insertFriend":
-                doQuery(request, response, servlet);
+                doInsertFriend(request, response, servlet);
                 break;
+        }
+    }
+
+    /**
+     * 加为好友（关注）
+     *
+     * @param request
+     * @param response
+     * @param servlet
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void doInsertFriend(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "query_to")
+                .addNp("userId", "需要填写需要添加的用户id")
+                .addNs("identity", "请重新登录")
+                .build();
+        if (tMap != null) {
+            Map<String, String> m = MapUtil.soss(tMap);
+            User user = (User) tMap.get("ses_identity");
+            String str = user.getUserIds();
+            boolean isInsert = true;
+            if (str != null) {
+                String[] userIds = str.split(",");
+                for (String id : userIds) {
+                    if (id.equals(m.get("par_userId"))) {
+                        isInsert = false;
+                        break;
+                    }
+                }
+                if (isInsert) {
+                    user.setUserIds(str + "," + m.get("par_userId"));
+                    ias.updateOfUserId(user, user.getUserId());
+                    ServletUtil.dataOfSetSesRredirect(request, response, servlet,
+                            "query_to", "query_to", "关注",
+                            user, "identity");
+                }
+            }
+            if (!isInsert) {
+                request.getSession().setAttribute("info", "你已经关注了该用户");
+                ServletUtil.redirect(request, response, servlet, "query_to");
+            }
         }
     }
 
@@ -84,10 +128,11 @@ public class IUserFactoryImpl implements IServletFactory {
         if (tMap != null) {
             Map<String, String> m = MapUtil.soss(tMap);
             String userId = m.get("par_userId");
-            System.out.println(ias.getUserOfUserId(userId));
+            User user = ias.getUserOfUserId(userId);
+            user.setPassword(null);
             ServletUtil.dataOfSetSesForward(request, response, servlet,
                     "query_from", "query_to", "获取",
-                    ias.getUserOfUserId(userId), "user");
+                    user, "user");
         }
     }
 

@@ -118,7 +118,7 @@
                         <p class="fly-home-sign">${sessionScope.user.signature}</p>
 
                         <div class="fly-sns" data-user="">
-                                <a href="javascript:;" class="layui-btn layui-btn-primary fly-imActive" data-type="addFriend">加为好友</a>
+                                <a href="${pageContext.request.contextPath}/UserAction.do?method=insertFriend&userId=${sessionScope.user.userId}" class="layui-btn layui-btn-primary fly-imActive" data-type="addFriend">加为好友</a>
                                 <a href="javascript:;" class="layui-btn layui-btn-normal fly-imActive" data-type="chat">发起会话</a>
                         </div>
 
