@@ -2,6 +2,7 @@ package com.news.linglian.service;
 
 import com.news.linglian.entity.Admin;
 
+
 public interface IAdminService {
 	/**
 	 * 更新数据库中的对应的Admin对象
