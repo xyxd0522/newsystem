@@ -95,7 +95,9 @@
                                 <c:if test="${sessionScope.user.sex == '女'}">
                                     <i class="iconfont icon-nv"></i>
                                 </c:if>
-                                <i class="layui-badge fly-badge-vip">VIP${sessionScope.user.lvl}</i>
+                                <c:if test="${sessionScope.user.lvl >= 1}">
+                                    <i class="layui-badge fly-badge-vip">VIP${sessionScope.user.lvl}</i>
+                                </c:if>
                                 <c:if test="${sessionScope.user.lvl == -99}">
                                     <span style="color:#c00;">（管理员）</span>
                                 </c:if>

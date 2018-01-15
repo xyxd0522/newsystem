@@ -323,7 +323,6 @@ public class ServletCheckBuilder {
     private boolean checkNullListOfSes() throws ServletException, IOException {
         for (Checker c : checkNullListOfSes) {
             putMapOfSes(c);
-            System.out.println(c);
             if (!ServletUtil.checkNullOfSes(request, response, servlet,
                     c.parameterName, c.param, c.alert)) {
                 return false;
