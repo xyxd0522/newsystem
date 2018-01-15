@@ -773,12 +773,12 @@ public class ServletUtil {
             throws ServletException, IOException {
         if (obj == null) {
             request.getSession().setAttribute("info", alert + "失败");
-            ServletUtil.redirect(request, response, servlet, rightPar);
+            ServletUtil.redirect(request, response, servlet,badPart);
             return false;
         } else {
             request.getSession().setAttribute(param, obj);
             request.getSession().setAttribute("info", alert + "成功");
-            ServletUtil.redirect(request, response, servlet, badPart);
+            ServletUtil.redirect(request, response, servlet,rightPar);
             return true;
         }
     }
@@ -789,12 +789,12 @@ public class ServletUtil {
             throws ServletException, IOException {
         if (obj == null) {
             request.getSession().setAttribute("info", alert + "失败");
-            ServletUtil.redirect(request, response, servlet, rightPar);
+            ServletUtil.redirect(request, response, servlet,badPart);
             return false;
         } else {
             request.setAttribute(param, obj);
             request.getSession().setAttribute("info", alert + "成功");
-            ServletUtil.redirect(request, response, servlet, badPart);
+            ServletUtil.redirect(request, response, servlet,rightPar);
             return true;
         }
     }
@@ -804,12 +804,12 @@ public class ServletUtil {
             throws ServletException, IOException {
         if (obj == null) {
             request.getSession().setAttribute("info", alert + "失败");
-            ServletUtil.redirect(request, response, servlet, rightPar);
+            ServletUtil.redirect(request, response, servlet,badPart);
             return false;
         } else {
             request.getSession().setAttribute(param, obj);
             request.getSession().setAttribute("info", alert + "成功");
-            ServletUtil.forward(request, response, servlet, badPart);
+            ServletUtil.forward(request, response, servlet,rightPar);
             return true;
         }
     }
@@ -820,12 +820,12 @@ public class ServletUtil {
             throws ServletException, IOException {
         if (obj == null) {
             request.getSession().setAttribute("info", alert + "失败");
-            ServletUtil.redirect(request, response, servlet, rightPar);
+            ServletUtil.redirect(request, response, servlet,badPart);
             return false;
         } else {
             request.setAttribute(param, obj);
             request.getSession().setAttribute("info", alert + "成功");
-            ServletUtil.forward(request, response, servlet, badPart);
+            ServletUtil.forward(request, response, servlet,rightPar);
             return true;
         }
     }

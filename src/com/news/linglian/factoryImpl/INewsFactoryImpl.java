@@ -26,6 +26,8 @@ import com.news.linglian.service.INewsService;
 import com.news.linglian.service.IUserService;
 import com.news.linglian.serviceImpl.INewsServiceImpl;
 import com.news.linglian.serviceImpl.IUserServiceImpl;
+import com.news.linglian.serviceN.IUserServiceN;
+import com.news.linglian.serviceNImpl.IUserServiceNImpl;
 /**
  * 
  * INewsFactoryImpl.java
@@ -155,24 +157,25 @@ public class INewsFactoryImpl implements IServletFactory {
 		.addNp("title","新闻标题不能为空")
 		.addNp("body", "新闻内容不能为空")
 		.addNp("newsTypeId", "新闻类型不能为空")
-		.addNs("userId", "用户id不能为空")
-		.addNs("path", "用户地址不能为空")
+		.addNs("identity", "请重新登录", "login_from")
 		.build();
 		if (tMap != null) {
 			SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String insertNewDate = tempDate.format(new Date(System.currentTimeMillis()));
 			System.out.println(insertNewDate);
+			User user = (User) tMap.get("ses_identity");
+			System.out.println(user.getPath());
+			System.out.println(user.getUserId());
 			Map<String, String> m = MapUtil.soss(tMap);
 			News news =new News();
 			news.setTitle(m.get("par_title"));
 			news.setBody(m.get("par_body"));
 			news.setNewsTypeId(m.get("par_newsTypeId"));
-			news.setUserId(m.get("par_userId"));
 			news.setTime(insertNewDate);
-			news.setPath(m.get("par_path"));
+			news.setUserId(user.getUserId());
+			news.setPath(user.getPath());
 			System.out.println(news);
 			ServletUtil.dataOfSetReqRedirect(request, response, servlet, "insert_to", "insert_from", "插入", ias.insert(news), "news");
-			
 		}
 		
 	}
@@ -189,25 +192,29 @@ public class INewsFactoryImpl implements IServletFactory {
 			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String title = request.getParameter("title");
-		String body=request.getParameter("body");
-		String newsTypeId =request.getParameter("newsTypeId");
-		String money =request.getParameter("money");
-		String newsId =request.getParameter("newsId");
-		List<String[] > list = new StringArrayListBuilder()
-		.addString(title,"标题")
-		.addString(body,"内容")
-		.addString(newsTypeId,"新闻类型")
-		.addString(money,"阳光值")
-		.addString(newsId,"新闻编号")
+		Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "update_from")
+		.addNp("title","新闻标题不能为空")
+		.addNp("body", "新闻内容不能为空")
+		.addNp("newsTypeId", "新闻类型不能为空")
+		.addNp("newsId", "新闻id不能为空")
+		.addNs("identity", "请重新登录", "login_from")
 		.build();
-		if(ServletUtil.isNull(request, response, servlet, "update_from", list)){
+		if (tMap != null) {
+			SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String insertNewDate = tempDate.format(new Date(System.currentTimeMillis()));
+			System.out.println(insertNewDate);
+			User user = (User) tMap.get("ses_identity");
+			System.out.println(user.getUserId());
+			Map<String, String> m = MapUtil.soss(tMap);
 			News news =new News();
-			news.setNewsTypeId(newsTypeId);
-			news.setBody(body);
-			news.setTitle(title);
-			news.setNewsId(newsId);
-			ServletUtil.dataOfSetReqRedirect(request, response, servlet, "insert_to", "insert_from", "插入", ias.updateOfNewsId(news, newsId), "news");
+			news.setTitle(m.get("par_title"));
+			news.setBody(m.get("par_body"));
+			news.setNewsTypeId(m.get("par_newsTypeId"));
+			news.setTime(insertNewDate);
+			news.setNewsId(m.get("par_newsId"));
+			news.setUserId(user.getUserId());
+			System.out.println(news);
+			ServletUtil.dataOfSetReqRedirect(request, response, servlet, "update_to", "update_from", "修改", ias.updateOfNewsIdAndUserId(news, m.get("par_newsId"), user.getUserId()), "news");
 		}
 	}
 	
