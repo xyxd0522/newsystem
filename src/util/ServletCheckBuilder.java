@@ -323,6 +323,7 @@ public class ServletCheckBuilder {
     private boolean checkNullListOfSes() throws ServletException, IOException {
         for (Checker c : checkNullListOfSes) {
             putMapOfSes(c);
+            System.out.println(c);
             if (!ServletUtil.checkNullOfSes(request, response, servlet,
                     c.parameterName, c.param, c.alert)) {
                 return false;
@@ -357,7 +358,7 @@ public class ServletCheckBuilder {
      * @throws IOException
      */
     private boolean checkClassListOfSes() throws ServletException, IOException {
-        for (Checker c : checkNullListOfSes) {
+        for (Checker c : checkClassListOfSes) {
             putMapOfSes(c);
             if (!ServletUtil.checkClassOfSes(request, response, servlet,
                     c.parameterName, c.param, c.alert, c.claszz)) {
@@ -593,7 +594,7 @@ public class ServletCheckBuilder {
         if (!checkNullListOfPar()) {
             return null;
         }
-        if (!checkClassListOfSes()) {
+        if (!checkNullListOfSes()) {
             return null;
         }
         if (!checkClassListOfPar()) {
@@ -677,6 +678,11 @@ public class ServletCheckBuilder {
             this.flag = flag;
             this.alert = alert;
             this.parameterName = parameterName;
+        }
+
+        @Override
+        public String toString() {
+            return "Checker{" + "param=" + param + ", param2=" + param2 + ", alert=" + alert + ", parameterName=" + parameterName + ", flag=" + flag + ", claszz=" + claszz + '}';
         }
 
     }
