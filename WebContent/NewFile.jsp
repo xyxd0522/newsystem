@@ -10,7 +10,7 @@
                 ${pageNews}
                 ${info}
                 <a href="${pageContext.request.contextPath}/UserAction.do?method=login&email=123&pass=123&vercode=${sessionScope.token}">login</a>
-                <a href="${pageContext.request.contextPath}/UserAction.do?method=insert&username=凌恋">asdasd</a>
+                <a href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=1">asdasd</a>
                 <form action="UserAction.do?method=insert" method="POST">
                         <input name="username"/>
                         <button type="submit">阿萨德</button>

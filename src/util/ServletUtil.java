@@ -304,7 +304,7 @@ public class ServletUtil {
             return false;
         } else { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return true;
-        } 
+        }
     }
 
     private static boolean checkIsBigOfObject(HttpServletRequest request,
@@ -325,7 +325,7 @@ public class ServletUtil {
             return false;
         } else { //不相等，且选择相等时执行跳转的时候，执行跳转失败，返回false
             return true;
-        } 
+        }
     }
 
     private static boolean checkIsSmallOfObject(HttpServletRequest request,
@@ -767,4 +767,35 @@ public class ServletUtil {
         }
     }
 
+    public static boolean dataOfSetSes(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet,
+            String rightPar, String badPart, String alert, Object obj, String param)
+            throws ServletException, IOException {
+        if (obj == null) {
+            request.getSession().setAttribute("info", alert + "失败");
+            ServletUtil.redirect(request, response, servlet, rightPar);
+            return false;
+        } else {
+            request.getSession().setAttribute(param, obj);
+            request.getSession().setAttribute("info", alert + "成功");
+            ServletUtil.forward(request, response, servlet, badPart);
+            return true;
+        }
+    }
+
+    public static boolean dataOfSetReq(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet,
+            String rightPar, String badPart, String alert, Object obj, String param)
+            throws ServletException, IOException {
+        if (obj == null) {
+            request.getSession().setAttribute("info", alert + "失败");
+            ServletUtil.redirect(request, response, servlet, rightPar);
+            return false;
+        } else {
+            request.setAttribute(param, obj);
+            request.getSession().setAttribute("info", alert + "成功");
+            ServletUtil.forward(request, response, servlet, badPart);
+            return true;
+        }
+    }
 }

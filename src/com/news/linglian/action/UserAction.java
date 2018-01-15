@@ -16,12 +16,12 @@ import com.news.linglian.factory.IServletFactory;
  */
 @WebServlet(name = "UserAction", urlPatterns = "/UserAction.do", initParams = {
     @WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.IUserFactoryImpl"),
-    @WebInitParam(name = "login_from", value = "NewFile.jsp"),
-    @WebInitParam(name = "login_to", value = "NewFile.jsp"),
-    @WebInitParam(name = "query_from", value = "NewFile.jsp"),
-    @WebInitParam(name = "query_to", value = "NewFile.jsp"),
-    @WebInitParam(name = "insert_to", value = "index.jsp"),
-    @WebInitParam(name = "insert_from", value = "user/reg.jsp")})
+    @WebInitParam(name = "login_from", value = "user/login.jsp"),
+    @WebInitParam(name = "login_to", value = "index.jsp"),
+    @WebInitParam(name = "query_from", value = "user/login.jsp"),
+    @WebInitParam(name = "query_to", value = "user/home.jsp"),
+    @WebInitParam(name = "insert_from", value = "user/res.jsp"),
+    @WebInitParam(name = "insert_to", value = "user/login.jsp")})
 public class UserAction extends HttpServlet {
 
     private static final long serialVersionUID = 1L;

@@ -71,20 +71,16 @@ public class IUserFactoryImpl implements IServletFactory {
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
-        if (ServletUtil.checkIdentity(request, response, servlet, "query_from")) {
-            List<String[]> list = new StringArrayListBuilder()
-                    .addString(userId, "用户id")
-                    .build();
-            if (ServletUtil.isNull(request, response, servlet, "query_from", list)) {
-                if ((ias.getUserOfUserId(userId)) == null) {
-                    request.getSession().setAttribute("info", "获取失败");
-                    ServletUtil.redirect(request, response, servlet, "query_from");
-                } else {
-                    request.getSession().setAttribute("info", "获取成功");
-                    request.getSession().setAttribute("user", ias.getUserOfUserId(userId));
-                    ServletUtil.forward(request, response, servlet, "query_to");
-                }
-            }
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "query_from")
+                .addNp("userId", "需要填写需要查看的用户id")
+                .addNs("identity", "请重新登录", "login_from")
+                .build();
+        if (tMap != null) {
+            Map<String, String> m = MapUtil.soss(tMap);
+            String userId = m.get("par_userId");
+            ServletUtil.dataOfSetReq(request, response, servlet,
+                    "query_from", "query_to", "获取",
+                    ias.getUserOfUserId(userId), "user");
         }
     }
 
@@ -120,15 +116,12 @@ public class IUserFactoryImpl implements IServletFactory {
                 .addEps("vercode", "token", "验证码错误", false)
                 .build();
         if (tMap != null) {
-            System.out.println(tMap);
             Map<String, String> m = MapUtil.soss(tMap);
-            System.out.println(m);
             User user = new User();
             user.setName(m.get("par_username"));
             user.setEmail(m.get("par_email"));
             user.setPassword(m.get("par_pass"));
             user.setPath(m.get("par_quiz1") + "," + m.get("par_quiz2") + "," + m.get("par_quiz3"));
-            System.out.println(user);
             ServletUtil.checkdata(request, response, servlet, "insert_from", "插入", ias.insert(user));
         }
     }
@@ -159,27 +152,19 @@ public class IUserFactoryImpl implements IServletFactory {
     protected void doLogin(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
-        Map<String, Object> map = new ServletCheckBuilder(request, response, servlet, "login_from")
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "login_from")
                 .addNp("email", "邮箱")
                 .addNp("pass", "密码")
                 .addNp("vercode", "验证码")
+                .addEps("vercode", "token", "验证码错误", false)
                 .build();
-        if (map != null) {
-            if (!request.getSession().getAttribute("token").equals(map.get("par_vercode"))) {
-                request.getSession().setAttribute("info", "验证码错误");
-                ServletUtil.redirect(request, response, servlet, "login_from");
-            } else {
-                User user = ias.getUserOfPasswordAndEmail(map.get("par_pass").toString(), map.get("par_email").toString());
-                if (user == null) {
-                    request.getSession().setAttribute("info", "邮箱或者密码错误!");
-                    ServletUtil.redirect(request, response, servlet, "login_from");
-                } else {
-                    request.getSession().setAttribute("identity", user);
-                    request.getSession().setAttribute("info", "登录成功!");
-                    ServletUtil.redirect(request, response, servlet, "login_to");
-                }
-            }
+        if (tMap != null) {
+            Map<String, String> m = MapUtil.soss(tMap);
+            User user = ias.getUserOfPasswordAndEmail(m.get("par_pass"), m.get("par_email"));
+            ServletUtil.dataOfSetSes(request, response, servlet,
+                    "login_from", "login_to", "登录",
+                    user, "identity");
+            request.getSession().setAttribute("user", user);
         }
     }
-
 }
