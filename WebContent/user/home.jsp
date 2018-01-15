@@ -106,16 +106,16 @@
                                 <span>（该号已被封）</span>
                                 -->
                         </h1>
-
-                        <p style="padding: 10px 0; color: #5FB878;">${sessionScope.user.signature}</p>
-
+                        <!--
+                            <p style="padding: 10px 0; color: #5FB878;">${sessionScope.user.signature}</p>
+                        -->
                         <p class="fly-home-info">
                                 <i class="iconfont" title="阳光值"><i class="layui-icon">&#xe65e;</i></i><span style="color: #FF7200;">${sessionScope.user.money}</span>
-                                <i class="iconfont icon-shijian"></i><span>2015-6-17 加入</span>
-                                <i class="iconfont icon-chengshi"></i><span>来自杭州</span>
+                                <i class="iconfont icon-shijian"></i><span>${sessionScope.user.registerDate} 加入</span>
+                                <i class="iconfont icon-chengshi"></i><span>来自${sessionScope.user.path}</span>
                         </p>
 
-                        <p class="fly-home-sign">（君子之交淡如水）</p>
+                        <p class="fly-home-sign">${sessionScope.user.signature}</p>
 
                         <div class="fly-sns" data-user="">
                                 <a href="javascript:;" class="layui-btn layui-btn-primary fly-imActive" data-type="addFriend">加为好友</a>

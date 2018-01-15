@@ -17,6 +17,8 @@ import com.news.linglian.entity.User;
 import com.news.linglian.factory.IServletFactory;
 import com.news.linglian.service.IUserService;
 import com.news.linglian.serviceImpl.IUserServiceImpl;
+import com.news.linglian.serviceN.IUserServiceN;
+import com.news.linglian.serviceNImpl.IUserServiceNImpl;
 import java.util.Date;
 import util.MapUtil;
 
@@ -31,10 +33,10 @@ import util.MapUtil;
  */
 public class IUserFactoryImpl implements IServletFactory {
 
-    private IUserService ias = null;
+    private IUserServiceN ias = null;
 
     public IUserFactoryImpl() {
-        ias = new IUserServiceImpl();
+        ias = new IUserServiceNImpl();
     }
 
     /**
@@ -59,6 +61,9 @@ public class IUserFactoryImpl implements IServletFactory {
                 doUpdate(request, response, servlet);
                 break;
             case "query":
+                doQuery(request, response, servlet);
+                break;
+            case "insertFriend":
                 doQuery(request, response, servlet);
                 break;
         }
@@ -169,7 +174,6 @@ public class IUserFactoryImpl implements IServletFactory {
             ServletUtil.dataOfSetSesRredirect(request, response, servlet,
                     "login_from", "login_to", "登录",
                     user, "identity");
-            request.getSession().setAttribute("user", user);
         }
     }
 }
