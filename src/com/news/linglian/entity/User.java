@@ -1,56 +1,181 @@
 package com.news.linglian.entity;
 
 public class User {
-	private String userid;
-	private String password;
-	private String pid;
-	private String answer;
-	private String score;
+    private String userId;
+    private String password;
+    private String name;
+    private String sex;
+    private String registerDate;
+    private String loginDate;
+    private String phone;
+    private String email;
+    private String money;
+    private String score;
+    private String path;
+    private String param;
+    private String lvl;
+    private String newIds;
+    private String userIds;
+    private String signature;
+    private String image;
+    private String famous;
+    private String bUserIds;
 
-	public String getUserid() {
-		return userid;
-	}
+    public String getUserId() {
+        return userId;
+    }
 
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-	public String getPid() {
-		return pid;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setPid(String pid) {
-		this.pid = pid;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getAnswer() {
-		return answer;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getScore() {
-		return score;
-	}
+    public String getSex() {
+        return sex;
+    }
 
-	public void setScore(String score) {
-		this.score = score;
-	}
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getRegisterDate() {
+        return registerDate;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setRegisterDate(String registerDate) {
+        this.registerDate = registerDate;
+    }
 
-	@Override
-	public String toString() {
-		return "User [userid=" + userid + ", password=" + password + ", pid="
-				+ pid + ", answer=" + answer + ", score=" + score + "]";
-	}
+    public String getLoginDate() {
+        return loginDate;
+    }
+
+    public void setLoginDate(String loginDate) {
+        this.loginDate = loginDate;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getParam() {
+        return param;
+    }
+
+    public void setParam(String param) {
+        this.param = param;
+    }
+
+    public String getLvl() {
+        return lvl;
+    }
+
+    public void setLvl(String lvl) {
+        this.lvl = lvl;
+    }
+
+    public String getNewIds() {
+        return newIds;
+    }
+
+    public void setNewIds(String newIds) {
+        this.newIds = newIds;
+    }
+
+    public String getUserIds() {
+        return userIds;
+    }
+
+    public void setUserIds(String userIds) {
+        this.userIds = userIds;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getFamous() {
+        return famous;
+    }
+
+    public void setFamous(String famous) {
+        this.famous = famous;
+    }
+
+    public String getBUserIds() {
+        return bUserIds;
+    }
+
+    public void setBUserIds(String bUserIds) {
+        this.bUserIds = bUserIds;
+    }
+
+    @Override
+    public String toString() {
+        return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", sex=" + sex + ", registerDate=" + registerDate + ", loginDate=" + loginDate + ", phone=" + phone + ", email=" + email + ", money=" + money + ", score=" + score + ", path=" + path + ", param=" + param + ", lvl=" + lvl + ", newIds=" + newIds + ", userIds=" + userIds + ", signature=" + signature + ", image=" + image + ", famous=" + famous + ", bUserIds=" + bUserIds + ", ]";
+    }
 
 }
