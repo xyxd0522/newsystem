@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.news.linglian.entity.Admin;
 import com.news.linglian.entity.User;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 
 public class ServletUtil {
 
@@ -767,35 +770,173 @@ public class ServletUtil {
         }
     }
 
-    public static boolean dataOfSetSes(HttpServletRequest request,
+    public static void checkdata(HttpServletRequest request,
+            HttpServletResponse response, String page, String responsename, int ispass)
+            throws ServletException, IOException {
+        if (ispass == 0) {
+            request.getSession().setAttribute("info", responsename + "失败");
+            ServletUtil.redirect(request, response, page);
+        } else {
+            request.getSession().setAttribute("info", responsename + "成功");
+            ServletUtil.redirect(request, response, page);
+        }
+    }
+    public static boolean dataOfSetSesRredirect(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
             String rightPar, String badPart, String alert, Object obj, String param)
             throws ServletException, IOException {
         if (obj == null) {
             request.getSession().setAttribute("info", alert + "失败");
-            ServletUtil.redirect(request, response, servlet, rightPar);
+            ServletUtil.redirect(request, response, servlet, badPart);
             return false;
         } else {
             request.getSession().setAttribute(param, obj);
             request.getSession().setAttribute("info", alert + "成功");
-            ServletUtil.forward(request, response, servlet, badPart);
+            ServletUtil.redirect(request, response, servlet, rightPar);
             return true;
         }
     }
 
-    public static boolean dataOfSetReq(HttpServletRequest request,
+    public static boolean dataOfSetReqRedirect(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet,
             String rightPar, String badPart, String alert, Object obj, String param)
             throws ServletException, IOException {
         if (obj == null) {
             request.getSession().setAttribute("info", alert + "失败");
-            ServletUtil.redirect(request, response, servlet, rightPar);
+            ServletUtil.redirect(request, response, servlet, badPart);
             return false;
         } else {
             request.setAttribute(param, obj);
             request.getSession().setAttribute("info", alert + "成功");
-            ServletUtil.forward(request, response, servlet, badPart);
+            ServletUtil.redirect(request, response, servlet, rightPar);
             return true;
+        }
+    }
+
+    public static boolean dataOfSetSesForward(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet,
+            String rightPar, String badPart, String alert, Object obj, String param)
+            throws ServletException, IOException {
+        if (obj == null) {
+            request.getSession().setAttribute("info", alert + "失败");
+            ServletUtil.redirect(request, response, servlet, badPart);
+            return false;
+        } else {
+            request.getSession().setAttribute(param, obj);
+            request.getSession().setAttribute("info", alert + "成功");
+            ServletUtil.forward(request, response, servlet, rightPar);
+            return true;
+        }
+    }
+
+    public static boolean dataOfSetReqForward(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet,
+            String rightPar, String badPart, String alert, Object obj, String param)
+            throws ServletException, IOException {
+        if (obj == null) {
+            request.getSession().setAttribute("info", alert + "失败");
+            ServletUtil.redirect(request, response, servlet, badPart);
+            return false;
+        } else {
+            request.setAttribute(param, obj);
+            request.getSession().setAttribute("info", alert + "成功");
+            ServletUtil.forward(request, response, servlet, rightPar);
+            return true;
+        }
+    }
+
+    public static String updateFile(HttpServletRequest request,
+            HttpServletResponse response, String path, String format) throws ServletException, IOException {
+        //定义上载文件的最大字节
+        int MAX_SIZE = 102400 * 102400;
+        // 创建根路径的保存变量
+        String rootPath;
+        //声明文件读入类
+        DataInputStream in = null;
+        FileOutputStream fileOut = null;
+        //创建文件的保存目录
+        String realPath = request.getServletContext().getRealPath("") + "/" + path;
+        //取得客户端上传的数据类型
+        String contentType = request.getContentType();
+        try {
+            if (contentType.indexOf("multipart/form-data") >= 0) {
+                //读入上传的数据
+                in = new DataInputStream(request.getInputStream());
+                int formDataLength = request.getContentLength();
+                if (formDataLength > MAX_SIZE) {
+                    throw new ServletException("上传的文件字节数不可以超过" + MAX_SIZE + "---" + formDataLength);
+                }
+                //保存上传文件的数据
+                byte dataBytes[] = new byte[formDataLength];
+                int byteRead = 0;
+                int totalBytesRead = 0;
+                //上传的数据保存在byte数组
+                while (totalBytesRead < formDataLength) {
+                    byteRead = in.read(dataBytes, totalBytesRead, formDataLength);
+                    totalBytesRead += byteRead;
+                }
+                //根据byte数组创建字符串
+                String file2 = new String(dataBytes, "UTF-8");
+                String file = new String(dataBytes);
+                //取得上传的数据的文件名
+                String saveFile = file2.substring(file2.indexOf("filename=\"") + 10);
+                saveFile = saveFile.substring(0, saveFile.indexOf("\n"));
+                saveFile = saveFile.substring(saveFile.lastIndexOf("\\") + 1, saveFile.indexOf("\""));
+                if (format != null) {
+                    String[] formats = format.split(",");
+                    boolean flag = true;
+                    for (String s : formats) {
+                        if (saveFile.endsWith(s)) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (flag) {
+                        return null;
+                    }
+                }
+                int lastIndex = contentType.lastIndexOf("=");
+                //取得数据的分隔字符串
+                String boundary = contentType.substring(lastIndex + 1, contentType.length());
+                //创建保存路径的文件名
+                String fileName = realPath + saveFile;
+                int pos;
+                pos = file.indexOf("filename=\"");
+                pos = file.indexOf("\n", pos) + 1;
+                pos = file.indexOf("\n", pos) + 1;
+                pos = file.indexOf("\n", pos) + 1;
+                int boundaryLocation = file.indexOf(boundary, pos) - 4;
+                //取得文件数据的开始的位置
+                int startPos = ((file.substring(0, pos)).getBytes()).length;
+                System.out.println((char) dataBytes[startPos]);
+                //取得文件数据的结束的位置
+                int endPos = ((file.substring(0, boundaryLocation)).getBytes()).length;
+                 //检查上载文件是否存在
+                /*
+                 File checkFile = new File(fileName);
+                 if (checkFile.exists()) {
+                 out.println("<p>" + saveFile + "文件已经存在.</p>");
+                 }
+                 */
+                //检查上载文件的目录是否存在
+                File fileDir = new File(realPath, "UTF-8");
+                if (!fileDir.exists()) {
+                    fileDir.mkdirs();
+                }
+                //创建文件的写出类
+                fileOut = new FileOutputStream(fileName);
+                System.out.println(fileName);
+                //保存文件的数据
+                fileOut.write(dataBytes, startPos, (endPos - startPos));
+                return fileName;
+            } else {
+                String content = request.getContentType();
+                throw new ServletException("传的数据类型不是multipart/form-data---" + content);
+            }
+        } catch (Exception ex) {
+            throw new ServletException(ex.getMessage());
+        } finally {
+            fileOut.close();
         }
     }
 }

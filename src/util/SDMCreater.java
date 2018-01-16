@@ -853,6 +853,6 @@ public class SDMCreater {
     }
 
     public static void main(String[] args) {
-        buildFromDataBase("newsystem", "F:/新建文件夹/newsystem/src", "com.news.linglian", 2);
+        buildFromDataBase("newsystem", "C:/eclipse/newsystem/src", "com.news.linglian", 2);
     }
 }

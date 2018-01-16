@@ -20,11 +20,11 @@ public class ICommentServiceImpl implements ICommentService {
     public int updateOfCommentId(Comment comment, String commentId) {
         return dao.updateOfCommentId(comment, commentId);
     }
-    public int updateOfFid(Comment comment, String fid) {
-        return dao.updateOfFid(comment, fid);
+    public int updateOfNewsId(Comment comment, String newsId) {
+        return dao.updateOfNewsId(comment, newsId);
     }
-    public int updateOfCids(Comment comment, String cids) {
-        return dao.updateOfCids(comment, cids);
+    public int updateOfCcommentId(Comment comment, String ccommentId) {
+        return dao.updateOfCcommentId(comment, ccommentId);
     }
     public int updateOfBody(Comment comment, String body) {
         return dao.updateOfBody(comment, body);
@@ -38,11 +38,14 @@ public class ICommentServiceImpl implements ICommentService {
     public int updateOfBad(Comment comment, String bad) {
         return dao.updateOfBad(comment, bad);
     }
-    public int updateOfCommentIdAndFid(Comment comment, String commentId, String fid) {
-        return dao.updateOfCommentIdAndFid(comment, commentId, fid);
+    public int updateOfUserId(Comment comment, String userId) {
+        return dao.updateOfUserId(comment, userId);
     }
-    public int updateOfCommentIdAndCids(Comment comment, String commentId, String cids) {
-        return dao.updateOfCommentIdAndCids(comment, commentId, cids);
+    public int updateOfCommentIdAndNewsId(Comment comment, String commentId, String newsId) {
+        return dao.updateOfCommentIdAndNewsId(comment, commentId, newsId);
+    }
+    public int updateOfCommentIdAndCcommentId(Comment comment, String commentId, String ccommentId) {
+        return dao.updateOfCommentIdAndCcommentId(comment, commentId, ccommentId);
     }
     public int updateOfCommentIdAndBody(Comment comment, String commentId, String body) {
         return dao.updateOfCommentIdAndBody(comment, commentId, body);
@@ -56,32 +59,41 @@ public class ICommentServiceImpl implements ICommentService {
     public int updateOfCommentIdAndBad(Comment comment, String commentId, String bad) {
         return dao.updateOfCommentIdAndBad(comment, commentId, bad);
     }
-    public int updateOfFidAndCids(Comment comment, String fid, String cids) {
-        return dao.updateOfFidAndCids(comment, fid, cids);
+    public int updateOfCommentIdAndUserId(Comment comment, String commentId, String userId) {
+        return dao.updateOfCommentIdAndUserId(comment, commentId, userId);
     }
-    public int updateOfFidAndBody(Comment comment, String fid, String body) {
-        return dao.updateOfFidAndBody(comment, fid, body);
+    public int updateOfNewsIdAndCcommentId(Comment comment, String newsId, String ccommentId) {
+        return dao.updateOfNewsIdAndCcommentId(comment, newsId, ccommentId);
     }
-    public int updateOfFidAndTime(Comment comment, String fid, String time) {
-        return dao.updateOfFidAndTime(comment, fid, time);
+    public int updateOfNewsIdAndBody(Comment comment, String newsId, String body) {
+        return dao.updateOfNewsIdAndBody(comment, newsId, body);
     }
-    public int updateOfFidAndGood(Comment comment, String fid, String good) {
-        return dao.updateOfFidAndGood(comment, fid, good);
+    public int updateOfNewsIdAndTime(Comment comment, String newsId, String time) {
+        return dao.updateOfNewsIdAndTime(comment, newsId, time);
     }
-    public int updateOfFidAndBad(Comment comment, String fid, String bad) {
-        return dao.updateOfFidAndBad(comment, fid, bad);
+    public int updateOfNewsIdAndGood(Comment comment, String newsId, String good) {
+        return dao.updateOfNewsIdAndGood(comment, newsId, good);
     }
-    public int updateOfCidsAndBody(Comment comment, String cids, String body) {
-        return dao.updateOfCidsAndBody(comment, cids, body);
+    public int updateOfNewsIdAndBad(Comment comment, String newsId, String bad) {
+        return dao.updateOfNewsIdAndBad(comment, newsId, bad);
     }
-    public int updateOfCidsAndTime(Comment comment, String cids, String time) {
-        return dao.updateOfCidsAndTime(comment, cids, time);
+    public int updateOfNewsIdAndUserId(Comment comment, String newsId, String userId) {
+        return dao.updateOfNewsIdAndUserId(comment, newsId, userId);
     }
-    public int updateOfCidsAndGood(Comment comment, String cids, String good) {
-        return dao.updateOfCidsAndGood(comment, cids, good);
+    public int updateOfCcommentIdAndBody(Comment comment, String ccommentId, String body) {
+        return dao.updateOfCcommentIdAndBody(comment, ccommentId, body);
     }
-    public int updateOfCidsAndBad(Comment comment, String cids, String bad) {
-        return dao.updateOfCidsAndBad(comment, cids, bad);
+    public int updateOfCcommentIdAndTime(Comment comment, String ccommentId, String time) {
+        return dao.updateOfCcommentIdAndTime(comment, ccommentId, time);
+    }
+    public int updateOfCcommentIdAndGood(Comment comment, String ccommentId, String good) {
+        return dao.updateOfCcommentIdAndGood(comment, ccommentId, good);
+    }
+    public int updateOfCcommentIdAndBad(Comment comment, String ccommentId, String bad) {
+        return dao.updateOfCcommentIdAndBad(comment, ccommentId, bad);
+    }
+    public int updateOfCcommentIdAndUserId(Comment comment, String ccommentId, String userId) {
+        return dao.updateOfCcommentIdAndUserId(comment, ccommentId, userId);
     }
     public int updateOfBodyAndTime(Comment comment, String body, String time) {
         return dao.updateOfBodyAndTime(comment, body, time);
@@ -92,14 +104,26 @@ public class ICommentServiceImpl implements ICommentService {
     public int updateOfBodyAndBad(Comment comment, String body, String bad) {
         return dao.updateOfBodyAndBad(comment, body, bad);
     }
+    public int updateOfBodyAndUserId(Comment comment, String body, String userId) {
+        return dao.updateOfBodyAndUserId(comment, body, userId);
+    }
     public int updateOfTimeAndGood(Comment comment, String time, String good) {
         return dao.updateOfTimeAndGood(comment, time, good);
     }
     public int updateOfTimeAndBad(Comment comment, String time, String bad) {
         return dao.updateOfTimeAndBad(comment, time, bad);
     }
+    public int updateOfTimeAndUserId(Comment comment, String time, String userId) {
+        return dao.updateOfTimeAndUserId(comment, time, userId);
+    }
     public int updateOfGoodAndBad(Comment comment, String good, String bad) {
         return dao.updateOfGoodAndBad(comment, good, bad);
+    }
+    public int updateOfGoodAndUserId(Comment comment, String good, String userId) {
+        return dao.updateOfGoodAndUserId(comment, good, userId);
+    }
+    public int updateOfBadAndUserId(Comment comment, String bad, String userId) {
+        return dao.updateOfBadAndUserId(comment, bad, userId);
     }
     public int remove(Comment comment) {
         return dao.remove(comment);
@@ -107,11 +131,11 @@ public class ICommentServiceImpl implements ICommentService {
     public int removeOfCommentId(String commentId) {
         return dao.removeOfCommentId(commentId);
     }
-    public int removeOfFid(String fid) {
-        return dao.removeOfFid(fid);
+    public int removeOfNewsId(String newsId) {
+        return dao.removeOfNewsId(newsId);
     }
-    public int removeOfCids(String cids) {
-        return dao.removeOfCids(cids);
+    public int removeOfCcommentId(String ccommentId) {
+        return dao.removeOfCcommentId(ccommentId);
     }
     public int removeOfBody(String body) {
         return dao.removeOfBody(body);
@@ -125,11 +149,14 @@ public class ICommentServiceImpl implements ICommentService {
     public int removeOfBad(String bad) {
         return dao.removeOfBad(bad);
     }
-    public int removeOfCommentIdAndFid(String commentId, String fid) {
-        return dao.removeOfCommentIdAndFid(commentId, fid);
+    public int removeOfUserId(String userId) {
+        return dao.removeOfUserId(userId);
     }
-    public int removeOfCommentIdAndCids(String commentId, String cids) {
-        return dao.removeOfCommentIdAndCids(commentId, cids);
+    public int removeOfCommentIdAndNewsId(String commentId, String newsId) {
+        return dao.removeOfCommentIdAndNewsId(commentId, newsId);
+    }
+    public int removeOfCommentIdAndCcommentId(String commentId, String ccommentId) {
+        return dao.removeOfCommentIdAndCcommentId(commentId, ccommentId);
     }
     public int removeOfCommentIdAndBody(String commentId, String body) {
         return dao.removeOfCommentIdAndBody(commentId, body);
@@ -143,32 +170,41 @@ public class ICommentServiceImpl implements ICommentService {
     public int removeOfCommentIdAndBad(String commentId, String bad) {
         return dao.removeOfCommentIdAndBad(commentId, bad);
     }
-    public int removeOfFidAndCids(String fid, String cids) {
-        return dao.removeOfFidAndCids(fid, cids);
+    public int removeOfCommentIdAndUserId(String commentId, String userId) {
+        return dao.removeOfCommentIdAndUserId(commentId, userId);
     }
-    public int removeOfFidAndBody(String fid, String body) {
-        return dao.removeOfFidAndBody(fid, body);
+    public int removeOfNewsIdAndCcommentId(String newsId, String ccommentId) {
+        return dao.removeOfNewsIdAndCcommentId(newsId, ccommentId);
     }
-    public int removeOfFidAndTime(String fid, String time) {
-        return dao.removeOfFidAndTime(fid, time);
+    public int removeOfNewsIdAndBody(String newsId, String body) {
+        return dao.removeOfNewsIdAndBody(newsId, body);
     }
-    public int removeOfFidAndGood(String fid, String good) {
-        return dao.removeOfFidAndGood(fid, good);
+    public int removeOfNewsIdAndTime(String newsId, String time) {
+        return dao.removeOfNewsIdAndTime(newsId, time);
     }
-    public int removeOfFidAndBad(String fid, String bad) {
-        return dao.removeOfFidAndBad(fid, bad);
+    public int removeOfNewsIdAndGood(String newsId, String good) {
+        return dao.removeOfNewsIdAndGood(newsId, good);
     }
-    public int removeOfCidsAndBody(String cids, String body) {
-        return dao.removeOfCidsAndBody(cids, body);
+    public int removeOfNewsIdAndBad(String newsId, String bad) {
+        return dao.removeOfNewsIdAndBad(newsId, bad);
     }
-    public int removeOfCidsAndTime(String cids, String time) {
-        return dao.removeOfCidsAndTime(cids, time);
+    public int removeOfNewsIdAndUserId(String newsId, String userId) {
+        return dao.removeOfNewsIdAndUserId(newsId, userId);
     }
-    public int removeOfCidsAndGood(String cids, String good) {
-        return dao.removeOfCidsAndGood(cids, good);
+    public int removeOfCcommentIdAndBody(String ccommentId, String body) {
+        return dao.removeOfCcommentIdAndBody(ccommentId, body);
     }
-    public int removeOfCidsAndBad(String cids, String bad) {
-        return dao.removeOfCidsAndBad(cids, bad);
+    public int removeOfCcommentIdAndTime(String ccommentId, String time) {
+        return dao.removeOfCcommentIdAndTime(ccommentId, time);
+    }
+    public int removeOfCcommentIdAndGood(String ccommentId, String good) {
+        return dao.removeOfCcommentIdAndGood(ccommentId, good);
+    }
+    public int removeOfCcommentIdAndBad(String ccommentId, String bad) {
+        return dao.removeOfCcommentIdAndBad(ccommentId, bad);
+    }
+    public int removeOfCcommentIdAndUserId(String ccommentId, String userId) {
+        return dao.removeOfCcommentIdAndUserId(ccommentId, userId);
     }
     public int removeOfBodyAndTime(String body, String time) {
         return dao.removeOfBodyAndTime(body, time);
@@ -179,14 +215,26 @@ public class ICommentServiceImpl implements ICommentService {
     public int removeOfBodyAndBad(String body, String bad) {
         return dao.removeOfBodyAndBad(body, bad);
     }
+    public int removeOfBodyAndUserId(String body, String userId) {
+        return dao.removeOfBodyAndUserId(body, userId);
+    }
     public int removeOfTimeAndGood(String time, String good) {
         return dao.removeOfTimeAndGood(time, good);
     }
     public int removeOfTimeAndBad(String time, String bad) {
         return dao.removeOfTimeAndBad(time, bad);
     }
+    public int removeOfTimeAndUserId(String time, String userId) {
+        return dao.removeOfTimeAndUserId(time, userId);
+    }
     public int removeOfGoodAndBad(String good, String bad) {
         return dao.removeOfGoodAndBad(good, bad);
+    }
+    public int removeOfGoodAndUserId(String good, String userId) {
+        return dao.removeOfGoodAndUserId(good, userId);
+    }
+    public int removeOfBadAndUserId(String bad, String userId) {
+        return dao.removeOfBadAndUserId(bad, userId);
     }
     public int insert(Comment comment) {
         return dao.insert(comment);
@@ -194,11 +242,11 @@ public class ICommentServiceImpl implements ICommentService {
     public int insertOfCommentId(String commentId) {
         return dao.insertOfCommentId(commentId);
     }
-    public int insertOfFid(String fid) {
-        return dao.insertOfFid(fid);
+    public int insertOfNewsId(String newsId) {
+        return dao.insertOfNewsId(newsId);
     }
-    public int insertOfCids(String cids) {
-        return dao.insertOfCids(cids);
+    public int insertOfCcommentId(String ccommentId) {
+        return dao.insertOfCcommentId(ccommentId);
     }
     public int insertOfBody(String body) {
         return dao.insertOfBody(body);
@@ -212,11 +260,14 @@ public class ICommentServiceImpl implements ICommentService {
     public int insertOfBad(String bad) {
         return dao.insertOfBad(bad);
     }
-    public int insertOfCommentIdAndFid(String commentId, String fid) {
-        return dao.insertOfCommentIdAndFid(commentId, fid);
+    public int insertOfUserId(String userId) {
+        return dao.insertOfUserId(userId);
     }
-    public int insertOfCommentIdAndCids(String commentId, String cids) {
-        return dao.insertOfCommentIdAndCids(commentId, cids);
+    public int insertOfCommentIdAndNewsId(String commentId, String newsId) {
+        return dao.insertOfCommentIdAndNewsId(commentId, newsId);
+    }
+    public int insertOfCommentIdAndCcommentId(String commentId, String ccommentId) {
+        return dao.insertOfCommentIdAndCcommentId(commentId, ccommentId);
     }
     public int insertOfCommentIdAndBody(String commentId, String body) {
         return dao.insertOfCommentIdAndBody(commentId, body);
@@ -230,32 +281,41 @@ public class ICommentServiceImpl implements ICommentService {
     public int insertOfCommentIdAndBad(String commentId, String bad) {
         return dao.insertOfCommentIdAndBad(commentId, bad);
     }
-    public int insertOfFidAndCids(String fid, String cids) {
-        return dao.insertOfFidAndCids(fid, cids);
+    public int insertOfCommentIdAndUserId(String commentId, String userId) {
+        return dao.insertOfCommentIdAndUserId(commentId, userId);
     }
-    public int insertOfFidAndBody(String fid, String body) {
-        return dao.insertOfFidAndBody(fid, body);
+    public int insertOfNewsIdAndCcommentId(String newsId, String ccommentId) {
+        return dao.insertOfNewsIdAndCcommentId(newsId, ccommentId);
     }
-    public int insertOfFidAndTime(String fid, String time) {
-        return dao.insertOfFidAndTime(fid, time);
+    public int insertOfNewsIdAndBody(String newsId, String body) {
+        return dao.insertOfNewsIdAndBody(newsId, body);
     }
-    public int insertOfFidAndGood(String fid, String good) {
-        return dao.insertOfFidAndGood(fid, good);
+    public int insertOfNewsIdAndTime(String newsId, String time) {
+        return dao.insertOfNewsIdAndTime(newsId, time);
     }
-    public int insertOfFidAndBad(String fid, String bad) {
-        return dao.insertOfFidAndBad(fid, bad);
+    public int insertOfNewsIdAndGood(String newsId, String good) {
+        return dao.insertOfNewsIdAndGood(newsId, good);
     }
-    public int insertOfCidsAndBody(String cids, String body) {
-        return dao.insertOfCidsAndBody(cids, body);
+    public int insertOfNewsIdAndBad(String newsId, String bad) {
+        return dao.insertOfNewsIdAndBad(newsId, bad);
     }
-    public int insertOfCidsAndTime(String cids, String time) {
-        return dao.insertOfCidsAndTime(cids, time);
+    public int insertOfNewsIdAndUserId(String newsId, String userId) {
+        return dao.insertOfNewsIdAndUserId(newsId, userId);
     }
-    public int insertOfCidsAndGood(String cids, String good) {
-        return dao.insertOfCidsAndGood(cids, good);
+    public int insertOfCcommentIdAndBody(String ccommentId, String body) {
+        return dao.insertOfCcommentIdAndBody(ccommentId, body);
     }
-    public int insertOfCidsAndBad(String cids, String bad) {
-        return dao.insertOfCidsAndBad(cids, bad);
+    public int insertOfCcommentIdAndTime(String ccommentId, String time) {
+        return dao.insertOfCcommentIdAndTime(ccommentId, time);
+    }
+    public int insertOfCcommentIdAndGood(String ccommentId, String good) {
+        return dao.insertOfCcommentIdAndGood(ccommentId, good);
+    }
+    public int insertOfCcommentIdAndBad(String ccommentId, String bad) {
+        return dao.insertOfCcommentIdAndBad(ccommentId, bad);
+    }
+    public int insertOfCcommentIdAndUserId(String ccommentId, String userId) {
+        return dao.insertOfCcommentIdAndUserId(ccommentId, userId);
     }
     public int insertOfBodyAndTime(String body, String time) {
         return dao.insertOfBodyAndTime(body, time);
@@ -266,14 +326,26 @@ public class ICommentServiceImpl implements ICommentService {
     public int insertOfBodyAndBad(String body, String bad) {
         return dao.insertOfBodyAndBad(body, bad);
     }
+    public int insertOfBodyAndUserId(String body, String userId) {
+        return dao.insertOfBodyAndUserId(body, userId);
+    }
     public int insertOfTimeAndGood(String time, String good) {
         return dao.insertOfTimeAndGood(time, good);
     }
     public int insertOfTimeAndBad(String time, String bad) {
         return dao.insertOfTimeAndBad(time, bad);
     }
+    public int insertOfTimeAndUserId(String time, String userId) {
+        return dao.insertOfTimeAndUserId(time, userId);
+    }
     public int insertOfGoodAndBad(String good, String bad) {
         return dao.insertOfGoodAndBad(good, bad);
+    }
+    public int insertOfGoodAndUserId(String good, String userId) {
+        return dao.insertOfGoodAndUserId(good, userId);
+    }
+    public int insertOfBadAndUserId(String bad, String userId) {
+        return dao.insertOfBadAndUserId(bad, userId);
     }
     public Comment getComment(Comment comment) {
         return dao.getComment(comment);
@@ -281,11 +353,11 @@ public class ICommentServiceImpl implements ICommentService {
     public Comment getCommentOfCommentId(String commentId) {
         return dao.getCommentOfCommentId(commentId);
     }
-    public Comment getCommentOfFid(String fid) {
-        return dao.getCommentOfFid(fid);
+    public Comment getCommentOfNewsId(String newsId) {
+        return dao.getCommentOfNewsId(newsId);
     }
-    public Comment getCommentOfCids(String cids) {
-        return dao.getCommentOfCids(cids);
+    public Comment getCommentOfCcommentId(String ccommentId) {
+        return dao.getCommentOfCcommentId(ccommentId);
     }
     public Comment getCommentOfBody(String body) {
         return dao.getCommentOfBody(body);
@@ -299,11 +371,14 @@ public class ICommentServiceImpl implements ICommentService {
     public Comment getCommentOfBad(String bad) {
         return dao.getCommentOfBad(bad);
     }
-    public Comment getCommentOfCommentIdAndFid(String commentId, String fid) {
-        return dao.getCommentOfCommentIdAndFid(commentId, fid);
+    public Comment getCommentOfUserId(String userId) {
+        return dao.getCommentOfUserId(userId);
     }
-    public Comment getCommentOfCommentIdAndCids(String commentId, String cids) {
-        return dao.getCommentOfCommentIdAndCids(commentId, cids);
+    public Comment getCommentOfCommentIdAndNewsId(String commentId, String newsId) {
+        return dao.getCommentOfCommentIdAndNewsId(commentId, newsId);
+    }
+    public Comment getCommentOfCommentIdAndCcommentId(String commentId, String ccommentId) {
+        return dao.getCommentOfCommentIdAndCcommentId(commentId, ccommentId);
     }
     public Comment getCommentOfCommentIdAndBody(String commentId, String body) {
         return dao.getCommentOfCommentIdAndBody(commentId, body);
@@ -317,32 +392,41 @@ public class ICommentServiceImpl implements ICommentService {
     public Comment getCommentOfCommentIdAndBad(String commentId, String bad) {
         return dao.getCommentOfCommentIdAndBad(commentId, bad);
     }
-    public Comment getCommentOfFidAndCids(String fid, String cids) {
-        return dao.getCommentOfFidAndCids(fid, cids);
+    public Comment getCommentOfCommentIdAndUserId(String commentId, String userId) {
+        return dao.getCommentOfCommentIdAndUserId(commentId, userId);
     }
-    public Comment getCommentOfFidAndBody(String fid, String body) {
-        return dao.getCommentOfFidAndBody(fid, body);
+    public Comment getCommentOfNewsIdAndCcommentId(String newsId, String ccommentId) {
+        return dao.getCommentOfNewsIdAndCcommentId(newsId, ccommentId);
     }
-    public Comment getCommentOfFidAndTime(String fid, String time) {
-        return dao.getCommentOfFidAndTime(fid, time);
+    public Comment getCommentOfNewsIdAndBody(String newsId, String body) {
+        return dao.getCommentOfNewsIdAndBody(newsId, body);
     }
-    public Comment getCommentOfFidAndGood(String fid, String good) {
-        return dao.getCommentOfFidAndGood(fid, good);
+    public Comment getCommentOfNewsIdAndTime(String newsId, String time) {
+        return dao.getCommentOfNewsIdAndTime(newsId, time);
     }
-    public Comment getCommentOfFidAndBad(String fid, String bad) {
-        return dao.getCommentOfFidAndBad(fid, bad);
+    public Comment getCommentOfNewsIdAndGood(String newsId, String good) {
+        return dao.getCommentOfNewsIdAndGood(newsId, good);
     }
-    public Comment getCommentOfCidsAndBody(String cids, String body) {
-        return dao.getCommentOfCidsAndBody(cids, body);
+    public Comment getCommentOfNewsIdAndBad(String newsId, String bad) {
+        return dao.getCommentOfNewsIdAndBad(newsId, bad);
     }
-    public Comment getCommentOfCidsAndTime(String cids, String time) {
-        return dao.getCommentOfCidsAndTime(cids, time);
+    public Comment getCommentOfNewsIdAndUserId(String newsId, String userId) {
+        return dao.getCommentOfNewsIdAndUserId(newsId, userId);
     }
-    public Comment getCommentOfCidsAndGood(String cids, String good) {
-        return dao.getCommentOfCidsAndGood(cids, good);
+    public Comment getCommentOfCcommentIdAndBody(String ccommentId, String body) {
+        return dao.getCommentOfCcommentIdAndBody(ccommentId, body);
     }
-    public Comment getCommentOfCidsAndBad(String cids, String bad) {
-        return dao.getCommentOfCidsAndBad(cids, bad);
+    public Comment getCommentOfCcommentIdAndTime(String ccommentId, String time) {
+        return dao.getCommentOfCcommentIdAndTime(ccommentId, time);
+    }
+    public Comment getCommentOfCcommentIdAndGood(String ccommentId, String good) {
+        return dao.getCommentOfCcommentIdAndGood(ccommentId, good);
+    }
+    public Comment getCommentOfCcommentIdAndBad(String ccommentId, String bad) {
+        return dao.getCommentOfCcommentIdAndBad(ccommentId, bad);
+    }
+    public Comment getCommentOfCcommentIdAndUserId(String ccommentId, String userId) {
+        return dao.getCommentOfCcommentIdAndUserId(ccommentId, userId);
     }
     public Comment getCommentOfBodyAndTime(String body, String time) {
         return dao.getCommentOfBodyAndTime(body, time);
@@ -353,14 +437,26 @@ public class ICommentServiceImpl implements ICommentService {
     public Comment getCommentOfBodyAndBad(String body, String bad) {
         return dao.getCommentOfBodyAndBad(body, bad);
     }
+    public Comment getCommentOfBodyAndUserId(String body, String userId) {
+        return dao.getCommentOfBodyAndUserId(body, userId);
+    }
     public Comment getCommentOfTimeAndGood(String time, String good) {
         return dao.getCommentOfTimeAndGood(time, good);
     }
     public Comment getCommentOfTimeAndBad(String time, String bad) {
         return dao.getCommentOfTimeAndBad(time, bad);
     }
+    public Comment getCommentOfTimeAndUserId(String time, String userId) {
+        return dao.getCommentOfTimeAndUserId(time, userId);
+    }
     public Comment getCommentOfGoodAndBad(String good, String bad) {
         return dao.getCommentOfGoodAndBad(good, bad);
+    }
+    public Comment getCommentOfGoodAndUserId(String good, String userId) {
+        return dao.getCommentOfGoodAndUserId(good, userId);
+    }
+    public Comment getCommentOfBadAndUserId(String bad, String userId) {
+        return dao.getCommentOfBadAndUserId(bad, userId);
     }
     public List<Comment> getComments(Comment comment) {
         return dao.getComments(comment);
@@ -368,11 +464,11 @@ public class ICommentServiceImpl implements ICommentService {
     public List<Comment> getCommentsOfCommentId(String commentId) {
         return dao.getCommentsOfCommentId(commentId);
     }
-    public List<Comment> getCommentsOfFid(String fid) {
-        return dao.getCommentsOfFid(fid);
+    public List<Comment> getCommentsOfNewsId(String newsId) {
+        return dao.getCommentsOfNewsId(newsId);
     }
-    public List<Comment> getCommentsOfCids(String cids) {
-        return dao.getCommentsOfCids(cids);
+    public List<Comment> getCommentsOfCcommentId(String ccommentId) {
+        return dao.getCommentsOfCcommentId(ccommentId);
     }
     public List<Comment> getCommentsOfBody(String body) {
         return dao.getCommentsOfBody(body);
@@ -386,11 +482,14 @@ public class ICommentServiceImpl implements ICommentService {
     public List<Comment> getCommentsOfBad(String bad) {
         return dao.getCommentsOfBad(bad);
     }
-    public List<Comment> getCommentsOfCommentIdAndFid(String commentId, String fid) {
-        return dao.getCommentsOfCommentIdAndFid(commentId, fid);
+    public List<Comment> getCommentsOfUserId(String userId) {
+        return dao.getCommentsOfUserId(userId);
     }
-    public List<Comment> getCommentsOfCommentIdAndCids(String commentId, String cids) {
-        return dao.getCommentsOfCommentIdAndCids(commentId, cids);
+    public List<Comment> getCommentsOfCommentIdAndNewsId(String commentId, String newsId) {
+        return dao.getCommentsOfCommentIdAndNewsId(commentId, newsId);
+    }
+    public List<Comment> getCommentsOfCommentIdAndCcommentId(String commentId, String ccommentId) {
+        return dao.getCommentsOfCommentIdAndCcommentId(commentId, ccommentId);
     }
     public List<Comment> getCommentsOfCommentIdAndBody(String commentId, String body) {
         return dao.getCommentsOfCommentIdAndBody(commentId, body);
@@ -404,32 +503,41 @@ public class ICommentServiceImpl implements ICommentService {
     public List<Comment> getCommentsOfCommentIdAndBad(String commentId, String bad) {
         return dao.getCommentsOfCommentIdAndBad(commentId, bad);
     }
-    public List<Comment> getCommentsOfFidAndCids(String fid, String cids) {
-        return dao.getCommentsOfFidAndCids(fid, cids);
+    public List<Comment> getCommentsOfCommentIdAndUserId(String commentId, String userId) {
+        return dao.getCommentsOfCommentIdAndUserId(commentId, userId);
     }
-    public List<Comment> getCommentsOfFidAndBody(String fid, String body) {
-        return dao.getCommentsOfFidAndBody(fid, body);
+    public List<Comment> getCommentsOfNewsIdAndCcommentId(String newsId, String ccommentId) {
+        return dao.getCommentsOfNewsIdAndCcommentId(newsId, ccommentId);
     }
-    public List<Comment> getCommentsOfFidAndTime(String fid, String time) {
-        return dao.getCommentsOfFidAndTime(fid, time);
+    public List<Comment> getCommentsOfNewsIdAndBody(String newsId, String body) {
+        return dao.getCommentsOfNewsIdAndBody(newsId, body);
     }
-    public List<Comment> getCommentsOfFidAndGood(String fid, String good) {
-        return dao.getCommentsOfFidAndGood(fid, good);
+    public List<Comment> getCommentsOfNewsIdAndTime(String newsId, String time) {
+        return dao.getCommentsOfNewsIdAndTime(newsId, time);
     }
-    public List<Comment> getCommentsOfFidAndBad(String fid, String bad) {
-        return dao.getCommentsOfFidAndBad(fid, bad);
+    public List<Comment> getCommentsOfNewsIdAndGood(String newsId, String good) {
+        return dao.getCommentsOfNewsIdAndGood(newsId, good);
     }
-    public List<Comment> getCommentsOfCidsAndBody(String cids, String body) {
-        return dao.getCommentsOfCidsAndBody(cids, body);
+    public List<Comment> getCommentsOfNewsIdAndBad(String newsId, String bad) {
+        return dao.getCommentsOfNewsIdAndBad(newsId, bad);
     }
-    public List<Comment> getCommentsOfCidsAndTime(String cids, String time) {
-        return dao.getCommentsOfCidsAndTime(cids, time);
+    public List<Comment> getCommentsOfNewsIdAndUserId(String newsId, String userId) {
+        return dao.getCommentsOfNewsIdAndUserId(newsId, userId);
     }
-    public List<Comment> getCommentsOfCidsAndGood(String cids, String good) {
-        return dao.getCommentsOfCidsAndGood(cids, good);
+    public List<Comment> getCommentsOfCcommentIdAndBody(String ccommentId, String body) {
+        return dao.getCommentsOfCcommentIdAndBody(ccommentId, body);
     }
-    public List<Comment> getCommentsOfCidsAndBad(String cids, String bad) {
-        return dao.getCommentsOfCidsAndBad(cids, bad);
+    public List<Comment> getCommentsOfCcommentIdAndTime(String ccommentId, String time) {
+        return dao.getCommentsOfCcommentIdAndTime(ccommentId, time);
+    }
+    public List<Comment> getCommentsOfCcommentIdAndGood(String ccommentId, String good) {
+        return dao.getCommentsOfCcommentIdAndGood(ccommentId, good);
+    }
+    public List<Comment> getCommentsOfCcommentIdAndBad(String ccommentId, String bad) {
+        return dao.getCommentsOfCcommentIdAndBad(ccommentId, bad);
+    }
+    public List<Comment> getCommentsOfCcommentIdAndUserId(String ccommentId, String userId) {
+        return dao.getCommentsOfCcommentIdAndUserId(ccommentId, userId);
     }
     public List<Comment> getCommentsOfBodyAndTime(String body, String time) {
         return dao.getCommentsOfBodyAndTime(body, time);
@@ -440,13 +548,25 @@ public class ICommentServiceImpl implements ICommentService {
     public List<Comment> getCommentsOfBodyAndBad(String body, String bad) {
         return dao.getCommentsOfBodyAndBad(body, bad);
     }
+    public List<Comment> getCommentsOfBodyAndUserId(String body, String userId) {
+        return dao.getCommentsOfBodyAndUserId(body, userId);
+    }
     public List<Comment> getCommentsOfTimeAndGood(String time, String good) {
         return dao.getCommentsOfTimeAndGood(time, good);
     }
     public List<Comment> getCommentsOfTimeAndBad(String time, String bad) {
         return dao.getCommentsOfTimeAndBad(time, bad);
     }
+    public List<Comment> getCommentsOfTimeAndUserId(String time, String userId) {
+        return dao.getCommentsOfTimeAndUserId(time, userId);
+    }
     public List<Comment> getCommentsOfGoodAndBad(String good, String bad) {
         return dao.getCommentsOfGoodAndBad(good, bad);
+    }
+    public List<Comment> getCommentsOfGoodAndUserId(String good, String userId) {
+        return dao.getCommentsOfGoodAndUserId(good, userId);
+    }
+    public List<Comment> getCommentsOfBadAndUserId(String bad, String userId) {
+        return dao.getCommentsOfBadAndUserId(bad, userId);
     }
 }
