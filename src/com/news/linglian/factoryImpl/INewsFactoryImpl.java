@@ -68,15 +68,33 @@ public class INewsFactoryImpl implements IServletFactory {
 		case "queryAll":
 			doQueryAll(request, response, servlet);
 			break;
+		case "queryUnNew":
+			doQueryUnNew(request, response, servlet);
+			break;
+		case "queryAuNew":
+			doQueryAuNew(request, response, servlet);
+			break;
+		case "reviewNews":
+			doReviewNews(request, response, servlet);
+			break;
+		case "adminRemove":
+			doAdminRemove(request, response, servlet);
+			break;
 		}
 	}
-	/*
-	 * 根据id查询新闻详情
+	/**
+	 * 查看新闻详情
+	 * @param request
+	 * @param response
+	 * @param servlet
+	 * @throws ServletException
+	 * @throws IOException
 	 */
 	protected void doQueryOfId(HttpServletRequest request,
 			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub		
+		// TODO Auto-generated method stub	
+		
 		String newsId =request.getParameter("newsId");
 		List<String[] > list = new StringArrayListBuilder()
 		.addString(newsId,"新闻id")
@@ -123,22 +141,27 @@ public class INewsFactoryImpl implements IServletFactory {
 		ServletUtil.forward(request, response, servlet, "queryAll_to");
 		
 	}
-	/*
-	 * 根据新闻id删除新闻
-	 * 
+	/**
+	 * 普通用户删除自身发布新闻
+	 * @param request
+	 * @param response
+	 * @param servlet
+	 * @throws ServletException
+	 * @throws IOException
 	 */
 	protected void doRemove(HttpServletRequest request,
 			HttpServletResponse response, HttpServlet servlet)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String newsId =request.getParameter("newsId");
-		if(ServletUtil.checkIdentity(request, response, servlet, "remove_from")){
-			List<String[] > list = new StringArrayListBuilder()
-			.addString(newsId,"新闻id")
-			.build();
-			if(ServletUtil.isNull(request, response, servlet, "remove_from", list)){
-				ServletUtil.checkdata(request, response, servlet, "remove_from", "删除", ias.removeOfNewsId(newsId));	
-			}
+		Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "remove_from")
+		.addNp("newsId", "新闻id不能为空")
+		.addNs("identity", "请重新登录", "login_from")
+		.build();
+		if (tMap != null) {
+			User user = (User) tMap.get("ses_identity");
+			System.out.println(user.getUserId());
+			Map<String, String> m = MapUtil.soss(tMap);
+			ServletUtil.dataOfSetReqRedirect(request, response, servlet, "remove_to", "remove_from", "删除", ias.removeOfNewsIdAndUserId(m.get("par_newsId"), user.getUserId()), "news");
 		}		
 	}
 	/**
@@ -217,5 +240,118 @@ public class INewsFactoryImpl implements IServletFactory {
 			ServletUtil.dataOfSetReqRedirect(request, response, servlet, "update_to", "update_from", "修改", ias.updateOfNewsIdAndUserId(news, m.get("par_newsId"), user.getUserId()), "news");
 		}
 	}
+	/**
+	 * 显示所有待审核的新闻(8条为一页)
+	 * @param request
+	 * @param response
+	 * @param servlet
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	protected void doQueryUnNew(HttpServletRequest request,
+			HttpServletResponse response, HttpServlet servlet)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub	
+		List<News> allUnNews = new ArrayList<News>();
+		allUnNews=ias.getNewssOfStatus("待审核");
+		System.out.println(allUnNews);
+		if(allUnNews==null){
+			request.getSession().setAttribute("info", "获取失败");
+			ServletUtil.forward(request, response, servlet, "queryUnNew_from");
+		}else{
+		String page = request.getParameter("page");
+		if (ServletUtil.equalOfObject(page, null)) {
+			page = "1";
+		}
+		List<News> pageUnNews = new ArrayList<News>();
+		for(int i =0; i<8 && i < allUnNews.size(); i++)
+		{
+			pageUnNews.add(allUnNews.get(((Integer.parseInt(page)-1)*8)+i));
+		}
+		request.getSession().setAttribute("info", "获取成功");
+		request.setAttribute("pageUnNews", pageUnNews);
+		ServletUtil.forward(request, response, servlet, "queryUnNew_to");
+		}
+	}
+	/**
+	 * 显示所有已审核的新闻(8条为一页)
+	 * @param request
+	 * @param response
+	 * @param servlet
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	protected void doQueryAuNew(HttpServletRequest request,
+			HttpServletResponse response, HttpServlet servlet)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub	
+		List<News> allAuNews = new ArrayList<News>();
+		allAuNews=ias.getNewssOfStatus("已审核");
+		System.out.println(allAuNews);
+		if(allAuNews==null){
+			request.getSession().setAttribute("info", "获取失败");
+			ServletUtil.forward(request, response, servlet, "queryAuNew_from");
+		}else{
+		String page = request.getParameter("page");
+		if (ServletUtil.equalOfObject(page, null)) {
+			page = "1";
+		}
+		List<News> pageAuNews = new ArrayList<News>();
+		for(int i =0; i<8 && i < allAuNews.size(); i++)
+		{
+			pageAuNews.add(allAuNews.get(((Integer.parseInt(page)-1)*8)+i));
+		}
+		request.getSession().setAttribute("info", "获取成功");
+		request.setAttribute("pageAuNews", pageAuNews);
+		ServletUtil.forward(request, response, servlet, "queryAuNew_to");
+		}
+	}
+	/**
+	 * 审核新闻
+	 * @param request
+	 * @param response
+	 * @param servlet
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	protected void doReviewNews(HttpServletRequest request,
+			HttpServletResponse response, HttpServlet servlet)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "reviewNews_from")
+	.addNp("newsId", "新闻id不能为空")
+	//.addNs("identity", "请重新登录", "login_from")
+	.build();
+	if (tMap != null) {
+		Map<String, String> m = MapUtil.soss(tMap);
+		News news =new News();
+		news.setStatus("已审核");
+		ServletUtil.dataOfSetReqRedirect(request, response, servlet, "reviewNews_to", "reviewNews_from", "审核", ias.updateOfNewsId(news,m.get("par_newsId")), "news");
+		
+	}
+		
+	}
 	
+	/**
+	 * 管理员删除单个新闻
+	 * @param request
+	 * @param response
+	 * @param servlet
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	protected void doAdminRemove(HttpServletRequest request,
+			HttpServletResponse response, HttpServlet servlet)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "adminRemove_from")
+		.addNp("newsId", "新闻id不能为空")
+		//.addNs("identity", "请重新登录", "login_from")
+		.build();
+		if (tMap != null) {
+			Map<String, String> m = MapUtil.soss(tMap);
+			ServletUtil.dataOfSetReqRedirect(request, response, servlet, "adminRemove_to", "adminRemove_from", "删除", ias.removeOfNewsId(m.get("par_newsId")), "news");
+		}
+	}
+		
 }
