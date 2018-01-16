@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.UIDefaults.LazyValue;
 
 import util.ServletCheckBuilder;
 import util.ServletUtil;
@@ -161,6 +162,9 @@ public class IUserFactoryImpl implements IServletFactory {
         if (tMap != null) {
             Map<String, String> m = MapUtil.soss(tMap);
             User user = ias.getUserOfPasswordAndEmail(m.get("par_pass"), m.get("par_email"));
+            int lvl = 0;
+            request.setAttribute("lvl", lvl);
+            System.out.println(lvl);
             ServletUtil.dataOfSetSes(request, response, servlet,
                     "login_from", "login_to", "登录",
                     user, "identity");

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%> 
-
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
         <head>
@@ -9,13 +8,13 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="keywords" content="SunnyNews">
                 <meta name="description" content="SunnyNews 向阳小队旗舰之作">
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/layui.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/global.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/modules/layer/default/layer.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layer/theme/default/layer.css" />
-                <script src="../comm/layui/layui.js" charset="utf-8"></script>
-                <script src="../comm/jquery/jquery-2.1.4.js"></script>
-                <script src="../comm/layer/layer.js"></script>
+                <link rel="stylesheet" type="text/css" href="comm/layui/css/layui.css" />
+                <link rel="stylesheet" type="text/css" href="comm/layui/global.css" />
+                <link rel="stylesheet" type="text/css" href="comm/layui/css/modules/layer/default/layer.css" />
+                <link rel="stylesheet" type="text/css" href="comm/layer/theme/default/layer.css" />
+                <script src="comm/layui/layui.js" charset="utf-8"></script>
+                <script src="comm/jquery/jquery-2.1.4.js"></script>
+                <script src="comm/layer/layer.js"></script>
         <c:if test="${not empty info}">
                 <script>layer.msg('${info}')</script>
                 <c:remove var="info" />
@@ -26,7 +25,7 @@
         <div class="fly-header layui-bg-black">
                 <div class="layui-container">
                         <a class="fly-logo" href="/">
-                                <img src="../img/logo.png" style="height: 29px;padding-left:-10px;" alt="logo">
+                                <img src="img/logo.png" style="height: 29px;padding-left:-10px;" alt="logo">
                         </a>
                         <ul class="layui-nav fly-nav layui-hide-xs">
                                 <li class="layui-nav-item layui-this">
@@ -94,7 +93,6 @@
                                         <div class="layui-tab-item layui-show">
                                                 <div class="layui-form layui-form-pane">
                                                         <form action="${pageContext.request.contextPath}/UserAction.do?method=login" method="post">
-                                                        ${pageContext.request.contextPath }
                                                                 <div class="layui-form-item">
                                                                         <label for="L_email" class="layui-form-label">邮箱</label>
                                                                         <div class="layui-input-inline">

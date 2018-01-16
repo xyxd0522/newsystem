@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 import util.StringArrayListBuilder;
 import com.news.linglian.entity.News;
+import com.news.linglian.entity.Newstype;
 import com.news.linglian.entity.User;
 import com.news.linglian.factory.IServletFactory;
 import com.news.linglian.service.INewsService;
@@ -55,8 +56,39 @@ public class INewsFactoryImpl implements IServletFactory {
 			break;
 		case "queryAll":
 			doQueryAll(request, response, servlet);
+		case "classifyOfTypeId":
+			doClassifyOfTypeId(request,response,servlet);
 		}
 	}
+
+	/*
+	 *根据新闻类型列出新闻
+	 */
+	
+	private void doClassifyOfTypeId(HttpServletRequest request,
+			HttpServletResponse response, HttpServlet servlet) 
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String newsTypeId =request.getParameter("newsTypeId");
+		List<News> news=new ArrayList<News>();
+		news =ias.getNewss(new News());
+		System.out.println(news);
+		String page = request.getParameter("page");
+		if (ServletUtil.equalOfObject(page, null)) {
+			page = "1";
+		}
+		List<News> pageNews = new ArrayList<News>();
+		for(int i =0; i<10 && i < news.size(); i++)
+		{
+			pageNews.add(News.get(((Integer.parseInt(page)-1)*10)+i));
+		}
+		request.getSession().setAttribute("info", "获取成功");
+		request.setAttribute("pageNews", pageNews);
+		ServletUtil.forward(request, response, servlet, "calssify_to");
+
+	}
+	
+
 	/*
 	 * 根据id查询新闻详情
 	 */

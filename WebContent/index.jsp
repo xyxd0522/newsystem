@@ -108,6 +108,7 @@
 				</div>
 			</div>
 			<div style="width:1250px;padding-left:60px;">
+				<from action="/NewsAction.do?method=classify" method="post">
 				<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
 					<ul class="layui-tab-title">
 						<li>时政</li>
@@ -126,6 +127,7 @@
 					</ul>
 					<div class="layui-tab-content"></div>
 				</div>
+				</from>
 				<div class="layui-container">
 					<div class="layui-row layui-col-space15">
 						<div class="layui-col-md8">
@@ -713,6 +715,7 @@
 									</dd>
 								</dl>
 							</div>
+
 
 							<dl class="fly-panel fly-list-one">
 								<dt class="fly-panel-title">本周热搜</dt>

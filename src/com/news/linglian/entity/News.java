@@ -142,4 +142,9 @@ public class News {
         return "News [newsId=" + newsId + ", title=" + title + ", body=" + body + ", userId=" + userId + ", userNewsTypeId=" + userNewsTypeId + ", status=" + status + ", buff=" + buff + ", param=" + param + ", newsTypeId=" + newsTypeId + ", path=" + path + ", good=" + good + ", bad=" + bad + ", time=" + time + ", search=" + search + ", bUserIds=" + bUserIds + ", ]";
     }
 
+	public static News get(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
