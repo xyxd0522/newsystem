@@ -14,12 +14,12 @@ import com.news.linglian.factory.IServletFactory;
 /**
  * Servlet implementation class MessageAction
  */
-@WebServlet(name = "MessageAction", urlPatterns = "/MessageAction.do", initParams = {
+ @WebServlet(name = "MessageAction", urlPatterns = "/MessageAction.do", initParams = {
 	    @WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.IMessageFactoryImpl"),
-	    @WebInitParam(name = "login_from", value = "user/login.jsp"),
-	    @WebInitParam(name = "login_to", value = "index.jsp"),
-	    @WebInitParam(name = "insert_from", value = "user/res.jsp"),
-	    @WebInitParam(name = "insert_to", value = "user/login.jsp")})
+	    @WebInitParam(name = "query_from", value = "Messagetest.jsp"),
+	    @WebInitParam(name = "query_to", value = "Messagetest.jsp"),
+	    @WebInitParam(name = "remove_from", value = "Messagetest.jsp"),
+	    @WebInitParam(name = "remove_to", value = "Messagetest.jsp")})
 	public class MessageAction extends HttpServlet {
 
 	    private static final long serialVersionUID = 1L;

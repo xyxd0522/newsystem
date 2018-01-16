@@ -2,12 +2,13 @@ package com.news.linglian.entity;
 
 public class Comment {
     private String commentId;
-    private String fid;
-    private String cids;
+    private String newsId;
+    private String ccommentId;
     private String body;
     private String time;
     private String good;
     private String bad;
+    private String userId;
 
     public String getCommentId() {
         return commentId;
@@ -17,20 +18,20 @@ public class Comment {
         this.commentId = commentId;
     }
 
-    public String getFid() {
-        return fid;
+    public String getNewsId() {
+        return newsId;
     }
 
-    public void setFid(String fid) {
-        this.fid = fid;
+    public void setNewsId(String newsId) {
+        this.newsId = newsId;
     }
 
-    public String getCids() {
-        return cids;
+    public String getCcommentId() {
+        return ccommentId;
     }
 
-    public void setCids(String cids) {
-        this.cids = cids;
+    public void setCcommentId(String ccommentId) {
+        this.ccommentId = ccommentId;
     }
 
     public String getBody() {
@@ -65,9 +66,17 @@ public class Comment {
         this.bad = bad;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
-        return "Comment [commentId=" + commentId + ", fid=" + fid + ", cids=" + cids + ", body=" + body + ", time=" + time + ", good=" + good + ", bad=" + bad + ", ]";
+        return "Comment [commentId=" + commentId + ", newsId=" + newsId + ", ccommentId=" + ccommentId + ", body=" + body + ", time=" + time + ", good=" + good + ", bad=" + bad + ", userId=" + userId + ", ]";
     }
 
 }

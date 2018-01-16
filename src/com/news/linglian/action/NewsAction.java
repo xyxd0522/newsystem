@@ -34,6 +34,8 @@ import com.news.linglian.factory.IServletFactory;
 		@WebInitParam(name = "adminRemove_to", value = "Newstest.jsp"),
 		@WebInitParam(name = "reviewNews_from", value = "Newstest.jsp"),
 		@WebInitParam(name = "reviewNews_to", value = "Newstest.jsp"),
+		@WebInitParam(name = "adminRemoves_from", value = "Newstest.jsp"),
+		@WebInitParam(name = "adminRemoves_to", value = "Newstest.jsp"),
 		@WebInitParam(name = "insert_to", value = "other/404.jsp"),
 		@WebInitParam(name = "insert_from", value = "news/newsPost.jsp")})
 public class NewsAction extends HttpServlet {

@@ -62,6 +62,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfBUserIds(News news, String bUserIds) {
         return dao.updateOfBUserIds(news, bUserIds);
     }
+    public int updateOfMoney(News news, String money) {
+        return dao.updateOfMoney(news, money);
+    }
     public int updateOfNewsIdAndTitle(News news, String newsId, String title) {
         return dao.updateOfNewsIdAndTitle(news, newsId, title);
     }
@@ -104,6 +107,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfNewsIdAndBUserIds(News news, String newsId, String bUserIds) {
         return dao.updateOfNewsIdAndBUserIds(news, newsId, bUserIds);
     }
+    public int updateOfNewsIdAndMoney(News news, String newsId, String money) {
+        return dao.updateOfNewsIdAndMoney(news, newsId, money);
+    }
     public int updateOfTitleAndBody(News news, String title, String body) {
         return dao.updateOfTitleAndBody(news, title, body);
     }
@@ -143,6 +149,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfTitleAndBUserIds(News news, String title, String bUserIds) {
         return dao.updateOfTitleAndBUserIds(news, title, bUserIds);
     }
+    public int updateOfTitleAndMoney(News news, String title, String money) {
+        return dao.updateOfTitleAndMoney(news, title, money);
+    }
     public int updateOfBodyAndUserId(News news, String body, String userId) {
         return dao.updateOfBodyAndUserId(news, body, userId);
     }
@@ -179,6 +188,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfBodyAndBUserIds(News news, String body, String bUserIds) {
         return dao.updateOfBodyAndBUserIds(news, body, bUserIds);
     }
+    public int updateOfBodyAndMoney(News news, String body, String money) {
+        return dao.updateOfBodyAndMoney(news, body, money);
+    }
     public int updateOfUserIdAndUserNewsTypeId(News news, String userId, String userNewsTypeId) {
         return dao.updateOfUserIdAndUserNewsTypeId(news, userId, userNewsTypeId);
     }
@@ -212,6 +224,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfUserIdAndBUserIds(News news, String userId, String bUserIds) {
         return dao.updateOfUserIdAndBUserIds(news, userId, bUserIds);
     }
+    public int updateOfUserIdAndMoney(News news, String userId, String money) {
+        return dao.updateOfUserIdAndMoney(news, userId, money);
+    }
     public int updateOfUserNewsTypeIdAndStatus(News news, String userNewsTypeId, String status) {
         return dao.updateOfUserNewsTypeIdAndStatus(news, userNewsTypeId, status);
     }
@@ -242,6 +257,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfUserNewsTypeIdAndBUserIds(News news, String userNewsTypeId, String bUserIds) {
         return dao.updateOfUserNewsTypeIdAndBUserIds(news, userNewsTypeId, bUserIds);
     }
+    public int updateOfUserNewsTypeIdAndMoney(News news, String userNewsTypeId, String money) {
+        return dao.updateOfUserNewsTypeIdAndMoney(news, userNewsTypeId, money);
+    }
     public int updateOfStatusAndBuff(News news, String status, String buff) {
         return dao.updateOfStatusAndBuff(news, status, buff);
     }
@@ -269,6 +287,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfStatusAndBUserIds(News news, String status, String bUserIds) {
         return dao.updateOfStatusAndBUserIds(news, status, bUserIds);
     }
+    public int updateOfStatusAndMoney(News news, String status, String money) {
+        return dao.updateOfStatusAndMoney(news, status, money);
+    }
     public int updateOfBuffAndParam(News news, String buff, String param) {
         return dao.updateOfBuffAndParam(news, buff, param);
     }
@@ -293,6 +314,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfBuffAndBUserIds(News news, String buff, String bUserIds) {
         return dao.updateOfBuffAndBUserIds(news, buff, bUserIds);
     }
+    public int updateOfBuffAndMoney(News news, String buff, String money) {
+        return dao.updateOfBuffAndMoney(news, buff, money);
+    }
     public int updateOfParamAndNewsTypeId(News news, String param, String newsTypeId) {
         return dao.updateOfParamAndNewsTypeId(news, param, newsTypeId);
     }
@@ -314,6 +338,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfParamAndBUserIds(News news, String param, String bUserIds) {
         return dao.updateOfParamAndBUserIds(news, param, bUserIds);
     }
+    public int updateOfParamAndMoney(News news, String param, String money) {
+        return dao.updateOfParamAndMoney(news, param, money);
+    }
     public int updateOfNewsTypeIdAndPath(News news, String newsTypeId, String path) {
         return dao.updateOfNewsTypeIdAndPath(news, newsTypeId, path);
     }
@@ -332,6 +359,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfNewsTypeIdAndBUserIds(News news, String newsTypeId, String bUserIds) {
         return dao.updateOfNewsTypeIdAndBUserIds(news, newsTypeId, bUserIds);
     }
+    public int updateOfNewsTypeIdAndMoney(News news, String newsTypeId, String money) {
+        return dao.updateOfNewsTypeIdAndMoney(news, newsTypeId, money);
+    }
     public int updateOfPathAndGood(News news, String path, String good) {
         return dao.updateOfPathAndGood(news, path, good);
     }
@@ -347,6 +377,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfPathAndBUserIds(News news, String path, String bUserIds) {
         return dao.updateOfPathAndBUserIds(news, path, bUserIds);
     }
+    public int updateOfPathAndMoney(News news, String path, String money) {
+        return dao.updateOfPathAndMoney(news, path, money);
+    }
     public int updateOfGoodAndBad(News news, String good, String bad) {
         return dao.updateOfGoodAndBad(news, good, bad);
     }
@@ -359,6 +392,9 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfGoodAndBUserIds(News news, String good, String bUserIds) {
         return dao.updateOfGoodAndBUserIds(news, good, bUserIds);
     }
+    public int updateOfGoodAndMoney(News news, String good, String money) {
+        return dao.updateOfGoodAndMoney(news, good, money);
+    }
     public int updateOfBadAndTime(News news, String bad, String time) {
         return dao.updateOfBadAndTime(news, bad, time);
     }
@@ -368,14 +404,26 @@ public class INewsServiceImpl implements INewsService {
     public int updateOfBadAndBUserIds(News news, String bad, String bUserIds) {
         return dao.updateOfBadAndBUserIds(news, bad, bUserIds);
     }
+    public int updateOfBadAndMoney(News news, String bad, String money) {
+        return dao.updateOfBadAndMoney(news, bad, money);
+    }
     public int updateOfTimeAndSearch(News news, String time, String search) {
         return dao.updateOfTimeAndSearch(news, time, search);
     }
     public int updateOfTimeAndBUserIds(News news, String time, String bUserIds) {
         return dao.updateOfTimeAndBUserIds(news, time, bUserIds);
     }
+    public int updateOfTimeAndMoney(News news, String time, String money) {
+        return dao.updateOfTimeAndMoney(news, time, money);
+    }
     public int updateOfSearchAndBUserIds(News news, String search, String bUserIds) {
         return dao.updateOfSearchAndBUserIds(news, search, bUserIds);
+    }
+    public int updateOfSearchAndMoney(News news, String search, String money) {
+        return dao.updateOfSearchAndMoney(news, search, money);
+    }
+    public int updateOfBUserIdsAndMoney(News news, String bUserIds, String money) {
+        return dao.updateOfBUserIdsAndMoney(news, bUserIds, money);
     }
     public int remove(News news) {
         return dao.remove(news);
@@ -425,6 +473,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfBUserIds(String bUserIds) {
         return dao.removeOfBUserIds(bUserIds);
     }
+    public int removeOfMoney(String money) {
+        return dao.removeOfMoney(money);
+    }
     public int removeOfNewsIdAndTitle(String newsId, String title) {
         return dao.removeOfNewsIdAndTitle(newsId, title);
     }
@@ -467,6 +518,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfNewsIdAndBUserIds(String newsId, String bUserIds) {
         return dao.removeOfNewsIdAndBUserIds(newsId, bUserIds);
     }
+    public int removeOfNewsIdAndMoney(String newsId, String money) {
+        return dao.removeOfNewsIdAndMoney(newsId, money);
+    }
     public int removeOfTitleAndBody(String title, String body) {
         return dao.removeOfTitleAndBody(title, body);
     }
@@ -506,6 +560,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfTitleAndBUserIds(String title, String bUserIds) {
         return dao.removeOfTitleAndBUserIds(title, bUserIds);
     }
+    public int removeOfTitleAndMoney(String title, String money) {
+        return dao.removeOfTitleAndMoney(title, money);
+    }
     public int removeOfBodyAndUserId(String body, String userId) {
         return dao.removeOfBodyAndUserId(body, userId);
     }
@@ -542,6 +599,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfBodyAndBUserIds(String body, String bUserIds) {
         return dao.removeOfBodyAndBUserIds(body, bUserIds);
     }
+    public int removeOfBodyAndMoney(String body, String money) {
+        return dao.removeOfBodyAndMoney(body, money);
+    }
     public int removeOfUserIdAndUserNewsTypeId(String userId, String userNewsTypeId) {
         return dao.removeOfUserIdAndUserNewsTypeId(userId, userNewsTypeId);
     }
@@ -575,6 +635,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfUserIdAndBUserIds(String userId, String bUserIds) {
         return dao.removeOfUserIdAndBUserIds(userId, bUserIds);
     }
+    public int removeOfUserIdAndMoney(String userId, String money) {
+        return dao.removeOfUserIdAndMoney(userId, money);
+    }
     public int removeOfUserNewsTypeIdAndStatus(String userNewsTypeId, String status) {
         return dao.removeOfUserNewsTypeIdAndStatus(userNewsTypeId, status);
     }
@@ -605,6 +668,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfUserNewsTypeIdAndBUserIds(String userNewsTypeId, String bUserIds) {
         return dao.removeOfUserNewsTypeIdAndBUserIds(userNewsTypeId, bUserIds);
     }
+    public int removeOfUserNewsTypeIdAndMoney(String userNewsTypeId, String money) {
+        return dao.removeOfUserNewsTypeIdAndMoney(userNewsTypeId, money);
+    }
     public int removeOfStatusAndBuff(String status, String buff) {
         return dao.removeOfStatusAndBuff(status, buff);
     }
@@ -632,6 +698,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfStatusAndBUserIds(String status, String bUserIds) {
         return dao.removeOfStatusAndBUserIds(status, bUserIds);
     }
+    public int removeOfStatusAndMoney(String status, String money) {
+        return dao.removeOfStatusAndMoney(status, money);
+    }
     public int removeOfBuffAndParam(String buff, String param) {
         return dao.removeOfBuffAndParam(buff, param);
     }
@@ -656,6 +725,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfBuffAndBUserIds(String buff, String bUserIds) {
         return dao.removeOfBuffAndBUserIds(buff, bUserIds);
     }
+    public int removeOfBuffAndMoney(String buff, String money) {
+        return dao.removeOfBuffAndMoney(buff, money);
+    }
     public int removeOfParamAndNewsTypeId(String param, String newsTypeId) {
         return dao.removeOfParamAndNewsTypeId(param, newsTypeId);
     }
@@ -677,6 +749,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfParamAndBUserIds(String param, String bUserIds) {
         return dao.removeOfParamAndBUserIds(param, bUserIds);
     }
+    public int removeOfParamAndMoney(String param, String money) {
+        return dao.removeOfParamAndMoney(param, money);
+    }
     public int removeOfNewsTypeIdAndPath(String newsTypeId, String path) {
         return dao.removeOfNewsTypeIdAndPath(newsTypeId, path);
     }
@@ -695,6 +770,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfNewsTypeIdAndBUserIds(String newsTypeId, String bUserIds) {
         return dao.removeOfNewsTypeIdAndBUserIds(newsTypeId, bUserIds);
     }
+    public int removeOfNewsTypeIdAndMoney(String newsTypeId, String money) {
+        return dao.removeOfNewsTypeIdAndMoney(newsTypeId, money);
+    }
     public int removeOfPathAndGood(String path, String good) {
         return dao.removeOfPathAndGood(path, good);
     }
@@ -710,6 +788,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfPathAndBUserIds(String path, String bUserIds) {
         return dao.removeOfPathAndBUserIds(path, bUserIds);
     }
+    public int removeOfPathAndMoney(String path, String money) {
+        return dao.removeOfPathAndMoney(path, money);
+    }
     public int removeOfGoodAndBad(String good, String bad) {
         return dao.removeOfGoodAndBad(good, bad);
     }
@@ -722,6 +803,9 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfGoodAndBUserIds(String good, String bUserIds) {
         return dao.removeOfGoodAndBUserIds(good, bUserIds);
     }
+    public int removeOfGoodAndMoney(String good, String money) {
+        return dao.removeOfGoodAndMoney(good, money);
+    }
     public int removeOfBadAndTime(String bad, String time) {
         return dao.removeOfBadAndTime(bad, time);
     }
@@ -731,14 +815,26 @@ public class INewsServiceImpl implements INewsService {
     public int removeOfBadAndBUserIds(String bad, String bUserIds) {
         return dao.removeOfBadAndBUserIds(bad, bUserIds);
     }
+    public int removeOfBadAndMoney(String bad, String money) {
+        return dao.removeOfBadAndMoney(bad, money);
+    }
     public int removeOfTimeAndSearch(String time, String search) {
         return dao.removeOfTimeAndSearch(time, search);
     }
     public int removeOfTimeAndBUserIds(String time, String bUserIds) {
         return dao.removeOfTimeAndBUserIds(time, bUserIds);
     }
+    public int removeOfTimeAndMoney(String time, String money) {
+        return dao.removeOfTimeAndMoney(time, money);
+    }
     public int removeOfSearchAndBUserIds(String search, String bUserIds) {
         return dao.removeOfSearchAndBUserIds(search, bUserIds);
+    }
+    public int removeOfSearchAndMoney(String search, String money) {
+        return dao.removeOfSearchAndMoney(search, money);
+    }
+    public int removeOfBUserIdsAndMoney(String bUserIds, String money) {
+        return dao.removeOfBUserIdsAndMoney(bUserIds, money);
     }
     public int insert(News news) {
         return dao.insert(news);
@@ -788,6 +884,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfBUserIds(String bUserIds) {
         return dao.insertOfBUserIds(bUserIds);
     }
+    public int insertOfMoney(String money) {
+        return dao.insertOfMoney(money);
+    }
     public int insertOfNewsIdAndTitle(String newsId, String title) {
         return dao.insertOfNewsIdAndTitle(newsId, title);
     }
@@ -830,6 +929,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfNewsIdAndBUserIds(String newsId, String bUserIds) {
         return dao.insertOfNewsIdAndBUserIds(newsId, bUserIds);
     }
+    public int insertOfNewsIdAndMoney(String newsId, String money) {
+        return dao.insertOfNewsIdAndMoney(newsId, money);
+    }
     public int insertOfTitleAndBody(String title, String body) {
         return dao.insertOfTitleAndBody(title, body);
     }
@@ -869,6 +971,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfTitleAndBUserIds(String title, String bUserIds) {
         return dao.insertOfTitleAndBUserIds(title, bUserIds);
     }
+    public int insertOfTitleAndMoney(String title, String money) {
+        return dao.insertOfTitleAndMoney(title, money);
+    }
     public int insertOfBodyAndUserId(String body, String userId) {
         return dao.insertOfBodyAndUserId(body, userId);
     }
@@ -905,6 +1010,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfBodyAndBUserIds(String body, String bUserIds) {
         return dao.insertOfBodyAndBUserIds(body, bUserIds);
     }
+    public int insertOfBodyAndMoney(String body, String money) {
+        return dao.insertOfBodyAndMoney(body, money);
+    }
     public int insertOfUserIdAndUserNewsTypeId(String userId, String userNewsTypeId) {
         return dao.insertOfUserIdAndUserNewsTypeId(userId, userNewsTypeId);
     }
@@ -938,6 +1046,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfUserIdAndBUserIds(String userId, String bUserIds) {
         return dao.insertOfUserIdAndBUserIds(userId, bUserIds);
     }
+    public int insertOfUserIdAndMoney(String userId, String money) {
+        return dao.insertOfUserIdAndMoney(userId, money);
+    }
     public int insertOfUserNewsTypeIdAndStatus(String userNewsTypeId, String status) {
         return dao.insertOfUserNewsTypeIdAndStatus(userNewsTypeId, status);
     }
@@ -968,6 +1079,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfUserNewsTypeIdAndBUserIds(String userNewsTypeId, String bUserIds) {
         return dao.insertOfUserNewsTypeIdAndBUserIds(userNewsTypeId, bUserIds);
     }
+    public int insertOfUserNewsTypeIdAndMoney(String userNewsTypeId, String money) {
+        return dao.insertOfUserNewsTypeIdAndMoney(userNewsTypeId, money);
+    }
     public int insertOfStatusAndBuff(String status, String buff) {
         return dao.insertOfStatusAndBuff(status, buff);
     }
@@ -995,6 +1109,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfStatusAndBUserIds(String status, String bUserIds) {
         return dao.insertOfStatusAndBUserIds(status, bUserIds);
     }
+    public int insertOfStatusAndMoney(String status, String money) {
+        return dao.insertOfStatusAndMoney(status, money);
+    }
     public int insertOfBuffAndParam(String buff, String param) {
         return dao.insertOfBuffAndParam(buff, param);
     }
@@ -1019,6 +1136,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfBuffAndBUserIds(String buff, String bUserIds) {
         return dao.insertOfBuffAndBUserIds(buff, bUserIds);
     }
+    public int insertOfBuffAndMoney(String buff, String money) {
+        return dao.insertOfBuffAndMoney(buff, money);
+    }
     public int insertOfParamAndNewsTypeId(String param, String newsTypeId) {
         return dao.insertOfParamAndNewsTypeId(param, newsTypeId);
     }
@@ -1040,6 +1160,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfParamAndBUserIds(String param, String bUserIds) {
         return dao.insertOfParamAndBUserIds(param, bUserIds);
     }
+    public int insertOfParamAndMoney(String param, String money) {
+        return dao.insertOfParamAndMoney(param, money);
+    }
     public int insertOfNewsTypeIdAndPath(String newsTypeId, String path) {
         return dao.insertOfNewsTypeIdAndPath(newsTypeId, path);
     }
@@ -1058,6 +1181,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfNewsTypeIdAndBUserIds(String newsTypeId, String bUserIds) {
         return dao.insertOfNewsTypeIdAndBUserIds(newsTypeId, bUserIds);
     }
+    public int insertOfNewsTypeIdAndMoney(String newsTypeId, String money) {
+        return dao.insertOfNewsTypeIdAndMoney(newsTypeId, money);
+    }
     public int insertOfPathAndGood(String path, String good) {
         return dao.insertOfPathAndGood(path, good);
     }
@@ -1073,6 +1199,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfPathAndBUserIds(String path, String bUserIds) {
         return dao.insertOfPathAndBUserIds(path, bUserIds);
     }
+    public int insertOfPathAndMoney(String path, String money) {
+        return dao.insertOfPathAndMoney(path, money);
+    }
     public int insertOfGoodAndBad(String good, String bad) {
         return dao.insertOfGoodAndBad(good, bad);
     }
@@ -1085,6 +1214,9 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfGoodAndBUserIds(String good, String bUserIds) {
         return dao.insertOfGoodAndBUserIds(good, bUserIds);
     }
+    public int insertOfGoodAndMoney(String good, String money) {
+        return dao.insertOfGoodAndMoney(good, money);
+    }
     public int insertOfBadAndTime(String bad, String time) {
         return dao.insertOfBadAndTime(bad, time);
     }
@@ -1094,14 +1226,26 @@ public class INewsServiceImpl implements INewsService {
     public int insertOfBadAndBUserIds(String bad, String bUserIds) {
         return dao.insertOfBadAndBUserIds(bad, bUserIds);
     }
+    public int insertOfBadAndMoney(String bad, String money) {
+        return dao.insertOfBadAndMoney(bad, money);
+    }
     public int insertOfTimeAndSearch(String time, String search) {
         return dao.insertOfTimeAndSearch(time, search);
     }
     public int insertOfTimeAndBUserIds(String time, String bUserIds) {
         return dao.insertOfTimeAndBUserIds(time, bUserIds);
     }
+    public int insertOfTimeAndMoney(String time, String money) {
+        return dao.insertOfTimeAndMoney(time, money);
+    }
     public int insertOfSearchAndBUserIds(String search, String bUserIds) {
         return dao.insertOfSearchAndBUserIds(search, bUserIds);
+    }
+    public int insertOfSearchAndMoney(String search, String money) {
+        return dao.insertOfSearchAndMoney(search, money);
+    }
+    public int insertOfBUserIdsAndMoney(String bUserIds, String money) {
+        return dao.insertOfBUserIdsAndMoney(bUserIds, money);
     }
     public News getNews(News news) {
         return dao.getNews(news);
@@ -1151,6 +1295,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfBUserIds(String bUserIds) {
         return dao.getNewsOfBUserIds(bUserIds);
     }
+    public News getNewsOfMoney(String money) {
+        return dao.getNewsOfMoney(money);
+    }
     public News getNewsOfNewsIdAndTitle(String newsId, String title) {
         return dao.getNewsOfNewsIdAndTitle(newsId, title);
     }
@@ -1193,6 +1340,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfNewsIdAndBUserIds(String newsId, String bUserIds) {
         return dao.getNewsOfNewsIdAndBUserIds(newsId, bUserIds);
     }
+    public News getNewsOfNewsIdAndMoney(String newsId, String money) {
+        return dao.getNewsOfNewsIdAndMoney(newsId, money);
+    }
     public News getNewsOfTitleAndBody(String title, String body) {
         return dao.getNewsOfTitleAndBody(title, body);
     }
@@ -1232,6 +1382,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfTitleAndBUserIds(String title, String bUserIds) {
         return dao.getNewsOfTitleAndBUserIds(title, bUserIds);
     }
+    public News getNewsOfTitleAndMoney(String title, String money) {
+        return dao.getNewsOfTitleAndMoney(title, money);
+    }
     public News getNewsOfBodyAndUserId(String body, String userId) {
         return dao.getNewsOfBodyAndUserId(body, userId);
     }
@@ -1268,6 +1421,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfBodyAndBUserIds(String body, String bUserIds) {
         return dao.getNewsOfBodyAndBUserIds(body, bUserIds);
     }
+    public News getNewsOfBodyAndMoney(String body, String money) {
+        return dao.getNewsOfBodyAndMoney(body, money);
+    }
     public News getNewsOfUserIdAndUserNewsTypeId(String userId, String userNewsTypeId) {
         return dao.getNewsOfUserIdAndUserNewsTypeId(userId, userNewsTypeId);
     }
@@ -1301,6 +1457,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfUserIdAndBUserIds(String userId, String bUserIds) {
         return dao.getNewsOfUserIdAndBUserIds(userId, bUserIds);
     }
+    public News getNewsOfUserIdAndMoney(String userId, String money) {
+        return dao.getNewsOfUserIdAndMoney(userId, money);
+    }
     public News getNewsOfUserNewsTypeIdAndStatus(String userNewsTypeId, String status) {
         return dao.getNewsOfUserNewsTypeIdAndStatus(userNewsTypeId, status);
     }
@@ -1331,6 +1490,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfUserNewsTypeIdAndBUserIds(String userNewsTypeId, String bUserIds) {
         return dao.getNewsOfUserNewsTypeIdAndBUserIds(userNewsTypeId, bUserIds);
     }
+    public News getNewsOfUserNewsTypeIdAndMoney(String userNewsTypeId, String money) {
+        return dao.getNewsOfUserNewsTypeIdAndMoney(userNewsTypeId, money);
+    }
     public News getNewsOfStatusAndBuff(String status, String buff) {
         return dao.getNewsOfStatusAndBuff(status, buff);
     }
@@ -1358,6 +1520,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfStatusAndBUserIds(String status, String bUserIds) {
         return dao.getNewsOfStatusAndBUserIds(status, bUserIds);
     }
+    public News getNewsOfStatusAndMoney(String status, String money) {
+        return dao.getNewsOfStatusAndMoney(status, money);
+    }
     public News getNewsOfBuffAndParam(String buff, String param) {
         return dao.getNewsOfBuffAndParam(buff, param);
     }
@@ -1382,6 +1547,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfBuffAndBUserIds(String buff, String bUserIds) {
         return dao.getNewsOfBuffAndBUserIds(buff, bUserIds);
     }
+    public News getNewsOfBuffAndMoney(String buff, String money) {
+        return dao.getNewsOfBuffAndMoney(buff, money);
+    }
     public News getNewsOfParamAndNewsTypeId(String param, String newsTypeId) {
         return dao.getNewsOfParamAndNewsTypeId(param, newsTypeId);
     }
@@ -1403,6 +1571,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfParamAndBUserIds(String param, String bUserIds) {
         return dao.getNewsOfParamAndBUserIds(param, bUserIds);
     }
+    public News getNewsOfParamAndMoney(String param, String money) {
+        return dao.getNewsOfParamAndMoney(param, money);
+    }
     public News getNewsOfNewsTypeIdAndPath(String newsTypeId, String path) {
         return dao.getNewsOfNewsTypeIdAndPath(newsTypeId, path);
     }
@@ -1421,6 +1592,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfNewsTypeIdAndBUserIds(String newsTypeId, String bUserIds) {
         return dao.getNewsOfNewsTypeIdAndBUserIds(newsTypeId, bUserIds);
     }
+    public News getNewsOfNewsTypeIdAndMoney(String newsTypeId, String money) {
+        return dao.getNewsOfNewsTypeIdAndMoney(newsTypeId, money);
+    }
     public News getNewsOfPathAndGood(String path, String good) {
         return dao.getNewsOfPathAndGood(path, good);
     }
@@ -1436,6 +1610,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfPathAndBUserIds(String path, String bUserIds) {
         return dao.getNewsOfPathAndBUserIds(path, bUserIds);
     }
+    public News getNewsOfPathAndMoney(String path, String money) {
+        return dao.getNewsOfPathAndMoney(path, money);
+    }
     public News getNewsOfGoodAndBad(String good, String bad) {
         return dao.getNewsOfGoodAndBad(good, bad);
     }
@@ -1448,6 +1625,9 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfGoodAndBUserIds(String good, String bUserIds) {
         return dao.getNewsOfGoodAndBUserIds(good, bUserIds);
     }
+    public News getNewsOfGoodAndMoney(String good, String money) {
+        return dao.getNewsOfGoodAndMoney(good, money);
+    }
     public News getNewsOfBadAndTime(String bad, String time) {
         return dao.getNewsOfBadAndTime(bad, time);
     }
@@ -1457,14 +1637,26 @@ public class INewsServiceImpl implements INewsService {
     public News getNewsOfBadAndBUserIds(String bad, String bUserIds) {
         return dao.getNewsOfBadAndBUserIds(bad, bUserIds);
     }
+    public News getNewsOfBadAndMoney(String bad, String money) {
+        return dao.getNewsOfBadAndMoney(bad, money);
+    }
     public News getNewsOfTimeAndSearch(String time, String search) {
         return dao.getNewsOfTimeAndSearch(time, search);
     }
     public News getNewsOfTimeAndBUserIds(String time, String bUserIds) {
         return dao.getNewsOfTimeAndBUserIds(time, bUserIds);
     }
+    public News getNewsOfTimeAndMoney(String time, String money) {
+        return dao.getNewsOfTimeAndMoney(time, money);
+    }
     public News getNewsOfSearchAndBUserIds(String search, String bUserIds) {
         return dao.getNewsOfSearchAndBUserIds(search, bUserIds);
+    }
+    public News getNewsOfSearchAndMoney(String search, String money) {
+        return dao.getNewsOfSearchAndMoney(search, money);
+    }
+    public News getNewsOfBUserIdsAndMoney(String bUserIds, String money) {
+        return dao.getNewsOfBUserIdsAndMoney(bUserIds, money);
     }
     public List<News> getNewss(News news) {
         return dao.getNewss(news);
@@ -1514,6 +1706,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfBUserIds(String bUserIds) {
         return dao.getNewssOfBUserIds(bUserIds);
     }
+    public List<News> getNewssOfMoney(String money) {
+        return dao.getNewssOfMoney(money);
+    }
     public List<News> getNewssOfNewsIdAndTitle(String newsId, String title) {
         return dao.getNewssOfNewsIdAndTitle(newsId, title);
     }
@@ -1556,6 +1751,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfNewsIdAndBUserIds(String newsId, String bUserIds) {
         return dao.getNewssOfNewsIdAndBUserIds(newsId, bUserIds);
     }
+    public List<News> getNewssOfNewsIdAndMoney(String newsId, String money) {
+        return dao.getNewssOfNewsIdAndMoney(newsId, money);
+    }
     public List<News> getNewssOfTitleAndBody(String title, String body) {
         return dao.getNewssOfTitleAndBody(title, body);
     }
@@ -1595,6 +1793,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfTitleAndBUserIds(String title, String bUserIds) {
         return dao.getNewssOfTitleAndBUserIds(title, bUserIds);
     }
+    public List<News> getNewssOfTitleAndMoney(String title, String money) {
+        return dao.getNewssOfTitleAndMoney(title, money);
+    }
     public List<News> getNewssOfBodyAndUserId(String body, String userId) {
         return dao.getNewssOfBodyAndUserId(body, userId);
     }
@@ -1631,6 +1832,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfBodyAndBUserIds(String body, String bUserIds) {
         return dao.getNewssOfBodyAndBUserIds(body, bUserIds);
     }
+    public List<News> getNewssOfBodyAndMoney(String body, String money) {
+        return dao.getNewssOfBodyAndMoney(body, money);
+    }
     public List<News> getNewssOfUserIdAndUserNewsTypeId(String userId, String userNewsTypeId) {
         return dao.getNewssOfUserIdAndUserNewsTypeId(userId, userNewsTypeId);
     }
@@ -1664,6 +1868,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfUserIdAndBUserIds(String userId, String bUserIds) {
         return dao.getNewssOfUserIdAndBUserIds(userId, bUserIds);
     }
+    public List<News> getNewssOfUserIdAndMoney(String userId, String money) {
+        return dao.getNewssOfUserIdAndMoney(userId, money);
+    }
     public List<News> getNewssOfUserNewsTypeIdAndStatus(String userNewsTypeId, String status) {
         return dao.getNewssOfUserNewsTypeIdAndStatus(userNewsTypeId, status);
     }
@@ -1694,6 +1901,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfUserNewsTypeIdAndBUserIds(String userNewsTypeId, String bUserIds) {
         return dao.getNewssOfUserNewsTypeIdAndBUserIds(userNewsTypeId, bUserIds);
     }
+    public List<News> getNewssOfUserNewsTypeIdAndMoney(String userNewsTypeId, String money) {
+        return dao.getNewssOfUserNewsTypeIdAndMoney(userNewsTypeId, money);
+    }
     public List<News> getNewssOfStatusAndBuff(String status, String buff) {
         return dao.getNewssOfStatusAndBuff(status, buff);
     }
@@ -1721,6 +1931,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfStatusAndBUserIds(String status, String bUserIds) {
         return dao.getNewssOfStatusAndBUserIds(status, bUserIds);
     }
+    public List<News> getNewssOfStatusAndMoney(String status, String money) {
+        return dao.getNewssOfStatusAndMoney(status, money);
+    }
     public List<News> getNewssOfBuffAndParam(String buff, String param) {
         return dao.getNewssOfBuffAndParam(buff, param);
     }
@@ -1745,6 +1958,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfBuffAndBUserIds(String buff, String bUserIds) {
         return dao.getNewssOfBuffAndBUserIds(buff, bUserIds);
     }
+    public List<News> getNewssOfBuffAndMoney(String buff, String money) {
+        return dao.getNewssOfBuffAndMoney(buff, money);
+    }
     public List<News> getNewssOfParamAndNewsTypeId(String param, String newsTypeId) {
         return dao.getNewssOfParamAndNewsTypeId(param, newsTypeId);
     }
@@ -1766,6 +1982,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfParamAndBUserIds(String param, String bUserIds) {
         return dao.getNewssOfParamAndBUserIds(param, bUserIds);
     }
+    public List<News> getNewssOfParamAndMoney(String param, String money) {
+        return dao.getNewssOfParamAndMoney(param, money);
+    }
     public List<News> getNewssOfNewsTypeIdAndPath(String newsTypeId, String path) {
         return dao.getNewssOfNewsTypeIdAndPath(newsTypeId, path);
     }
@@ -1784,6 +2003,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfNewsTypeIdAndBUserIds(String newsTypeId, String bUserIds) {
         return dao.getNewssOfNewsTypeIdAndBUserIds(newsTypeId, bUserIds);
     }
+    public List<News> getNewssOfNewsTypeIdAndMoney(String newsTypeId, String money) {
+        return dao.getNewssOfNewsTypeIdAndMoney(newsTypeId, money);
+    }
     public List<News> getNewssOfPathAndGood(String path, String good) {
         return dao.getNewssOfPathAndGood(path, good);
     }
@@ -1799,6 +2021,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfPathAndBUserIds(String path, String bUserIds) {
         return dao.getNewssOfPathAndBUserIds(path, bUserIds);
     }
+    public List<News> getNewssOfPathAndMoney(String path, String money) {
+        return dao.getNewssOfPathAndMoney(path, money);
+    }
     public List<News> getNewssOfGoodAndBad(String good, String bad) {
         return dao.getNewssOfGoodAndBad(good, bad);
     }
@@ -1811,6 +2036,9 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfGoodAndBUserIds(String good, String bUserIds) {
         return dao.getNewssOfGoodAndBUserIds(good, bUserIds);
     }
+    public List<News> getNewssOfGoodAndMoney(String good, String money) {
+        return dao.getNewssOfGoodAndMoney(good, money);
+    }
     public List<News> getNewssOfBadAndTime(String bad, String time) {
         return dao.getNewssOfBadAndTime(bad, time);
     }
@@ -1820,13 +2048,25 @@ public class INewsServiceImpl implements INewsService {
     public List<News> getNewssOfBadAndBUserIds(String bad, String bUserIds) {
         return dao.getNewssOfBadAndBUserIds(bad, bUserIds);
     }
+    public List<News> getNewssOfBadAndMoney(String bad, String money) {
+        return dao.getNewssOfBadAndMoney(bad, money);
+    }
     public List<News> getNewssOfTimeAndSearch(String time, String search) {
         return dao.getNewssOfTimeAndSearch(time, search);
     }
     public List<News> getNewssOfTimeAndBUserIds(String time, String bUserIds) {
         return dao.getNewssOfTimeAndBUserIds(time, bUserIds);
     }
+    public List<News> getNewssOfTimeAndMoney(String time, String money) {
+        return dao.getNewssOfTimeAndMoney(time, money);
+    }
     public List<News> getNewssOfSearchAndBUserIds(String search, String bUserIds) {
         return dao.getNewssOfSearchAndBUserIds(search, bUserIds);
+    }
+    public List<News> getNewssOfSearchAndMoney(String search, String money) {
+        return dao.getNewssOfSearchAndMoney(search, money);
+    }
+    public List<News> getNewssOfBUserIdsAndMoney(String bUserIds, String money) {
+        return dao.getNewssOfBUserIdsAndMoney(bUserIds, money);
     }
 }

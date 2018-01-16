@@ -62,7 +62,7 @@ public class IMessageFactoryImpl implements IServletFactory {
 
         // TODO Auto-generated method stub
 		Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "query_from")
-		.addNs("identity", "请重新登录", "login_from")
+		//.addNs("identity", "请重新登录", "login_from")
 		.build();
 		if (tMap != null) {
 			List<Email> allMessages = new ArrayList<Email>();
@@ -105,7 +105,7 @@ public class IMessageFactoryImpl implements IServletFactory {
         // TODO Auto-generated method stub
 		Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "remove_from")
 		.addNp("emailId", "邮箱id不能为空")
-		.addNs("identity", "请重新登录", "login_from")
+		//.addNs("identity", "请重新登录", "login_from")
 		.build();
 		if (tMap != null) {
 			Map<String, String> m = MapUtil.soss(tMap);
@@ -130,7 +130,7 @@ public class IMessageFactoryImpl implements IServletFactory {
         // TODO Auto-generated method stub
 		Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "queryDetails_from")
 		.addNp("emailId", "邮箱id不能为空")
-		.addNs("identity", "请重新登录", "login_from")
+		//.addNs("identity", "请重新登录", "login_from")
 		.build();
 		if (tMap != null) {
 			Map<String, String> m = MapUtil.soss(tMap);

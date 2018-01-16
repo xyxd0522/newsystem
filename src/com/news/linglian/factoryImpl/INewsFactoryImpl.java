@@ -80,6 +80,9 @@ public class INewsFactoryImpl implements IServletFactory {
 		case "adminRemove":
 			doAdminRemove(request, response, servlet);
 			break;
+		case "adminRemoves":
+			doAdminRemoves(request, response, servlet);
+			break;
 		}
 	}
 	/**
@@ -353,5 +356,27 @@ public class INewsFactoryImpl implements IServletFactory {
 			ServletUtil.dataOfSetReqRedirect(request, response, servlet, "adminRemove_to", "adminRemove_from", "删除", ias.removeOfNewsId(m.get("par_newsId")), "news");
 		}
 	}
-		
+	/**
+	 * 管理员批量删除新闻
+	 * @param request
+	 * @param response
+	 * @param servlet
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	protected void doAdminRemoves(HttpServletRequest request,
+			HttpServletResponse response, HttpServlet servlet)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String[] newsIds =request.getParameterValues("newsIds");
+		for(int i=0;i<newsIds.length;i++){
+			int isRemove=ias.removeOfNewsId(newsIds[i]);
+			if(isRemove==0){
+				request.getSession().setAttribute("info", "删除失败");
+	            ServletUtil.redirect(request, response, servlet,"adminRemoves_from");
+			}
+		}
+		request.getSession().setAttribute("info", "删除成功");
+        ServletUtil.redirect(request, response, servlet,"adminRemoves_to");
+	}
 }
