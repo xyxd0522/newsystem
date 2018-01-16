@@ -26,9 +26,9 @@ public class IEmailDaoImpl implements IEmailDao {
         kEmail.setToUserId(toUserId);
         return update(email, kEmail);
     }
-    public int updateOfTitle(Email email, String title) {
+    public int updateOfNewsId(Email email, String newsId) {
         Email kEmail = new Email();
-        kEmail.setTitle(title);
+        kEmail.setNewsId(newsId);
         return update(email, kEmail);
     }
     public int updateOfBody(Email email, String body) {
@@ -63,10 +63,10 @@ public class IEmailDaoImpl implements IEmailDao {
         kEmail.setToUserId(toUserId);
         return update(email, kEmail);
     }
-    public int updateOfEmailIdAndTitle(Email email, String emailId, String title) {
+    public int updateOfEmailIdAndNewsId(Email email, String emailId, String newsId) {
         Email kEmail = new Email();
         kEmail.setEmailId(emailId);
-        kEmail.setTitle(title);
+        kEmail.setNewsId(newsId);
         return update(email, kEmail);
     }
     public int updateOfEmailIdAndBody(Email email, String emailId, String body) {
@@ -99,10 +99,10 @@ public class IEmailDaoImpl implements IEmailDao {
         kEmail.setToUserId(toUserId);
         return update(email, kEmail);
     }
-    public int updateOfFromUserIdAndTitle(Email email, String fromUserId, String title) {
+    public int updateOfFromUserIdAndNewsId(Email email, String fromUserId, String newsId) {
         Email kEmail = new Email();
         kEmail.setFromUserId(fromUserId);
-        kEmail.setTitle(title);
+        kEmail.setNewsId(newsId);
         return update(email, kEmail);
     }
     public int updateOfFromUserIdAndBody(Email email, String fromUserId, String body) {
@@ -129,10 +129,10 @@ public class IEmailDaoImpl implements IEmailDao {
         kEmail.setStatus(status);
         return update(email, kEmail);
     }
-    public int updateOfToUserIdAndTitle(Email email, String toUserId, String title) {
+    public int updateOfToUserIdAndNewsId(Email email, String toUserId, String newsId) {
         Email kEmail = new Email();
         kEmail.setToUserId(toUserId);
-        kEmail.setTitle(title);
+        kEmail.setNewsId(newsId);
         return update(email, kEmail);
     }
     public int updateOfToUserIdAndBody(Email email, String toUserId, String body) {
@@ -159,27 +159,27 @@ public class IEmailDaoImpl implements IEmailDao {
         kEmail.setStatus(status);
         return update(email, kEmail);
     }
-    public int updateOfTitleAndBody(Email email, String title, String body) {
+    public int updateOfNewsIdAndBody(Email email, String newsId, String body) {
         Email kEmail = new Email();
-        kEmail.setTitle(title);
+        kEmail.setNewsId(newsId);
         kEmail.setBody(body);
         return update(email, kEmail);
     }
-    public int updateOfTitleAndTime(Email email, String title, String time) {
+    public int updateOfNewsIdAndTime(Email email, String newsId, String time) {
         Email kEmail = new Email();
-        kEmail.setTitle(title);
+        kEmail.setNewsId(newsId);
         kEmail.setTime(time);
         return update(email, kEmail);
     }
-    public int updateOfTitleAndParam(Email email, String title, String param) {
+    public int updateOfNewsIdAndParam(Email email, String newsId, String param) {
         Email kEmail = new Email();
-        kEmail.setTitle(title);
+        kEmail.setNewsId(newsId);
         kEmail.setParam(param);
         return update(email, kEmail);
     }
-    public int updateOfTitleAndStatus(Email email, String title, String status) {
+    public int updateOfNewsIdAndStatus(Email email, String newsId, String status) {
         Email kEmail = new Email();
-        kEmail.setTitle(title);
+        kEmail.setNewsId(newsId);
         kEmail.setStatus(status);
         return update(email, kEmail);
     }
@@ -237,9 +237,9 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return remove(email);
     }
-    public int removeOfTitle(String title) {
+    public int removeOfNewsId(String newsId) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return remove(email);
     }
     public int removeOfBody(String body) {
@@ -274,10 +274,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return remove(email);
     }
-    public int removeOfEmailIdAndTitle(String emailId, String title) {
+    public int removeOfEmailIdAndNewsId(String emailId, String newsId) {
         Email email = new Email();
         email.setEmailId(emailId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return remove(email);
     }
     public int removeOfEmailIdAndBody(String emailId, String body) {
@@ -310,10 +310,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return remove(email);
     }
-    public int removeOfFromUserIdAndTitle(String fromUserId, String title) {
+    public int removeOfFromUserIdAndNewsId(String fromUserId, String newsId) {
         Email email = new Email();
         email.setFromUserId(fromUserId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return remove(email);
     }
     public int removeOfFromUserIdAndBody(String fromUserId, String body) {
@@ -340,10 +340,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setStatus(status);
         return remove(email);
     }
-    public int removeOfToUserIdAndTitle(String toUserId, String title) {
+    public int removeOfToUserIdAndNewsId(String toUserId, String newsId) {
         Email email = new Email();
         email.setToUserId(toUserId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return remove(email);
     }
     public int removeOfToUserIdAndBody(String toUserId, String body) {
@@ -370,27 +370,27 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setStatus(status);
         return remove(email);
     }
-    public int removeOfTitleAndBody(String title, String body) {
+    public int removeOfNewsIdAndBody(String newsId, String body) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setBody(body);
         return remove(email);
     }
-    public int removeOfTitleAndTime(String title, String time) {
+    public int removeOfNewsIdAndTime(String newsId, String time) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setTime(time);
         return remove(email);
     }
-    public int removeOfTitleAndParam(String title, String param) {
+    public int removeOfNewsIdAndParam(String newsId, String param) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setParam(param);
         return remove(email);
     }
-    public int removeOfTitleAndStatus(String title, String status) {
+    public int removeOfNewsIdAndStatus(String newsId, String status) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setStatus(status);
         return remove(email);
     }
@@ -448,9 +448,9 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return insert(email);
     }
-    public int insertOfTitle(String title) {
+    public int insertOfNewsId(String newsId) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return insert(email);
     }
     public int insertOfBody(String body) {
@@ -485,10 +485,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return insert(email);
     }
-    public int insertOfEmailIdAndTitle(String emailId, String title) {
+    public int insertOfEmailIdAndNewsId(String emailId, String newsId) {
         Email email = new Email();
         email.setEmailId(emailId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return insert(email);
     }
     public int insertOfEmailIdAndBody(String emailId, String body) {
@@ -521,10 +521,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return insert(email);
     }
-    public int insertOfFromUserIdAndTitle(String fromUserId, String title) {
+    public int insertOfFromUserIdAndNewsId(String fromUserId, String newsId) {
         Email email = new Email();
         email.setFromUserId(fromUserId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return insert(email);
     }
     public int insertOfFromUserIdAndBody(String fromUserId, String body) {
@@ -551,10 +551,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setStatus(status);
         return insert(email);
     }
-    public int insertOfToUserIdAndTitle(String toUserId, String title) {
+    public int insertOfToUserIdAndNewsId(String toUserId, String newsId) {
         Email email = new Email();
         email.setToUserId(toUserId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return insert(email);
     }
     public int insertOfToUserIdAndBody(String toUserId, String body) {
@@ -581,27 +581,27 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setStatus(status);
         return insert(email);
     }
-    public int insertOfTitleAndBody(String title, String body) {
+    public int insertOfNewsIdAndBody(String newsId, String body) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setBody(body);
         return insert(email);
     }
-    public int insertOfTitleAndTime(String title, String time) {
+    public int insertOfNewsIdAndTime(String newsId, String time) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setTime(time);
         return insert(email);
     }
-    public int insertOfTitleAndParam(String title, String param) {
+    public int insertOfNewsIdAndParam(String newsId, String param) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setParam(param);
         return insert(email);
     }
-    public int insertOfTitleAndStatus(String title, String status) {
+    public int insertOfNewsIdAndStatus(String newsId, String status) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setStatus(status);
         return insert(email);
     }
@@ -659,9 +659,9 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return getEmail(email);
     }
-    public Email getEmailOfTitle(String title) {
+    public Email getEmailOfNewsId(String newsId) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return getEmail(email);
     }
     public Email getEmailOfBody(String body) {
@@ -696,10 +696,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return getEmail(email);
     }
-    public Email getEmailOfEmailIdAndTitle(String emailId, String title) {
+    public Email getEmailOfEmailIdAndNewsId(String emailId, String newsId) {
         Email email = new Email();
         email.setEmailId(emailId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return getEmail(email);
     }
     public Email getEmailOfEmailIdAndBody(String emailId, String body) {
@@ -732,10 +732,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return getEmail(email);
     }
-    public Email getEmailOfFromUserIdAndTitle(String fromUserId, String title) {
+    public Email getEmailOfFromUserIdAndNewsId(String fromUserId, String newsId) {
         Email email = new Email();
         email.setFromUserId(fromUserId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return getEmail(email);
     }
     public Email getEmailOfFromUserIdAndBody(String fromUserId, String body) {
@@ -762,10 +762,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setStatus(status);
         return getEmail(email);
     }
-    public Email getEmailOfToUserIdAndTitle(String toUserId, String title) {
+    public Email getEmailOfToUserIdAndNewsId(String toUserId, String newsId) {
         Email email = new Email();
         email.setToUserId(toUserId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return getEmail(email);
     }
     public Email getEmailOfToUserIdAndBody(String toUserId, String body) {
@@ -792,27 +792,27 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setStatus(status);
         return getEmail(email);
     }
-    public Email getEmailOfTitleAndBody(String title, String body) {
+    public Email getEmailOfNewsIdAndBody(String newsId, String body) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setBody(body);
         return getEmail(email);
     }
-    public Email getEmailOfTitleAndTime(String title, String time) {
+    public Email getEmailOfNewsIdAndTime(String newsId, String time) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setTime(time);
         return getEmail(email);
     }
-    public Email getEmailOfTitleAndParam(String title, String param) {
+    public Email getEmailOfNewsIdAndParam(String newsId, String param) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setParam(param);
         return getEmail(email);
     }
-    public Email getEmailOfTitleAndStatus(String title, String status) {
+    public Email getEmailOfNewsIdAndStatus(String newsId, String status) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setStatus(status);
         return getEmail(email);
     }
@@ -870,9 +870,9 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return getEmails(email);
     }
-    public List<Email> getEmailsOfTitle(String title) {
+    public List<Email> getEmailsOfNewsId(String newsId) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return getEmails(email);
     }
     public List<Email> getEmailsOfBody(String body) {
@@ -907,10 +907,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return getEmails(email);
     }
-    public List<Email> getEmailsOfEmailIdAndTitle(String emailId, String title) {
+    public List<Email> getEmailsOfEmailIdAndNewsId(String emailId, String newsId) {
         Email email = new Email();
         email.setEmailId(emailId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return getEmails(email);
     }
     public List<Email> getEmailsOfEmailIdAndBody(String emailId, String body) {
@@ -943,10 +943,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setToUserId(toUserId);
         return getEmails(email);
     }
-    public List<Email> getEmailsOfFromUserIdAndTitle(String fromUserId, String title) {
+    public List<Email> getEmailsOfFromUserIdAndNewsId(String fromUserId, String newsId) {
         Email email = new Email();
         email.setFromUserId(fromUserId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return getEmails(email);
     }
     public List<Email> getEmailsOfFromUserIdAndBody(String fromUserId, String body) {
@@ -973,10 +973,10 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setStatus(status);
         return getEmails(email);
     }
-    public List<Email> getEmailsOfToUserIdAndTitle(String toUserId, String title) {
+    public List<Email> getEmailsOfToUserIdAndNewsId(String toUserId, String newsId) {
         Email email = new Email();
         email.setToUserId(toUserId);
-        email.setTitle(title);
+        email.setNewsId(newsId);
         return getEmails(email);
     }
     public List<Email> getEmailsOfToUserIdAndBody(String toUserId, String body) {
@@ -1003,27 +1003,27 @@ public class IEmailDaoImpl implements IEmailDao {
         email.setStatus(status);
         return getEmails(email);
     }
-    public List<Email> getEmailsOfTitleAndBody(String title, String body) {
+    public List<Email> getEmailsOfNewsIdAndBody(String newsId, String body) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setBody(body);
         return getEmails(email);
     }
-    public List<Email> getEmailsOfTitleAndTime(String title, String time) {
+    public List<Email> getEmailsOfNewsIdAndTime(String newsId, String time) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setTime(time);
         return getEmails(email);
     }
-    public List<Email> getEmailsOfTitleAndParam(String title, String param) {
+    public List<Email> getEmailsOfNewsIdAndParam(String newsId, String param) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setParam(param);
         return getEmails(email);
     }
-    public List<Email> getEmailsOfTitleAndStatus(String title, String status) {
+    public List<Email> getEmailsOfNewsIdAndStatus(String newsId, String status) {
         Email email = new Email();
-        email.setTitle(title);
+        email.setNewsId(newsId);
         email.setStatus(status);
         return getEmails(email);
     }

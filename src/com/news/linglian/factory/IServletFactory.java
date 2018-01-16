@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface IServletFactory {
 	public void doThing(HttpServletRequest request,
+<<<<<<< HEAD
 			HttpServletResponse response, HttpServlet serlvet,
 			String factoryName) throws ServletException,IOException;
+=======
+			HttpServletResponse response, HttpServlet servlet,
+			String method) throws ServletException, IOException;
+>>>>>>> origin/李俊萍
 }

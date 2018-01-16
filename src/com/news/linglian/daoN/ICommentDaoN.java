@@ -3,21 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package db;
+package com.news.linglian.daoN;
+
+import com.news.linglian.dao.ICommentDao;
 
 /**
  *
  * @author lol
  */
-public class SqlUtil {
-    private StringBuffer str;
-
-    public SqlUtil() {
-        this.str = new StringBuffer();
-    }
-
-    public SqlUtil(StringBuffer str) {
-        this.str = str;
-    }
+public interface ICommentDaoN extends ICommentDao {
     
 }

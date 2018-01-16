@@ -33,8 +33,6 @@ public class MapUtil {
         }
         Set<String> set = m.keySet();
         for (String o : set) {
-            System.out.println(m);
-            System.out.println(o);
             map.put(o, m.get(o).toString());
         }
         return map;

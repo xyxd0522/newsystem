@@ -1,7 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.news.linglian.action;
 
+import com.news.linglian.factory.IServletFactory;
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -9,32 +15,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.news.linglian.factory.IServletFactory;
-
 /**
- * Servlet implementation class UserAction
+ *
+ * @author lol
  */
-@WebServlet(name = "UserAction", urlPatterns = "/UserAction.do", initParams = {
-    @WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.IUserFactoryImpl"),
+@WebServlet(name = "EmailAction", urlPatterns = "/EmailAction.do", initParams = {
+    @WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.IEmailFactoryImpl"),
     @WebInitParam(name = "login_from", value = "user/login.jsp"),
     @WebInitParam(name = "login_to", value = "index.jsp"),
     @WebInitParam(name = "query_from", value = "user/login.jsp"),
     @WebInitParam(name = "query_to", value = "user/home.jsp"),
     @WebInitParam(name = "update_from", value = "user/set.jsp"),
     @WebInitParam(name = "update_to", value = "user/set.jsp"),
+    @WebInitParam(name = "email_from", value = "user/message.jsp"),
+    @WebInitParam(name = "email_to", value = "user/message.jsp"),
     @WebInitParam(name = "insert_from", value = "user/res.jsp"),
     @WebInitParam(name = "insert_to", value = "user/login.jsp")})
-public class UserAction extends HttpServlet {
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserAction() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+public class EmailAction extends HttpServlet {
 
     protected void doThing(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
@@ -69,5 +66,4 @@ public class UserAction extends HttpServlet {
         // TODO Auto-generated method stub
         doThing(request, response);
     }
-
 }

@@ -4,7 +4,7 @@ public class Email {
     private String emailId;
     private String fromUserId;
     private String toUserId;
-    private String title;
+    private String newsId;
     private String body;
     private String time;
     private String param;
@@ -34,12 +34,12 @@ public class Email {
         this.toUserId = toUserId;
     }
 
-    public String getTitle() {
-        return title;
+    public String getNewsId() {
+        return newsId;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setNewsId(String newsId) {
+        this.newsId = newsId;
     }
 
     public String getBody() {
@@ -76,7 +76,7 @@ public class Email {
 
     @Override
     public String toString() {
-        return "Email [emailId=" + emailId + ", fromUserId=" + fromUserId + ", toUserId=" + toUserId + ", title=" + title + ", body=" + body + ", time=" + time + ", param=" + param + ", status=" + status + ", ]";
+        return "Email [emailId=" + emailId + ", fromUserId=" + fromUserId + ", toUserId=" + toUserId + ", newsId=" + newsId + ", body=" + body + ", time=" + time + ", param=" + param + ", status=" + status + ", ]";
     }
 
 }
