@@ -452,15 +452,6 @@ public class IUserFactoryImpl implements IServletFactory {
         if (tMap != null) {
             Map<String, String> m = MapUtil.soss(tMap);
             User user = ias.getUserOfPasswordAndEmail(m.get("par_pass"), m.get("par_email"));
-<<<<<<< HEAD
-            int lvl = 0;
-            request.setAttribute("lvl", lvl);
-            System.out.println(lvl);
-            ServletUtil.dataOfSetSes(request, response, servlet,
-                    "login_from", "login_to", "登录",
-                    user, "identity");
-            request.getSession().setAttribute("user", user);
-=======
             if (user == null) {
                 request.getSession().setAttribute("info", "当前密码错误");
                 ServletUtil.redirect(request, response, servlet, "login_from");
@@ -471,7 +462,7 @@ public class IUserFactoryImpl implements IServletFactory {
                         "login_to", "login_from", "登录",
                         user, "identity");
             }
->>>>>>> origin/李俊萍
+
         }
     }
 }
