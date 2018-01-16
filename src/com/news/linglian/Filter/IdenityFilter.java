@@ -5,10 +5,16 @@
  */
 package com.news.linglian.Filter;
 
+import com.news.linglian.entity.Email;
+import com.news.linglian.entity.User;
+import com.news.linglian.service.IUserService;
+import com.news.linglian.serviceImpl.IEmailServiceImpl;
+import com.news.linglian.serviceImpl.IUserServiceImpl;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.List;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -57,6 +63,12 @@ public class IdenityFilter implements Filter {
             filterChain.doFilter(request, response);
         } else {
             if (session.getAttribute("identity") != null) {
+                User user = (User) session.getAttribute("identity");
+                List<Email> tList = new IEmailServiceImpl().getEmailsOfToUserIdAndStatus(user.getUserId(), "0");
+                if (tList != null) {
+                    request.getSession().setAttribute("emailSize", tList.size());
+                }
+                session.setAttribute("identity", new IUserServiceImpl().getUserOfUserId(user.getUserId()));
                 filterChain.doFilter(request, response);
             } else {
                 request.getRequestDispatcher("/" + request.getContextPath() + "user/login.jsp").forward(request, response);

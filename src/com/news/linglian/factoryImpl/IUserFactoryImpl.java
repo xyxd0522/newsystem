@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.news.linglian.entity.Comment;
 import com.news.linglian.entity.Email;
 import com.news.linglian.entity.News;
+import com.news.linglian.entity.Newstype;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -21,18 +22,27 @@ import com.news.linglian.entity.User;
 import com.news.linglian.factory.IServletFactory;
 import com.news.linglian.service.ICommentService;
 import com.news.linglian.service.IEmailService;
+import com.news.linglian.service.INewsService;
+import com.news.linglian.service.INewstypeService;
 import com.news.linglian.service.IUserService;
 import com.news.linglian.serviceImpl.ICommentServiceImpl;
 import com.news.linglian.serviceImpl.IEmailServiceImpl;
+import com.news.linglian.serviceImpl.INewsServiceImpl;
+import com.news.linglian.serviceImpl.INewstypeServiceImpl;
 import com.news.linglian.serviceImpl.IUserServiceImpl;
 import com.news.linglian.serviceN.INewsServiceN;
 import com.news.linglian.serviceN.IUserServiceN;
 import com.news.linglian.serviceNImpl.INewsServiceNImpl;
 import com.news.linglian.serviceNImpl.IUserServiceNImpl;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.MapUtil;
 import util.Response;
 
@@ -51,10 +61,13 @@ public class IUserFactoryImpl implements IServletFactory {
     private INewsServiceN ins = null;
     private ICommentService ics = null;
     private IEmailService ies = null;
+    private INewstypeService its = null;
+
     public static long time = 0;
     public static long speed = 1000;
 
     public IUserFactoryImpl() {
+        its = new INewstypeServiceImpl();
         ias = new IUserServiceNImpl();
         ins = new INewsServiceNImpl();
         ics = new ICommentServiceImpl();
@@ -101,9 +114,41 @@ public class IUserFactoryImpl implements IServletFactory {
             case "updateImg":
                 doUpdateImg(request, response, servlet);
                 break;
+            case "sendMessage":
+                doSendMessage(request, response, servlet);
+                break;
         }
     }
 
+    protected void doSendMessage(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "query_to")
+                .addNs("identity", "请重新登录", "login_from")
+                .addNp("body", "消息不能为空")
+                .addNp("userId", "用户编号不能为空")
+                .build();
+        if (tMap != null) {
+            Map<String, String> m = MapUtil.soss(tMap);
+            User user = (User) tMap.get("ses_identity");
+            Email e = new Email();
+            e.setFromUserId(user.getUserId());
+            e.setToUserId(m.get("par_userId"));
+            e.setBody(m.get("par_body"));
+            e.setTime(new Date().toLocaleString());
+            ServletUtil.checkdata(request, response, "UserAction.do?method=query&userId=" + m.get("par_userId"), "发送", ies.insert(e));
+        }
+    }
+
+    /**
+     * 上传图片
+     *
+     * @param request
+     * @param response
+     * @param servlet
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doUpdateImg(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
@@ -131,6 +176,15 @@ public class IUserFactoryImpl implements IServletFactory {
         }
     }
 
+    /**
+     * 更新密码
+     *
+     * @param request
+     * @param response
+     * @param servlet
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doUpdatePassword(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
@@ -154,52 +208,6 @@ public class IUserFactoryImpl implements IServletFactory {
                 ServletUtil.redirect(request, response, "UserAction.do?method=logout");
             }
         }
-    }
-
-    protected synchronized void getAll(HttpServletRequest request,
-            HttpServletResponse response) {
-        if (new Date().getTime() - time >= speed) {
-            time = new Date().getTime();
-            getAllComment(request, response);
-            getAllUser(request, response);
-            getAllNews(request, response);
-        }
-    }
-
-    private synchronized void getAllComment(HttpServletRequest request,
-            HttpServletResponse response) {
-        Map<String, Comment> m = new HashMap();
-        List<Comment> list = ics.getComments(new Comment());
-        if (list != null) {
-            for (Comment c : list) {
-                m.put(c.getCommentId(), c);
-            }
-        }
-        request.getServletContext().setAttribute("allComments", m);
-    }
-
-    private synchronized void getAllUser(HttpServletRequest request,
-            HttpServletResponse response) {
-        Map<String, User> m = new HashMap();
-        List<User> list = ias.getUsers(new User());
-        if (list != null) {
-            for (User c : list) {
-                m.put(c.getUserId(), c);
-            }
-        }
-        request.getServletContext().setAttribute("allUsers", m);
-    }
-
-    private synchronized void getAllNews(HttpServletRequest request,
-            HttpServletResponse response) {
-        Map<String, News> m = new HashMap();
-        List<News> list = ins.getNewss(new News());
-        if (list != null) {
-            for (News c : list) {
-                m.put(c.getNewsId(), c);
-            }
-        }
-        request.getServletContext().setAttribute("allNews", m);
     }
 
     protected void doLogout(HttpServletRequest request,
@@ -226,7 +234,15 @@ public class IUserFactoryImpl implements IServletFactory {
                 .build();
         if (tMap != null) {
             User user = (User) tMap.get("ses_identity");
-            List<News> newsList = ins.getNewssOfUserId(user.getUserId());
+            List<News> tList = ins.getNewssOfUserId(user.getUserId());
+            List<News> newsList = new ArrayList();
+            if (tList != null) {
+                for (News s : tList) {
+                    if (!"已删除".equals(s.getStatus())) {
+                        newsList.add(s);
+                    }
+                }
+            }
             String str = user.getNewIds();
             String[] strs = new String[0];
             List<News> scList = null;
@@ -314,14 +330,19 @@ public class IUserFactoryImpl implements IServletFactory {
             }
             List<News> newsList = ins.queryOfUserIdNewssLimit(userId, page - 1, limit);
             if (newsList != null) {
+                DateFormat dateFormat = new SimpleDateFormat();
                 // 转换新闻发布时间
                 for (News n : newsList) {
-                    Date date = new Date(n.getTime());
-                    long time = new Date().getTime() - date.getTime();
-                    if (time <= 1000 * 60) {
-                        n.setTime("刚刚");
-                    } else if (time <= 1000 * 60 * 60) {
-                        n.setTime(String.valueOf(new Date(time).getMinutes()) + "分前");
+                    try {
+                        Date date = dateFormat.parse(n.getTime());
+                        long time = new Date().getTime() - date.getTime();
+                        if (time <= 1000 * 60) {
+                            n.setTime("刚刚");
+                        } else if (time <= 1000 * 60 * 60) {
+                            n.setTime(String.valueOf(new Date(time).getMinutes()) + "分前");
+                        }
+                    } catch (ParseException ex) {
+                        System.out.println(ex.getMessage());
                     }
                 }
             }
@@ -330,16 +351,22 @@ public class IUserFactoryImpl implements IServletFactory {
             List<Comment> commentList = ics.getCommentsOfUserId(userId);
             if (commentList != null) {
                 String[] strs = new String[commentList.size()];
+                DateFormat dateFormat = new SimpleDateFormat();
                 for (int i = 0; i < commentList.size(); i++) {
                     Comment n = commentList.get(i);
-                    Date date = new Date(n.getTime());
-                    long time = new Date().getTime() - date.getTime();
-                    if (time <= 1000 * 60) {
-                        n.setTime("刚刚");
-                    } else if (time <= 1000 * 60 * 60) {
-                        n.setTime(String.valueOf(new Date(time).getMinutes()) + "分前");
+                    try {
+                        Date date = dateFormat.parse(n.getTime());
+                        long time = new Date().getTime() - date.getTime();
+                        if (time <= 1000 * 60) {
+                            n.setTime("刚刚");
+                        } else if (time <= 1000 * 60 * 60) {
+                            n.setTime(String.valueOf(new Date(time).getMinutes()) + "分前");
+                        }
+                        strs[i] = n.getNewsId();
+                    } catch (ParseException ex) {
+                        System.out.println(ex.getMessage());
+                        strs[i] = n.getNewsId();
                     }
-                    strs[i] = n.getNewsId();
                 }
                 List<News> comNewsList = ins.getNewssOfNewsIds(strs);
                 Map<String, News> map = new HashMap();
@@ -354,9 +381,8 @@ public class IUserFactoryImpl implements IServletFactory {
                 request.getSession().setAttribute("comNewsList", null);
                 request.getSession().setAttribute("commentList", null);
             }
-            ServletUtil.dataOfSetSesForward(request, response, servlet,
-                    "query_to", "query_from", "获取",
-                    user, "user");
+            request.getSession().setAttribute("user", user);
+            ServletUtil.forward(request, response, servlet, "query_to");
         }
     }
 
@@ -383,7 +409,6 @@ public class IUserFactoryImpl implements IServletFactory {
             user.setSex(m.get("par_sex"));
             user.setSignature(request.getParameter("sign"));
             int status = ias.updateOfUserId(user, user.getUserId());
-            System.out.println(user);
             ServletUtil.checkdata(request, response, servlet, "update_to", "更新", status);
         }
     }
@@ -462,5 +487,69 @@ public class IUserFactoryImpl implements IServletFactory {
                         user, "identity");
             }
         }
+    }
+
+    /**
+     * 获得全部信息
+     *
+     * @param request
+     * @param response
+     */
+    protected synchronized void getAll(HttpServletRequest request,
+            HttpServletResponse response) {
+        if (new Date().getTime() - time >= speed) {
+            time = new Date().getTime();
+            getAllComment(request, response);
+            getAllUser(request, response);
+            getAllNews(request, response);
+        }
+    }
+
+    private synchronized void getAllComment(HttpServletRequest request,
+            HttpServletResponse response) {
+        Map<String, Comment> m = new HashMap();
+        List<Comment> list = ics.getComments(new Comment());
+        if (list != null) {
+            for (Comment c : list) {
+                m.put(c.getCommentId(), c);
+            }
+        }
+        request.getServletContext().setAttribute("allComments", m);
+    }
+
+    private synchronized void getAllUser(HttpServletRequest request,
+            HttpServletResponse response) {
+        Map<String, User> m = new HashMap();
+        List<User> list = ias.getUsers(new User());
+        if (list != null) {
+            for (User c : list) {
+                m.put(c.getUserId(), c);
+            }
+        }
+        request.getServletContext().setAttribute("allUsers", m);
+    }
+
+    private synchronized void getAllNews(HttpServletRequest request,
+            HttpServletResponse response) {
+        Map<String, News> m = new HashMap();
+        List<News> list = ins.getNewss(new News());
+        if (list != null) {
+            for (News c : list) {
+                m.put(c.getNewsId(), c);
+            }
+        }
+        request.getServletContext().setAttribute("allNews", m);
+    }
+
+    private synchronized void getAllNewstypes(HttpServletRequest request,
+            HttpServletResponse response) {
+        Map<String, Newstype> m = new HashMap();
+        List<Newstype> list = its.getNewstypes(new Newstype());
+        if (list != null) {
+            for (Newstype c : list) {
+                m.put(c.getNewsTypeId(), c);
+            }
+        }
+        request.getServletContext().setAttribute("allNewstypes", m);
     }
 }

@@ -11,12 +11,12 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="keywords" content="SunnyNews">
                 <meta name="description" content="SunnyNews 向阳小队旗舰之作">
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/layui.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/global.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/modules/layer/default/layer.css" />
-                <script src="../comm/layui/layui.js" charset="utf-8"></script>
-                <script src="../comm/layer/layer.js"></script>
-                <script src="../comm/jquery/jquery-2.1.4.js"></script>
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/layui.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/global.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/modules/layer/default/layer.css" />
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js" charset="utf-8"></script>
+                <script src="${pageContext.request.contextPath}/comm/jquery/jquery-2.1.4.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>
         </head>
         <body>
                 <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
@@ -73,9 +73,22 @@
                                                         <ul class="mine-view jie-row">
                                                                 <c:forEach items="${newsList}" var="n">
                                                                     <li>
-                                                                            <a class="jie-title" href="../news/newsDetail.jsp" target="_blank">${n.title}</a>
+                                                                            <c:if test="${not empty n.buff}">
+                                                                                <span class="fly-jing" title="精品新闻">${n.buff}</span>
+                                                                            </c:if>
+                                                                            <c:if test="${n.status == '待审核'}">
+                                                                                <span class="fly-grey" title="请耐心等待管理员审核">${n.status}</span>
+                                                                            </c:if>
+                                                                            <c:if test="${n.status == '通过'}">
+                                                                                <span class="fly-grey layui-bg-green" title="审核成功">${n.status}</span>
+                                                                            </c:if>
+                                                                            <c:if test="${n.status == '未通过'}">
+                                                                                <span class="fly-grey layui-bg-orange" title="请前往[我的消息]查看未通过原因">${n.status}</span>
+                                                                            </c:if>
+                                                                            <a class="jie-title" href="${pageContext.request.contextPath}/NewsAction.do?method=queryOfId&newsId=${n.newsId}" target="_blank">${n.title}</a>
                                                                             <i>${n.time}</i>
-                                                                            <a class="mine-edit" href="../news/newsPost.jsp">编辑</a>
+                                                                            <a class="mine-edit" href="${pageContext.request.contextPath}/NewsAction.do?method=readyUpdate&newsId=${n.newsId}">编辑</a>
+                                                                            <a class="mine-edit layui-bg-red" href="${pageContext.request.contextPath}/NewsAction.do?method=remove&newsId=${n.newsId}">删除</a>
                                                                             <em>
                                                                                     ${n.good}<i class="layui-icon" style="font-size: 24px; color: green;">&#xe6c6;</i>
                                                                                     /
@@ -89,7 +102,7 @@
                                                         <ul class="mine-view jie-row">
                                                                 <c:forEach items="${scList}" var="n">
                                                                     <li>
-                                                                            <a class="jie-title" href="../news/newsDetail.jsp" target="_blank">${n.title}</a>
+                                                                            <a class="jie-title" href="${pageContext.request.contextPath}/news/newsDetail.jsp" target="_blank">${n.title}</a>
                                                                             <i>${n.time}</i>
                                                                             <em>
                                                                                     ${n.good}<i class="layui-icon" style="font-size: 24px; color: green;">&#xe6c6;</i>
@@ -112,19 +125,19 @@
                         </p>
                 </div>
 
-                <script src="../comm/layui/layui.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js"></script>
                 <script>
                     layui.cache.page = '';
                     layui.cache.user = {
                         username: '游客'
                         , uid: -1
-                        , avatar: '../img/logo.jpg'
+                        , avatar: '${pageContext.request.contextPath}/img/logo.jpg'
                         , experience: 83
                         , sex: '男'
                     };
                     layui.config({
                         version: "3.0.0"
-                        , base: '../comm/mods/'
+                        , base: '${pageContext.request.contextPath}/comm/mods/'
                     }).extend({
                         fly: 'index'
                     }).use(['fly', 'face'], function () {

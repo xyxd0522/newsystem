@@ -12,9 +12,14 @@ import com.news.linglian.service.IEmailService;
 import com.news.linglian.serviceImpl.IEmailServiceImpl;
 import db.DBUtil;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -52,6 +57,15 @@ public class IEmailFactoryImpl implements IServletFactory {
         }
     }
 
+    /**
+     * 获取消息列表
+     *
+     * @param request
+     * @param response
+     * @param servlet
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGetEmail(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
@@ -70,21 +84,24 @@ public class IEmailFactoryImpl implements IServletFactory {
             }
             request.getSession().setAttribute("emailPage", page);
             List<Email> tList = ies.getEmailsOfToUserIdAndStatus(user.getUserId(), "0");
-            System.out.println(tList);
             if (tList != null) {
                 request.getSession().setAttribute("emailSize", tList.size());
             }
-            List<Email> list = DBUtil.getObjectLimit("email", "time", e, (page - 1) * limit, limit);
-            System.out.println(list);
+            List<Email> list = DBUtil.getObjectLimit("email", "time", "ASC", e, (page - 1) * limit, limit);
             if (list != null) {
+                DateFormat dateFormat = new SimpleDateFormat();
                 // 转换消息发布时间
                 for (Email n : list) {
-                    Date date = new Date(n.getTime());
-                    long time = new Date().getTime() - date.getTime();
-                    if (time <= 1000 * 60) {
-                        n.setTime("刚刚");
-                    } else if (time <= 1000 * 60 * 60) {
-                        n.setTime(String.valueOf(new Date(time).getMinutes()) + "分前");
+                    try {
+                        Date date = dateFormat.parse(n.getTime());
+                        long time = new Date().getTime() - date.getTime();
+                        if (time <= 1000 * 60) {
+                            n.setTime("刚刚");
+                        } else if (time <= 1000 * 60 * 60) {
+                            n.setTime(String.valueOf(new Date(time).getMinutes()) + "分前");
+                        }
+                    } catch (ParseException ex) {
+                        System.out.println(ex.getMessage());
                     }
                 }
             }
@@ -92,6 +109,15 @@ public class IEmailFactoryImpl implements IServletFactory {
         }
     }
 
+    /**
+     * 将所有的消息设置为已经查看
+     *
+     * @param request
+     * @param response
+     * @param servlet
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doLookAll(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
@@ -107,6 +133,15 @@ public class IEmailFactoryImpl implements IServletFactory {
         }
     }
 
+    /**
+     * 将消息设置为已经查看
+     *
+     * @param request
+     * @param response
+     * @param servlet
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doLook(HttpServletRequest request,
             HttpServletResponse response, HttpServlet servlet)
             throws ServletException, IOException {
@@ -117,7 +152,8 @@ public class IEmailFactoryImpl implements IServletFactory {
         if (tMap != null) {
             Map<String, String> m = MapUtil.soss(tMap);
             Email e = new Email();
-            e.setStatus("1");    ServletUtil.checkdata(request, response, request.getContextPath() + "EmailAction.do?method=getEmail", "删除", ies.updateOfEmailId(e, m.get("par_emailId")));
+            e.setStatus("1");
+            ServletUtil.checkdata(request, response, request.getContextPath() + "EmailAction.do?method=getEmail", "删除", ies.updateOfEmailId(e, m.get("par_emailId")));
         }
     }
 }

@@ -15,8 +15,8 @@
                 <link rel="stylesheet" type="text/css" href="../comm/layui/global.css" />
                 <link rel="stylesheet" type="text/css" href="../comm/layui/css/modules/layer/default/layer.css" />
                 <script src="../comm/layui/layui.js" charset="utf-8"></script>
-                <script src="../comm/layer/layer.js"></script>
                 <script src="../comm/jquery/jquery-2.1.4.js"></script>
+                <script src="../comm/layer/layer.js"></script>
         </head>
         <body>
 
@@ -28,56 +28,46 @@
                                 <div class="layui-form layui-form-pane">
                                         <div class="layui-tab layui-tab-brief" lay-filter="user">
                                                 <ul class="layui-tab-title">
-                                                        <li class="layui-this">发布新闻<!-- 修改新闻 --></li>
-                                                </ul>
-                                                <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
-                                                        <div class="layui-tab-item layui-show">
-                                                                <form action="" method="post">
+
+                                                        <li class="layui-this"><c:if test="${not empty newsId}">修改新闻</c:if><c:if test="${empty newsId}">发布新闻</c:if></li>
+                                                        </ul>
+                                                        <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
+                                                                <div class="layui-tab-item layui-show">
+                                                                            <form action="${pageContext.request.contextPath}/NewsAction.do?method=insert" method="post">
                                                                         <div class="layui-row layui-col-space15 layui-form-item">
                                                                                 <div class="layui-col-md3">
-                                                                                        <label class="layui-form-label">所在专栏</label>
+                                                                                        <label class="layui-form-label">新闻类型</label>	
                                                                                         <div class="layui-input-block">
-                                                                                                <select lay-verify="required" name="class" lay-filter="column"> 
-                                                                                                        <option></option> 
-                                                                                                        <option value="0">发布新闻</option> 
-                                                                                                        <option value="99">编辑新闻</option> 
-                                                                                                        <option value="100">讨论版</option> 
-                                                                                                        <option value="101">即时通讯</option> 
-                                                                                                        <option value="168">公告</option> 
-                                                                                                </select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="layui-col-md3">
-                                                                                        <label class="layui-form-label">所在专栏</label>
-                                                                                        <div class="layui-input-block">
-                                                                                                <select lay-verify="required" name="class" lay-filter="column"> 
-                                                                                                        <option></option> 
-                                                                                                        <option value="0">发布新闻</option> 
-                                                                                                        <option value="99">编辑新闻</option> 
-                                                                                                        <option value="100">讨论版</option> 
-                                                                                                        <option value="101">即时通讯</option> 
-                                                                                                        <option value="168">公告</option> 
+                                                                                                <select lay-verify="required" name="newsTypeId" lay-filter="column"> 
+                                                                                                        <option></option>
+                                                                                                        ${newstypeList}
+                                                                                                        <c:if test="${not empty newstypeList}">
+                                                                                                            <c:forEach items="${newstypeList}" var="t">
+                                                                                                                <option value="${t.newsTypeId}">${t.name}</option> 
+                                                                                                            </c:forEach>
+                                                                                                        </c:if>
                                                                                                 </select>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="layui-col-md9">
                                                                                         <label for="L_title" class="layui-form-label">标题</label>
                                                                                         <div class="layui-input-block">
-                                                                                                <input type="text" id="L_title" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                                                                                                <input type="text" id="L_title" name="title" value="${newsTitle}" required lay-verify="required" autocomplete="off" class="layui-input">
                                                                                                 <!-- <input type="hidden" name="id" value="{{d.edit.id}}"> -->
                                                                                         </div>
                                                                                 </div>
                                                                         </div>
                                                                         <div class="layui-form-item layui-form-text">
                                                                                 <div class="layui-input-block">
-                                                                                        <textarea id="L_content" name="content" required lay-verify="required" placeholder="编辑内容" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
+                                                                                        <textarea id="L_content" name="body" required lay-verify="required" placeholder="编辑内容" class="layui-textarea fly-editor" style="height: 260px;">${newsBody}</textarea>
                                                                                 </div>
                                                                         </div>
                                                                         <div class="layui-form-item">
                                                                                 <div class="layui-inline">
                                                                                         <label class="layui-form-label">悬赏阳光值</label>
                                                                                         <div class="layui-input-inline" style="width: 190px;">
-                                                                                                <select name="experience">
+                                                                                                <select name="money">
+                                                                                                        <option value="0">0</option>
                                                                                                         <option value="20">20</option>
                                                                                                         <option value="30">30</option>
                                                                                                         <option value="50">50</option>
@@ -88,8 +78,11 @@
                                                                                         <div class="layui-form-mid layui-word-aux">发布后无法更改阳光值</div>
                                                                                 </div>
                                                                         </div>
+                                                                        <c:if test="${not empty newsId}">
+                                                                            <input type="hidden" value="${newsId}" name="newsId" />
+                                                                        </c:if>
                                                                         <div class="layui-form-item">
-                                                                                <button class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
+                                                                                <button class="layui-btn" lay-submit>立即发布</button>
                                                                         </div>
                                                                 </form>
                                                         </div>
@@ -133,7 +126,5 @@
 
                     });
                 </script>
-
-
         </body>
 </html>

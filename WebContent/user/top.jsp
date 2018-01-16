@@ -11,14 +11,17 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="keywords" content="SunnyNews">
                 <meta name="description" content="SunnyNews 向阳小队旗舰之作">
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/layui.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/global.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/modules/layer/default/layer.css" />
-                <script src="../comm/layui/layui.js" charset="utf-8"></script>
-                <script src="../comm/jquery/jquery-2.1.4.js"></script>
-                <script src="../comm/layer/layer.js"></script>
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/layui.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/global.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/modules/layer/default/layer.css" />
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js" charset="utf-8"></script>
+                <script src="${pageContext.request.contextPath}/comm/jquery/jquery-2.1.4.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>
                 <c:if test="${not empty info}">
-                    <script>layer.msg('${info}')</script>
+                    <script>layer.msg('${info}', {
+                            time: 500
+                        })
+                    </script>
                     <c:remove var="info" />
                 </c:if>
         </head>
@@ -26,18 +29,22 @@
                 <div class="fly-header layui-bg-black">
                         <div class="layui-container">
                                 <a class="fly-logo" href="/">
-                                        <img src="../img/logo.png" style="height: 38px;padding-left:-10px;" alt="logo">
+                                        <img src="${pageContext.request.contextPath}/img/logo.png" style="height: 38px;padding-left:-10px;" alt="logo">
                                 </a>
                                 <c:if test="${not empty sessionScope.identity}">
                                     <ul class="layui-nav fly-nav layui-hide-xs">
                                             <li class="layui-nav-item layui-this">
-                                                    <a href="${pageContext.request.contextPath}/EmailAction.do?method=getEmail"><i class="iconfont icon-jiaoliu"></i>通知</a>
+                                                    <a href="${pageContext.request.contextPath}/EmailAction.do?method=getEmail">
+                                                            <i class="iconfont icon-jiaoliu"></i>通知<c:if test="${not empty emailSize && emailSize != 0}"><span class="layui-badge">${emailSize}</span></c:if>
+                                                    </a>
                                             </li>
                                             <li class="layui-nav-item">
-                                                    <a href="${pageContext.request.contextPath}/UserAction.do?method=index"><i class="layui-icon">&#xe705;</i>我发布的</a>
+                                                    <a href="${pageContext.request.contextPath}/UserAction.do?method=index">
+                                                            <i class="layui-icon">&#xe705;</i>我发布的
+                                                    </a>
                                             </li>
                                             <li class="layui-nav-item">
-                                                    <a href="${pageContext.request.contextPath}/news/newsPost.jsp" target="_blank"><i class="layui-icon">&#xe609;</i>写新闻</a>
+                                                    <a href="${pageContext.request.contextPath}/NewsAction.do?method=readyPost" target="_blank"><i class="layui-icon">&#xe609;</i>写新闻</a>
                                             </li>
                                     </ul>
                                 </c:if>
@@ -48,7 +55,7 @@
                                             <!-- 未登入的状态 -->
 
                                             <li class="layui-nav-item">
-                                                    <a class="iconfont icon-touxiang layui-hide-xs" href="login.jsp"></a>
+                                                    <a class="iconfont icon-touxiang layui-hide-xs" href="${pageContext.request.contextPath}/user/login.jsp"></a>
                                             </li>
                                             <li class="layui-nav-item">
                                                     <a href="${pageContext.request.contextPath}/user/login.jsp">登入</a>
@@ -96,34 +103,5 @@
                                 </ul>
                         </div>
                 </div>
-
-                <script src="../comm/layui/layui.js"></script>
-                <script>
-                                                        layui.cache.page = '';
-                                                        layui.cache.user = {
-                                                            username: '游客'
-                                                            , uid: -1
-                                                            , avatar: '../img/logo.jpg'
-                                                            , experience: 83
-                                                            , sex: '男'
-                                                        };
-                                                        layui.config({
-                                                            version: "3.0.0"
-                                                            , base: '../comm/mods/'
-                                                        }).extend({
-                                                            fly: 'index'
-                                                        }).use(['fly', 'face'], function () {
-                                                            var $ = layui.$
-                                                                    , fly = layui.fly;
-                                                            //如果你是采用模版自带的编辑器，你需要开启以下语句来解析。
-
-                                                            $('.detail-body').each(function () {
-                                                                var othis = $(this), html = othis.html();
-                                                                othis.html(fly.content(html));
-                                                            });
-
-                                                        });
-                </script>
-
         </body>
 </html>

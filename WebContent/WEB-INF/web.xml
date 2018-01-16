@@ -11,13 +11,12 @@
         <filter-class>com.news.linglian.Filter.IdenityFilter</filter-class>
         <init-param>
             <param-name>excludedPages</param-name>
-            <param-value>/user/login.jsp,/index.jsp,/token.do</param-value>
+            <param-value>/user/login.jsp,/index.jsp,/token.do,/UserAction.do</param-value>
         </init-param>
     </filter>
     <filter-mapping>
         <filter-name>IdenityFilter</filter-name>
-        <url-pattern>/user/*</url-pattern>
-    \
+        <url-pattern>/*/*</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>CharsetFilter</filter-name>
@@ -39,4 +38,13 @@
         <welcome-file>default.htm</welcome-file>
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
+    <error-page>  
+        <error-code>404</error-code>  
+        <location>/other/404.jsp</location>  
+    </error-page>  
+  
+    <error-page>  
+        <error-code>500</error-code>  
+        <location>/other/tips.jsp</location>  
+    </error-page>  
 </web-app>

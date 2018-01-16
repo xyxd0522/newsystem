@@ -17,12 +17,29 @@
                 <script src="../comm/layui/layui.js" charset="utf-8"></script>
                 <script src="../comm/jquery/jquery-2.1.4.js"></script>
                 <script src="../comm/layer/layer.js"></script>
+                <script>
+                    function message22() {
+                        layer.prompt({
+                            maxlength: 25,
+                            value: '',
+                            title: '你想发送什么信息',
+                        }, function (val, index) {
+                            location.href = '${pageContext.request.contextPath}/UserAction.do?method=sendMessage&userId=${user.userId}&body=' + val;
+                            ayer.close(index);
+                        });
+                    }
+                </script>
         </head>
         <body style="margin-top: 65px;">
                 <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
                 <div class="fly-home fly-panel" style="background-image: url();">
-                        <img src="../img/logo.png" alt="SunnyNews 官方">
-                        <i class="iconfont icon-renzheng" title="SunnyNews认证"></i>
+                        <c:if test="${empty sessionScope.identity.image}">
+                            <img id="touxiang" src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
+                        </c:if>
+                        <c:if test="${not empty sessionScope.identity.image}">
+                            <img id="touxiang" src="${sessionScope.identity.image}">
+                        </c:if>
+                        <!--<i class="iconfont icon-renzheng" title="SunnyNews认证"></i>-->
                         <h1>
                                 ${sessionScope.user.name}
                                 <c:if test="${sessionScope.user.sex == '男'}">
@@ -57,7 +74,7 @@
                             <div class="fly-sns" data-user="">
                                     <a href="${pageContext.request.contextPath}/UserAction.do?method=insertFriend&userId=${sessionScope.user.userId}" class="layui-btn layui-btn-primary fly-imActive" data-type="addFriend">加为好友</a>
 
-                                    <a href="javascript:;" class="layui-btn layui-btn-normal fly-imActive" data-type="chat">发起会话</a>
+                                    <a href="javascript:;" onclick="message22()" class="layui-btn layui-btn-normal fly-imActive" data-type="chat">发送信息</a>
                             </div>
                         </c:if>
 
@@ -72,8 +89,19 @@
                                                         <c:if test="${not empty newsList}">
                                                             <c:forEach items="${newsList}" var="n">
                                                                 <li>
-                                                                        <span class="fly-jing">${n.buff}</span>
-                                                                        <a href="../news/newsDetail.jsp" class="jie-title">${n.title}</a>
+                                                                        <c:if test="${not empty n.buff}">
+                                                                            <span class="fly-jing" title="精品新闻">${n.buff}</span>
+                                                                        </c:if>
+                                                                        <c:if test="${n.status == '待审核'}">
+                                                                            <span class="fly-grey" title="请耐心等待管理员审核">${n.status}</span>
+                                                                        </c:if>
+                                                                        <c:if test="${n.status == '通过'}">
+                                                                            <span class="fly-grey layui-bg-green" title="审核成功">${n.status}</span>
+                                                                        </c:if>
+                                                                        <c:if test="${n.status == '未通过'}">
+                                                                            <span class="fly-grey layui-bg-red" title="请前往[我的消息]查看未通过原因">${n.status}</span>
+                                                                        </c:if>
+                                                                        <a href="${pageContext.request.contextPath}/NewsAction.do?method=queryOfId&newsId=${n.newsId}" class="jie-title">${n.title}</a>
                                                                         <i>${n.time}</i>
                                                                         <em class="layui-hide-xs">
                                                                                 ${n.good}<i class="layui-icon" style="font-size: 24px; color: green;">&#xe6c6;</i>
@@ -128,30 +156,30 @@
 
                 <script src="../comm/layui/layui.js"></script>
                 <script>
-                        layui.cache.page = '';
-                        layui.cache.user = {
-                            username: '游客'
-                            , uid: -1
-                            , avatar: '../img/logo.jpg'
-                            , experience: 83
-                            , sex: '男'
-                        };
-                        layui.config({
-                            version: "3.0.0"
-                            , base: '../comm/mods/'
-                        }).extend({
-                            fly: 'index'
-                        }).use(['fly', 'face'], function () {
-                            var $ = layui.$
-                                    , fly = layui.fly;
-                            //如果你是采用模版自带的编辑器，你需要开启以下语句来解析。
+                                        layui.cache.page = '';
+                                        layui.cache.user = {
+                                            username: '游客'
+                                            , uid: -1
+                                            , avatar: '../img/logo.jpg'
+                                            , experience: 83
+                                            , sex: '男'
+                                        };
+                                        layui.config({
+                                            version: "3.0.0"
+                                            , base: '../comm/mods/'
+                                        }).extend({
+                                            fly: 'index'
+                                        }).use(['fly', 'face'], function () {
+                                            var $ = layui.$
+                                                    , fly = layui.fly;
+                                            //如果你是采用模版自带的编辑器，你需要开启以下语句来解析。
 
-                            $('.detail-body').each(function () {
-                                var othis = $(this), html = othis.html();
-                                othis.html(fly.content(html));
-                            });
+                                            $('.detail-body').each(function () {
+                                                var othis = $(this), html = othis.html();
+                                                othis.html(fly.content(html));
+                                            });
 
-                        });
+                                        });
                 </script>
 
         </body>

@@ -11,550 +11,165 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="keywords" content="SunnyNews">
                 <meta name="description" content="SunnyNews 向阳小队旗舰之作">
-                <link rel="stylesheet" type="text/css" href="comm/layui/css/layui.css" />
-                <link rel="stylesheet" type="text/css" href="comm/layui/global.css" />
-                <link rel="stylesheet" type="text/css" href="comm/layui/css/modules/layer/default/layer.css" />
-                <script src="comm/layui/layui.js" charset="utf-8"></script>
-                <script src="comm/layer/layer.js"></script>
-                <script src="comm/jquery/jquery-2.1.4.js"></script>
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/layui.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/global.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/modules/layer/default/layer.css" />
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js" charset="utf-8"></script>
+                <script src="${pageContext.request.contextPath}/comm/jquery/jquery-2.1.4.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>  
+                <c:if test="${empty newsList && empty info}">
+                    <c:redirect url="${pageContext.request.contextPath}/NewsAction.do?method=queryAll" />
+                </c:if>
         </head>
         <body>
                 <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
-                <div class="fly-panel fly-column">
-                        <div class="layui-container">
-                                <ul class="layui-clear">
-                                        <li class="layui-hide-xs layui-this" style="padding-left:-10px;">
-                                                <a href="/">首页</a>
-                                        </li>
-                                        <li>
-                                                <a href="news/newsList.jsp">讨论版&nbsp;&nbsp;<span class="layui-badge-dot"></span></a>
-                                        </li>
-
-                                        <!-- 用户登入后显示 -->
-                                        <!-- 我收藏的贴 我发布的帖 
-                                        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li> 
-                                        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.jsp">我发布的</a></li> 
-                                        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.jsp#collection">我收藏的</a></li>
-                                        -->
-                                </ul>
-                                <div class="fly-column-right layui-hide-xs">
-                                        <span class="fly-search"><i class="layui-icon"></i></span>
-                                        <a href="news/newsPost.jsp" class="layui-btn">发表新闻</a>
-                                </div>
-                                <div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;">
-                                        <a href="news/newsPost.jsp" class="layui-btn">发表新闻</a>
-                                </div>
-                        </div>
-                </div>
-                <div style="width:1250px;padding-left:60px;">
+                <c:import url="${pageContext.request.contextPath}/other/botton.jsp" /> 
+                <div style="width:1130px;padding-left:250px;">
                         <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                                <ul class="layui-tab-title">
-                                        <li>时政</li>
-                                        <li>国际</li>
-                                        <li>金融</li>
-                                        <li>社会</li>
-                                        <li>财经</li>
-                                        <li>产经</li>
-                                        <li>汽车</li>
-                                        <li>港澳</li>
-                                        <li>台湾</li>
-                                        <li>华人</li>
-                                        <li>娱乐</li>
-                                        <li>体育</li>
-                                        <li>文化</li>
+                                <ul class="layui-tab-title"><li><a href="${pageContext.request.contextPath}/NewsAction.do?method=queryAll">全部</a></li>
+                                                <c:if test="${not empty newstypeList}">
+                                                    <c:forEach items="${newstypeList}" var="t">
+                                                    <li><a href="${pageContext.request.contextPath}/NewsAction.do?method=queryAll&newsTypeId=${t.newsTypeId}">${t.name}</a></li>
+                                                    </c:forEach>
+                                                </c:if>
                                 </ul>
                                 <div class="layui-tab-content"></div>
                         </div>
                         <div class="layui-container">
                                 <div class="layui-row layui-col-space15">
                                         <div class="layui-col-md8">
-                                                <div class="fly-panel">
-                                                        <div class="fly-panel-title fly-filter">
-                                                                <a>置顶新闻</a>
-                                                                <a href="#signin" class="layui-hide-sm layui-show-xs-block fly-right" id="LAY_goSignin" style="color: #FF5722;">去签到</a>
-                                                        </div>
-                                                        <ul class="fly-list">
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">公告</a>
-                                                                                <a href="news/newsDetail.jsp">SunnyNews 第三版</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>SunnyNews 官方</cite>
-                                                                                        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                                                                                        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                </a>
-                                                                                <span>刚刚</span>
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻"><i class="layui-icon">&#xe65e;</i>  60</span>
-                                                                                <span class="layui-badge fly-badge-accept layui-hide-xs">必读</span>
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 66
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <span class="layui-badge layui-bg-black">置顶</span>
-                                                                                <span class="layui-badge layui-bg-red">精品</span>
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">公告</a>
-                                                                                <a href="news/newsDetail.jsp">SunnyNews 第二版</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>SunnyNews 官方</cite>
-                                                                                        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                                                                                        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                </a>
-                                                                                <span>2018-01-01</span>
+                                                <c:if test="${not empty zdNewsList}">
+                                                    <div class="fly-panel">
+                                                            <div class="fly-panel-title fly-filter">
+                                                                    <a>置顶新闻</a>
+                                                                    <a href="#signin" class="layui-hide-sm layui-show-xs-block fly-right" id="LAY_goSignin" style="color: #FF5722;">去签到</a>
+                                                            </div>
+                                                            <ul class="fly-list">
+                                                                    <c:if test="${not empty zdNewsList}">
+                                                                        <c:forEach items="${zdNewsList}" var="n">
+                                                                            <li>
+                                                                                    <a href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=${n.userId}" class="fly-avatar">
+                                                                                            <c:if test="${empty allUsers[n.userId].image}">
+                                                                                                <img src="${pageContext.request.contextPath}/img/logo.png" alt="${allUsers[n.userId].name}">
+                                                                                            </c:if>
+                                                                                            <c:if test="${not empty allUsers[n.userId].image}">
+                                                                                                <img src="${allUsers[n.userId].image}" alt="${allUsers[n.userId].name}">
+                                                                                            </c:if>
+                                                                                    </a>
+                                                                                    <h2>
+                                                                                            <a class="layui-badge">${allNewstypes[n.newsTypeId].name}</a>
+                                                                                            <a href="${pageContext.request.contextPath}/NewsAction.do?method=queryOfId&newsId=${n.newsId}">${n.title}</a>
+                                                                                    </h2>
+                                                                                    <div class="fly-list-info">
+                                                                                            <a href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=${n.userId}" link>
+                                                                                                    <cite>${allUsers[n.userId].name}</cite>
+                                                                                            </a>
+                                                                                            <span>${n.time}</span>
+                                                                                            <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> ${n.money}</span>
+                                                                                            <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
+                                                                                            <span class="fly-list-nums"> 
+                                                                                                    <i class="iconfont icon-pinglun1" title="点赞量"></i>  ${n.good}
+                                                                                            </span>
+                                                                                    </div>
+                                                                                    <div class="fly-list-badge">
+                                                                                            <c:if test="${not empty n.buff}">
+                                                                                                <c:set value="${ fn:split(n.buff, ',') }" var="names" />
+                                                                                                <c:remove var="jiajing" />
+                                                                                                <c:remove var="guanfang" />
+                                                                                                <c:remove var="bidu" />
+                                                                                                <c:remove var="zhiding" />
+                                                                                                <c:forEach items="${names}" var="name">
+                                                                                                    <c:if test="${name == '精'}">
+                                                                                                        <c:set value="${true}" var="jiajing" />
+                                                                                                        <span class="layui-badge layui-bg-red">${name}</span>
+                                                                                                    </c:if>
+                                                                                                    <c:if test="${name == '官方'}">
+                                                                                                        <c:set value="${true}" var="guanfang" />
+                                                                                                        <span class="layui-badge" style="background-color: #999;">官方</span>
+                                                                                                    </c:if>
+                                                                                                    <c:if test="${name == '必读'}">
+                                                                                                        <c:set value="${true}" var="bidu" />
+                                                                                                        <span class="layui-badge layui-bg-green fly-detail-column">必读</span>
+                                                                                                    </c:if>
+                                                                                                    <c:if test="${name == '置顶'}">
+                                                                                                        <c:set value="${true}" var="zhiding" />
+                                                                                                        <span class="layui-badge layui-bg-black">${name}</span>
+                                                                                                    </c:if>
+                                                                                                </c:forEach>
+                                                                                            </c:if>
+                                                                                    </div>
+                                                                            </li>
+                                                                        </c:forEach>
+                                                                    </c:if>
+                                                            </ul>
+                                                    </div>
+                                                </c:if>
+                                                <div class="layui-container">
+                                                        <div class="layui-row layui-col-space15">
+                                                                <div class="layui-col-md8">
+                                                                        <div class="fly-panel" style="margin-bottom: 0;">
+                                                                                <div class="fly-panel-title fly-filter">
+                                                                                        <a href="" class="layui-this">综合</a>
+                                                                                        <span class="fly-mid"></span>
+                                                                                        <a href="">个性推荐</a>
+                                                                                        <span class="fly-mid"></span>
+                                                                                        <a href="">精品</a>
+                                                                                        <span class="fly-filter-right layui-hide-xs">
+                                                                                                <a href="${pageContext.request.contextPath}/NewsAction.do?method=queryAll&orderBy=time" <c:if test="${orderBy == 'time'}"> class="layui-this" </c:if>>按最新</a>
+                                                                                                    <span class="fly-mid"></span>
+                                                                                                    <a href="${pageContext.request.contextPath}/NewsAction.do?method=queryAll&orderBy=search" <c:if test="${orderBy == 'search'}"> class="layui-this" </c:if>>按热搜</a>
+                                                                                                    <span class="fly-mid"></span>
+                                                                                                    <a href="${pageContext.request.contextPath}/NewsAction.do?method=queryAll&orderBy=good" <c:if test="${orderBy == 'good'}"> class="layui-this" </c:if>>按点赞</a>
+                                                                                                </span>
+                                                                                        </div>
 
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <span class="layui-badge fly-badge-accept layui-hide-xs">必读</span>
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 66
-                                                                                </span>
+                                                                                        <ul class="fly-list">
+                                                                                        <c:if test="${not empty newsList}">
+                                                                                            <c:forEach items="${newsList}" var="n">
+                                                                                                <li>
+                                                                                                        <a href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=${n.userId}" class="fly-avatar">
+                                                                                                                <c:if test="${empty allUsers[n.userId].image}">
+                                                                                                                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="${allUsers[n.userId].name}">
+                                                                                                                </c:if>
+                                                                                                                <c:if test="${not empty allUsers[n.userId].image}">
+                                                                                                                    <img src="${allUsers[n.userId].image}" alt="${allUsers[n.userId].name}">
+                                                                                                                </c:if>
+                                                                                                        </a>
+                                                                                                        <h2>
+                                                                                                                <a class="layui-badge">${allNewstypes[n.newsTypeId].name}</a>
+                                                                                                                <a href="${pageContext.request.contextPath}/NewsAction.do?method=queryOfId&newsId=${n.newsId}">${n.title}</a>
+                                                                                                        </h2>
+                                                                                                        <div class="fly-list-info">
+                                                                                                                <a href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=${n.userId}" link>
+                                                                                                                        <cite>${allUsers[n.userId].name}</cite>
+                                                                                                                </a>
+                                                                                                                <span>${n.time}</span>
+                                                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> ${n.money}</span>
+                                                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
+                                                                                                                <span class="fly-list-nums"> 
+                                                                                                                        <i class="iconfont icon-pinglun1" title="点赞量"></i>  ${n.good}
+                                                                                                                </span>
+                                                                                                        </div>
+                                                                                                        <div class="fly-list-badge">
+                                                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
+                                                                                                        </div>
+                                                                                                </li>
+                                                                                            </c:forEach>
+                                                                                        </c:if>
+                                                                                </ul>        
+                                                                                <c:if test="${empty newsList}">
+                                                                                    <div class="fly-none">没有相关数据</div> 
+                                                                                </c:if>
+                                                                                <!-- 分頁 -->
+                                                                                <c:if test="${not empty newsList}">
+                                                                                    <div id="pageDiv" align="center"></div>
+                                                                                </c:if>
                                                                         </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!-- <span class="layui-badge layui-bg-black">置顶</span> -->
-                                                                                <span class="layui-badge layui-bg-red">精品</span>
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">公告</a>
-                                                                                <a href="news/newsDetail.jsp">SunnyNews 第一版</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>SunnyNews 官方</cite>
-                                                                                        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                                                                                        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                </a>
-                                                                                <span>2017-11-30</span>
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <span class="layui-badge fly-badge-accept layui-hide-xs">必读</span>
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 66
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!-- <span class="layui-badge layui-bg-black">置顶</span> -->
-                                                                                <span class="layui-badge layui-bg-red">精品</span>
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="news/newsDetail.jsp">鹿晗和关晓彤在一起了！！</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!-- <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>-->
-                                                                                        <i class="layui-badge fly-badge-vip">VIP1</i>
-                                                                                </a>
-                                                                                <span>2017-10-8</span>
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <span class="layui-badge fly-badge-accept layui-hide-xs">热搜</span>
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 66
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!-- <span class="layui-badge layui-bg-black">置顶</span> -->
-                                                                                <!-- <span class="layui-badge layui-bg-red">精品</span> -->
-                                                                        </div>
-                                                                </li>
-                                                        </ul>
-                                                </div>
-                                                <div class="fly-panel" style="margin-bottom: 0;">
-                                                        <div class="fly-panel-title fly-filter">
-                                                                <!-- 都是访问news/newsDetail.jsp 但是参数不同-->
-                                                                <a href="" class="layui-this">综合</a>
-                                                                <span class="fly-mid"></span>
-                                                                <a href="">个性推荐</a>
-                                                                <span class="fly-mid"></span>
-                                                                <a href="">精品</a>
-                                                                <span class="fly-filter-right layui-hide-xs">
-                                                                        <a href="" class="layui-this">按最新</a>
-                                                                        <span class="fly-mid"></span>
-                                                                        <a href="">按热搜</a>
-                                                                </span>
-                                                        </div>
-                                                        <ul class="fly-list">
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">科技</a>
-                                                                                <a href="news/newsDetail.jsp">IconFont</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭彭</cite>
-                                                                                        <!--<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>-->
-                                                                                        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <span class="layui-badge fly-badge-accept layui-hide-xs">推荐</span>
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 66
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <span class="layui-badge layui-bg-red">精品</span>
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="jie/detail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="回答"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="news/newsDetail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="user/home.jsp" class="fly-avatar">
-                                                                                <img src="img/logo.png" alt="">
-                                                                        </a>
-                                                                        <h2>
-                                                                                <a class="layui-badge">娱乐</a>
-                                                                                <a href="jie/detail.jsp">朋友圈的惊天大新闻</a>
-                                                                        </h2>
-                                                                        <div class="fly-list-info">
-                                                                                <a href="user/home.jsp" link>
-                                                                                        <cite>小彭</cite>
-                                                                                        <!--
-        <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-        <i class="layui-badge fly-badge-vip">VIP3</i>
-                                                                                        -->
-                                                                                </a>
-                                                                                <span>刚刚</span>
-
-                                                                                <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> 60</span>
-                                                                                <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
-                                                                                <span class="fly-list-nums"> 
-                                                                                        <i class="iconfont icon-pinglun1" title="评论"></i> 10
-                                                                                </span>
-                                                                        </div>
-                                                                        <div class="fly-list-badge">
-                                                                                <!--<span class="layui-badge layui-bg-red">精帖</span>-->
-                                                                        </div>
-                                                                </li>
-                                                        </ul>
-                                                        <div style="text-align: center">
-                                                                <div class="laypage-main">
-                                                                        <a href="" class="laypage-next">更多推荐</a>
                                                                 </div>
                                                         </div>
-
                                                 </div>
                                         </div>
                                         <div class="layui-col-md4">
-                                                <!-- 图片轮播 -->
-                                                <div class="layui-carousel" id="test1">
-                                                        <div carousel-item>
-                                                                <div><img src="img/Sunlogo.JPG" style="width: 380px;height:290px"></img>
-                                                                </div>
-                                                                <div><img src="img/Sunlogo.JPG" style="width: 380px;height:290px"></img>
-                                                                </div>
-                                                                <div><img src="img/Sunlogo.JPG" style="width: 380px;height:290px"></img>
-                                                                </div>
-                                                                <div><img src="img/Sunlogo.JPG" style="width: 380px;height:290px"></img>
-                                                                </div>
-                                                                <div><img src="img/Sunlogo.JPG" style="width: 380px;height:290px"></img>
-                                                                </div>
-                                                        </div>
-                                                </div>
                                                 <!-- 会员特享-->
                                                 <div class="fly-panel">
                                                         <h3 class="fly-panel-title">会员通道</h3>
@@ -655,51 +270,17 @@
 
                                                 <dl class="fly-panel fly-list-one">
                                                         <dt class="fly-panel-title">本周热搜</dt>
-                                                        <dd>
-                                                                <a href="">热搜新闻</a>
-                                                                <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                        </dd>
-                                                        <dd>
-                                                                <a href="">热搜新闻</a>
-                                                                <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                        </dd>
-                                                        <dd>
-                                                                <a href="">热搜新闻</a>
-                                                                <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                        </dd>
-                                                        <dd>
-                                                                <a href="">热搜新闻</a>
-                                                                <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                        </dd>
-                                                        <dd>
-                                                                <a href="">热搜新闻</a>
-                                                                <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                        </dd>
-                                                        <dd>
-                                                                <a href="">热搜新闻</a>
-                                                                <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                        </dd>
-                                                        <dd>
-                                                                <a href="">热搜新闻</a>
-                                                                <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                        </dd>
-                                                        <dd>
-                                                                <a href="">热搜新闻</a>
-                                                                <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                        </dd>
-                                                        <dd>
-                                                                <a href="">热搜新闻</a>
-                                                                <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                        </dd>
-                                                        <dd>
-                                                                <a href="">热搜新闻</a>
-                                                                <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                        </dd>
-
-                                                        <!-- 无数据时 -->
-                                                        <!--
-<div class="fly-none">没有相关数据</div>
-                                                        -->
+                                                        <c:if test="${not empty zdNewsList}">
+                                                            <c:forEach items="${zdNewsList}" var="n">
+                                                                <dd>
+                                                                        <a href="">${n.title}</a>
+                                                                        <span><i class="layui-icon">&#xe615;</i>${n.search}</span>
+                                                                </dd>
+                                                            </c:forEach>
+                                                        </c:if>
+                                                        <c:if test="${ empty zdNewsList}">
+                                                            <div class="fly-none">没有相关数据</div>
+                                                        </c:if>
                                                 </dl>
 
                                                 <div class="fly-panel">
@@ -750,35 +331,14 @@
                         </p>
                 </div>
 
-                <script src="comm/layui/layui.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js"></script>
                 <script>
-                    layui.cache.page = '';
-                    layui.cache.user = {
-                        username: '游客',
-                        uid: -1,
-                        avatar: 'img/logo.jpg',
-                        experience: 83,
-                        sex: '男'
-                    };
-                    layui.config({
-                        version: "3.0.0",
-                        base: 'comm/mods/'
-                    }).extend({
-                        fly: 'index'
-                    }).use(['fly', 'face'], function () {
-                        var $ = layui.$,
-                                fly = layui.fly;
-                        //如果你是采用模版自带的编辑器，你需要开启以下语句来解析。
+                    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+                    layui.use('element', function () {
+                        var element = layui.element;
 
-                        $('.detail-body').each(function () {
-                            var othis = $(this),
-                                    html = othis.html();
-                            othis.html(fly.content(html));
-                        });
-
+                        //…
                     });
-                </script>
-                <script>
                     layui.use('carousel', function () {
                         var carousel = layui.carousel;
                         //建造实例
@@ -789,6 +349,25 @@
                                     //,anim: 'updown' //切换动画方式
                         });
                     });
+                        <c:if test="${not empty newsList}">
+                    layui.use(['laypage', 'layer'], function () {
+                        var laypage = layui.laypage
+                                , layer = layui.layer;
+                        laypage.render({
+                            elem: 'pageDiv'
+                            , count: ${newsSize}
+                            , theme: '#1E9FFF'
+                            , layout: ['count', 'prev', 'page', 'next', 'skip']
+                            , limit: 10
+                            , curr: ${newsPage}
+                            , jump: function (obj) {
+                                if (obj.curr != ${newsPage}) {
+                                    location.href = "${pageContext.request.contextPath}/NewsAction.do?method=queryAll&page=" + obj.curr;
+                                }
+                            }
+                        });
+                    });
+                        </c:if>
                 </script>
         </body>
 </html>

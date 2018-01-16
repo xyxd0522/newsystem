@@ -76,9 +76,22 @@
                                                                         <li data-id="123">
                                                                                 <blockquote class="layui-elem-quote">
                                                                                         <c:if test="${not empty e.fromUserId}">
-                                                                                            <a href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=${e.fromUserId}" target="_blank"><cite>${allUsers[e.fromUserId].name}</cite></a>评论了您的新闻<a target="_blank" href=""><cite>${allNews[e.newsId].title}</cite></a>
-                                                                                                    </c:if>
-                                                                                                    <c:if test="${empty e.fromUserId}">
+                                                                                            <c:if test="${not empty e.newsId}">
+                                                                                                <a href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=${e.fromUserId}" target="_blank">
+                                                                                                        <cite>${allUsers[e.fromUserId].name}</cite>
+                                                                                                </a>
+                                                                                                评论了您的新闻
+                                                                                                <a target="_blank" href="${pageContext.request.contextPath}/NewsAction.do?method=queryOfId&newsId=${e.newsId}"><cite>${allNews[e.newsId].title}</cite>
+                                                                                                </a>
+                                                                                            </c:if>
+                                                                                            <c:if test="${empty e.newsId}">
+                                                                                                <a href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=${e.fromUserId}" target="_blank">
+                                                                                                        <cite>${allUsers[e.fromUserId].name}</cite>
+                                                                                                </a>
+                                                                                                对你说: ${e.body}
+                                                                                            </c:if>
+                                                                                        </c:if>
+                                                                                        <c:if test="${empty e.fromUserId}">
                                                                                             系统信息: ${e.body}
                                                                                         </c:if>
                                                                                 </blockquote>
