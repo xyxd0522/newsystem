@@ -12,13 +12,13 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="keywords" content="SunnyNews">
                 <meta name="description" content="SunnyNews 向阳小队旗舰之作">
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/layui.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/global.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/modules/layer/default/layer.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layer/theme/default/layer.css" />
-                <script src="../comm/layui/layui.js" charset="utf-8"></script>
-                <script src="../comm/jquery/jquery-2.1.4.js"></script>
-                <script src="../comm/layer/layer.js"></script>
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/layui.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/global.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/modules/layer/default/layer.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layer/theme/default/layer.css" />
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js" charset="utf-8"></script>
+                <script src="${pageContext.request.contextPath}/comm/jquery/jquery-2.1.4.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>
                 <c:if test="${not empty info}">
                     <script>layer.msg('${info}')</script>
                     <c:remove var="info" />
@@ -86,19 +86,19 @@
                         </p>
                 </div>
 
-                <script src="../comm/layui/layui.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js"></script>
                 <script>
                                                                                     layui.cache.page = '';
                                                                                     layui.cache.user = {
                                                                                         username: '游客'
                                                                                         , uid: -1
-                                                                                        , avatar: '../img/logo.jpg'
+                                                                                        , avatar: '${pageContext.request.contextPath}/img/logo.jpg'
                                                                                         , experience: 83
                                                                                         , sex: '男'
                                                                                     };
                                                                                     layui.config({
                                                                                         version: "3.0.0"
-                                                                                        , base: '../comm/mods/'
+                                                                                        , base: '${pageContext.request.contextPath}/comm/mods/'
                                                                                     }).extend({
                                                                                         fly: 'index'
                                                                                     }).use(['fly', 'face'], function () {

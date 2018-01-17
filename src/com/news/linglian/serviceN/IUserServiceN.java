@@ -20,4 +20,5 @@ import java.util.List;
 public interface IUserServiceN extends IUserService {
 
     public List<User> getUsersLimit(int start, int size);
+    public List<User> getUsersOfUsersIds(String[] newsIds);
 }

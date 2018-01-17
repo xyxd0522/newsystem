@@ -19,7 +19,6 @@ public class ArrayUtil {
         while (i < b.length + a.length) {
             objs[i] = b[i++ - a.length];
         }
-        display(objs);
         return objs;
     }
 

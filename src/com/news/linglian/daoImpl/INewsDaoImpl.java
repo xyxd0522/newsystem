@@ -86,6 +86,11 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfMoney(News news, String money) {
+        News kNews = new News();
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfNewsIdAndTitle(News news, String newsId, String title) {
         News kNews = new News();
         kNews.setNewsId(newsId);
@@ -170,6 +175,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfNewsIdAndMoney(News news, String newsId, String money) {
+        News kNews = new News();
+        kNews.setNewsId(newsId);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfTitleAndBody(News news, String title, String body) {
         News kNews = new News();
         kNews.setTitle(title);
@@ -248,6 +259,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfTitleAndMoney(News news, String title, String money) {
+        News kNews = new News();
+        kNews.setTitle(title);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfBodyAndUserId(News news, String body, String userId) {
         News kNews = new News();
         kNews.setBody(body);
@@ -320,6 +337,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfBodyAndMoney(News news, String body, String money) {
+        News kNews = new News();
+        kNews.setBody(body);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfUserIdAndUserNewsTypeId(News news, String userId, String userNewsTypeId) {
         News kNews = new News();
         kNews.setUserId(userId);
@@ -386,6 +409,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfUserIdAndMoney(News news, String userId, String money) {
+        News kNews = new News();
+        kNews.setUserId(userId);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfUserNewsTypeIdAndStatus(News news, String userNewsTypeId, String status) {
         News kNews = new News();
         kNews.setUserNewsTypeId(userNewsTypeId);
@@ -446,6 +475,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfUserNewsTypeIdAndMoney(News news, String userNewsTypeId, String money) {
+        News kNews = new News();
+        kNews.setUserNewsTypeId(userNewsTypeId);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfStatusAndBuff(News news, String status, String buff) {
         News kNews = new News();
         kNews.setStatus(status);
@@ -500,6 +535,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfStatusAndMoney(News news, String status, String money) {
+        News kNews = new News();
+        kNews.setStatus(status);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfBuffAndParam(News news, String buff, String param) {
         News kNews = new News();
         kNews.setBuff(buff);
@@ -548,6 +589,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfBuffAndMoney(News news, String buff, String money) {
+        News kNews = new News();
+        kNews.setBuff(buff);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfParamAndNewsTypeId(News news, String param, String newsTypeId) {
         News kNews = new News();
         kNews.setParam(param);
@@ -590,6 +637,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfParamAndMoney(News news, String param, String money) {
+        News kNews = new News();
+        kNews.setParam(param);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfNewsTypeIdAndPath(News news, String newsTypeId, String path) {
         News kNews = new News();
         kNews.setNewsTypeId(newsTypeId);
@@ -626,6 +679,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfNewsTypeIdAndMoney(News news, String newsTypeId, String money) {
+        News kNews = new News();
+        kNews.setNewsTypeId(newsTypeId);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfPathAndGood(News news, String path, String good) {
         News kNews = new News();
         kNews.setPath(path);
@@ -656,6 +715,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfPathAndMoney(News news, String path, String money) {
+        News kNews = new News();
+        kNews.setPath(path);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfGoodAndBad(News news, String good, String bad) {
         News kNews = new News();
         kNews.setGood(good);
@@ -680,6 +745,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfGoodAndMoney(News news, String good, String money) {
+        News kNews = new News();
+        kNews.setGood(good);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfBadAndTime(News news, String bad, String time) {
         News kNews = new News();
         kNews.setBad(bad);
@@ -698,6 +769,12 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfBadAndMoney(News news, String bad, String money) {
+        News kNews = new News();
+        kNews.setBad(bad);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfTimeAndSearch(News news, String time, String search) {
         News kNews = new News();
         kNews.setTime(time);
@@ -710,10 +787,28 @@ public class INewsDaoImpl implements INewsDao {
         kNews.setBUserIds(bUserIds);
         return update(news, kNews);
     }
+    public int updateOfTimeAndMoney(News news, String time, String money) {
+        News kNews = new News();
+        kNews.setTime(time);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
     public int updateOfSearchAndBUserIds(News news, String search, String bUserIds) {
         News kNews = new News();
         kNews.setSearch(search);
         kNews.setBUserIds(bUserIds);
+        return update(news, kNews);
+    }
+    public int updateOfSearchAndMoney(News news, String search, String money) {
+        News kNews = new News();
+        kNews.setSearch(search);
+        kNews.setMoney(money);
+        return update(news, kNews);
+    }
+    public int updateOfBUserIdsAndMoney(News news, String bUserIds, String money) {
+        News kNews = new News();
+        kNews.setBUserIds(bUserIds);
+        kNews.setMoney(money);
         return update(news, kNews);
     }
     public int remove(News news) {
@@ -792,6 +887,11 @@ public class INewsDaoImpl implements INewsDao {
     public int removeOfBUserIds(String bUserIds) {
         News news = new News();
         news.setBUserIds(bUserIds);
+        return remove(news);
+    }
+    public int removeOfMoney(String money) {
+        News news = new News();
+        news.setMoney(money);
         return remove(news);
     }
     public int removeOfNewsIdAndTitle(String newsId, String title) {
@@ -878,6 +978,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfNewsIdAndMoney(String newsId, String money) {
+        News news = new News();
+        news.setNewsId(newsId);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfTitleAndBody(String title, String body) {
         News news = new News();
         news.setTitle(title);
@@ -956,6 +1062,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfTitleAndMoney(String title, String money) {
+        News news = new News();
+        news.setTitle(title);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfBodyAndUserId(String body, String userId) {
         News news = new News();
         news.setBody(body);
@@ -1028,6 +1140,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfBodyAndMoney(String body, String money) {
+        News news = new News();
+        news.setBody(body);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfUserIdAndUserNewsTypeId(String userId, String userNewsTypeId) {
         News news = new News();
         news.setUserId(userId);
@@ -1094,6 +1212,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfUserIdAndMoney(String userId, String money) {
+        News news = new News();
+        news.setUserId(userId);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfUserNewsTypeIdAndStatus(String userNewsTypeId, String status) {
         News news = new News();
         news.setUserNewsTypeId(userNewsTypeId);
@@ -1154,6 +1278,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfUserNewsTypeIdAndMoney(String userNewsTypeId, String money) {
+        News news = new News();
+        news.setUserNewsTypeId(userNewsTypeId);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfStatusAndBuff(String status, String buff) {
         News news = new News();
         news.setStatus(status);
@@ -1208,6 +1338,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfStatusAndMoney(String status, String money) {
+        News news = new News();
+        news.setStatus(status);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfBuffAndParam(String buff, String param) {
         News news = new News();
         news.setBuff(buff);
@@ -1256,6 +1392,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfBuffAndMoney(String buff, String money) {
+        News news = new News();
+        news.setBuff(buff);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfParamAndNewsTypeId(String param, String newsTypeId) {
         News news = new News();
         news.setParam(param);
@@ -1298,6 +1440,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfParamAndMoney(String param, String money) {
+        News news = new News();
+        news.setParam(param);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfNewsTypeIdAndPath(String newsTypeId, String path) {
         News news = new News();
         news.setNewsTypeId(newsTypeId);
@@ -1334,6 +1482,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfNewsTypeIdAndMoney(String newsTypeId, String money) {
+        News news = new News();
+        news.setNewsTypeId(newsTypeId);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfPathAndGood(String path, String good) {
         News news = new News();
         news.setPath(path);
@@ -1364,6 +1518,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfPathAndMoney(String path, String money) {
+        News news = new News();
+        news.setPath(path);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfGoodAndBad(String good, String bad) {
         News news = new News();
         news.setGood(good);
@@ -1388,6 +1548,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfGoodAndMoney(String good, String money) {
+        News news = new News();
+        news.setGood(good);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfBadAndTime(String bad, String time) {
         News news = new News();
         news.setBad(bad);
@@ -1406,6 +1572,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfBadAndMoney(String bad, String money) {
+        News news = new News();
+        news.setBad(bad);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfTimeAndSearch(String time, String search) {
         News news = new News();
         news.setTime(time);
@@ -1418,10 +1590,28 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return remove(news);
     }
+    public int removeOfTimeAndMoney(String time, String money) {
+        News news = new News();
+        news.setTime(time);
+        news.setMoney(money);
+        return remove(news);
+    }
     public int removeOfSearchAndBUserIds(String search, String bUserIds) {
         News news = new News();
         news.setSearch(search);
         news.setBUserIds(bUserIds);
+        return remove(news);
+    }
+    public int removeOfSearchAndMoney(String search, String money) {
+        News news = new News();
+        news.setSearch(search);
+        news.setMoney(money);
+        return remove(news);
+    }
+    public int removeOfBUserIdsAndMoney(String bUserIds, String money) {
+        News news = new News();
+        news.setBUserIds(bUserIds);
+        news.setMoney(money);
         return remove(news);
     }
     public int insert(News news) {
@@ -1500,6 +1690,11 @@ public class INewsDaoImpl implements INewsDao {
     public int insertOfBUserIds(String bUserIds) {
         News news = new News();
         news.setBUserIds(bUserIds);
+        return insert(news);
+    }
+    public int insertOfMoney(String money) {
+        News news = new News();
+        news.setMoney(money);
         return insert(news);
     }
     public int insertOfNewsIdAndTitle(String newsId, String title) {
@@ -1586,6 +1781,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfNewsIdAndMoney(String newsId, String money) {
+        News news = new News();
+        news.setNewsId(newsId);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfTitleAndBody(String title, String body) {
         News news = new News();
         news.setTitle(title);
@@ -1664,6 +1865,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfTitleAndMoney(String title, String money) {
+        News news = new News();
+        news.setTitle(title);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfBodyAndUserId(String body, String userId) {
         News news = new News();
         news.setBody(body);
@@ -1736,6 +1943,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfBodyAndMoney(String body, String money) {
+        News news = new News();
+        news.setBody(body);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfUserIdAndUserNewsTypeId(String userId, String userNewsTypeId) {
         News news = new News();
         news.setUserId(userId);
@@ -1802,6 +2015,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfUserIdAndMoney(String userId, String money) {
+        News news = new News();
+        news.setUserId(userId);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfUserNewsTypeIdAndStatus(String userNewsTypeId, String status) {
         News news = new News();
         news.setUserNewsTypeId(userNewsTypeId);
@@ -1862,6 +2081,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfUserNewsTypeIdAndMoney(String userNewsTypeId, String money) {
+        News news = new News();
+        news.setUserNewsTypeId(userNewsTypeId);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfStatusAndBuff(String status, String buff) {
         News news = new News();
         news.setStatus(status);
@@ -1916,6 +2141,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfStatusAndMoney(String status, String money) {
+        News news = new News();
+        news.setStatus(status);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfBuffAndParam(String buff, String param) {
         News news = new News();
         news.setBuff(buff);
@@ -1964,6 +2195,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfBuffAndMoney(String buff, String money) {
+        News news = new News();
+        news.setBuff(buff);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfParamAndNewsTypeId(String param, String newsTypeId) {
         News news = new News();
         news.setParam(param);
@@ -2006,6 +2243,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfParamAndMoney(String param, String money) {
+        News news = new News();
+        news.setParam(param);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfNewsTypeIdAndPath(String newsTypeId, String path) {
         News news = new News();
         news.setNewsTypeId(newsTypeId);
@@ -2042,6 +2285,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfNewsTypeIdAndMoney(String newsTypeId, String money) {
+        News news = new News();
+        news.setNewsTypeId(newsTypeId);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfPathAndGood(String path, String good) {
         News news = new News();
         news.setPath(path);
@@ -2072,6 +2321,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfPathAndMoney(String path, String money) {
+        News news = new News();
+        news.setPath(path);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfGoodAndBad(String good, String bad) {
         News news = new News();
         news.setGood(good);
@@ -2096,6 +2351,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfGoodAndMoney(String good, String money) {
+        News news = new News();
+        news.setGood(good);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfBadAndTime(String bad, String time) {
         News news = new News();
         news.setBad(bad);
@@ -2114,6 +2375,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfBadAndMoney(String bad, String money) {
+        News news = new News();
+        news.setBad(bad);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfTimeAndSearch(String time, String search) {
         News news = new News();
         news.setTime(time);
@@ -2126,10 +2393,28 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return insert(news);
     }
+    public int insertOfTimeAndMoney(String time, String money) {
+        News news = new News();
+        news.setTime(time);
+        news.setMoney(money);
+        return insert(news);
+    }
     public int insertOfSearchAndBUserIds(String search, String bUserIds) {
         News news = new News();
         news.setSearch(search);
         news.setBUserIds(bUserIds);
+        return insert(news);
+    }
+    public int insertOfSearchAndMoney(String search, String money) {
+        News news = new News();
+        news.setSearch(search);
+        news.setMoney(money);
+        return insert(news);
+    }
+    public int insertOfBUserIdsAndMoney(String bUserIds, String money) {
+        News news = new News();
+        news.setBUserIds(bUserIds);
+        news.setMoney(money);
         return insert(news);
     }
     public News getNews(News news) {
@@ -2208,6 +2493,11 @@ public class INewsDaoImpl implements INewsDao {
     public News getNewsOfBUserIds(String bUserIds) {
         News news = new News();
         news.setBUserIds(bUserIds);
+        return getNews(news);
+    }
+    public News getNewsOfMoney(String money) {
+        News news = new News();
+        news.setMoney(money);
         return getNews(news);
     }
     public News getNewsOfNewsIdAndTitle(String newsId, String title) {
@@ -2294,6 +2584,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfNewsIdAndMoney(String newsId, String money) {
+        News news = new News();
+        news.setNewsId(newsId);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfTitleAndBody(String title, String body) {
         News news = new News();
         news.setTitle(title);
@@ -2372,6 +2668,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfTitleAndMoney(String title, String money) {
+        News news = new News();
+        news.setTitle(title);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfBodyAndUserId(String body, String userId) {
         News news = new News();
         news.setBody(body);
@@ -2444,6 +2746,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfBodyAndMoney(String body, String money) {
+        News news = new News();
+        news.setBody(body);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfUserIdAndUserNewsTypeId(String userId, String userNewsTypeId) {
         News news = new News();
         news.setUserId(userId);
@@ -2510,6 +2818,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfUserIdAndMoney(String userId, String money) {
+        News news = new News();
+        news.setUserId(userId);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfUserNewsTypeIdAndStatus(String userNewsTypeId, String status) {
         News news = new News();
         news.setUserNewsTypeId(userNewsTypeId);
@@ -2570,6 +2884,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfUserNewsTypeIdAndMoney(String userNewsTypeId, String money) {
+        News news = new News();
+        news.setUserNewsTypeId(userNewsTypeId);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfStatusAndBuff(String status, String buff) {
         News news = new News();
         news.setStatus(status);
@@ -2624,6 +2944,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfStatusAndMoney(String status, String money) {
+        News news = new News();
+        news.setStatus(status);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfBuffAndParam(String buff, String param) {
         News news = new News();
         news.setBuff(buff);
@@ -2672,6 +2998,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfBuffAndMoney(String buff, String money) {
+        News news = new News();
+        news.setBuff(buff);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfParamAndNewsTypeId(String param, String newsTypeId) {
         News news = new News();
         news.setParam(param);
@@ -2714,6 +3046,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfParamAndMoney(String param, String money) {
+        News news = new News();
+        news.setParam(param);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfNewsTypeIdAndPath(String newsTypeId, String path) {
         News news = new News();
         news.setNewsTypeId(newsTypeId);
@@ -2750,6 +3088,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfNewsTypeIdAndMoney(String newsTypeId, String money) {
+        News news = new News();
+        news.setNewsTypeId(newsTypeId);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfPathAndGood(String path, String good) {
         News news = new News();
         news.setPath(path);
@@ -2780,6 +3124,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfPathAndMoney(String path, String money) {
+        News news = new News();
+        news.setPath(path);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfGoodAndBad(String good, String bad) {
         News news = new News();
         news.setGood(good);
@@ -2804,6 +3154,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfGoodAndMoney(String good, String money) {
+        News news = new News();
+        news.setGood(good);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfBadAndTime(String bad, String time) {
         News news = new News();
         news.setBad(bad);
@@ -2822,6 +3178,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfBadAndMoney(String bad, String money) {
+        News news = new News();
+        news.setBad(bad);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfTimeAndSearch(String time, String search) {
         News news = new News();
         news.setTime(time);
@@ -2834,10 +3196,28 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNews(news);
     }
+    public News getNewsOfTimeAndMoney(String time, String money) {
+        News news = new News();
+        news.setTime(time);
+        news.setMoney(money);
+        return getNews(news);
+    }
     public News getNewsOfSearchAndBUserIds(String search, String bUserIds) {
         News news = new News();
         news.setSearch(search);
         news.setBUserIds(bUserIds);
+        return getNews(news);
+    }
+    public News getNewsOfSearchAndMoney(String search, String money) {
+        News news = new News();
+        news.setSearch(search);
+        news.setMoney(money);
+        return getNews(news);
+    }
+    public News getNewsOfBUserIdsAndMoney(String bUserIds, String money) {
+        News news = new News();
+        news.setBUserIds(bUserIds);
+        news.setMoney(money);
         return getNews(news);
     }
     public List<News> getNewss(News news) {
@@ -2916,6 +3296,11 @@ public class INewsDaoImpl implements INewsDao {
     public List<News> getNewssOfBUserIds(String bUserIds) {
         News news = new News();
         news.setBUserIds(bUserIds);
+        return getNewss(news);
+    }
+    public List<News> getNewssOfMoney(String money) {
+        News news = new News();
+        news.setMoney(money);
         return getNewss(news);
     }
     public List<News> getNewssOfNewsIdAndTitle(String newsId, String title) {
@@ -3002,6 +3387,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfNewsIdAndMoney(String newsId, String money) {
+        News news = new News();
+        news.setNewsId(newsId);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfTitleAndBody(String title, String body) {
         News news = new News();
         news.setTitle(title);
@@ -3080,6 +3471,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfTitleAndMoney(String title, String money) {
+        News news = new News();
+        news.setTitle(title);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfBodyAndUserId(String body, String userId) {
         News news = new News();
         news.setBody(body);
@@ -3152,6 +3549,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfBodyAndMoney(String body, String money) {
+        News news = new News();
+        news.setBody(body);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfUserIdAndUserNewsTypeId(String userId, String userNewsTypeId) {
         News news = new News();
         news.setUserId(userId);
@@ -3218,6 +3621,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfUserIdAndMoney(String userId, String money) {
+        News news = new News();
+        news.setUserId(userId);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfUserNewsTypeIdAndStatus(String userNewsTypeId, String status) {
         News news = new News();
         news.setUserNewsTypeId(userNewsTypeId);
@@ -3278,6 +3687,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfUserNewsTypeIdAndMoney(String userNewsTypeId, String money) {
+        News news = new News();
+        news.setUserNewsTypeId(userNewsTypeId);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfStatusAndBuff(String status, String buff) {
         News news = new News();
         news.setStatus(status);
@@ -3332,6 +3747,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfStatusAndMoney(String status, String money) {
+        News news = new News();
+        news.setStatus(status);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfBuffAndParam(String buff, String param) {
         News news = new News();
         news.setBuff(buff);
@@ -3380,6 +3801,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfBuffAndMoney(String buff, String money) {
+        News news = new News();
+        news.setBuff(buff);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfParamAndNewsTypeId(String param, String newsTypeId) {
         News news = new News();
         news.setParam(param);
@@ -3422,6 +3849,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfParamAndMoney(String param, String money) {
+        News news = new News();
+        news.setParam(param);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfNewsTypeIdAndPath(String newsTypeId, String path) {
         News news = new News();
         news.setNewsTypeId(newsTypeId);
@@ -3458,6 +3891,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfNewsTypeIdAndMoney(String newsTypeId, String money) {
+        News news = new News();
+        news.setNewsTypeId(newsTypeId);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfPathAndGood(String path, String good) {
         News news = new News();
         news.setPath(path);
@@ -3488,6 +3927,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfPathAndMoney(String path, String money) {
+        News news = new News();
+        news.setPath(path);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfGoodAndBad(String good, String bad) {
         News news = new News();
         news.setGood(good);
@@ -3512,6 +3957,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfGoodAndMoney(String good, String money) {
+        News news = new News();
+        news.setGood(good);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfBadAndTime(String bad, String time) {
         News news = new News();
         news.setBad(bad);
@@ -3530,6 +3981,12 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfBadAndMoney(String bad, String money) {
+        News news = new News();
+        news.setBad(bad);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfTimeAndSearch(String time, String search) {
         News news = new News();
         news.setTime(time);
@@ -3542,10 +3999,28 @@ public class INewsDaoImpl implements INewsDao {
         news.setBUserIds(bUserIds);
         return getNewss(news);
     }
+    public List<News> getNewssOfTimeAndMoney(String time, String money) {
+        News news = new News();
+        news.setTime(time);
+        news.setMoney(money);
+        return getNewss(news);
+    }
     public List<News> getNewssOfSearchAndBUserIds(String search, String bUserIds) {
         News news = new News();
         news.setSearch(search);
         news.setBUserIds(bUserIds);
+        return getNewss(news);
+    }
+    public List<News> getNewssOfSearchAndMoney(String search, String money) {
+        News news = new News();
+        news.setSearch(search);
+        news.setMoney(money);
+        return getNewss(news);
+    }
+    public List<News> getNewssOfBUserIdsAndMoney(String bUserIds, String money) {
+        News news = new News();
+        news.setBUserIds(bUserIds);
+        news.setMoney(money);
         return getNewss(news);
     }
 }
