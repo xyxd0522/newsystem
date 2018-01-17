@@ -17,6 +17,18 @@
                 <script src="${pageContext.request.contextPath}/comm/layui/layui.js" charset="utf-8"></script>
                 <script src="${pageContext.request.contextPath}/comm/jquery/jquery-2.1.4.js"></script>
                 <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>
+                <script>
+                    function search22() {
+                        layer.prompt({
+                            maxlength: 25,
+                            value: '',
+                            title: '请输入关键字',
+                        }, function (val, index) {
+                            location.href = '${pageContext.request.contextPath}/NewsAction.do?method=queryAll&likeStr=title&likeWord=' + val;
+                            ayer.close(index);
+                        });
+                    }
+                </script>
         </head>
         <body>
                 <div class="fly-panel fly-column">
@@ -37,11 +49,11 @@
                                         </c:if>
                                 </ul> 
                                 <div class="fly-column-right layui-hide-xs"> 
-                                        <span class="fly-search"><i class="layui-icon"></i></span> 
-                                        <a href="${pageContext.request.contextPath}/news/newsPost.jsp" class="layui-btn">发表新闻</a> 
+                                        <span onclick='search22()'><i class="layui-icon" style='font-size: 18px;'>  </i></span> 
+                                        <a href="${pageContext.request.contextPath}/NewsAction.do?method=readyPost" class="layui-btn">发表新闻</a> 
                                 </div> 
                                 <div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;"> 
-                                        <a href="${pageContext.request.contextPath}/news/newsPost.jsp" class="layui-btn">发表新闻</a> 
+                                        <a href="${pageContext.request.contextPath}/NewsAction.do?method=readyPost" class="layui-btn">发表新闻</a> 
                                 </div> 
                         </div>
                 </div>

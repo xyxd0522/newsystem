@@ -74,6 +74,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfBUserIds(User user, String bUserIds) {
         return dao.updateOfBUserIds(user, bUserIds);
     }
+    public int updateOfDays(User user, String days) {
+        return dao.updateOfDays(user, days);
+    }
+    public int updateOfNowDays(User user, String nowDays) {
+        return dao.updateOfNowDays(user, nowDays);
+    }
     public int updateOfUserIdAndPassword(User user, String userId, String password) {
         return dao.updateOfUserIdAndPassword(user, userId, password);
     }
@@ -128,6 +134,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfUserIdAndBUserIds(User user, String userId, String bUserIds) {
         return dao.updateOfUserIdAndBUserIds(user, userId, bUserIds);
     }
+    public int updateOfUserIdAndDays(User user, String userId, String days) {
+        return dao.updateOfUserIdAndDays(user, userId, days);
+    }
+    public int updateOfUserIdAndNowDays(User user, String userId, String nowDays) {
+        return dao.updateOfUserIdAndNowDays(user, userId, nowDays);
+    }
     public int updateOfPasswordAndName(User user, String password, String name) {
         return dao.updateOfPasswordAndName(user, password, name);
     }
@@ -179,6 +191,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfPasswordAndBUserIds(User user, String password, String bUserIds) {
         return dao.updateOfPasswordAndBUserIds(user, password, bUserIds);
     }
+    public int updateOfPasswordAndDays(User user, String password, String days) {
+        return dao.updateOfPasswordAndDays(user, password, days);
+    }
+    public int updateOfPasswordAndNowDays(User user, String password, String nowDays) {
+        return dao.updateOfPasswordAndNowDays(user, password, nowDays);
+    }
     public int updateOfNameAndSex(User user, String name, String sex) {
         return dao.updateOfNameAndSex(user, name, sex);
     }
@@ -227,6 +245,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfNameAndBUserIds(User user, String name, String bUserIds) {
         return dao.updateOfNameAndBUserIds(user, name, bUserIds);
     }
+    public int updateOfNameAndDays(User user, String name, String days) {
+        return dao.updateOfNameAndDays(user, name, days);
+    }
+    public int updateOfNameAndNowDays(User user, String name, String nowDays) {
+        return dao.updateOfNameAndNowDays(user, name, nowDays);
+    }
     public int updateOfSexAndRegisterDate(User user, String sex, String registerDate) {
         return dao.updateOfSexAndRegisterDate(user, sex, registerDate);
     }
@@ -272,6 +296,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfSexAndBUserIds(User user, String sex, String bUserIds) {
         return dao.updateOfSexAndBUserIds(user, sex, bUserIds);
     }
+    public int updateOfSexAndDays(User user, String sex, String days) {
+        return dao.updateOfSexAndDays(user, sex, days);
+    }
+    public int updateOfSexAndNowDays(User user, String sex, String nowDays) {
+        return dao.updateOfSexAndNowDays(user, sex, nowDays);
+    }
     public int updateOfRegisterDateAndLoginDate(User user, String registerDate, String loginDate) {
         return dao.updateOfRegisterDateAndLoginDate(user, registerDate, loginDate);
     }
@@ -314,6 +344,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfRegisterDateAndBUserIds(User user, String registerDate, String bUserIds) {
         return dao.updateOfRegisterDateAndBUserIds(user, registerDate, bUserIds);
     }
+    public int updateOfRegisterDateAndDays(User user, String registerDate, String days) {
+        return dao.updateOfRegisterDateAndDays(user, registerDate, days);
+    }
+    public int updateOfRegisterDateAndNowDays(User user, String registerDate, String nowDays) {
+        return dao.updateOfRegisterDateAndNowDays(user, registerDate, nowDays);
+    }
     public int updateOfLoginDateAndPhone(User user, String loginDate, String phone) {
         return dao.updateOfLoginDateAndPhone(user, loginDate, phone);
     }
@@ -353,6 +389,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfLoginDateAndBUserIds(User user, String loginDate, String bUserIds) {
         return dao.updateOfLoginDateAndBUserIds(user, loginDate, bUserIds);
     }
+    public int updateOfLoginDateAndDays(User user, String loginDate, String days) {
+        return dao.updateOfLoginDateAndDays(user, loginDate, days);
+    }
+    public int updateOfLoginDateAndNowDays(User user, String loginDate, String nowDays) {
+        return dao.updateOfLoginDateAndNowDays(user, loginDate, nowDays);
+    }
     public int updateOfPhoneAndEmail(User user, String phone, String email) {
         return dao.updateOfPhoneAndEmail(user, phone, email);
     }
@@ -389,6 +431,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfPhoneAndBUserIds(User user, String phone, String bUserIds) {
         return dao.updateOfPhoneAndBUserIds(user, phone, bUserIds);
     }
+    public int updateOfPhoneAndDays(User user, String phone, String days) {
+        return dao.updateOfPhoneAndDays(user, phone, days);
+    }
+    public int updateOfPhoneAndNowDays(User user, String phone, String nowDays) {
+        return dao.updateOfPhoneAndNowDays(user, phone, nowDays);
+    }
     public int updateOfEmailAndMoney(User user, String email, String money) {
         return dao.updateOfEmailAndMoney(user, email, money);
     }
@@ -422,6 +470,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfEmailAndBUserIds(User user, String email, String bUserIds) {
         return dao.updateOfEmailAndBUserIds(user, email, bUserIds);
     }
+    public int updateOfEmailAndDays(User user, String email, String days) {
+        return dao.updateOfEmailAndDays(user, email, days);
+    }
+    public int updateOfEmailAndNowDays(User user, String email, String nowDays) {
+        return dao.updateOfEmailAndNowDays(user, email, nowDays);
+    }
     public int updateOfMoneyAndScore(User user, String money, String score) {
         return dao.updateOfMoneyAndScore(user, money, score);
     }
@@ -452,6 +506,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfMoneyAndBUserIds(User user, String money, String bUserIds) {
         return dao.updateOfMoneyAndBUserIds(user, money, bUserIds);
     }
+    public int updateOfMoneyAndDays(User user, String money, String days) {
+        return dao.updateOfMoneyAndDays(user, money, days);
+    }
+    public int updateOfMoneyAndNowDays(User user, String money, String nowDays) {
+        return dao.updateOfMoneyAndNowDays(user, money, nowDays);
+    }
     public int updateOfScoreAndPath(User user, String score, String path) {
         return dao.updateOfScoreAndPath(user, score, path);
     }
@@ -479,6 +539,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfScoreAndBUserIds(User user, String score, String bUserIds) {
         return dao.updateOfScoreAndBUserIds(user, score, bUserIds);
     }
+    public int updateOfScoreAndDays(User user, String score, String days) {
+        return dao.updateOfScoreAndDays(user, score, days);
+    }
+    public int updateOfScoreAndNowDays(User user, String score, String nowDays) {
+        return dao.updateOfScoreAndNowDays(user, score, nowDays);
+    }
     public int updateOfPathAndParam(User user, String path, String param) {
         return dao.updateOfPathAndParam(user, path, param);
     }
@@ -503,6 +569,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfPathAndBUserIds(User user, String path, String bUserIds) {
         return dao.updateOfPathAndBUserIds(user, path, bUserIds);
     }
+    public int updateOfPathAndDays(User user, String path, String days) {
+        return dao.updateOfPathAndDays(user, path, days);
+    }
+    public int updateOfPathAndNowDays(User user, String path, String nowDays) {
+        return dao.updateOfPathAndNowDays(user, path, nowDays);
+    }
     public int updateOfParamAndLvl(User user, String param, String lvl) {
         return dao.updateOfParamAndLvl(user, param, lvl);
     }
@@ -524,6 +596,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfParamAndBUserIds(User user, String param, String bUserIds) {
         return dao.updateOfParamAndBUserIds(user, param, bUserIds);
     }
+    public int updateOfParamAndDays(User user, String param, String days) {
+        return dao.updateOfParamAndDays(user, param, days);
+    }
+    public int updateOfParamAndNowDays(User user, String param, String nowDays) {
+        return dao.updateOfParamAndNowDays(user, param, nowDays);
+    }
     public int updateOfLvlAndNewIds(User user, String lvl, String newIds) {
         return dao.updateOfLvlAndNewIds(user, lvl, newIds);
     }
@@ -542,6 +620,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfLvlAndBUserIds(User user, String lvl, String bUserIds) {
         return dao.updateOfLvlAndBUserIds(user, lvl, bUserIds);
     }
+    public int updateOfLvlAndDays(User user, String lvl, String days) {
+        return dao.updateOfLvlAndDays(user, lvl, days);
+    }
+    public int updateOfLvlAndNowDays(User user, String lvl, String nowDays) {
+        return dao.updateOfLvlAndNowDays(user, lvl, nowDays);
+    }
     public int updateOfNewIdsAndUserIds(User user, String newIds, String userIds) {
         return dao.updateOfNewIdsAndUserIds(user, newIds, userIds);
     }
@@ -557,6 +641,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfNewIdsAndBUserIds(User user, String newIds, String bUserIds) {
         return dao.updateOfNewIdsAndBUserIds(user, newIds, bUserIds);
     }
+    public int updateOfNewIdsAndDays(User user, String newIds, String days) {
+        return dao.updateOfNewIdsAndDays(user, newIds, days);
+    }
+    public int updateOfNewIdsAndNowDays(User user, String newIds, String nowDays) {
+        return dao.updateOfNewIdsAndNowDays(user, newIds, nowDays);
+    }
     public int updateOfUserIdsAndSignature(User user, String userIds, String signature) {
         return dao.updateOfUserIdsAndSignature(user, userIds, signature);
     }
@@ -569,6 +659,12 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfUserIdsAndBUserIds(User user, String userIds, String bUserIds) {
         return dao.updateOfUserIdsAndBUserIds(user, userIds, bUserIds);
     }
+    public int updateOfUserIdsAndDays(User user, String userIds, String days) {
+        return dao.updateOfUserIdsAndDays(user, userIds, days);
+    }
+    public int updateOfUserIdsAndNowDays(User user, String userIds, String nowDays) {
+        return dao.updateOfUserIdsAndNowDays(user, userIds, nowDays);
+    }
     public int updateOfSignatureAndImage(User user, String signature, String image) {
         return dao.updateOfSignatureAndImage(user, signature, image);
     }
@@ -578,14 +674,41 @@ public class IUserServiceImpl implements IUserService {
     public int updateOfSignatureAndBUserIds(User user, String signature, String bUserIds) {
         return dao.updateOfSignatureAndBUserIds(user, signature, bUserIds);
     }
+    public int updateOfSignatureAndDays(User user, String signature, String days) {
+        return dao.updateOfSignatureAndDays(user, signature, days);
+    }
+    public int updateOfSignatureAndNowDays(User user, String signature, String nowDays) {
+        return dao.updateOfSignatureAndNowDays(user, signature, nowDays);
+    }
     public int updateOfImageAndFamous(User user, String image, String famous) {
         return dao.updateOfImageAndFamous(user, image, famous);
     }
     public int updateOfImageAndBUserIds(User user, String image, String bUserIds) {
         return dao.updateOfImageAndBUserIds(user, image, bUserIds);
     }
+    public int updateOfImageAndDays(User user, String image, String days) {
+        return dao.updateOfImageAndDays(user, image, days);
+    }
+    public int updateOfImageAndNowDays(User user, String image, String nowDays) {
+        return dao.updateOfImageAndNowDays(user, image, nowDays);
+    }
     public int updateOfFamousAndBUserIds(User user, String famous, String bUserIds) {
         return dao.updateOfFamousAndBUserIds(user, famous, bUserIds);
+    }
+    public int updateOfFamousAndDays(User user, String famous, String days) {
+        return dao.updateOfFamousAndDays(user, famous, days);
+    }
+    public int updateOfFamousAndNowDays(User user, String famous, String nowDays) {
+        return dao.updateOfFamousAndNowDays(user, famous, nowDays);
+    }
+    public int updateOfBUserIdsAndDays(User user, String bUserIds, String days) {
+        return dao.updateOfBUserIdsAndDays(user, bUserIds, days);
+    }
+    public int updateOfBUserIdsAndNowDays(User user, String bUserIds, String nowDays) {
+        return dao.updateOfBUserIdsAndNowDays(user, bUserIds, nowDays);
+    }
+    public int updateOfDaysAndNowDays(User user, String days, String nowDays) {
+        return dao.updateOfDaysAndNowDays(user, days, nowDays);
     }
     public int remove(User user) {
         return dao.remove(user);
@@ -647,6 +770,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfBUserIds(String bUserIds) {
         return dao.removeOfBUserIds(bUserIds);
     }
+    public int removeOfDays(String days) {
+        return dao.removeOfDays(days);
+    }
+    public int removeOfNowDays(String nowDays) {
+        return dao.removeOfNowDays(nowDays);
+    }
     public int removeOfUserIdAndPassword(String userId, String password) {
         return dao.removeOfUserIdAndPassword(userId, password);
     }
@@ -701,6 +830,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfUserIdAndBUserIds(String userId, String bUserIds) {
         return dao.removeOfUserIdAndBUserIds(userId, bUserIds);
     }
+    public int removeOfUserIdAndDays(String userId, String days) {
+        return dao.removeOfUserIdAndDays(userId, days);
+    }
+    public int removeOfUserIdAndNowDays(String userId, String nowDays) {
+        return dao.removeOfUserIdAndNowDays(userId, nowDays);
+    }
     public int removeOfPasswordAndName(String password, String name) {
         return dao.removeOfPasswordAndName(password, name);
     }
@@ -752,6 +887,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfPasswordAndBUserIds(String password, String bUserIds) {
         return dao.removeOfPasswordAndBUserIds(password, bUserIds);
     }
+    public int removeOfPasswordAndDays(String password, String days) {
+        return dao.removeOfPasswordAndDays(password, days);
+    }
+    public int removeOfPasswordAndNowDays(String password, String nowDays) {
+        return dao.removeOfPasswordAndNowDays(password, nowDays);
+    }
     public int removeOfNameAndSex(String name, String sex) {
         return dao.removeOfNameAndSex(name, sex);
     }
@@ -800,6 +941,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfNameAndBUserIds(String name, String bUserIds) {
         return dao.removeOfNameAndBUserIds(name, bUserIds);
     }
+    public int removeOfNameAndDays(String name, String days) {
+        return dao.removeOfNameAndDays(name, days);
+    }
+    public int removeOfNameAndNowDays(String name, String nowDays) {
+        return dao.removeOfNameAndNowDays(name, nowDays);
+    }
     public int removeOfSexAndRegisterDate(String sex, String registerDate) {
         return dao.removeOfSexAndRegisterDate(sex, registerDate);
     }
@@ -845,6 +992,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfSexAndBUserIds(String sex, String bUserIds) {
         return dao.removeOfSexAndBUserIds(sex, bUserIds);
     }
+    public int removeOfSexAndDays(String sex, String days) {
+        return dao.removeOfSexAndDays(sex, days);
+    }
+    public int removeOfSexAndNowDays(String sex, String nowDays) {
+        return dao.removeOfSexAndNowDays(sex, nowDays);
+    }
     public int removeOfRegisterDateAndLoginDate(String registerDate, String loginDate) {
         return dao.removeOfRegisterDateAndLoginDate(registerDate, loginDate);
     }
@@ -887,6 +1040,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfRegisterDateAndBUserIds(String registerDate, String bUserIds) {
         return dao.removeOfRegisterDateAndBUserIds(registerDate, bUserIds);
     }
+    public int removeOfRegisterDateAndDays(String registerDate, String days) {
+        return dao.removeOfRegisterDateAndDays(registerDate, days);
+    }
+    public int removeOfRegisterDateAndNowDays(String registerDate, String nowDays) {
+        return dao.removeOfRegisterDateAndNowDays(registerDate, nowDays);
+    }
     public int removeOfLoginDateAndPhone(String loginDate, String phone) {
         return dao.removeOfLoginDateAndPhone(loginDate, phone);
     }
@@ -926,6 +1085,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfLoginDateAndBUserIds(String loginDate, String bUserIds) {
         return dao.removeOfLoginDateAndBUserIds(loginDate, bUserIds);
     }
+    public int removeOfLoginDateAndDays(String loginDate, String days) {
+        return dao.removeOfLoginDateAndDays(loginDate, days);
+    }
+    public int removeOfLoginDateAndNowDays(String loginDate, String nowDays) {
+        return dao.removeOfLoginDateAndNowDays(loginDate, nowDays);
+    }
     public int removeOfPhoneAndEmail(String phone, String email) {
         return dao.removeOfPhoneAndEmail(phone, email);
     }
@@ -962,6 +1127,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfPhoneAndBUserIds(String phone, String bUserIds) {
         return dao.removeOfPhoneAndBUserIds(phone, bUserIds);
     }
+    public int removeOfPhoneAndDays(String phone, String days) {
+        return dao.removeOfPhoneAndDays(phone, days);
+    }
+    public int removeOfPhoneAndNowDays(String phone, String nowDays) {
+        return dao.removeOfPhoneAndNowDays(phone, nowDays);
+    }
     public int removeOfEmailAndMoney(String email, String money) {
         return dao.removeOfEmailAndMoney(email, money);
     }
@@ -995,6 +1166,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfEmailAndBUserIds(String email, String bUserIds) {
         return dao.removeOfEmailAndBUserIds(email, bUserIds);
     }
+    public int removeOfEmailAndDays(String email, String days) {
+        return dao.removeOfEmailAndDays(email, days);
+    }
+    public int removeOfEmailAndNowDays(String email, String nowDays) {
+        return dao.removeOfEmailAndNowDays(email, nowDays);
+    }
     public int removeOfMoneyAndScore(String money, String score) {
         return dao.removeOfMoneyAndScore(money, score);
     }
@@ -1025,6 +1202,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfMoneyAndBUserIds(String money, String bUserIds) {
         return dao.removeOfMoneyAndBUserIds(money, bUserIds);
     }
+    public int removeOfMoneyAndDays(String money, String days) {
+        return dao.removeOfMoneyAndDays(money, days);
+    }
+    public int removeOfMoneyAndNowDays(String money, String nowDays) {
+        return dao.removeOfMoneyAndNowDays(money, nowDays);
+    }
     public int removeOfScoreAndPath(String score, String path) {
         return dao.removeOfScoreAndPath(score, path);
     }
@@ -1052,6 +1235,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfScoreAndBUserIds(String score, String bUserIds) {
         return dao.removeOfScoreAndBUserIds(score, bUserIds);
     }
+    public int removeOfScoreAndDays(String score, String days) {
+        return dao.removeOfScoreAndDays(score, days);
+    }
+    public int removeOfScoreAndNowDays(String score, String nowDays) {
+        return dao.removeOfScoreAndNowDays(score, nowDays);
+    }
     public int removeOfPathAndParam(String path, String param) {
         return dao.removeOfPathAndParam(path, param);
     }
@@ -1076,6 +1265,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfPathAndBUserIds(String path, String bUserIds) {
         return dao.removeOfPathAndBUserIds(path, bUserIds);
     }
+    public int removeOfPathAndDays(String path, String days) {
+        return dao.removeOfPathAndDays(path, days);
+    }
+    public int removeOfPathAndNowDays(String path, String nowDays) {
+        return dao.removeOfPathAndNowDays(path, nowDays);
+    }
     public int removeOfParamAndLvl(String param, String lvl) {
         return dao.removeOfParamAndLvl(param, lvl);
     }
@@ -1097,6 +1292,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfParamAndBUserIds(String param, String bUserIds) {
         return dao.removeOfParamAndBUserIds(param, bUserIds);
     }
+    public int removeOfParamAndDays(String param, String days) {
+        return dao.removeOfParamAndDays(param, days);
+    }
+    public int removeOfParamAndNowDays(String param, String nowDays) {
+        return dao.removeOfParamAndNowDays(param, nowDays);
+    }
     public int removeOfLvlAndNewIds(String lvl, String newIds) {
         return dao.removeOfLvlAndNewIds(lvl, newIds);
     }
@@ -1115,6 +1316,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfLvlAndBUserIds(String lvl, String bUserIds) {
         return dao.removeOfLvlAndBUserIds(lvl, bUserIds);
     }
+    public int removeOfLvlAndDays(String lvl, String days) {
+        return dao.removeOfLvlAndDays(lvl, days);
+    }
+    public int removeOfLvlAndNowDays(String lvl, String nowDays) {
+        return dao.removeOfLvlAndNowDays(lvl, nowDays);
+    }
     public int removeOfNewIdsAndUserIds(String newIds, String userIds) {
         return dao.removeOfNewIdsAndUserIds(newIds, userIds);
     }
@@ -1130,6 +1337,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfNewIdsAndBUserIds(String newIds, String bUserIds) {
         return dao.removeOfNewIdsAndBUserIds(newIds, bUserIds);
     }
+    public int removeOfNewIdsAndDays(String newIds, String days) {
+        return dao.removeOfNewIdsAndDays(newIds, days);
+    }
+    public int removeOfNewIdsAndNowDays(String newIds, String nowDays) {
+        return dao.removeOfNewIdsAndNowDays(newIds, nowDays);
+    }
     public int removeOfUserIdsAndSignature(String userIds, String signature) {
         return dao.removeOfUserIdsAndSignature(userIds, signature);
     }
@@ -1142,6 +1355,12 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfUserIdsAndBUserIds(String userIds, String bUserIds) {
         return dao.removeOfUserIdsAndBUserIds(userIds, bUserIds);
     }
+    public int removeOfUserIdsAndDays(String userIds, String days) {
+        return dao.removeOfUserIdsAndDays(userIds, days);
+    }
+    public int removeOfUserIdsAndNowDays(String userIds, String nowDays) {
+        return dao.removeOfUserIdsAndNowDays(userIds, nowDays);
+    }
     public int removeOfSignatureAndImage(String signature, String image) {
         return dao.removeOfSignatureAndImage(signature, image);
     }
@@ -1151,14 +1370,41 @@ public class IUserServiceImpl implements IUserService {
     public int removeOfSignatureAndBUserIds(String signature, String bUserIds) {
         return dao.removeOfSignatureAndBUserIds(signature, bUserIds);
     }
+    public int removeOfSignatureAndDays(String signature, String days) {
+        return dao.removeOfSignatureAndDays(signature, days);
+    }
+    public int removeOfSignatureAndNowDays(String signature, String nowDays) {
+        return dao.removeOfSignatureAndNowDays(signature, nowDays);
+    }
     public int removeOfImageAndFamous(String image, String famous) {
         return dao.removeOfImageAndFamous(image, famous);
     }
     public int removeOfImageAndBUserIds(String image, String bUserIds) {
         return dao.removeOfImageAndBUserIds(image, bUserIds);
     }
+    public int removeOfImageAndDays(String image, String days) {
+        return dao.removeOfImageAndDays(image, days);
+    }
+    public int removeOfImageAndNowDays(String image, String nowDays) {
+        return dao.removeOfImageAndNowDays(image, nowDays);
+    }
     public int removeOfFamousAndBUserIds(String famous, String bUserIds) {
         return dao.removeOfFamousAndBUserIds(famous, bUserIds);
+    }
+    public int removeOfFamousAndDays(String famous, String days) {
+        return dao.removeOfFamousAndDays(famous, days);
+    }
+    public int removeOfFamousAndNowDays(String famous, String nowDays) {
+        return dao.removeOfFamousAndNowDays(famous, nowDays);
+    }
+    public int removeOfBUserIdsAndDays(String bUserIds, String days) {
+        return dao.removeOfBUserIdsAndDays(bUserIds, days);
+    }
+    public int removeOfBUserIdsAndNowDays(String bUserIds, String nowDays) {
+        return dao.removeOfBUserIdsAndNowDays(bUserIds, nowDays);
+    }
+    public int removeOfDaysAndNowDays(String days, String nowDays) {
+        return dao.removeOfDaysAndNowDays(days, nowDays);
     }
     public int insert(User user) {
         return dao.insert(user);
@@ -1220,6 +1466,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfBUserIds(String bUserIds) {
         return dao.insertOfBUserIds(bUserIds);
     }
+    public int insertOfDays(String days) {
+        return dao.insertOfDays(days);
+    }
+    public int insertOfNowDays(String nowDays) {
+        return dao.insertOfNowDays(nowDays);
+    }
     public int insertOfUserIdAndPassword(String userId, String password) {
         return dao.insertOfUserIdAndPassword(userId, password);
     }
@@ -1274,6 +1526,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfUserIdAndBUserIds(String userId, String bUserIds) {
         return dao.insertOfUserIdAndBUserIds(userId, bUserIds);
     }
+    public int insertOfUserIdAndDays(String userId, String days) {
+        return dao.insertOfUserIdAndDays(userId, days);
+    }
+    public int insertOfUserIdAndNowDays(String userId, String nowDays) {
+        return dao.insertOfUserIdAndNowDays(userId, nowDays);
+    }
     public int insertOfPasswordAndName(String password, String name) {
         return dao.insertOfPasswordAndName(password, name);
     }
@@ -1325,6 +1583,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfPasswordAndBUserIds(String password, String bUserIds) {
         return dao.insertOfPasswordAndBUserIds(password, bUserIds);
     }
+    public int insertOfPasswordAndDays(String password, String days) {
+        return dao.insertOfPasswordAndDays(password, days);
+    }
+    public int insertOfPasswordAndNowDays(String password, String nowDays) {
+        return dao.insertOfPasswordAndNowDays(password, nowDays);
+    }
     public int insertOfNameAndSex(String name, String sex) {
         return dao.insertOfNameAndSex(name, sex);
     }
@@ -1373,6 +1637,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfNameAndBUserIds(String name, String bUserIds) {
         return dao.insertOfNameAndBUserIds(name, bUserIds);
     }
+    public int insertOfNameAndDays(String name, String days) {
+        return dao.insertOfNameAndDays(name, days);
+    }
+    public int insertOfNameAndNowDays(String name, String nowDays) {
+        return dao.insertOfNameAndNowDays(name, nowDays);
+    }
     public int insertOfSexAndRegisterDate(String sex, String registerDate) {
         return dao.insertOfSexAndRegisterDate(sex, registerDate);
     }
@@ -1418,6 +1688,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfSexAndBUserIds(String sex, String bUserIds) {
         return dao.insertOfSexAndBUserIds(sex, bUserIds);
     }
+    public int insertOfSexAndDays(String sex, String days) {
+        return dao.insertOfSexAndDays(sex, days);
+    }
+    public int insertOfSexAndNowDays(String sex, String nowDays) {
+        return dao.insertOfSexAndNowDays(sex, nowDays);
+    }
     public int insertOfRegisterDateAndLoginDate(String registerDate, String loginDate) {
         return dao.insertOfRegisterDateAndLoginDate(registerDate, loginDate);
     }
@@ -1460,6 +1736,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfRegisterDateAndBUserIds(String registerDate, String bUserIds) {
         return dao.insertOfRegisterDateAndBUserIds(registerDate, bUserIds);
     }
+    public int insertOfRegisterDateAndDays(String registerDate, String days) {
+        return dao.insertOfRegisterDateAndDays(registerDate, days);
+    }
+    public int insertOfRegisterDateAndNowDays(String registerDate, String nowDays) {
+        return dao.insertOfRegisterDateAndNowDays(registerDate, nowDays);
+    }
     public int insertOfLoginDateAndPhone(String loginDate, String phone) {
         return dao.insertOfLoginDateAndPhone(loginDate, phone);
     }
@@ -1499,6 +1781,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfLoginDateAndBUserIds(String loginDate, String bUserIds) {
         return dao.insertOfLoginDateAndBUserIds(loginDate, bUserIds);
     }
+    public int insertOfLoginDateAndDays(String loginDate, String days) {
+        return dao.insertOfLoginDateAndDays(loginDate, days);
+    }
+    public int insertOfLoginDateAndNowDays(String loginDate, String nowDays) {
+        return dao.insertOfLoginDateAndNowDays(loginDate, nowDays);
+    }
     public int insertOfPhoneAndEmail(String phone, String email) {
         return dao.insertOfPhoneAndEmail(phone, email);
     }
@@ -1535,6 +1823,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfPhoneAndBUserIds(String phone, String bUserIds) {
         return dao.insertOfPhoneAndBUserIds(phone, bUserIds);
     }
+    public int insertOfPhoneAndDays(String phone, String days) {
+        return dao.insertOfPhoneAndDays(phone, days);
+    }
+    public int insertOfPhoneAndNowDays(String phone, String nowDays) {
+        return dao.insertOfPhoneAndNowDays(phone, nowDays);
+    }
     public int insertOfEmailAndMoney(String email, String money) {
         return dao.insertOfEmailAndMoney(email, money);
     }
@@ -1568,6 +1862,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfEmailAndBUserIds(String email, String bUserIds) {
         return dao.insertOfEmailAndBUserIds(email, bUserIds);
     }
+    public int insertOfEmailAndDays(String email, String days) {
+        return dao.insertOfEmailAndDays(email, days);
+    }
+    public int insertOfEmailAndNowDays(String email, String nowDays) {
+        return dao.insertOfEmailAndNowDays(email, nowDays);
+    }
     public int insertOfMoneyAndScore(String money, String score) {
         return dao.insertOfMoneyAndScore(money, score);
     }
@@ -1598,6 +1898,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfMoneyAndBUserIds(String money, String bUserIds) {
         return dao.insertOfMoneyAndBUserIds(money, bUserIds);
     }
+    public int insertOfMoneyAndDays(String money, String days) {
+        return dao.insertOfMoneyAndDays(money, days);
+    }
+    public int insertOfMoneyAndNowDays(String money, String nowDays) {
+        return dao.insertOfMoneyAndNowDays(money, nowDays);
+    }
     public int insertOfScoreAndPath(String score, String path) {
         return dao.insertOfScoreAndPath(score, path);
     }
@@ -1625,6 +1931,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfScoreAndBUserIds(String score, String bUserIds) {
         return dao.insertOfScoreAndBUserIds(score, bUserIds);
     }
+    public int insertOfScoreAndDays(String score, String days) {
+        return dao.insertOfScoreAndDays(score, days);
+    }
+    public int insertOfScoreAndNowDays(String score, String nowDays) {
+        return dao.insertOfScoreAndNowDays(score, nowDays);
+    }
     public int insertOfPathAndParam(String path, String param) {
         return dao.insertOfPathAndParam(path, param);
     }
@@ -1649,6 +1961,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfPathAndBUserIds(String path, String bUserIds) {
         return dao.insertOfPathAndBUserIds(path, bUserIds);
     }
+    public int insertOfPathAndDays(String path, String days) {
+        return dao.insertOfPathAndDays(path, days);
+    }
+    public int insertOfPathAndNowDays(String path, String nowDays) {
+        return dao.insertOfPathAndNowDays(path, nowDays);
+    }
     public int insertOfParamAndLvl(String param, String lvl) {
         return dao.insertOfParamAndLvl(param, lvl);
     }
@@ -1670,6 +1988,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfParamAndBUserIds(String param, String bUserIds) {
         return dao.insertOfParamAndBUserIds(param, bUserIds);
     }
+    public int insertOfParamAndDays(String param, String days) {
+        return dao.insertOfParamAndDays(param, days);
+    }
+    public int insertOfParamAndNowDays(String param, String nowDays) {
+        return dao.insertOfParamAndNowDays(param, nowDays);
+    }
     public int insertOfLvlAndNewIds(String lvl, String newIds) {
         return dao.insertOfLvlAndNewIds(lvl, newIds);
     }
@@ -1688,6 +2012,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfLvlAndBUserIds(String lvl, String bUserIds) {
         return dao.insertOfLvlAndBUserIds(lvl, bUserIds);
     }
+    public int insertOfLvlAndDays(String lvl, String days) {
+        return dao.insertOfLvlAndDays(lvl, days);
+    }
+    public int insertOfLvlAndNowDays(String lvl, String nowDays) {
+        return dao.insertOfLvlAndNowDays(lvl, nowDays);
+    }
     public int insertOfNewIdsAndUserIds(String newIds, String userIds) {
         return dao.insertOfNewIdsAndUserIds(newIds, userIds);
     }
@@ -1703,6 +2033,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfNewIdsAndBUserIds(String newIds, String bUserIds) {
         return dao.insertOfNewIdsAndBUserIds(newIds, bUserIds);
     }
+    public int insertOfNewIdsAndDays(String newIds, String days) {
+        return dao.insertOfNewIdsAndDays(newIds, days);
+    }
+    public int insertOfNewIdsAndNowDays(String newIds, String nowDays) {
+        return dao.insertOfNewIdsAndNowDays(newIds, nowDays);
+    }
     public int insertOfUserIdsAndSignature(String userIds, String signature) {
         return dao.insertOfUserIdsAndSignature(userIds, signature);
     }
@@ -1715,6 +2051,12 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfUserIdsAndBUserIds(String userIds, String bUserIds) {
         return dao.insertOfUserIdsAndBUserIds(userIds, bUserIds);
     }
+    public int insertOfUserIdsAndDays(String userIds, String days) {
+        return dao.insertOfUserIdsAndDays(userIds, days);
+    }
+    public int insertOfUserIdsAndNowDays(String userIds, String nowDays) {
+        return dao.insertOfUserIdsAndNowDays(userIds, nowDays);
+    }
     public int insertOfSignatureAndImage(String signature, String image) {
         return dao.insertOfSignatureAndImage(signature, image);
     }
@@ -1724,14 +2066,41 @@ public class IUserServiceImpl implements IUserService {
     public int insertOfSignatureAndBUserIds(String signature, String bUserIds) {
         return dao.insertOfSignatureAndBUserIds(signature, bUserIds);
     }
+    public int insertOfSignatureAndDays(String signature, String days) {
+        return dao.insertOfSignatureAndDays(signature, days);
+    }
+    public int insertOfSignatureAndNowDays(String signature, String nowDays) {
+        return dao.insertOfSignatureAndNowDays(signature, nowDays);
+    }
     public int insertOfImageAndFamous(String image, String famous) {
         return dao.insertOfImageAndFamous(image, famous);
     }
     public int insertOfImageAndBUserIds(String image, String bUserIds) {
         return dao.insertOfImageAndBUserIds(image, bUserIds);
     }
+    public int insertOfImageAndDays(String image, String days) {
+        return dao.insertOfImageAndDays(image, days);
+    }
+    public int insertOfImageAndNowDays(String image, String nowDays) {
+        return dao.insertOfImageAndNowDays(image, nowDays);
+    }
     public int insertOfFamousAndBUserIds(String famous, String bUserIds) {
         return dao.insertOfFamousAndBUserIds(famous, bUserIds);
+    }
+    public int insertOfFamousAndDays(String famous, String days) {
+        return dao.insertOfFamousAndDays(famous, days);
+    }
+    public int insertOfFamousAndNowDays(String famous, String nowDays) {
+        return dao.insertOfFamousAndNowDays(famous, nowDays);
+    }
+    public int insertOfBUserIdsAndDays(String bUserIds, String days) {
+        return dao.insertOfBUserIdsAndDays(bUserIds, days);
+    }
+    public int insertOfBUserIdsAndNowDays(String bUserIds, String nowDays) {
+        return dao.insertOfBUserIdsAndNowDays(bUserIds, nowDays);
+    }
+    public int insertOfDaysAndNowDays(String days, String nowDays) {
+        return dao.insertOfDaysAndNowDays(days, nowDays);
     }
     public User getUser(User user) {
         return dao.getUser(user);
@@ -1793,6 +2162,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfBUserIds(String bUserIds) {
         return dao.getUserOfBUserIds(bUserIds);
     }
+    public User getUserOfDays(String days) {
+        return dao.getUserOfDays(days);
+    }
+    public User getUserOfNowDays(String nowDays) {
+        return dao.getUserOfNowDays(nowDays);
+    }
     public User getUserOfUserIdAndPassword(String userId, String password) {
         return dao.getUserOfUserIdAndPassword(userId, password);
     }
@@ -1847,6 +2222,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfUserIdAndBUserIds(String userId, String bUserIds) {
         return dao.getUserOfUserIdAndBUserIds(userId, bUserIds);
     }
+    public User getUserOfUserIdAndDays(String userId, String days) {
+        return dao.getUserOfUserIdAndDays(userId, days);
+    }
+    public User getUserOfUserIdAndNowDays(String userId, String nowDays) {
+        return dao.getUserOfUserIdAndNowDays(userId, nowDays);
+    }
     public User getUserOfPasswordAndName(String password, String name) {
         return dao.getUserOfPasswordAndName(password, name);
     }
@@ -1898,6 +2279,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfPasswordAndBUserIds(String password, String bUserIds) {
         return dao.getUserOfPasswordAndBUserIds(password, bUserIds);
     }
+    public User getUserOfPasswordAndDays(String password, String days) {
+        return dao.getUserOfPasswordAndDays(password, days);
+    }
+    public User getUserOfPasswordAndNowDays(String password, String nowDays) {
+        return dao.getUserOfPasswordAndNowDays(password, nowDays);
+    }
     public User getUserOfNameAndSex(String name, String sex) {
         return dao.getUserOfNameAndSex(name, sex);
     }
@@ -1946,6 +2333,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfNameAndBUserIds(String name, String bUserIds) {
         return dao.getUserOfNameAndBUserIds(name, bUserIds);
     }
+    public User getUserOfNameAndDays(String name, String days) {
+        return dao.getUserOfNameAndDays(name, days);
+    }
+    public User getUserOfNameAndNowDays(String name, String nowDays) {
+        return dao.getUserOfNameAndNowDays(name, nowDays);
+    }
     public User getUserOfSexAndRegisterDate(String sex, String registerDate) {
         return dao.getUserOfSexAndRegisterDate(sex, registerDate);
     }
@@ -1991,6 +2384,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfSexAndBUserIds(String sex, String bUserIds) {
         return dao.getUserOfSexAndBUserIds(sex, bUserIds);
     }
+    public User getUserOfSexAndDays(String sex, String days) {
+        return dao.getUserOfSexAndDays(sex, days);
+    }
+    public User getUserOfSexAndNowDays(String sex, String nowDays) {
+        return dao.getUserOfSexAndNowDays(sex, nowDays);
+    }
     public User getUserOfRegisterDateAndLoginDate(String registerDate, String loginDate) {
         return dao.getUserOfRegisterDateAndLoginDate(registerDate, loginDate);
     }
@@ -2033,6 +2432,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfRegisterDateAndBUserIds(String registerDate, String bUserIds) {
         return dao.getUserOfRegisterDateAndBUserIds(registerDate, bUserIds);
     }
+    public User getUserOfRegisterDateAndDays(String registerDate, String days) {
+        return dao.getUserOfRegisterDateAndDays(registerDate, days);
+    }
+    public User getUserOfRegisterDateAndNowDays(String registerDate, String nowDays) {
+        return dao.getUserOfRegisterDateAndNowDays(registerDate, nowDays);
+    }
     public User getUserOfLoginDateAndPhone(String loginDate, String phone) {
         return dao.getUserOfLoginDateAndPhone(loginDate, phone);
     }
@@ -2072,6 +2477,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfLoginDateAndBUserIds(String loginDate, String bUserIds) {
         return dao.getUserOfLoginDateAndBUserIds(loginDate, bUserIds);
     }
+    public User getUserOfLoginDateAndDays(String loginDate, String days) {
+        return dao.getUserOfLoginDateAndDays(loginDate, days);
+    }
+    public User getUserOfLoginDateAndNowDays(String loginDate, String nowDays) {
+        return dao.getUserOfLoginDateAndNowDays(loginDate, nowDays);
+    }
     public User getUserOfPhoneAndEmail(String phone, String email) {
         return dao.getUserOfPhoneAndEmail(phone, email);
     }
@@ -2108,6 +2519,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfPhoneAndBUserIds(String phone, String bUserIds) {
         return dao.getUserOfPhoneAndBUserIds(phone, bUserIds);
     }
+    public User getUserOfPhoneAndDays(String phone, String days) {
+        return dao.getUserOfPhoneAndDays(phone, days);
+    }
+    public User getUserOfPhoneAndNowDays(String phone, String nowDays) {
+        return dao.getUserOfPhoneAndNowDays(phone, nowDays);
+    }
     public User getUserOfEmailAndMoney(String email, String money) {
         return dao.getUserOfEmailAndMoney(email, money);
     }
@@ -2141,6 +2558,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfEmailAndBUserIds(String email, String bUserIds) {
         return dao.getUserOfEmailAndBUserIds(email, bUserIds);
     }
+    public User getUserOfEmailAndDays(String email, String days) {
+        return dao.getUserOfEmailAndDays(email, days);
+    }
+    public User getUserOfEmailAndNowDays(String email, String nowDays) {
+        return dao.getUserOfEmailAndNowDays(email, nowDays);
+    }
     public User getUserOfMoneyAndScore(String money, String score) {
         return dao.getUserOfMoneyAndScore(money, score);
     }
@@ -2171,6 +2594,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfMoneyAndBUserIds(String money, String bUserIds) {
         return dao.getUserOfMoneyAndBUserIds(money, bUserIds);
     }
+    public User getUserOfMoneyAndDays(String money, String days) {
+        return dao.getUserOfMoneyAndDays(money, days);
+    }
+    public User getUserOfMoneyAndNowDays(String money, String nowDays) {
+        return dao.getUserOfMoneyAndNowDays(money, nowDays);
+    }
     public User getUserOfScoreAndPath(String score, String path) {
         return dao.getUserOfScoreAndPath(score, path);
     }
@@ -2198,6 +2627,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfScoreAndBUserIds(String score, String bUserIds) {
         return dao.getUserOfScoreAndBUserIds(score, bUserIds);
     }
+    public User getUserOfScoreAndDays(String score, String days) {
+        return dao.getUserOfScoreAndDays(score, days);
+    }
+    public User getUserOfScoreAndNowDays(String score, String nowDays) {
+        return dao.getUserOfScoreAndNowDays(score, nowDays);
+    }
     public User getUserOfPathAndParam(String path, String param) {
         return dao.getUserOfPathAndParam(path, param);
     }
@@ -2222,6 +2657,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfPathAndBUserIds(String path, String bUserIds) {
         return dao.getUserOfPathAndBUserIds(path, bUserIds);
     }
+    public User getUserOfPathAndDays(String path, String days) {
+        return dao.getUserOfPathAndDays(path, days);
+    }
+    public User getUserOfPathAndNowDays(String path, String nowDays) {
+        return dao.getUserOfPathAndNowDays(path, nowDays);
+    }
     public User getUserOfParamAndLvl(String param, String lvl) {
         return dao.getUserOfParamAndLvl(param, lvl);
     }
@@ -2243,6 +2684,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfParamAndBUserIds(String param, String bUserIds) {
         return dao.getUserOfParamAndBUserIds(param, bUserIds);
     }
+    public User getUserOfParamAndDays(String param, String days) {
+        return dao.getUserOfParamAndDays(param, days);
+    }
+    public User getUserOfParamAndNowDays(String param, String nowDays) {
+        return dao.getUserOfParamAndNowDays(param, nowDays);
+    }
     public User getUserOfLvlAndNewIds(String lvl, String newIds) {
         return dao.getUserOfLvlAndNewIds(lvl, newIds);
     }
@@ -2261,6 +2708,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfLvlAndBUserIds(String lvl, String bUserIds) {
         return dao.getUserOfLvlAndBUserIds(lvl, bUserIds);
     }
+    public User getUserOfLvlAndDays(String lvl, String days) {
+        return dao.getUserOfLvlAndDays(lvl, days);
+    }
+    public User getUserOfLvlAndNowDays(String lvl, String nowDays) {
+        return dao.getUserOfLvlAndNowDays(lvl, nowDays);
+    }
     public User getUserOfNewIdsAndUserIds(String newIds, String userIds) {
         return dao.getUserOfNewIdsAndUserIds(newIds, userIds);
     }
@@ -2276,6 +2729,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfNewIdsAndBUserIds(String newIds, String bUserIds) {
         return dao.getUserOfNewIdsAndBUserIds(newIds, bUserIds);
     }
+    public User getUserOfNewIdsAndDays(String newIds, String days) {
+        return dao.getUserOfNewIdsAndDays(newIds, days);
+    }
+    public User getUserOfNewIdsAndNowDays(String newIds, String nowDays) {
+        return dao.getUserOfNewIdsAndNowDays(newIds, nowDays);
+    }
     public User getUserOfUserIdsAndSignature(String userIds, String signature) {
         return dao.getUserOfUserIdsAndSignature(userIds, signature);
     }
@@ -2288,6 +2747,12 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfUserIdsAndBUserIds(String userIds, String bUserIds) {
         return dao.getUserOfUserIdsAndBUserIds(userIds, bUserIds);
     }
+    public User getUserOfUserIdsAndDays(String userIds, String days) {
+        return dao.getUserOfUserIdsAndDays(userIds, days);
+    }
+    public User getUserOfUserIdsAndNowDays(String userIds, String nowDays) {
+        return dao.getUserOfUserIdsAndNowDays(userIds, nowDays);
+    }
     public User getUserOfSignatureAndImage(String signature, String image) {
         return dao.getUserOfSignatureAndImage(signature, image);
     }
@@ -2297,14 +2762,41 @@ public class IUserServiceImpl implements IUserService {
     public User getUserOfSignatureAndBUserIds(String signature, String bUserIds) {
         return dao.getUserOfSignatureAndBUserIds(signature, bUserIds);
     }
+    public User getUserOfSignatureAndDays(String signature, String days) {
+        return dao.getUserOfSignatureAndDays(signature, days);
+    }
+    public User getUserOfSignatureAndNowDays(String signature, String nowDays) {
+        return dao.getUserOfSignatureAndNowDays(signature, nowDays);
+    }
     public User getUserOfImageAndFamous(String image, String famous) {
         return dao.getUserOfImageAndFamous(image, famous);
     }
     public User getUserOfImageAndBUserIds(String image, String bUserIds) {
         return dao.getUserOfImageAndBUserIds(image, bUserIds);
     }
+    public User getUserOfImageAndDays(String image, String days) {
+        return dao.getUserOfImageAndDays(image, days);
+    }
+    public User getUserOfImageAndNowDays(String image, String nowDays) {
+        return dao.getUserOfImageAndNowDays(image, nowDays);
+    }
     public User getUserOfFamousAndBUserIds(String famous, String bUserIds) {
         return dao.getUserOfFamousAndBUserIds(famous, bUserIds);
+    }
+    public User getUserOfFamousAndDays(String famous, String days) {
+        return dao.getUserOfFamousAndDays(famous, days);
+    }
+    public User getUserOfFamousAndNowDays(String famous, String nowDays) {
+        return dao.getUserOfFamousAndNowDays(famous, nowDays);
+    }
+    public User getUserOfBUserIdsAndDays(String bUserIds, String days) {
+        return dao.getUserOfBUserIdsAndDays(bUserIds, days);
+    }
+    public User getUserOfBUserIdsAndNowDays(String bUserIds, String nowDays) {
+        return dao.getUserOfBUserIdsAndNowDays(bUserIds, nowDays);
+    }
+    public User getUserOfDaysAndNowDays(String days, String nowDays) {
+        return dao.getUserOfDaysAndNowDays(days, nowDays);
     }
     public List<User> getUsers(User user) {
         return dao.getUsers(user);
@@ -2366,6 +2858,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfBUserIds(String bUserIds) {
         return dao.getUsersOfBUserIds(bUserIds);
     }
+    public List<User> getUsersOfDays(String days) {
+        return dao.getUsersOfDays(days);
+    }
+    public List<User> getUsersOfNowDays(String nowDays) {
+        return dao.getUsersOfNowDays(nowDays);
+    }
     public List<User> getUsersOfUserIdAndPassword(String userId, String password) {
         return dao.getUsersOfUserIdAndPassword(userId, password);
     }
@@ -2420,6 +2918,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfUserIdAndBUserIds(String userId, String bUserIds) {
         return dao.getUsersOfUserIdAndBUserIds(userId, bUserIds);
     }
+    public List<User> getUsersOfUserIdAndDays(String userId, String days) {
+        return dao.getUsersOfUserIdAndDays(userId, days);
+    }
+    public List<User> getUsersOfUserIdAndNowDays(String userId, String nowDays) {
+        return dao.getUsersOfUserIdAndNowDays(userId, nowDays);
+    }
     public List<User> getUsersOfPasswordAndName(String password, String name) {
         return dao.getUsersOfPasswordAndName(password, name);
     }
@@ -2471,6 +2975,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfPasswordAndBUserIds(String password, String bUserIds) {
         return dao.getUsersOfPasswordAndBUserIds(password, bUserIds);
     }
+    public List<User> getUsersOfPasswordAndDays(String password, String days) {
+        return dao.getUsersOfPasswordAndDays(password, days);
+    }
+    public List<User> getUsersOfPasswordAndNowDays(String password, String nowDays) {
+        return dao.getUsersOfPasswordAndNowDays(password, nowDays);
+    }
     public List<User> getUsersOfNameAndSex(String name, String sex) {
         return dao.getUsersOfNameAndSex(name, sex);
     }
@@ -2519,6 +3029,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfNameAndBUserIds(String name, String bUserIds) {
         return dao.getUsersOfNameAndBUserIds(name, bUserIds);
     }
+    public List<User> getUsersOfNameAndDays(String name, String days) {
+        return dao.getUsersOfNameAndDays(name, days);
+    }
+    public List<User> getUsersOfNameAndNowDays(String name, String nowDays) {
+        return dao.getUsersOfNameAndNowDays(name, nowDays);
+    }
     public List<User> getUsersOfSexAndRegisterDate(String sex, String registerDate) {
         return dao.getUsersOfSexAndRegisterDate(sex, registerDate);
     }
@@ -2564,6 +3080,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfSexAndBUserIds(String sex, String bUserIds) {
         return dao.getUsersOfSexAndBUserIds(sex, bUserIds);
     }
+    public List<User> getUsersOfSexAndDays(String sex, String days) {
+        return dao.getUsersOfSexAndDays(sex, days);
+    }
+    public List<User> getUsersOfSexAndNowDays(String sex, String nowDays) {
+        return dao.getUsersOfSexAndNowDays(sex, nowDays);
+    }
     public List<User> getUsersOfRegisterDateAndLoginDate(String registerDate, String loginDate) {
         return dao.getUsersOfRegisterDateAndLoginDate(registerDate, loginDate);
     }
@@ -2606,6 +3128,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfRegisterDateAndBUserIds(String registerDate, String bUserIds) {
         return dao.getUsersOfRegisterDateAndBUserIds(registerDate, bUserIds);
     }
+    public List<User> getUsersOfRegisterDateAndDays(String registerDate, String days) {
+        return dao.getUsersOfRegisterDateAndDays(registerDate, days);
+    }
+    public List<User> getUsersOfRegisterDateAndNowDays(String registerDate, String nowDays) {
+        return dao.getUsersOfRegisterDateAndNowDays(registerDate, nowDays);
+    }
     public List<User> getUsersOfLoginDateAndPhone(String loginDate, String phone) {
         return dao.getUsersOfLoginDateAndPhone(loginDate, phone);
     }
@@ -2645,6 +3173,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfLoginDateAndBUserIds(String loginDate, String bUserIds) {
         return dao.getUsersOfLoginDateAndBUserIds(loginDate, bUserIds);
     }
+    public List<User> getUsersOfLoginDateAndDays(String loginDate, String days) {
+        return dao.getUsersOfLoginDateAndDays(loginDate, days);
+    }
+    public List<User> getUsersOfLoginDateAndNowDays(String loginDate, String nowDays) {
+        return dao.getUsersOfLoginDateAndNowDays(loginDate, nowDays);
+    }
     public List<User> getUsersOfPhoneAndEmail(String phone, String email) {
         return dao.getUsersOfPhoneAndEmail(phone, email);
     }
@@ -2681,6 +3215,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfPhoneAndBUserIds(String phone, String bUserIds) {
         return dao.getUsersOfPhoneAndBUserIds(phone, bUserIds);
     }
+    public List<User> getUsersOfPhoneAndDays(String phone, String days) {
+        return dao.getUsersOfPhoneAndDays(phone, days);
+    }
+    public List<User> getUsersOfPhoneAndNowDays(String phone, String nowDays) {
+        return dao.getUsersOfPhoneAndNowDays(phone, nowDays);
+    }
     public List<User> getUsersOfEmailAndMoney(String email, String money) {
         return dao.getUsersOfEmailAndMoney(email, money);
     }
@@ -2714,6 +3254,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfEmailAndBUserIds(String email, String bUserIds) {
         return dao.getUsersOfEmailAndBUserIds(email, bUserIds);
     }
+    public List<User> getUsersOfEmailAndDays(String email, String days) {
+        return dao.getUsersOfEmailAndDays(email, days);
+    }
+    public List<User> getUsersOfEmailAndNowDays(String email, String nowDays) {
+        return dao.getUsersOfEmailAndNowDays(email, nowDays);
+    }
     public List<User> getUsersOfMoneyAndScore(String money, String score) {
         return dao.getUsersOfMoneyAndScore(money, score);
     }
@@ -2744,6 +3290,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfMoneyAndBUserIds(String money, String bUserIds) {
         return dao.getUsersOfMoneyAndBUserIds(money, bUserIds);
     }
+    public List<User> getUsersOfMoneyAndDays(String money, String days) {
+        return dao.getUsersOfMoneyAndDays(money, days);
+    }
+    public List<User> getUsersOfMoneyAndNowDays(String money, String nowDays) {
+        return dao.getUsersOfMoneyAndNowDays(money, nowDays);
+    }
     public List<User> getUsersOfScoreAndPath(String score, String path) {
         return dao.getUsersOfScoreAndPath(score, path);
     }
@@ -2771,6 +3323,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfScoreAndBUserIds(String score, String bUserIds) {
         return dao.getUsersOfScoreAndBUserIds(score, bUserIds);
     }
+    public List<User> getUsersOfScoreAndDays(String score, String days) {
+        return dao.getUsersOfScoreAndDays(score, days);
+    }
+    public List<User> getUsersOfScoreAndNowDays(String score, String nowDays) {
+        return dao.getUsersOfScoreAndNowDays(score, nowDays);
+    }
     public List<User> getUsersOfPathAndParam(String path, String param) {
         return dao.getUsersOfPathAndParam(path, param);
     }
@@ -2795,6 +3353,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfPathAndBUserIds(String path, String bUserIds) {
         return dao.getUsersOfPathAndBUserIds(path, bUserIds);
     }
+    public List<User> getUsersOfPathAndDays(String path, String days) {
+        return dao.getUsersOfPathAndDays(path, days);
+    }
+    public List<User> getUsersOfPathAndNowDays(String path, String nowDays) {
+        return dao.getUsersOfPathAndNowDays(path, nowDays);
+    }
     public List<User> getUsersOfParamAndLvl(String param, String lvl) {
         return dao.getUsersOfParamAndLvl(param, lvl);
     }
@@ -2816,6 +3380,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfParamAndBUserIds(String param, String bUserIds) {
         return dao.getUsersOfParamAndBUserIds(param, bUserIds);
     }
+    public List<User> getUsersOfParamAndDays(String param, String days) {
+        return dao.getUsersOfParamAndDays(param, days);
+    }
+    public List<User> getUsersOfParamAndNowDays(String param, String nowDays) {
+        return dao.getUsersOfParamAndNowDays(param, nowDays);
+    }
     public List<User> getUsersOfLvlAndNewIds(String lvl, String newIds) {
         return dao.getUsersOfLvlAndNewIds(lvl, newIds);
     }
@@ -2834,6 +3404,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfLvlAndBUserIds(String lvl, String bUserIds) {
         return dao.getUsersOfLvlAndBUserIds(lvl, bUserIds);
     }
+    public List<User> getUsersOfLvlAndDays(String lvl, String days) {
+        return dao.getUsersOfLvlAndDays(lvl, days);
+    }
+    public List<User> getUsersOfLvlAndNowDays(String lvl, String nowDays) {
+        return dao.getUsersOfLvlAndNowDays(lvl, nowDays);
+    }
     public List<User> getUsersOfNewIdsAndUserIds(String newIds, String userIds) {
         return dao.getUsersOfNewIdsAndUserIds(newIds, userIds);
     }
@@ -2849,6 +3425,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfNewIdsAndBUserIds(String newIds, String bUserIds) {
         return dao.getUsersOfNewIdsAndBUserIds(newIds, bUserIds);
     }
+    public List<User> getUsersOfNewIdsAndDays(String newIds, String days) {
+        return dao.getUsersOfNewIdsAndDays(newIds, days);
+    }
+    public List<User> getUsersOfNewIdsAndNowDays(String newIds, String nowDays) {
+        return dao.getUsersOfNewIdsAndNowDays(newIds, nowDays);
+    }
     public List<User> getUsersOfUserIdsAndSignature(String userIds, String signature) {
         return dao.getUsersOfUserIdsAndSignature(userIds, signature);
     }
@@ -2861,6 +3443,12 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfUserIdsAndBUserIds(String userIds, String bUserIds) {
         return dao.getUsersOfUserIdsAndBUserIds(userIds, bUserIds);
     }
+    public List<User> getUsersOfUserIdsAndDays(String userIds, String days) {
+        return dao.getUsersOfUserIdsAndDays(userIds, days);
+    }
+    public List<User> getUsersOfUserIdsAndNowDays(String userIds, String nowDays) {
+        return dao.getUsersOfUserIdsAndNowDays(userIds, nowDays);
+    }
     public List<User> getUsersOfSignatureAndImage(String signature, String image) {
         return dao.getUsersOfSignatureAndImage(signature, image);
     }
@@ -2870,13 +3458,40 @@ public class IUserServiceImpl implements IUserService {
     public List<User> getUsersOfSignatureAndBUserIds(String signature, String bUserIds) {
         return dao.getUsersOfSignatureAndBUserIds(signature, bUserIds);
     }
+    public List<User> getUsersOfSignatureAndDays(String signature, String days) {
+        return dao.getUsersOfSignatureAndDays(signature, days);
+    }
+    public List<User> getUsersOfSignatureAndNowDays(String signature, String nowDays) {
+        return dao.getUsersOfSignatureAndNowDays(signature, nowDays);
+    }
     public List<User> getUsersOfImageAndFamous(String image, String famous) {
         return dao.getUsersOfImageAndFamous(image, famous);
     }
     public List<User> getUsersOfImageAndBUserIds(String image, String bUserIds) {
         return dao.getUsersOfImageAndBUserIds(image, bUserIds);
     }
+    public List<User> getUsersOfImageAndDays(String image, String days) {
+        return dao.getUsersOfImageAndDays(image, days);
+    }
+    public List<User> getUsersOfImageAndNowDays(String image, String nowDays) {
+        return dao.getUsersOfImageAndNowDays(image, nowDays);
+    }
     public List<User> getUsersOfFamousAndBUserIds(String famous, String bUserIds) {
         return dao.getUsersOfFamousAndBUserIds(famous, bUserIds);
+    }
+    public List<User> getUsersOfFamousAndDays(String famous, String days) {
+        return dao.getUsersOfFamousAndDays(famous, days);
+    }
+    public List<User> getUsersOfFamousAndNowDays(String famous, String nowDays) {
+        return dao.getUsersOfFamousAndNowDays(famous, nowDays);
+    }
+    public List<User> getUsersOfBUserIdsAndDays(String bUserIds, String days) {
+        return dao.getUsersOfBUserIdsAndDays(bUserIds, days);
+    }
+    public List<User> getUsersOfBUserIdsAndNowDays(String bUserIds, String nowDays) {
+        return dao.getUsersOfBUserIdsAndNowDays(bUserIds, nowDays);
+    }
+    public List<User> getUsersOfDaysAndNowDays(String days, String nowDays) {
+        return dao.getUsersOfDaysAndNowDays(days, nowDays);
     }
 }

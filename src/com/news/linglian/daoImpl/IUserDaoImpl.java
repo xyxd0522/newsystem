@@ -106,6 +106,16 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfDays(User user, String days) {
+        User kUser = new User();
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfNowDays(User user, String nowDays) {
+        User kUser = new User();
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfUserIdAndPassword(User user, String userId, String password) {
         User kUser = new User();
         kUser.setUserId(userId);
@@ -214,6 +224,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfUserIdAndDays(User user, String userId, String days) {
+        User kUser = new User();
+        kUser.setUserId(userId);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfUserIdAndNowDays(User user, String userId, String nowDays) {
+        User kUser = new User();
+        kUser.setUserId(userId);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfPasswordAndName(User user, String password, String name) {
         User kUser = new User();
         kUser.setPassword(password);
@@ -316,6 +338,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfPasswordAndDays(User user, String password, String days) {
+        User kUser = new User();
+        kUser.setPassword(password);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfPasswordAndNowDays(User user, String password, String nowDays) {
+        User kUser = new User();
+        kUser.setPassword(password);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfNameAndSex(User user, String name, String sex) {
         User kUser = new User();
         kUser.setName(name);
@@ -412,6 +446,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfNameAndDays(User user, String name, String days) {
+        User kUser = new User();
+        kUser.setName(name);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfNameAndNowDays(User user, String name, String nowDays) {
+        User kUser = new User();
+        kUser.setName(name);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfSexAndRegisterDate(User user, String sex, String registerDate) {
         User kUser = new User();
         kUser.setSex(sex);
@@ -502,6 +548,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfSexAndDays(User user, String sex, String days) {
+        User kUser = new User();
+        kUser.setSex(sex);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfSexAndNowDays(User user, String sex, String nowDays) {
+        User kUser = new User();
+        kUser.setSex(sex);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfRegisterDateAndLoginDate(User user, String registerDate, String loginDate) {
         User kUser = new User();
         kUser.setRegisterDate(registerDate);
@@ -586,6 +644,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfRegisterDateAndDays(User user, String registerDate, String days) {
+        User kUser = new User();
+        kUser.setRegisterDate(registerDate);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfRegisterDateAndNowDays(User user, String registerDate, String nowDays) {
+        User kUser = new User();
+        kUser.setRegisterDate(registerDate);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfLoginDateAndPhone(User user, String loginDate, String phone) {
         User kUser = new User();
         kUser.setLoginDate(loginDate);
@@ -664,6 +734,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfLoginDateAndDays(User user, String loginDate, String days) {
+        User kUser = new User();
+        kUser.setLoginDate(loginDate);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfLoginDateAndNowDays(User user, String loginDate, String nowDays) {
+        User kUser = new User();
+        kUser.setLoginDate(loginDate);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfPhoneAndEmail(User user, String phone, String email) {
         User kUser = new User();
         kUser.setPhone(phone);
@@ -736,6 +818,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfPhoneAndDays(User user, String phone, String days) {
+        User kUser = new User();
+        kUser.setPhone(phone);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfPhoneAndNowDays(User user, String phone, String nowDays) {
+        User kUser = new User();
+        kUser.setPhone(phone);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfEmailAndMoney(User user, String email, String money) {
         User kUser = new User();
         kUser.setEmail(email);
@@ -802,6 +896,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfEmailAndDays(User user, String email, String days) {
+        User kUser = new User();
+        kUser.setEmail(email);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfEmailAndNowDays(User user, String email, String nowDays) {
+        User kUser = new User();
+        kUser.setEmail(email);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfMoneyAndScore(User user, String money, String score) {
         User kUser = new User();
         kUser.setMoney(money);
@@ -862,6 +968,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfMoneyAndDays(User user, String money, String days) {
+        User kUser = new User();
+        kUser.setMoney(money);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfMoneyAndNowDays(User user, String money, String nowDays) {
+        User kUser = new User();
+        kUser.setMoney(money);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfScoreAndPath(User user, String score, String path) {
         User kUser = new User();
         kUser.setScore(score);
@@ -916,6 +1034,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfScoreAndDays(User user, String score, String days) {
+        User kUser = new User();
+        kUser.setScore(score);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfScoreAndNowDays(User user, String score, String nowDays) {
+        User kUser = new User();
+        kUser.setScore(score);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfPathAndParam(User user, String path, String param) {
         User kUser = new User();
         kUser.setPath(path);
@@ -964,6 +1094,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfPathAndDays(User user, String path, String days) {
+        User kUser = new User();
+        kUser.setPath(path);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfPathAndNowDays(User user, String path, String nowDays) {
+        User kUser = new User();
+        kUser.setPath(path);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfParamAndLvl(User user, String param, String lvl) {
         User kUser = new User();
         kUser.setParam(param);
@@ -1006,6 +1148,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfParamAndDays(User user, String param, String days) {
+        User kUser = new User();
+        kUser.setParam(param);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfParamAndNowDays(User user, String param, String nowDays) {
+        User kUser = new User();
+        kUser.setParam(param);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfLvlAndNewIds(User user, String lvl, String newIds) {
         User kUser = new User();
         kUser.setLvl(lvl);
@@ -1042,6 +1196,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfLvlAndDays(User user, String lvl, String days) {
+        User kUser = new User();
+        kUser.setLvl(lvl);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfLvlAndNowDays(User user, String lvl, String nowDays) {
+        User kUser = new User();
+        kUser.setLvl(lvl);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfNewIdsAndUserIds(User user, String newIds, String userIds) {
         User kUser = new User();
         kUser.setNewIds(newIds);
@@ -1072,6 +1238,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfNewIdsAndDays(User user, String newIds, String days) {
+        User kUser = new User();
+        kUser.setNewIds(newIds);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfNewIdsAndNowDays(User user, String newIds, String nowDays) {
+        User kUser = new User();
+        kUser.setNewIds(newIds);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfUserIdsAndSignature(User user, String userIds, String signature) {
         User kUser = new User();
         kUser.setUserIds(userIds);
@@ -1096,6 +1274,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfUserIdsAndDays(User user, String userIds, String days) {
+        User kUser = new User();
+        kUser.setUserIds(userIds);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfUserIdsAndNowDays(User user, String userIds, String nowDays) {
+        User kUser = new User();
+        kUser.setUserIds(userIds);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfSignatureAndImage(User user, String signature, String image) {
         User kUser = new User();
         kUser.setSignature(signature);
@@ -1114,6 +1304,18 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfSignatureAndDays(User user, String signature, String days) {
+        User kUser = new User();
+        kUser.setSignature(signature);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfSignatureAndNowDays(User user, String signature, String nowDays) {
+        User kUser = new User();
+        kUser.setSignature(signature);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfImageAndFamous(User user, String image, String famous) {
         User kUser = new User();
         kUser.setImage(image);
@@ -1126,10 +1328,52 @@ public class IUserDaoImpl implements IUserDao {
         kUser.setBUserIds(bUserIds);
         return update(user, kUser);
     }
+    public int updateOfImageAndDays(User user, String image, String days) {
+        User kUser = new User();
+        kUser.setImage(image);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfImageAndNowDays(User user, String image, String nowDays) {
+        User kUser = new User();
+        kUser.setImage(image);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
     public int updateOfFamousAndBUserIds(User user, String famous, String bUserIds) {
         User kUser = new User();
         kUser.setFamous(famous);
         kUser.setBUserIds(bUserIds);
+        return update(user, kUser);
+    }
+    public int updateOfFamousAndDays(User user, String famous, String days) {
+        User kUser = new User();
+        kUser.setFamous(famous);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfFamousAndNowDays(User user, String famous, String nowDays) {
+        User kUser = new User();
+        kUser.setFamous(famous);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
+    public int updateOfBUserIdsAndDays(User user, String bUserIds, String days) {
+        User kUser = new User();
+        kUser.setBUserIds(bUserIds);
+        kUser.setDays(days);
+        return update(user, kUser);
+    }
+    public int updateOfBUserIdsAndNowDays(User user, String bUserIds, String nowDays) {
+        User kUser = new User();
+        kUser.setBUserIds(bUserIds);
+        kUser.setNowDays(nowDays);
+        return update(user, kUser);
+    }
+    public int updateOfDaysAndNowDays(User user, String days, String nowDays) {
+        User kUser = new User();
+        kUser.setDays(days);
+        kUser.setNowDays(nowDays);
         return update(user, kUser);
     }
     public int remove(User user) {
@@ -1228,6 +1472,16 @@ public class IUserDaoImpl implements IUserDao {
     public int removeOfBUserIds(String bUserIds) {
         User user = new User();
         user.setBUserIds(bUserIds);
+        return remove(user);
+    }
+    public int removeOfDays(String days) {
+        User user = new User();
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfNowDays(String nowDays) {
+        User user = new User();
+        user.setNowDays(nowDays);
         return remove(user);
     }
     public int removeOfUserIdAndPassword(String userId, String password) {
@@ -1338,6 +1592,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfUserIdAndDays(String userId, String days) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfUserIdAndNowDays(String userId, String nowDays) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfPasswordAndName(String password, String name) {
         User user = new User();
         user.setPassword(password);
@@ -1440,6 +1706,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfPasswordAndDays(String password, String days) {
+        User user = new User();
+        user.setPassword(password);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfPasswordAndNowDays(String password, String nowDays) {
+        User user = new User();
+        user.setPassword(password);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfNameAndSex(String name, String sex) {
         User user = new User();
         user.setName(name);
@@ -1536,6 +1814,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfNameAndDays(String name, String days) {
+        User user = new User();
+        user.setName(name);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfNameAndNowDays(String name, String nowDays) {
+        User user = new User();
+        user.setName(name);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfSexAndRegisterDate(String sex, String registerDate) {
         User user = new User();
         user.setSex(sex);
@@ -1626,6 +1916,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfSexAndDays(String sex, String days) {
+        User user = new User();
+        user.setSex(sex);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfSexAndNowDays(String sex, String nowDays) {
+        User user = new User();
+        user.setSex(sex);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfRegisterDateAndLoginDate(String registerDate, String loginDate) {
         User user = new User();
         user.setRegisterDate(registerDate);
@@ -1710,6 +2012,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfRegisterDateAndDays(String registerDate, String days) {
+        User user = new User();
+        user.setRegisterDate(registerDate);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfRegisterDateAndNowDays(String registerDate, String nowDays) {
+        User user = new User();
+        user.setRegisterDate(registerDate);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfLoginDateAndPhone(String loginDate, String phone) {
         User user = new User();
         user.setLoginDate(loginDate);
@@ -1788,6 +2102,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfLoginDateAndDays(String loginDate, String days) {
+        User user = new User();
+        user.setLoginDate(loginDate);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfLoginDateAndNowDays(String loginDate, String nowDays) {
+        User user = new User();
+        user.setLoginDate(loginDate);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfPhoneAndEmail(String phone, String email) {
         User user = new User();
         user.setPhone(phone);
@@ -1860,6 +2186,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfPhoneAndDays(String phone, String days) {
+        User user = new User();
+        user.setPhone(phone);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfPhoneAndNowDays(String phone, String nowDays) {
+        User user = new User();
+        user.setPhone(phone);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfEmailAndMoney(String email, String money) {
         User user = new User();
         user.setEmail(email);
@@ -1926,6 +2264,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfEmailAndDays(String email, String days) {
+        User user = new User();
+        user.setEmail(email);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfEmailAndNowDays(String email, String nowDays) {
+        User user = new User();
+        user.setEmail(email);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfMoneyAndScore(String money, String score) {
         User user = new User();
         user.setMoney(money);
@@ -1986,6 +2336,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfMoneyAndDays(String money, String days) {
+        User user = new User();
+        user.setMoney(money);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfMoneyAndNowDays(String money, String nowDays) {
+        User user = new User();
+        user.setMoney(money);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfScoreAndPath(String score, String path) {
         User user = new User();
         user.setScore(score);
@@ -2040,6 +2402,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfScoreAndDays(String score, String days) {
+        User user = new User();
+        user.setScore(score);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfScoreAndNowDays(String score, String nowDays) {
+        User user = new User();
+        user.setScore(score);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfPathAndParam(String path, String param) {
         User user = new User();
         user.setPath(path);
@@ -2088,6 +2462,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfPathAndDays(String path, String days) {
+        User user = new User();
+        user.setPath(path);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfPathAndNowDays(String path, String nowDays) {
+        User user = new User();
+        user.setPath(path);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfParamAndLvl(String param, String lvl) {
         User user = new User();
         user.setParam(param);
@@ -2130,6 +2516,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfParamAndDays(String param, String days) {
+        User user = new User();
+        user.setParam(param);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfParamAndNowDays(String param, String nowDays) {
+        User user = new User();
+        user.setParam(param);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfLvlAndNewIds(String lvl, String newIds) {
         User user = new User();
         user.setLvl(lvl);
@@ -2166,6 +2564,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfLvlAndDays(String lvl, String days) {
+        User user = new User();
+        user.setLvl(lvl);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfLvlAndNowDays(String lvl, String nowDays) {
+        User user = new User();
+        user.setLvl(lvl);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfNewIdsAndUserIds(String newIds, String userIds) {
         User user = new User();
         user.setNewIds(newIds);
@@ -2196,6 +2606,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfNewIdsAndDays(String newIds, String days) {
+        User user = new User();
+        user.setNewIds(newIds);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfNewIdsAndNowDays(String newIds, String nowDays) {
+        User user = new User();
+        user.setNewIds(newIds);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfUserIdsAndSignature(String userIds, String signature) {
         User user = new User();
         user.setUserIds(userIds);
@@ -2220,6 +2642,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfUserIdsAndDays(String userIds, String days) {
+        User user = new User();
+        user.setUserIds(userIds);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfUserIdsAndNowDays(String userIds, String nowDays) {
+        User user = new User();
+        user.setUserIds(userIds);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfSignatureAndImage(String signature, String image) {
         User user = new User();
         user.setSignature(signature);
@@ -2238,6 +2672,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfSignatureAndDays(String signature, String days) {
+        User user = new User();
+        user.setSignature(signature);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfSignatureAndNowDays(String signature, String nowDays) {
+        User user = new User();
+        user.setSignature(signature);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfImageAndFamous(String image, String famous) {
         User user = new User();
         user.setImage(image);
@@ -2250,10 +2696,52 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return remove(user);
     }
+    public int removeOfImageAndDays(String image, String days) {
+        User user = new User();
+        user.setImage(image);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfImageAndNowDays(String image, String nowDays) {
+        User user = new User();
+        user.setImage(image);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
     public int removeOfFamousAndBUserIds(String famous, String bUserIds) {
         User user = new User();
         user.setFamous(famous);
         user.setBUserIds(bUserIds);
+        return remove(user);
+    }
+    public int removeOfFamousAndDays(String famous, String days) {
+        User user = new User();
+        user.setFamous(famous);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfFamousAndNowDays(String famous, String nowDays) {
+        User user = new User();
+        user.setFamous(famous);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
+    public int removeOfBUserIdsAndDays(String bUserIds, String days) {
+        User user = new User();
+        user.setBUserIds(bUserIds);
+        user.setDays(days);
+        return remove(user);
+    }
+    public int removeOfBUserIdsAndNowDays(String bUserIds, String nowDays) {
+        User user = new User();
+        user.setBUserIds(bUserIds);
+        user.setNowDays(nowDays);
+        return remove(user);
+    }
+    public int removeOfDaysAndNowDays(String days, String nowDays) {
+        User user = new User();
+        user.setDays(days);
+        user.setNowDays(nowDays);
         return remove(user);
     }
     public int insert(User user) {
@@ -2352,6 +2840,16 @@ public class IUserDaoImpl implements IUserDao {
     public int insertOfBUserIds(String bUserIds) {
         User user = new User();
         user.setBUserIds(bUserIds);
+        return insert(user);
+    }
+    public int insertOfDays(String days) {
+        User user = new User();
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfNowDays(String nowDays) {
+        User user = new User();
+        user.setNowDays(nowDays);
         return insert(user);
     }
     public int insertOfUserIdAndPassword(String userId, String password) {
@@ -2462,6 +2960,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfUserIdAndDays(String userId, String days) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfUserIdAndNowDays(String userId, String nowDays) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfPasswordAndName(String password, String name) {
         User user = new User();
         user.setPassword(password);
@@ -2564,6 +3074,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfPasswordAndDays(String password, String days) {
+        User user = new User();
+        user.setPassword(password);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfPasswordAndNowDays(String password, String nowDays) {
+        User user = new User();
+        user.setPassword(password);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfNameAndSex(String name, String sex) {
         User user = new User();
         user.setName(name);
@@ -2660,6 +3182,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfNameAndDays(String name, String days) {
+        User user = new User();
+        user.setName(name);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfNameAndNowDays(String name, String nowDays) {
+        User user = new User();
+        user.setName(name);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfSexAndRegisterDate(String sex, String registerDate) {
         User user = new User();
         user.setSex(sex);
@@ -2750,6 +3284,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfSexAndDays(String sex, String days) {
+        User user = new User();
+        user.setSex(sex);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfSexAndNowDays(String sex, String nowDays) {
+        User user = new User();
+        user.setSex(sex);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfRegisterDateAndLoginDate(String registerDate, String loginDate) {
         User user = new User();
         user.setRegisterDate(registerDate);
@@ -2834,6 +3380,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfRegisterDateAndDays(String registerDate, String days) {
+        User user = new User();
+        user.setRegisterDate(registerDate);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfRegisterDateAndNowDays(String registerDate, String nowDays) {
+        User user = new User();
+        user.setRegisterDate(registerDate);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfLoginDateAndPhone(String loginDate, String phone) {
         User user = new User();
         user.setLoginDate(loginDate);
@@ -2912,6 +3470,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfLoginDateAndDays(String loginDate, String days) {
+        User user = new User();
+        user.setLoginDate(loginDate);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfLoginDateAndNowDays(String loginDate, String nowDays) {
+        User user = new User();
+        user.setLoginDate(loginDate);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfPhoneAndEmail(String phone, String email) {
         User user = new User();
         user.setPhone(phone);
@@ -2984,6 +3554,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfPhoneAndDays(String phone, String days) {
+        User user = new User();
+        user.setPhone(phone);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfPhoneAndNowDays(String phone, String nowDays) {
+        User user = new User();
+        user.setPhone(phone);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfEmailAndMoney(String email, String money) {
         User user = new User();
         user.setEmail(email);
@@ -3050,6 +3632,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfEmailAndDays(String email, String days) {
+        User user = new User();
+        user.setEmail(email);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfEmailAndNowDays(String email, String nowDays) {
+        User user = new User();
+        user.setEmail(email);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfMoneyAndScore(String money, String score) {
         User user = new User();
         user.setMoney(money);
@@ -3110,6 +3704,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfMoneyAndDays(String money, String days) {
+        User user = new User();
+        user.setMoney(money);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfMoneyAndNowDays(String money, String nowDays) {
+        User user = new User();
+        user.setMoney(money);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfScoreAndPath(String score, String path) {
         User user = new User();
         user.setScore(score);
@@ -3164,6 +3770,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfScoreAndDays(String score, String days) {
+        User user = new User();
+        user.setScore(score);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfScoreAndNowDays(String score, String nowDays) {
+        User user = new User();
+        user.setScore(score);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfPathAndParam(String path, String param) {
         User user = new User();
         user.setPath(path);
@@ -3212,6 +3830,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfPathAndDays(String path, String days) {
+        User user = new User();
+        user.setPath(path);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfPathAndNowDays(String path, String nowDays) {
+        User user = new User();
+        user.setPath(path);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfParamAndLvl(String param, String lvl) {
         User user = new User();
         user.setParam(param);
@@ -3254,6 +3884,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfParamAndDays(String param, String days) {
+        User user = new User();
+        user.setParam(param);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfParamAndNowDays(String param, String nowDays) {
+        User user = new User();
+        user.setParam(param);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfLvlAndNewIds(String lvl, String newIds) {
         User user = new User();
         user.setLvl(lvl);
@@ -3290,6 +3932,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfLvlAndDays(String lvl, String days) {
+        User user = new User();
+        user.setLvl(lvl);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfLvlAndNowDays(String lvl, String nowDays) {
+        User user = new User();
+        user.setLvl(lvl);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfNewIdsAndUserIds(String newIds, String userIds) {
         User user = new User();
         user.setNewIds(newIds);
@@ -3320,6 +3974,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfNewIdsAndDays(String newIds, String days) {
+        User user = new User();
+        user.setNewIds(newIds);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfNewIdsAndNowDays(String newIds, String nowDays) {
+        User user = new User();
+        user.setNewIds(newIds);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfUserIdsAndSignature(String userIds, String signature) {
         User user = new User();
         user.setUserIds(userIds);
@@ -3344,6 +4010,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfUserIdsAndDays(String userIds, String days) {
+        User user = new User();
+        user.setUserIds(userIds);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfUserIdsAndNowDays(String userIds, String nowDays) {
+        User user = new User();
+        user.setUserIds(userIds);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfSignatureAndImage(String signature, String image) {
         User user = new User();
         user.setSignature(signature);
@@ -3362,6 +4040,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfSignatureAndDays(String signature, String days) {
+        User user = new User();
+        user.setSignature(signature);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfSignatureAndNowDays(String signature, String nowDays) {
+        User user = new User();
+        user.setSignature(signature);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfImageAndFamous(String image, String famous) {
         User user = new User();
         user.setImage(image);
@@ -3374,10 +4064,52 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return insert(user);
     }
+    public int insertOfImageAndDays(String image, String days) {
+        User user = new User();
+        user.setImage(image);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfImageAndNowDays(String image, String nowDays) {
+        User user = new User();
+        user.setImage(image);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
     public int insertOfFamousAndBUserIds(String famous, String bUserIds) {
         User user = new User();
         user.setFamous(famous);
         user.setBUserIds(bUserIds);
+        return insert(user);
+    }
+    public int insertOfFamousAndDays(String famous, String days) {
+        User user = new User();
+        user.setFamous(famous);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfFamousAndNowDays(String famous, String nowDays) {
+        User user = new User();
+        user.setFamous(famous);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
+    public int insertOfBUserIdsAndDays(String bUserIds, String days) {
+        User user = new User();
+        user.setBUserIds(bUserIds);
+        user.setDays(days);
+        return insert(user);
+    }
+    public int insertOfBUserIdsAndNowDays(String bUserIds, String nowDays) {
+        User user = new User();
+        user.setBUserIds(bUserIds);
+        user.setNowDays(nowDays);
+        return insert(user);
+    }
+    public int insertOfDaysAndNowDays(String days, String nowDays) {
+        User user = new User();
+        user.setDays(days);
+        user.setNowDays(nowDays);
         return insert(user);
     }
     public User getUser(User user) {
@@ -3476,6 +4208,16 @@ public class IUserDaoImpl implements IUserDao {
     public User getUserOfBUserIds(String bUserIds) {
         User user = new User();
         user.setBUserIds(bUserIds);
+        return getUser(user);
+    }
+    public User getUserOfDays(String days) {
+        User user = new User();
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfNowDays(String nowDays) {
+        User user = new User();
+        user.setNowDays(nowDays);
         return getUser(user);
     }
     public User getUserOfUserIdAndPassword(String userId, String password) {
@@ -3586,6 +4328,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfUserIdAndDays(String userId, String days) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfUserIdAndNowDays(String userId, String nowDays) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfPasswordAndName(String password, String name) {
         User user = new User();
         user.setPassword(password);
@@ -3688,6 +4442,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfPasswordAndDays(String password, String days) {
+        User user = new User();
+        user.setPassword(password);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfPasswordAndNowDays(String password, String nowDays) {
+        User user = new User();
+        user.setPassword(password);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfNameAndSex(String name, String sex) {
         User user = new User();
         user.setName(name);
@@ -3784,6 +4550,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfNameAndDays(String name, String days) {
+        User user = new User();
+        user.setName(name);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfNameAndNowDays(String name, String nowDays) {
+        User user = new User();
+        user.setName(name);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfSexAndRegisterDate(String sex, String registerDate) {
         User user = new User();
         user.setSex(sex);
@@ -3874,6 +4652,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfSexAndDays(String sex, String days) {
+        User user = new User();
+        user.setSex(sex);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfSexAndNowDays(String sex, String nowDays) {
+        User user = new User();
+        user.setSex(sex);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfRegisterDateAndLoginDate(String registerDate, String loginDate) {
         User user = new User();
         user.setRegisterDate(registerDate);
@@ -3958,6 +4748,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfRegisterDateAndDays(String registerDate, String days) {
+        User user = new User();
+        user.setRegisterDate(registerDate);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfRegisterDateAndNowDays(String registerDate, String nowDays) {
+        User user = new User();
+        user.setRegisterDate(registerDate);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfLoginDateAndPhone(String loginDate, String phone) {
         User user = new User();
         user.setLoginDate(loginDate);
@@ -4036,6 +4838,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfLoginDateAndDays(String loginDate, String days) {
+        User user = new User();
+        user.setLoginDate(loginDate);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfLoginDateAndNowDays(String loginDate, String nowDays) {
+        User user = new User();
+        user.setLoginDate(loginDate);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfPhoneAndEmail(String phone, String email) {
         User user = new User();
         user.setPhone(phone);
@@ -4108,6 +4922,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfPhoneAndDays(String phone, String days) {
+        User user = new User();
+        user.setPhone(phone);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfPhoneAndNowDays(String phone, String nowDays) {
+        User user = new User();
+        user.setPhone(phone);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfEmailAndMoney(String email, String money) {
         User user = new User();
         user.setEmail(email);
@@ -4174,6 +5000,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfEmailAndDays(String email, String days) {
+        User user = new User();
+        user.setEmail(email);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfEmailAndNowDays(String email, String nowDays) {
+        User user = new User();
+        user.setEmail(email);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfMoneyAndScore(String money, String score) {
         User user = new User();
         user.setMoney(money);
@@ -4234,6 +5072,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfMoneyAndDays(String money, String days) {
+        User user = new User();
+        user.setMoney(money);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfMoneyAndNowDays(String money, String nowDays) {
+        User user = new User();
+        user.setMoney(money);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfScoreAndPath(String score, String path) {
         User user = new User();
         user.setScore(score);
@@ -4288,6 +5138,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfScoreAndDays(String score, String days) {
+        User user = new User();
+        user.setScore(score);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfScoreAndNowDays(String score, String nowDays) {
+        User user = new User();
+        user.setScore(score);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfPathAndParam(String path, String param) {
         User user = new User();
         user.setPath(path);
@@ -4336,6 +5198,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfPathAndDays(String path, String days) {
+        User user = new User();
+        user.setPath(path);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfPathAndNowDays(String path, String nowDays) {
+        User user = new User();
+        user.setPath(path);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfParamAndLvl(String param, String lvl) {
         User user = new User();
         user.setParam(param);
@@ -4378,6 +5252,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfParamAndDays(String param, String days) {
+        User user = new User();
+        user.setParam(param);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfParamAndNowDays(String param, String nowDays) {
+        User user = new User();
+        user.setParam(param);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfLvlAndNewIds(String lvl, String newIds) {
         User user = new User();
         user.setLvl(lvl);
@@ -4414,6 +5300,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfLvlAndDays(String lvl, String days) {
+        User user = new User();
+        user.setLvl(lvl);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfLvlAndNowDays(String lvl, String nowDays) {
+        User user = new User();
+        user.setLvl(lvl);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfNewIdsAndUserIds(String newIds, String userIds) {
         User user = new User();
         user.setNewIds(newIds);
@@ -4444,6 +5342,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfNewIdsAndDays(String newIds, String days) {
+        User user = new User();
+        user.setNewIds(newIds);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfNewIdsAndNowDays(String newIds, String nowDays) {
+        User user = new User();
+        user.setNewIds(newIds);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfUserIdsAndSignature(String userIds, String signature) {
         User user = new User();
         user.setUserIds(userIds);
@@ -4468,6 +5378,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfUserIdsAndDays(String userIds, String days) {
+        User user = new User();
+        user.setUserIds(userIds);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfUserIdsAndNowDays(String userIds, String nowDays) {
+        User user = new User();
+        user.setUserIds(userIds);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfSignatureAndImage(String signature, String image) {
         User user = new User();
         user.setSignature(signature);
@@ -4486,6 +5408,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfSignatureAndDays(String signature, String days) {
+        User user = new User();
+        user.setSignature(signature);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfSignatureAndNowDays(String signature, String nowDays) {
+        User user = new User();
+        user.setSignature(signature);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfImageAndFamous(String image, String famous) {
         User user = new User();
         user.setImage(image);
@@ -4498,10 +5432,52 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUser(user);
     }
+    public User getUserOfImageAndDays(String image, String days) {
+        User user = new User();
+        user.setImage(image);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfImageAndNowDays(String image, String nowDays) {
+        User user = new User();
+        user.setImage(image);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
     public User getUserOfFamousAndBUserIds(String famous, String bUserIds) {
         User user = new User();
         user.setFamous(famous);
         user.setBUserIds(bUserIds);
+        return getUser(user);
+    }
+    public User getUserOfFamousAndDays(String famous, String days) {
+        User user = new User();
+        user.setFamous(famous);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfFamousAndNowDays(String famous, String nowDays) {
+        User user = new User();
+        user.setFamous(famous);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
+    public User getUserOfBUserIdsAndDays(String bUserIds, String days) {
+        User user = new User();
+        user.setBUserIds(bUserIds);
+        user.setDays(days);
+        return getUser(user);
+    }
+    public User getUserOfBUserIdsAndNowDays(String bUserIds, String nowDays) {
+        User user = new User();
+        user.setBUserIds(bUserIds);
+        user.setNowDays(nowDays);
+        return getUser(user);
+    }
+    public User getUserOfDaysAndNowDays(String days, String nowDays) {
+        User user = new User();
+        user.setDays(days);
+        user.setNowDays(nowDays);
         return getUser(user);
     }
     public List<User> getUsers(User user) {
@@ -4600,6 +5576,16 @@ public class IUserDaoImpl implements IUserDao {
     public List<User> getUsersOfBUserIds(String bUserIds) {
         User user = new User();
         user.setBUserIds(bUserIds);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfDays(String days) {
+        User user = new User();
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfNowDays(String nowDays) {
+        User user = new User();
+        user.setNowDays(nowDays);
         return getUsers(user);
     }
     public List<User> getUsersOfUserIdAndPassword(String userId, String password) {
@@ -4710,6 +5696,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfUserIdAndDays(String userId, String days) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfUserIdAndNowDays(String userId, String nowDays) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfPasswordAndName(String password, String name) {
         User user = new User();
         user.setPassword(password);
@@ -4812,6 +5810,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfPasswordAndDays(String password, String days) {
+        User user = new User();
+        user.setPassword(password);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfPasswordAndNowDays(String password, String nowDays) {
+        User user = new User();
+        user.setPassword(password);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfNameAndSex(String name, String sex) {
         User user = new User();
         user.setName(name);
@@ -4908,6 +5918,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfNameAndDays(String name, String days) {
+        User user = new User();
+        user.setName(name);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfNameAndNowDays(String name, String nowDays) {
+        User user = new User();
+        user.setName(name);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfSexAndRegisterDate(String sex, String registerDate) {
         User user = new User();
         user.setSex(sex);
@@ -4998,6 +6020,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfSexAndDays(String sex, String days) {
+        User user = new User();
+        user.setSex(sex);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfSexAndNowDays(String sex, String nowDays) {
+        User user = new User();
+        user.setSex(sex);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfRegisterDateAndLoginDate(String registerDate, String loginDate) {
         User user = new User();
         user.setRegisterDate(registerDate);
@@ -5082,6 +6116,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfRegisterDateAndDays(String registerDate, String days) {
+        User user = new User();
+        user.setRegisterDate(registerDate);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfRegisterDateAndNowDays(String registerDate, String nowDays) {
+        User user = new User();
+        user.setRegisterDate(registerDate);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfLoginDateAndPhone(String loginDate, String phone) {
         User user = new User();
         user.setLoginDate(loginDate);
@@ -5160,6 +6206,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfLoginDateAndDays(String loginDate, String days) {
+        User user = new User();
+        user.setLoginDate(loginDate);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfLoginDateAndNowDays(String loginDate, String nowDays) {
+        User user = new User();
+        user.setLoginDate(loginDate);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfPhoneAndEmail(String phone, String email) {
         User user = new User();
         user.setPhone(phone);
@@ -5232,6 +6290,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfPhoneAndDays(String phone, String days) {
+        User user = new User();
+        user.setPhone(phone);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfPhoneAndNowDays(String phone, String nowDays) {
+        User user = new User();
+        user.setPhone(phone);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfEmailAndMoney(String email, String money) {
         User user = new User();
         user.setEmail(email);
@@ -5298,6 +6368,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfEmailAndDays(String email, String days) {
+        User user = new User();
+        user.setEmail(email);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfEmailAndNowDays(String email, String nowDays) {
+        User user = new User();
+        user.setEmail(email);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfMoneyAndScore(String money, String score) {
         User user = new User();
         user.setMoney(money);
@@ -5358,6 +6440,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfMoneyAndDays(String money, String days) {
+        User user = new User();
+        user.setMoney(money);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfMoneyAndNowDays(String money, String nowDays) {
+        User user = new User();
+        user.setMoney(money);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfScoreAndPath(String score, String path) {
         User user = new User();
         user.setScore(score);
@@ -5412,6 +6506,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfScoreAndDays(String score, String days) {
+        User user = new User();
+        user.setScore(score);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfScoreAndNowDays(String score, String nowDays) {
+        User user = new User();
+        user.setScore(score);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfPathAndParam(String path, String param) {
         User user = new User();
         user.setPath(path);
@@ -5460,6 +6566,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfPathAndDays(String path, String days) {
+        User user = new User();
+        user.setPath(path);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfPathAndNowDays(String path, String nowDays) {
+        User user = new User();
+        user.setPath(path);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfParamAndLvl(String param, String lvl) {
         User user = new User();
         user.setParam(param);
@@ -5502,6 +6620,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfParamAndDays(String param, String days) {
+        User user = new User();
+        user.setParam(param);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfParamAndNowDays(String param, String nowDays) {
+        User user = new User();
+        user.setParam(param);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfLvlAndNewIds(String lvl, String newIds) {
         User user = new User();
         user.setLvl(lvl);
@@ -5538,6 +6668,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfLvlAndDays(String lvl, String days) {
+        User user = new User();
+        user.setLvl(lvl);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfLvlAndNowDays(String lvl, String nowDays) {
+        User user = new User();
+        user.setLvl(lvl);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfNewIdsAndUserIds(String newIds, String userIds) {
         User user = new User();
         user.setNewIds(newIds);
@@ -5568,6 +6710,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfNewIdsAndDays(String newIds, String days) {
+        User user = new User();
+        user.setNewIds(newIds);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfNewIdsAndNowDays(String newIds, String nowDays) {
+        User user = new User();
+        user.setNewIds(newIds);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfUserIdsAndSignature(String userIds, String signature) {
         User user = new User();
         user.setUserIds(userIds);
@@ -5592,6 +6746,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfUserIdsAndDays(String userIds, String days) {
+        User user = new User();
+        user.setUserIds(userIds);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfUserIdsAndNowDays(String userIds, String nowDays) {
+        User user = new User();
+        user.setUserIds(userIds);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfSignatureAndImage(String signature, String image) {
         User user = new User();
         user.setSignature(signature);
@@ -5610,6 +6776,18 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfSignatureAndDays(String signature, String days) {
+        User user = new User();
+        user.setSignature(signature);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfSignatureAndNowDays(String signature, String nowDays) {
+        User user = new User();
+        user.setSignature(signature);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfImageAndFamous(String image, String famous) {
         User user = new User();
         user.setImage(image);
@@ -5622,10 +6800,52 @@ public class IUserDaoImpl implements IUserDao {
         user.setBUserIds(bUserIds);
         return getUsers(user);
     }
+    public List<User> getUsersOfImageAndDays(String image, String days) {
+        User user = new User();
+        user.setImage(image);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfImageAndNowDays(String image, String nowDays) {
+        User user = new User();
+        user.setImage(image);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
     public List<User> getUsersOfFamousAndBUserIds(String famous, String bUserIds) {
         User user = new User();
         user.setFamous(famous);
         user.setBUserIds(bUserIds);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfFamousAndDays(String famous, String days) {
+        User user = new User();
+        user.setFamous(famous);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfFamousAndNowDays(String famous, String nowDays) {
+        User user = new User();
+        user.setFamous(famous);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfBUserIdsAndDays(String bUserIds, String days) {
+        User user = new User();
+        user.setBUserIds(bUserIds);
+        user.setDays(days);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfBUserIdsAndNowDays(String bUserIds, String nowDays) {
+        User user = new User();
+        user.setBUserIds(bUserIds);
+        user.setNowDays(nowDays);
+        return getUsers(user);
+    }
+    public List<User> getUsersOfDaysAndNowDays(String days, String nowDays) {
+        User user = new User();
+        user.setDays(days);
+        user.setNowDays(nowDays);
         return getUsers(user);
     }
 }

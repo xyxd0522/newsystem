@@ -67,6 +67,7 @@
                                         <ul class="layui-tab-title" id="LAY_mine">
                                                 <li data-type="mine-jie" lay-id="index" class="layui-this">我发布的（<span>${fn:length(newsList)}</span>）</li>
                                                 <li data-type="collection" data-url="/collection/find/" lay-id="collection">我收藏的（<span>${fn:length(scList)}</span>）</li>
+                                                <li data-type="collection" data-url="/collection/find/" lay-id="collection">我关注的（<span>${fn:length(gzList)}</span>）</li>
                                         </ul>
                                         <div class="layui-tab-content" style="padding: 20px 0;">
                                                 <div class="layui-tab-item layui-show">
@@ -102,12 +103,23 @@
                                                         <ul class="mine-view jie-row">
                                                                 <c:forEach items="${scList}" var="n">
                                                                     <li>
-                                                                            <a class="jie-title" href="${pageContext.request.contextPath}/news/newsDetail.jsp" target="_blank">${n.title}</a>
+                                                                            <a class="jie-title" href="${pageContext.request.contextPath}/NewAction.do?method=queryOfId&newsId=${n.newsId}" target="_blank">${n.title}</a>
                                                                             <i>${n.time}</i>
                                                                             <em>
                                                                                     ${n.good}<i class="layui-icon" style="font-size: 24px; color: green;">&#xe6c6;</i>
                                                                                     /
                                                                                     ${n.bad}<i class="layui-icon" style="font-size: 24px; color: red;">&#xe6c5;</i></em>
+                                                                    </li>
+                                                                </c:forEach>
+                                                        </ul>
+                                                        <div id="LAY_page1"></div>
+                                                </div>
+                                                <div class="layui-tab-item">
+                                                        <ul class="mine-view jie-row">
+                                                                <c:forEach items="${gzList}" var="n">
+                                                                    <li>
+                                                                            <a class="jie-title" href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=${n.userId}" target="_blank">${n.name}</a>
+                                                                            <i>${n.loginDate}</i>
                                                                     </li>
                                                                 </c:forEach>
                                                         </ul>

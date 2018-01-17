@@ -117,6 +117,30 @@ public class IUserFactoryImpl implements IServletFactory {
             case "sendMessage":
                 doSendMessage(request, response, servlet);
                 break;
+            case "qd":
+                doQd(request, response, servlet);
+                break;
+        }
+    }
+
+    // 签到
+    protected void doQd(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "query_to")
+                .addNs("identity", "请重新登录", "login_from")
+                .build();
+        if (tMap != null) {
+            User user = (User) tMap.get("ses_identity");
+            if (!ServletUtil.equalOfObject(new Date().getDate(), user.getNowDays())) {
+                user.setNowDays(String.valueOf(new Date().getDate()));
+                ias.updateOfUserId(user, user.getUserId());
+                request.getSession().setAttribute("isQd", true);
+                request.getSession().setAttribute("info", "签到成功");
+            } else {
+                request.getSession().setAttribute("isQd", true); 
+                request.getSession().setAttribute("info", "今日已经签到");
+            }
         }
     }
 
@@ -250,8 +274,15 @@ public class IUserFactoryImpl implements IServletFactory {
                 strs = str.split(",");
                 scList = ins.getNewssOfNewsIds(strs);
             }
+            String gz = user.getUserIds();
+            List<User> gzList = null;
+            if (str != null) {
+                strs = gz.split(",");
+                gzList = ias.getUsersOfUsersIds(strs);
+            }
             request.getSession().setAttribute("newsList", newsList);
             request.getSession().setAttribute("scList", scList);
+            request.getSession().setAttribute("gzList", gzList);
             ServletUtil.forward(request, response, "user/index.jsp");
         }
     }

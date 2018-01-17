@@ -29,6 +29,7 @@ import db.DBUtil;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -95,6 +96,190 @@ public class INewsFactoryImpl implements IServletFactory {
             case "pushComment":
                 doPushComment(request, response, servlet);
                 break;
+            case "change":
+                doChange(request, response, servlet);
+                break;
+            case "add":
+                doAdd(request, response, servlet);
+                break;
+            case "del":
+                doDel(request, response, servlet);
+                break;
+            case "dz":
+                doDz(request, response, servlet);
+                break;
+        }
+    }
+
+    // 点赞
+    protected void doDz(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "update_from")
+                .addNs("identity", "请重新登录", "login_from")
+                .addNp("newsId", "请选择要点赞的新闻编号")
+                .build();
+        if (tMap != null) {
+            User user = (User) tMap.get("ses_identity");
+            String newsIds = user.getNewIds();
+            if (newsIds != null) {
+                String[] ss = newsIds.split(",");
+                boolean flag = true;
+                for (String s : ss) {
+                    if (tMap.get("par_newsId").equals(s)) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) {
+                    News news = ias.getNewsOfNewsId(tMap.get("par_newsId").toString());
+                    news.setGood(StringUtil.addInt(news.getGood(), "1"));
+                    ias.updateOfNewsId(news, news.getNewsId());
+                    user.setNewIds(newsIds + "," + tMap.get("par_newsId").toString());
+                    ius.updateOfUserId(user, user.getUserId());
+                    request.getSession().setAttribute("info", "点赞成功");
+                } else {
+                    request.getSession().setAttribute("info", "你已经点赞过了");
+                }
+            } else {
+                News news = ias.getNewsOfNewsId(tMap.get("par_newsId").toString());
+                news.setGood(StringUtil.addInt(news.getGood(), "1"));
+                ias.updateOfNewsId(news, news.getNewsId());
+                user.setNewIds(tMap.get("par_newsId").toString());
+                ius.updateOfUserId(user, user.getUserId());
+                request.getSession().setAttribute("info", "点赞成功");
+            }
+        }
+    }
+
+    /**
+     * 删除属性
+     *
+     * @param request
+     * @param response
+     * @param servlet
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void doDel(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "update_from")
+                .addNs("identity", "请重新登录", "login_from")
+                .addNp("par", "请选择要删除的属性")
+                .addNp("parVal", "请选择要删除的值")
+                .addNp("newsId", "请选择要删除的新闻编号")
+                .build();
+        if (tMap != null) {
+            User user = (User) tMap.get("ses_identity");
+            if ("-99".equals(user.getLvl())) {
+                Map<String, String> m = MapUtil.soss(tMap);
+                String par = m.get("par_par");
+                if ("buff".equals(par)) {
+                    String newsId = m.get("par_newsId");
+                    String val = m.get("par_parVal");
+                    News news = ias.getNewsOfNewsId(newsId);
+                    String strs = news.getBuff();
+                    if (strs != null) {
+                        news.setBuff("");
+                        List<String> tStrList = new ArrayList();
+                        String[] stra = strs.split(",");
+                        for (String s : stra) {
+                            if (!val.equals(s)) {
+                                tStrList.add(s);
+                            }
+                        }
+                        System.out.println(tStrList);
+                        for (String s : tStrList) {
+                            news.setBuff(news.getBuff() + "," + s);
+                        }
+                    }
+                    ias.updateOfNewsId(news, newsId);
+                }
+            }
+        }
+    }
+
+    /**
+     * 追加属性
+     *
+     * @param request
+     * @param response
+     * @param servlet
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void doAdd(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "update_from")
+                .addNs("identity", "请重新登录", "login_from")
+                .addNp("par", "请选择要追加的属性")
+                .addNp("parVal", "请选择要追加的值")
+                .addNp("newsId", "请选择要追加的新闻编号")
+                .build();
+        if (tMap != null) {
+            User user = (User) tMap.get("ses_identity");
+            if ("-99".equals(user.getLvl())) {
+                Map<String, String> m = MapUtil.soss(tMap);
+                String par = m.get("par_par");
+                if ("buff".equals(par)) {
+                    String newsId = m.get("par_newsId");
+                    String val = m.get("par_parVal");
+                    News news = ias.getNewsOfNewsId(newsId);
+                    String strs = news.getBuff();
+                    if (strs != null && !"".equals(strs)) {
+                        String[] stra = strs.split(",");
+                        boolean flag = true;
+                        for (String s : stra) {
+                            if (val.equals(s)) {
+                                flag = false;
+                                break;
+                            }
+                        }
+                        if (flag) { // 不存在此buff的时候
+                            news.setBuff(strs + "," + val);
+                        }
+                    } else { // 没有buff是的时候
+                        news.setBuff(val);
+                    }
+                    ias.updateOfNewsId(news, newsId);
+                }
+            }
+        }
+    }
+
+    /**
+     * 更改属性
+     *
+     * @param request
+     * @param response
+     * @param servlet
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void doChange(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "update_from")
+                .addNs("identity", "请重新登录", "login_from")
+                .addNp("par", "请选择要修改的属性")
+                .addNp("parVal", "请选择要修改的值")
+                .addNp("newsId", "请选择要修改的新闻编号")
+                .build();
+        if (tMap != null) {
+            User user = (User) tMap.get("ses_identity");
+            if ("-99".equals(user.getLvl())) {
+                Map<String, String> m = MapUtil.soss(tMap);
+                String par = m.get("par_par");
+                if ("status".equals(par)) {
+                    String newsId = m.get("par_newsId");
+                    String val = m.get("par_parVal");
+                    News news = new News();
+                    news.setStatus(val);
+                    ias.updateOfNewsId(news, newsId);
+                }
+            }
         }
     }
 
@@ -197,9 +382,8 @@ public class INewsFactoryImpl implements IServletFactory {
             }
             request.getSession().setAttribute("commentList", commentList);
             request.getSession().setAttribute("user", ius.getUserOfUserId(news.getUserId()));
-            ServletUtil.dataOfSetSesForward(request, response, servlet,
-                    "queryOfId_to", "queryOfId_from", "获取",
-                    news, "news");
+            request.getSession().setAttribute("news", news);
+            ServletUtil.forward(request, response, servlet, "queryOfId_to");
         }
     }
 
@@ -234,14 +418,22 @@ public class INewsFactoryImpl implements IServletFactory {
         if (tList != null) {
             request.getSession().setAttribute("newsSize", tList.size());
             if (tList.isEmpty()) {
-                request.getSession().setAttribute("info", "当前类别没有新闻");
+                request.getSession().setAttribute("info", "当前没有这些新闻");
                 request.getSession().setAttribute("newsSize", 0);
-                request.removeAttribute("newsList");
+                request.getSession().removeAttribute("newsList");
             } else {
                 if (page * 15 >= tList.size()) {
                     page = tList.size() / 15 + 1;
                 }
-                String orderBy = "time";
+                String orderBy = "newsId";
+                String likeStr = "buff";
+                String likeWord = "%置顶%";
+                if (request.getParameter("likeStr") != null) {
+                    likeStr = request.getParameter("likeStr");
+                }
+                if (request.getParameter("likeWord") != null) {
+                    likeWord = request.getParameter("likeWord");
+                }
                 if (request.getParameter("orderBy") != null) {
                     orderBy = request.getParameter("orderBy");
                 } else if (request.getSession().getAttribute("orderBy") != null) {
@@ -250,16 +442,43 @@ public class INewsFactoryImpl implements IServletFactory {
                 request.getSession().setAttribute("orderBy", orderBy);
                 request.getSession().setAttribute("newsPage", page);
                 // 配置新闻列表
-                List<News> pageNews = DBUtil.getObjectLimit("news", orderBy, news, (page - 1) * 15, 15);
+                List<News> pageNews = null;
+                if (request.getParameter("likeWord") != null) {
+                    pageNews = DBUtil.getObjectLikeLimit("news", orderBy, likeStr, "DESC", news, "%" + likeWord + "%", (page - 1) * 15, 15);
+                    if (pageNews != null) {
+                        for (News n : pageNews) {
+                            n.setSearch(StringUtil.addInt(n.getSearch(), "1"));
+                            ias.updateOfNewsId(n, n.getNewsId());
+                        }
+                        if (pageNews.isEmpty()) {
+                            request.getSession().setAttribute("info", "当前没有这些新闻，将为您呈现推荐新闻");
+                        }
+                    } else {
+                        request.getSession().setAttribute("info", "当前没有这些新闻，将为您呈现推荐新闻");
+                    }
+                    request.getSession().removeAttribute("zdNewsList");
+                } else {
+                    pageNews = DBUtil.getObjectLimit("news", orderBy, news, (page - 1) * 15, 15);
+                    // 获得置顶新闻列表
+                    List<News> zdlist = DBUtil.getObjectLikeLimit("news", orderBy, likeStr, "DESC", news, "%置顶%", 0, 6);
+                    request.getSession().setAttribute("zdNewsList", zdlist);
+                }
                 request.getSession().setAttribute("newsList", pageNews);
-                // 获得置顶新闻列表
-                List<News> zdlist = DBUtil.getObjectLikeLimit("news", orderBy, "buff", "DESC", news, "%置顶%", 0, 6);
-                request.getSession().setAttribute("zdNewsList", zdlist);
+                // 获得热搜榜
+                news = new News();
+                news.setStatus("通过");
+                List<News> rslist = DBUtil.getObjectLimit("news", "search", news, 0, 6);
+                request.getSession().setAttribute("rsList", rslist);
+                // 获取财富榜
+                User u = new User();
+                u.setLvl("1");
+                List<User> cfList = DBUtil.getObjectLimit("user", "money", u, 0, 12);
+                request.getSession().setAttribute("cfList", cfList);
             }
         } else {
             request.getSession().setAttribute("info", "当前类别没有新闻");
             request.getSession().setAttribute("newsSize", 0);
-            request.removeAttribute("newsList");
+            request.getSession().removeAttribute("newsList");
         }
         ServletUtil.forward(request, response, "index.jsp");
     }
@@ -279,7 +498,7 @@ public class INewsFactoryImpl implements IServletFactory {
         if (tMap != null) {
             User user = (User) tMap.get("ses_identity");
             News news = ias.getNewsOfNewsId(tMap.get("par_newsId").toString());
-            if (user.getUserId().endsWith(news.getUserId())) {
+            if (user.getUserId().endsWith(news.getUserId()) || "-99".equals(user.getLvl())) {
                 news.setStatus("已删除");
                 request.getSession().setAttribute("info", "删除成功");
                 ias.updateOfNewsId(news, news.getNewsId());
@@ -330,7 +549,7 @@ public class INewsFactoryImpl implements IServletFactory {
                     request.getSession().setAttribute("newsBody", tMap.get("par_body").toString());
                     request.getSession().setAttribute("newsTitle", tMap.get("par_title").toString());
                     request.getSession().setAttribute("info", "阳光值不足" + request.getParameter("money") + "你当前拥有" + user.getMoney() + "阳光值");
-                    ServletUtil.redirect(request, response, servlet, "insert_from");
+                    //ServletUtil.redirect(request, response, servlet, "insert_from");
                     return;
                 }
             }
@@ -375,6 +594,7 @@ public class INewsFactoryImpl implements IServletFactory {
             news.setTime(insertNewDate);
             news.setNewsId(m.get("par_newsId"));
             news.setUserId(user.getUserId());
+            news.setStatus("待审核");
             ServletUtil.dataOfSetReqRedirect(request, response, servlet, "update_to", "update_from", "修改", ias.updateOfNewsIdAndUserId(news, m.get("par_newsId"), user.getUserId()), "news");
         }
     }

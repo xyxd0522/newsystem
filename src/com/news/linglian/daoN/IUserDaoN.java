@@ -15,4 +15,5 @@ import java.util.List;
  */
 public interface IUserDaoN extends IUserDao {
     public List<User> getUsersLimit(int start, int size);
+    public List<User> getUsersOfUsersIds(String[] newsIds);
 }

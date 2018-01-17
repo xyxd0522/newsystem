@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -64,6 +65,12 @@ public class IdenityFilter implements Filter {
         } else {
             if (session.getAttribute("identity") != null) {
                 User user = (User) session.getAttribute("identity");
+                System.out.println(user.getNowDays());
+                if (user.getNowDays() == null || new Date().getDate() != Integer.parseInt(user.getNowDays())) {
+                    request.getSession().setAttribute("isQd", false);
+                } else {
+                    request.getSession().setAttribute("isQd", true);
+                }
                 List<Email> tList = new IEmailServiceImpl().getEmailsOfToUserIdAndStatus(user.getUserId(), "0");
                 if (tList != null) {
                     request.getSession().setAttribute("emailSize", tList.size());

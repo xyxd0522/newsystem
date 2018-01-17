@@ -17,6 +17,35 @@
                 <script src="../comm/layui/layui.js" charset="utf-8"></script>
                 <script src="../comm/jquery/jquery-2.1.4.js"></script>
                 <script src="../comm/layer/layer.js"></script>
+                <script>
+                    function dz(id) {
+                        htmlobj = $.ajax({url: "${pageContext.request.contextPath}/NewsAction.do?method=dz"
+                                    + "&newsId=" + id,
+                            async: false,
+                            success: function (data) {
+                                location.href = location.href;
+                            }
+                        });
+                    }
+                    function add(id, val) {
+                        htmlobj = $.ajax({url: "${pageContext.request.contextPath}/NewsAction.do?method=add"
+                                    + "&newsId=" + id + "&par=buff&parVal=" + val,
+                            async: false,
+                            success: function (data) {
+                                location.href = location.href;
+                            }
+                        });
+                    }
+                    function del(id, val) {
+                        htmlobj = $.ajax({url: "${pageContext.request.contextPath}/NewsAction.do?method=del"
+                                    + "&newsId=" + id + "&par=buff&parVal=" + val,
+                            async: false,
+                            success: function (data) {
+                                location.href = location.href;
+                            }
+                        });
+                    }
+                </script>
         </head>
         <body>
 
@@ -61,26 +90,44 @@
                                                                     <span class="layui-badge layui-bg-red" title="请前往[我的消息]查看未通过原因">${news.status}</span>
                                                                 </c:if>
                                                                 <c:if test="${identity.userId == news.userId || identity.lvl == -99}">
-                                                                    <span class="layui-btn layui-btn-xs jie-admin" type="del">删除</span>
+                                                                    <a class="mine-edit" href="${pageContext.request.contextPath}/NewsAction.do?method=readyUpdate&newsId=${news.newsId}"><span class="layui-btn layui-btn-xs jie-admin" type="del">编辑</span></a>
+                                                                    <a class="mine-edit layui-bg-red" href="${pageContext.request.contextPath}/NewsAction.do?method=remove&newsId=${news.newsId}"><span class="layui-btn layui-btn-xs jie-admin" type="del">删除</span></a>
+
                                                                 </c:if>
                                                                 <c:if test="${identity.lvl == -99}">
                                                                     <c:if test="${empty zhiding}">
-                                                                        <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="1">置顶</span>
+                                                                        <a href="javascript:void(0);" onclick="add(${news.newsId}, '置顶')">
+                                                                                <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="1">
+                                                                                        置顶
+                                                                                </span>
+                                                                        </a>
                                                                     </c:if>
-                                                                    <c:if test="${not empty zhiding}">
-                                                                        <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="0" style="background-color:#ccc;">取消置顶</span>
+                                                                    <c:if test="${zhiding}">
+                                                                        <a  href="javascript:void(0);" onclick="del(${news.newsId}, '置顶')">
+                                                                                <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="0" style="background-color:#ccc;">
+                                                                                        取消置顶
+                                                                                </span>
+                                                                        </a>
                                                                     </c:if>
                                                                     <c:if test="${empty jiajing}">
-                                                                        <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="1">加精</span> 
+                                                                        <a  href="javascript:void(0);" onclick="add(${news.newsId}, '精')">
+                                                                                <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="1">
+                                                                                        加精
+                                                                                </span>
+                                                                        </a>
                                                                     </c:if>
-                                                                    <c:if test="${not empty jiajing}">
-                                                                        <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="0" style="background-color:#ccc;">取消加精</span>
+                                                                    <c:if test="${jiajing}">
+                                                                        <a  href="javascript:void(0);" onclick="del(${news.newsId}, '精')">
+                                                                                <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="0" style="background-color:#ccc;">
+                                                                                        取消加精
+                                                                                </span>
+                                                                        </a>
                                                                     </c:if>
                                                                 </c:if>
                                                         </div>
                                                         <span class="fly-list-nums"> 
-                                                                <a href="#comment"><i class="iconfont" title="评论">&#xe60c;</i> 66</a>
-                                                                <i class="iconfont" title="人气">&#xe60b;</i> ${news.search}
+                                                                <a href="#comment"><i class="iconfont" title="评论">&#xe60c;</i>${fn:length(commentList)}</a>
+                                                                <a href="javascript:void(0);" onclick="dz(${news.newsId})"><i class="iconfont" title="人气">&#xe60b;</i> ${news.good}</a>
                                                         </span>
                                                 </div>
                                                 <div class="detail-about">
@@ -129,12 +176,12 @@
                                                                                         <c:if test="${empty allUsers[comment.userId].image}">
                                                                                             <img src="${pageContext.request.contextPath}/img/logo.png" alt="${allUsers[comment.userId].name}">
                                                                                         </c:if>
-                                                                                        <c:if test="${not empty user.image}">
+                                                                                        <c:if test="${not empty allUsers[comment.userId].image}">
                                                                                             <img src="${allUsers[comment.userId].image}" alt="${allUsers[comment.userId].name}">
                                                                                         </c:if>
                                                                                 </a>
                                                                                 <div class="fly-detail-user">
-                                                                                        <a href="" class="fly-link">
+                                                                                        <a href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=${comment.userId}" class="fly-link">
                                                                                                 <cite>${allUsers[comment.userId].name}</cite> 
                                                                                                 <c:if test="${allUsers[comment.userId].lvl >= 1}">
                                                                                                     <i class="layui-badge fly-badge-vip">VIP${allUsers[comment.userId].lvl}</i>
@@ -156,8 +203,6 @@
                                                                         </div>
                                                                         <div class="jieda-reply">
                                                                                 <span class="jieda-zan zanok" type="zan">
-                                                                                        <i class="iconfont icon-zan"></i>
-                                                                                        <em>${comment.good}</em>
                                                                                 </span>
                                                                                 <div class="jieda-admin">
                                                                                         <c:if test="${identity.userId == comment.userId || identity.lvl == -99}">
@@ -193,51 +238,18 @@
                                 </div>
                                 <div class="layui-col-md4">
                                         <dl class="fly-panel fly-list-one">
-                                                <dt class="fly-panel-title">本周热搜</dt>
-                                                <dd>
-                                                        <a href="">热搜新闻</a>
-                                                        <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                </dd>
-                                                <dd>
-                                                        <a href="">热搜新闻</a>
-                                                        <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                </dd>
-                                                <dd>
-                                                        <a href="">热搜新闻</a>
-                                                        <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                </dd>
-                                                <dd>
-                                                        <a href="">热搜新闻</a>
-                                                        <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                </dd>
-                                                <dd>
-                                                        <a href="">热搜新闻</a>
-                                                        <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                </dd>
-                                                <dd>
-                                                        <a href="">热搜新闻</a>
-                                                        <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                </dd>
-                                                <dd>
-                                                        <a href="">热搜新闻</a>
-                                                        <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                </dd>
-                                                <dd>
-                                                        <a href="">热搜新闻</a>
-                                                        <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                </dd>
-                                                <dd>
-                                                        <a href="">热搜新闻</a>
-                                                        <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                </dd>
-                                                <dd>
-                                                        <a href="">热搜新闻</a>
-                                                        <span><i class="layui-icon">&#xe615;</i>  16</span>
-                                                </dd>
-                                                <!-- 无数据时 -->
-                                                <!--
-                                                <div class="fly-none">没有相关数据</div>
-                                                -->
+                                                <dt class="fly-panel-title">热搜榜</dt>
+                                                <c:if test="${not empty rsList}">
+                                                    <c:forEach items="${rsList}" var="n">
+                                                        <dd>
+                                                                <a href="${pageContext.request.contextPath}/NewsAction.do?method=queryOfId&newsId=${n.newsId}">${n.title}</a>
+                                                                <span><i class="layui-icon">&#xe615;</i>${n.search}</span>
+                                                        </dd>
+                                                    </c:forEach>
+                                                </c:if>
+                                                <c:if test="${ empty rsList}">
+                                                    <div class="fly-none">没有相关数据</div>
+                                                </c:if>
                                         </dl>
 
                                         <div class="fly-panel" >
@@ -262,30 +274,29 @@
 
                 <script src="../comm/layui/layui.js"></script>
                 <script>
-                    layui.cache.page = '';
-                    layui.cache.user = {
-                        username: '游客'
-                        , uid: -1
-                        , avatar: '../img/logo.jpg'
-                        , experience: 83
-                        , sex: '男'
-                    };
-                    layui.config({
-                        version: "3.0.0"
-                        , base: '../comm/mods/'
-                    }).extend({
-                        fly: 'index'
-                    }).use(['fly', 'face'], function () {
-                        var $ = layui.$
-                                , fly = layui.fly;
-//如果你是采用模版自带的编辑器，你需要开启以下语句来解析。
+                                                                    layui.cache.page = '';
+                                                                    layui.cache.user = {
+                                                                        username: '游客'
+                                                                        , uid: -1
+                                                                        , avatar: '../img/logo.jpg'
+                                                                        , experience: 83
+                                                                        , sex: '男'
+                                                                    };
+                                                                    layui.config({
+                                                                        version: "3.0.0"
+                                                                        , base: '../comm/mods/'
+                                                                    }).extend({
+                                                                        fly: 'index'
+                                                                    }).use(['fly', 'face'], function () {
+                                                                        var $ = layui.$
+                                                                                , fly = layui.fly;
+                                                                        //如果你是采用模版自带的编辑器，你需要开启以下语句来解析。
 
-                        $('.detail-body').each(function () {
-                            var othis = $(this), html = othis.html();
-                            othis.html(fly.content(html));
-                        });
-
-                    });
+                                                                        $('.detail-body').each(function () {
+                                                                            var othis = $(this), html = othis.html();
+                                                                            othis.html(fly.content(html));
+                                                                        });
+                                                                    });
                 </script>
 
         </body>

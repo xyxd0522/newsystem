@@ -20,6 +20,8 @@ public class User {
     private String image;
     private String famous;
     private String bUserIds;
+    private String days;
+    private String nowDays;
 
     public String getUserId() {
         return userId;
@@ -173,9 +175,25 @@ public class User {
         this.bUserIds = bUserIds;
     }
 
+    public String getDays() {
+        return days;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
+    }
+
+    public String getNowDays() {
+        return nowDays;
+    }
+
+    public void setNowDays(String nowDays) {
+        this.nowDays = nowDays;
+    }
+
     @Override
     public String toString() {
-        return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", sex=" + sex + ", registerDate=" + registerDate + ", loginDate=" + loginDate + ", phone=" + phone + ", email=" + email + ", money=" + money + ", score=" + score + ", path=" + path + ", param=" + param + ", lvl=" + lvl + ", newIds=" + newIds + ", userIds=" + userIds + ", signature=" + signature + ", image=" + image + ", famous=" + famous + ", bUserIds=" + bUserIds + ", ]";
+        return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", sex=" + sex + ", registerDate=" + registerDate + ", loginDate=" + loginDate + ", phone=" + phone + ", email=" + email + ", money=" + money + ", score=" + score + ", path=" + path + ", param=" + param + ", lvl=" + lvl + ", newIds=" + newIds + ", userIds=" + userIds + ", signature=" + signature + ", image=" + image + ", famous=" + famous + ", bUserIds=" + bUserIds + ", days=" + days + ", nowDays=" + nowDays + ", ]";
     }
 
 }

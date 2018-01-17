@@ -28,5 +28,8 @@ public class IUserServiceNImpl extends IUserServiceImpl implements IUserServiceN
     public List<User> getUsersLimit(int start, int size) {
         return dao.getUsersLimit(start, size);
     }
-
+    
+    public List<User> getUsersOfUsersIds(String[] newsIds) {
+        return dao.getUsersOfUsersIds(newsIds);
+    }
 }

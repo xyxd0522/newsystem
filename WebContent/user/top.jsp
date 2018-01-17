@@ -19,7 +19,7 @@
                 <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>
                 <c:if test="${not empty info}">
                     <script>layer.msg('${info}', {
-                            time: 500
+                            time: 1500
                         })
                     </script>
                     <c:remove var="info" />
@@ -28,7 +28,7 @@
         <body style="margin-top: 65px;">
                 <div class="fly-header layui-bg-black">
                         <div class="layui-container">
-                                <a class="fly-logo" href="/">
+                                <a class="fly-logo" href="${pageContext.request.contextPath}/NewsAction.do?method=queryAll">
                                         <img src="${pageContext.request.contextPath}/img/logo.png" style="height: 38px;padding-left:-10px;" alt="logo">
                                 </a>
                                 <c:if test="${not empty sessionScope.identity}">
