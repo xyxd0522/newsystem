@@ -1,0 +1,28 @@
+<import src="post-item/post-item-template.wxml" />
+<view>
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000">
+    <swiper-item>
+      <image class="swiperImg" src="/imgs/pq.jpg" ></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperImg" src="/imgs/李俊萍.jpg" ></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperImg" src="/imgs/yr.jpg" ></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperImg" src="/imgs/zx.jpg" ></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperImg" src="/imgs/wcx.jpg" ></image>
+    </swiper-item>
+  </swiper>
+
+  <block wx:for="{{posts_key}}" wx:for-item="item" >
+  <!-- data-XXX 自定义Id -->
+    <view catchtap="onPostTap" data-postId="{{item.postId}}">
+      <template is="postItem" data="{{...item}}" />
+    </view>
+  </block>
+  
+</view>
