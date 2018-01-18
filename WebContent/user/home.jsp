@@ -11,12 +11,12 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="keywords" content="SunnyNews">
                 <meta name="description" content="SunnyNews 向阳小队旗舰之作">
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/layui.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/global.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/modules/layer/default/layer.css" />
-                <script src="../comm/layui/layui.js" charset="utf-8"></script>
-                <script src="../comm/jquery/jquery-2.1.4.js"></script>
-                <script src="../comm/layer/layer.js"></script>
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/layui.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/global.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/modules/layer/default/layer.css" />
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js" charset="utf-8"></script>
+                <script src="${pageContext.request.contextPath}/comm/jquery/jquery-2.1.4.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>
                 <script>
                     function message22() {
                         layer.prompt({
@@ -31,13 +31,13 @@
                 </script>
         </head>
         <body style="margin-top: 65px;">
-                <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
+                <c:import url="/user/top.jsp" />
                 <div class="fly-home fly-panel" style="background-image: url();">
-                        <c:if test="${empty sessionScope.identity.image}">
+                        <c:if test="${empty sessionScope.user.image}">
                             <img id="touxiang" src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
                         </c:if>
-                        <c:if test="${not empty sessionScope.identity.image}">
-                            <img id="touxiang" src="${sessionScope.identity.image}">
+                        <c:if test="${not empty sessionScope.user.image}">
+                            <img id="touxiang" src="${pageContext.request.contextPath}/${sessionScope.user.image}">
                         </c:if>
                         <!--<i class="iconfont icon-renzheng" title="SunnyNews认证"></i>-->
                         <h1>
@@ -127,9 +127,9 @@
                                                                 <li>
                                                                         <p>
                                                                                 <span>${comment.time}</span>
-                                                                                <a href="../news/newsDetail.jsp" target="_blank">${comNewsList[comment.newsId].title}</a>中回答：
+                                                                                <a href="${pageContext.request.contextPath}/news/newsDetail.jsp" target="_blank">${comNewsList[comment.newsId].title}</a>中回答：
                                                                         </p>
-                                                                        <div class="home-dacontent">
+                                                                        <div class="home-dacontent detail-body jieda-body photos">
                                                                                 ${allUsers[comment.userId].name}: ${comment.body}
                                                                                 <c:if test="${not empty comment.ccommentId}">
                                                                                     <pre>${allUsers[allComments[comment.ccommentId].userId].name}: ${allComments[comment.ccommentId].body}</pre>
@@ -154,19 +154,19 @@
                         </p>
                 </div>
 
-                <script src="../comm/layui/layui.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js"></script>
                 <script>
                                         layui.cache.page = '';
                                         layui.cache.user = {
                                             username: '游客'
                                             , uid: -1
-                                            , avatar: '../img/logo.jpg'
+                                            , avatar: '${pageContext.request.contextPath}/img/logo.jpg'
                                             , experience: 83
                                             , sex: '男'
                                         };
                                         layui.config({
                                             version: "3.0.0"
-                                            , base: '../comm/mods/'
+                                            , base: '${pageContext.request.contextPath}/comm/mods/'
                                         }).extend({
                                             fly: 'index'
                                         }).use(['fly', 'face'], function () {

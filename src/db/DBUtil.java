@@ -5,10 +5,21 @@
  */
 package db;
 
+import com.alibaba.fastjson.JSON;
 import com.news.linglian.entity.Email;
+import com.news.linglian.entity.User;
+import com.news.linglian.serviceImpl.IUserServiceImpl;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.ArrayUtil;
 import util.ClassUtil;
+import util.GC;
+import util.OperationException;
 import util.SqlUtil;
 
 /**
@@ -29,7 +40,6 @@ public class DBUtil {
                 .addAfterWheres(ClassUtil.getNameNotNull(t))
                 .addLast("order by " + orderBy + " " + by + " limit ?, ?")
                 .build();
-        System.out.println(sql);
         Object[] os = new Object[2];
         os[0] = start;
         os[1] = size;
@@ -46,7 +56,6 @@ public class DBUtil {
                 .addAfterWheres(like, "like ?")
                 .addLast("order by " + orderBy + " " + by + " limit ?, ?")
                 .build();
-        System.out.println(sql);
         Object[] os = new Object[3];
         os[0] = likes;
         os[1] = start;
@@ -64,7 +73,6 @@ public class DBUtil {
                 .addAfterWheres(like, "not like ?")
                 .addLast("order by " + orderBy + " " + by + " limit ?, ?")
                 .build();
-        System.out.println(sql);
         Object[] os = new Object[3];
         os[0] = likes;
         os[1] = start;
@@ -72,4 +80,5 @@ public class DBUtil {
         Object[] objs = ArrayUtil.multArray(ClassUtil.getValueNotNull(t), os);
         return DBMan.getInstance().queryWithoutThrow((Class<T>) t.getClass(), sql, objs);
     }
+
 }

@@ -19,7 +19,7 @@
                 <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>
         </head>
         <body>
-                <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
+                <c:import url="/user/top.jsp" />
                 <div class="layui-container fly-marginTop fly-user-main">
                         <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
                                 <li class="layui-nav-item">
@@ -74,9 +74,6 @@
                                                         <ul class="mine-view jie-row">
                                                                 <c:forEach items="${newsList}" var="n">
                                                                     <li>
-                                                                            <c:if test="${not empty n.buff}">
-                                                                                <span class="fly-jing" title="精品新闻">${n.buff}</span>
-                                                                            </c:if>
                                                                             <c:if test="${n.status == '待审核'}">
                                                                                 <span class="fly-grey" title="请耐心等待管理员审核">${n.status}</span>
                                                                             </c:if>
@@ -103,7 +100,7 @@
                                                         <ul class="mine-view jie-row">
                                                                 <c:forEach items="${scList}" var="n">
                                                                     <li>
-                                                                            <a class="jie-title" href="${pageContext.request.contextPath}/NewAction.do?method=queryOfId&newsId=${n.newsId}" target="_blank">${n.title}</a>
+                                                                            <a class="jie-title" href="${pageContext.request.contextPath}/NewsAction.do?method=queryOfId&newsId=${n.newsId}" target="_blank">${n.title}</a>
                                                                             <i>${n.time}</i>
                                                                             <em>
                                                                                     ${n.good}<i class="layui-icon" style="font-size: 24px; color: green;">&#xe6c6;</i>

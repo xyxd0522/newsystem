@@ -1,8 +1,33 @@
 package util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArrayUtil {
+
+    public static List mult(List... objs) {
+        List<List> list = new ArrayList();
+        int length = objs.length;
+        int size = objs[0].size();
+        for (int i = 0; i < size; i++) {
+            list.add(new ArrayList());
+        }
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < length; j++) {
+                list.get(i).add(objs[j].get(i));
+            }
+        }
+        System.out.println(list);
+        return list;
+    }
+
+    public static List multArray(List... list) {
+        List objs = new ArrayList();
+        for (int k = 0; k < list.length; k++) {
+            objs.add(list[k]);
+        }
+        return objs;
+    }
 
     public static Object[] multArray(Object[] a, Object[] b) {
         if (a == null) {

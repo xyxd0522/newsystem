@@ -17,8 +17,9 @@
                 <script src="${pageContext.request.contextPath}/comm/layui/layui.js" charset="utf-8"></script>
                 <script src="${pageContext.request.contextPath}/comm/jquery/jquery-2.1.4.js"></script>
                 <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>  
+                <script src="${pageContext.request.contextPath}/comm/echarts.js" type="text/javascript"></script>
                 <c:if test="${empty newsList && info != '当前没有这些新闻'}">
-                    <c:redirect url="${pageContext.request.contextPath}/NewsAction.do?method=queryAll" />
+                    <c:redirect url="/NewsAction.do?method=queryAll" />
                 </c:if>
                 <script>
                     function qd() {
@@ -29,11 +30,65 @@
                             }
                         });
                     }
+                    $(document).ready(function () {
+                        var myChart = echarts.init(document.getElementById('main'));
+                        // 显示标题，图例和空的坐标轴
+                        myChart.setOption({
+                            title: {
+                                text: '统计'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data: ['发布数', '点赞数(百)']
+                            },
+                            xAxis: {
+                                data: []
+                            },
+                            yAxis: {},
+                            series: [{
+                                    name: "发布数",
+                                    type: 'bar',
+                                    data: []
+                                },
+                                {
+                                    name: "点赞数(百)",
+                                    type: 'bar',
+                                    data: []
+                                }]
+                        });
+                        myChart.showLoading();
+                        myrefresh();
+                        myChart.hideLoading();
+                        function myrefresh()
+                        {
+                            $.get("${pageContext.request.contextPath}/NewsAction.do?method=getNewsTypeExChart").done(function (data) {
+                                data = JSON.parse(data);
+                                myChart.setOption({
+                                    xAxis: {
+                                        data: data.categories
+                                    },
+                                    series: [
+                                        {
+                                            type: 'bar',
+                                            name: '发布数',
+                                            data: data.data
+                                        },
+                                        {
+                                            type: 'bar',
+                                            name: '点赞数(百)',
+                                            data: data.data2
+                                        },
+                                    ]
+                                });
+                            });
+                        }
+                        setInterval(myrefresh, 1000);
+                    });
                 </script>
         </head>
         <body>
-                <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
-                <c:import url="${pageContext.request.contextPath}/other/botton.jsp" /> 
+                <c:import url="/user/top.jsp" />
+                <c:import url="/other/botton.jsp" /> 
                 <div style="width:1170px;padding-left:250px;">
                         <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                                 <ul class="layui-tab-title"><li><a href="${pageContext.request.contextPath}/NewsAction.do?method=queryAll">全部</a></li>
@@ -63,7 +118,7 @@
                                                                                                 <img src="${pageContext.request.contextPath}/img/logo.png" alt="${allUsers[n.userId].name}">
                                                                                             </c:if>
                                                                                             <c:if test="${not empty allUsers[n.userId].image}">
-                                                                                                <img src="${allUsers[n.userId].image}" alt="${allUsers[n.userId].name}">
+                                                                                                <img src="${pageContext.request.contextPath}/${allUsers[n.userId].image}" alt="${allUsers[n.userId].name}">
                                                                                             </c:if>
                                                                                     </a>
                                                                                     <h2>
@@ -78,7 +133,7 @@
                                                                                             <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> ${n.money}</span>
                                                                                             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                                                                                             <span class="fly-list-nums"> 
-                                                                                                    <i class="iconfont icon-pinglun1" title="点赞量"></i>  ${n.good}
+                                                                                                    <i class="layui-icon" title="点赞量">&#xe6c6;</i>  ${n.good}
                                                                                             </span>
                                                                                     </div>
                                                                                     <div class="fly-list-badge">
@@ -120,10 +175,6 @@
                                                                         <div class="fly-panel" style="margin-bottom: 0;">
                                                                                 <div class="fly-panel-title fly-filter">
                                                                                         <a href="" class="layui-this">综合</a>
-                                                                                        <span class="fly-mid"></span>
-                                                                                        <a href="">个性推荐</a>
-                                                                                        <span class="fly-mid"></span>
-                                                                                        <a href="">精品</a>
                                                                                         <span class="fly-filter-right layui-hide-xs">
                                                                                                 <a href="${pageContext.request.contextPath}/NewsAction.do?method=queryAll&orderBy=time" <c:if test="${orderBy == 'time'}"> class="layui-this" </c:if>>按最新</a>
                                                                                                     <span class="fly-mid"></span>
@@ -142,7 +193,7 @@
                                                                                                                     <img src="${pageContext.request.contextPath}/img/logo.png" alt="${allUsers[n.userId].name}">
                                                                                                                 </c:if>
                                                                                                                 <c:if test="${not empty allUsers[n.userId].image}">
-                                                                                                                    <img src="${allUsers[n.userId].image}" alt="${allUsers[n.userId].name}">
+                                                                                                                    <img src="${pageContext.request.contextPath}/${allUsers[n.userId].image}" alt="${allUsers[n.userId].name}">
                                                                                                                 </c:if>
                                                                                                         </a>
                                                                                                         <h2>
@@ -157,7 +208,7 @@
                                                                                                                 <span class="fly-list-kiss layui-hide-xs" title="悬赏阳光值"><i class="layui-icon">&#xe65e;</i> ${n.money}</span>
                                                                                                                 <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                                                                                                                 <span class="fly-list-nums"> 
-                                                                                                                        <i class="iconfont icon-pinglun1" title="点赞量"></i>  ${n.good}
+                                                                                                                        <i class="layui-icon" title="点赞量">&#xe6c6;</i>  ${n.good}
                                                                                                                 </span>
                                                                                                         </div>
                                                                                                         <div class="fly-list-badge">
@@ -207,7 +258,10 @@
 
                                                         </div>
                                                 </div>
-
+                                                <div class="fly-panel fly-signin">
+                                                        <div id="main" style="height: 400px;">
+                                                        </div>
+                                                </div>
                                                 <div class="fly-panel fly-rank fly-rank-reply" id="LAY_replyRank">
                                                         <h3 class="fly-panel-title">财富榜</h3>
                                                         <dl>
@@ -220,7 +274,7 @@
                                                                                             <img src="${pageContext.request.contextPath}/img/logo.png" alt="${n.name}">
                                                                                         </c:if>
                                                                                         <c:if test="${not empty n.image}">
-                                                                                            <img src="${n.image}" alt="${n.name}">
+                                                                                            <img src="${pageContext.request.contextPath}/${n.image}" alt="${n.name}">
                                                                                         </c:if>
                                                                                         <cite>${n.name}</cite><i>${n.money}</i>
                                                                                 </a>
@@ -293,6 +347,9 @@
                         </p>
                         <p>
                                 <a href="https://github.com/xyxd0522" target="_blank">微信公众号</a>
+                                <c:if test="${identity.lvl == '-99'}">
+                                    <a href="${pageContext.request.contextPath}/admin/index.jsp" target="_blank">后台入口</a>
+                                </c:if>
                         </p>
                 </div>
 
@@ -345,11 +402,11 @@
                                                                                     , count: ${newsSize}
                                                                                     , theme: '#1E9FFF'
                                                                                     , layout: ['count', 'prev', 'page', 'next', 'skip']
-                                                                                    , limit: 10
+                                                                                    , limit: 15
                                                                                     , curr: ${newsPage}
                                                                                     , jump: function (obj) {
                                                                                         if (obj.curr != ${newsPage}) {
-                                                                                            location.href = "${pageContext.request.contextPath}/NewsAction.do?method=queryAll&page=" + obj.curr;
+                                                                                            location.href = "${pageContext.request.contextPath}/NewsAction.do?method=queryAll&page=" + obj.curr <c:if test="${not empty likeStr}"> + "&likeStr=${likeStr}"</c:if> <c:if test="${not empty likeWord}"> + "&likeWord=${likeWord}"</c:if>;
                                                                                         }
                                                                                     }
                                                                                 });

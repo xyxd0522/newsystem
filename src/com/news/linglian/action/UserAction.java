@@ -39,7 +39,6 @@ public class UserAction extends HttpServlet {
     protected void doThing(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         String method = request.getParameter("method");
-        System.out.println("来了" + method);
         IServletFactory isf;
         try {
             isf = (IServletFactory) Class.forName(

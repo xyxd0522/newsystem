@@ -5,6 +5,8 @@
  */
 package com.news.linglian.factoryImpl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.parser.ParserConfig;
 import com.news.linglian.entity.Email;
 import com.news.linglian.entity.User;
 import com.news.linglian.factory.IServletFactory;
@@ -12,6 +14,7 @@ import com.news.linglian.service.IEmailService;
 import com.news.linglian.serviceImpl.IEmailServiceImpl;
 import db.DBUtil;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,6 +57,41 @@ public class IEmailFactoryImpl implements IServletFactory {
             case "getEmail":
                 doGetEmail(request, response, servlet);
                 break;
+            case "getEmailNumber":
+                doGetEmailNumber(request, response, servlet);
+                break;
+        }
+    }
+
+    protected void doGetEmailNumber(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "update_from")
+                .addNs("identity", "请重新登录", "login_from")
+                .build();
+        if (tMap != null) {
+            User user = (User) tMap.get("ses_identity");
+            Email e = new Email();
+            e.setToUserId(user.getUserId());
+            e.setStatus("0");
+            List<Email> list = ies.getEmails(e);
+            PrintWriter out = response.getWriter();
+            class SS {
+
+                public int size;
+                public Email email;
+            }
+            SS s = new SS();
+            s.size = 0;
+            if (list != null && !list.isEmpty()) {
+                List<Email> tList = DBUtil.getObjectLimit("email", "emailId", "DESC", e, 0, 1);
+                if (tList.size() != 0) {
+                    s.size = list.size();
+                }
+                s.email = tList.get(0);
+            }
+            out.println(JSON.toJSON(s));
+            out.close();
         }
     }
 
@@ -87,7 +125,7 @@ public class IEmailFactoryImpl implements IServletFactory {
             if (tList != null) {
                 request.getSession().setAttribute("emailSize", tList.size());
             }
-            List<Email> list = DBUtil.getObjectLimit("email", "time", "ASC", e, (page - 1) * limit, limit);
+            List<Email> list = DBUtil.getObjectLimit("email", "emailId", "DESC", e, (page - 1) * limit, limit);
             if (list != null) {
                 DateFormat dateFormat = new SimpleDateFormat();
                 // 转换消息发布时间
@@ -129,7 +167,7 @@ public class IEmailFactoryImpl implements IServletFactory {
             User user = (User) tMap.get("ses_identity");
             Email e = new Email();
             e.setStatus("1");
-            ServletUtil.checkdata(request, response, request.getContextPath() + "EmailAction.do?method=getEmail", "删除", ies.updateOfToUserId(e, user.getUserId()));
+            ServletUtil.checkdata(request, response, "EmailAction.do?method=getEmail", "删除", ies.updateOfToUserId(e, user.getUserId()));
         }
     }
 
@@ -153,7 +191,7 @@ public class IEmailFactoryImpl implements IServletFactory {
             Map<String, String> m = MapUtil.soss(tMap);
             Email e = new Email();
             e.setStatus("1");
-            ServletUtil.checkdata(request, response, request.getContextPath() + "EmailAction.do?method=getEmail", "删除", ies.updateOfEmailId(e, m.get("par_emailId")));
+            ServletUtil.checkdata(request, response, "EmailAction.do?method=getEmail", "删除", ies.updateOfEmailId(e, m.get("par_emailId")));
         }
     }
 }

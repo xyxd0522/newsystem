@@ -11,12 +11,12 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="keywords" content="SunnyNews">
                 <meta name="description" content="SunnyNews 向阳小队旗舰之作">
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/layui.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/global.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/modules/layer/default/layer.css" />
-                <script src="../comm/layui/layui.js" charset="utf-8"></script>
-                <script src="../comm/jquery/jquery-2.1.4.js"></script>
-                <script src="../comm/layer/layer.js"></script>
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/layui.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/global.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/modules/layer/default/layer.css" />
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js" charset="utf-8"></script>
+                <script src="${pageContext.request.contextPath}/comm/jquery/jquery-2.1.4.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>
                 <script>
                     function dz(id) {
                         htmlobj = $.ajax({url: "${pageContext.request.contextPath}/NewsAction.do?method=dz"
@@ -49,8 +49,8 @@
         </head>
         <body>
 
-                <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
-                <c:import url="${pageContext.request.contextPath}/other/botton.jsp" />
+                <c:import url="/user/top.jsp" />
+                <c:import url="/other/botton.jsp" />
                 <div class="layui-container">
                         <div class="layui-row layui-col-space15">
                                 <div class="layui-col-md8 content detail">
@@ -127,7 +127,7 @@
                                                         </div>
                                                         <span class="fly-list-nums"> 
                                                                 <a href="#comment"><i class="iconfont" title="评论">&#xe60c;</i>${fn:length(commentList)}</a>
-                                                                <a href="javascript:void(0);" onclick="dz(${news.newsId})"><i class="iconfont" title="人气">&#xe60b;</i> ${news.good}</a>
+                                                                <a href="javascript:void(0);" onclick="dz(${news.newsId})"><i class="layui-icon" title="人气">&#xe6c6;</i> ${news.good}</a>
                                                         </span>
                                                 </div>
                                                 <div class="detail-about">
@@ -136,7 +136,7 @@
                                                                     <img src="${pageContext.request.contextPath}/img/logo.png" alt="${user.name}">
                                                                 </c:if>
                                                                 <c:if test="${not empty user.image}">
-                                                                    <img src="${user.image}" alt="${user.name}">
+                                                                    <img src="${pageContext.request.contextPath}/${user.image}" alt="${user.name}">
                                                                 </c:if>
                                                         </a>
                                                         <div class="fly-detail-user">
@@ -172,12 +172,12 @@
                                                                 <li data-id="111" class="jieda-daan">
                                                                         <a name="item-1111111111"></a>
                                                                         <div class="detail-about detail-about-reply">
-                                                                                <a class="fly-avatar" href="">
+                                                                                <a class="fly-avatar" href="${pageContext.request.contextPath}/UserAction.do?method=query&userId=${comment.userId}">
                                                                                         <c:if test="${empty allUsers[comment.userId].image}">
                                                                                             <img src="${pageContext.request.contextPath}/img/logo.png" alt="${allUsers[comment.userId].name}">
                                                                                         </c:if>
                                                                                         <c:if test="${not empty allUsers[comment.userId].image}">
-                                                                                            <img src="${allUsers[comment.userId].image}" alt="${allUsers[comment.userId].name}">
+                                                                                            <img src="${pageContext.request.contextPath}/${allUsers[comment.userId].image}" alt="${allUsers[comment.userId].name}">
                                                                                         </c:if>
                                                                                 </a>
                                                                                 <div class="fly-detail-user">
@@ -204,13 +204,6 @@
                                                                         <div class="jieda-reply">
                                                                                 <span class="jieda-zan zanok" type="zan">
                                                                                 </span>
-                                                                                <div class="jieda-admin">
-                                                                                        <c:if test="${identity.userId == comment.userId || identity.lvl == -99}">
-                                                                                            <span type="edit">编辑</span>
-                                                                                            <span type="del">删除</span>
-                                                                                        </c:if>
-                                                                                        <!-- <span class="jieda-accept" type="accept">采纳</span> -->
-                                                                                </div>
                                                                         </div>
                                                                 </li>
                                                             </c:forEach>
@@ -272,19 +265,19 @@
                         </p>
                 </div>
 
-                <script src="../comm/layui/layui.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js"></script>
                 <script>
                                                                     layui.cache.page = '';
                                                                     layui.cache.user = {
                                                                         username: '游客'
                                                                         , uid: -1
-                                                                        , avatar: '../img/logo.jpg'
+                                                                        , avatar: '${pageContext.request.contextPath}/img/logo.jpg'
                                                                         , experience: 83
                                                                         , sex: '男'
                                                                     };
                                                                     layui.config({
                                                                         version: "3.0.0"
-                                                                        , base: '../comm/mods/'
+                                                                        , base: '${pageContext.request.contextPath}/comm/mods/'
                                                                     }).extend({
                                                                         fly: 'index'
                                                                     }).use(['fly', 'face'], function () {

@@ -1,5 +1,8 @@
 package com.news.linglian.factoryImpl;
 
+import com.alibaba.fastjson.JSON;
+import com.news.linglian.entity.Area;
+import com.news.linglian.entity.City;
 import com.news.linglian.entity.Comment;
 import com.news.linglian.entity.Email;
 import java.io.IOException;
@@ -11,21 +14,31 @@ import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 import com.news.linglian.entity.News;
 import com.news.linglian.entity.Newstype;
+import com.news.linglian.entity.Province;
 import com.news.linglian.entity.User;
 import com.news.linglian.factory.IServletFactory;
 import static com.news.linglian.factoryImpl.IUserFactoryImpl.speed;
 import static com.news.linglian.factoryImpl.IUserFactoryImpl.time;
+import com.news.linglian.service.IAreaService;
+import com.news.linglian.service.ICityService;
 import com.news.linglian.service.ICommentService;
 import com.news.linglian.service.IEmailService;
 import com.news.linglian.service.INewsService;
 import com.news.linglian.service.INewstypeService;
+import com.news.linglian.service.IProvinceService;
 import com.news.linglian.service.IUserService;
+import com.news.linglian.serviceImpl.IAreaServiceImpl;
+import com.news.linglian.serviceImpl.ICityServiceImpl;
 import com.news.linglian.serviceImpl.ICommentServiceImpl;
 import com.news.linglian.serviceImpl.IEmailServiceImpl;
 import com.news.linglian.serviceImpl.INewsServiceImpl;
 import com.news.linglian.serviceImpl.INewstypeServiceImpl;
+import com.news.linglian.serviceImpl.IProvinceServiceImpl;
 import com.news.linglian.serviceImpl.IUserServiceImpl;
+import db.DBMan;
+import db.DBMap;
 import db.DBUtil;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,6 +46,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import util.ArrayUtil;
 import util.MapUtil;
 import util.ServletCheckBuilder;
 import util.StringUtil;
@@ -53,6 +67,9 @@ public class INewsFactoryImpl implements IServletFactory {
     private IUserService ius = null;
     private ICommentService ics = null;
     private IEmailService ies = null;
+    private ICityService icts = null;
+    private IAreaService iars = null;
+    private IProvinceService ips = null;
 
     public INewsFactoryImpl() {
         ias = new INewsServiceImpl();
@@ -60,6 +77,9 @@ public class INewsFactoryImpl implements IServletFactory {
         ius = new IUserServiceImpl();
         ics = new ICommentServiceImpl();
         ies = new IEmailServiceImpl();
+        icts = new ICityServiceImpl();
+        iars = new IAreaServiceImpl();
+        ips = new IProvinceServiceImpl();
     }
 
     /**
@@ -108,7 +128,68 @@ public class INewsFactoryImpl implements IServletFactory {
             case "dz":
                 doDz(request, response, servlet);
                 break;
+            case "getNewsTypeExChart":
+                doGetNewsTypeExChart(request, response, servlet);
+                break;
+            case "getNewsOfJSON":
+                doGetNewsOfJSON(request, response, servlet);
+                break;
+            case "getCity":
+                doGetCity(request, response, servlet);
+                break;
         }
+    }
+
+    protected void doGetCity(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        String province = request.getParameter("province");
+        String city = request.getParameter("city");
+        PrintWriter out = response.getWriter();
+        if (province != null) {
+            Province p = ips.getProvinceOfName(province);
+            List<City> cityList = icts.getCitysOfProvincecode(p.getCode());
+            out.println(JSON.toJSON(cityList));
+        } else if (city != null) {
+            City c = icts.getCityOfName(city);
+            List<Area> areaList = iars.getAreasOfCitycode(c.getCode());
+            out.println(JSON.toJSON(areaList));
+        } else {
+            List<Province> provinceList = ips.getProvinces(new Province());
+            out.println(JSON.toJSON(provinceList));
+        }
+        out.close();
+    }
+
+    protected void doGetNewsOfJSON(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        News news = ias.getNewsOfNewsId(request.getParameter("newsId"));
+        PrintWriter out = response.getWriter();
+        out.println(JSON.toJSON(news));
+        out.close();
+    }
+
+    protected void doGetNewsTypeExChart(HttpServletRequest request,
+            HttpServletResponse response, HttpServlet servlet)
+            throws ServletException, IOException {
+        DBMap map = DBMan.getInstance().queryWithoutThrow("SELECT COUNT(*) cut, SUM(good)/100 su, nt.name FROM news ne, newstype nt WHERE ne.`newsTypeId` = nt.`newsTypeId` and status = '通过' GROUP BY ne.`newsTypeId`");
+        List cList = map.get("cut");
+        List nList = map.get("name");
+        List sList = map.get("su");
+        class SS {
+
+            public List data;
+            public List data2;
+            public List categories;
+        }
+        SS ss = new SS();
+        ss.data = cList;
+        ss.data2 = sList;
+        ss.categories = nList;
+        PrintWriter out = response.getWriter();
+        out.println(JSON.toJSON(ss));
+        out.close();
     }
 
     // 点赞
@@ -309,7 +390,7 @@ public class INewsFactoryImpl implements IServletFactory {
             e.setBody(m.get("par_content"));
             ies.insert(e);
             request.getSession().setAttribute("info", "评论成功");
-            ServletUtil.redirect(request, response, request.getContextPath() + "NewsAction.do?method=queryOfId&newsId=" + news.getNewsId());
+            ServletUtil.redirect(request, response, "NewsAction.do?method=queryOfId&newsId=" + news.getNewsId());
         }
     }
 
@@ -322,7 +403,7 @@ public class INewsFactoryImpl implements IServletFactory {
         if (tMap != null) {
             List<Newstype> list = its.getNewstypes(new Newstype());
             request.getSession().setAttribute("newstypeList", list);
-            ServletUtil.forward(request, response, request.getContextPath() + "news/newsPost.jsp");
+            ServletUtil.forward(request, response, "news/newsPost.jsp");
         }
     }
 
@@ -340,7 +421,7 @@ public class INewsFactoryImpl implements IServletFactory {
             request.getSession().setAttribute("newsId", news.getNewsId());
             List<Newstype> list = its.getNewstypes(new Newstype());
             request.getSession().setAttribute("newstypeList", list);
-            ServletUtil.forward(request, response, request.getContextPath() + "news/newsPost.jsp");
+            ServletUtil.forward(request, response, "news/newsPost.jsp");
         }
     }
     /*
@@ -430,13 +511,20 @@ public class INewsFactoryImpl implements IServletFactory {
                 String likeWord = "%置顶%";
                 if (request.getParameter("likeStr") != null) {
                     likeStr = request.getParameter("likeStr");
+                    request.getSession().setAttribute("likeStr", likeStr);
+                } else {
+                    request.getSession().removeAttribute("likeStr");
                 }
                 if (request.getParameter("likeWord") != null) {
                     likeWord = request.getParameter("likeWord");
+                    request.getSession().setAttribute("likeWord", likeWord);
+                } else {
+                    request.getSession().removeAttribute("likeWord");
                 }
                 if (request.getParameter("orderBy") != null) {
                     orderBy = request.getParameter("orderBy");
-                } else if (request.getSession().getAttribute("orderBy") != null) {
+                }
+                if (request.getSession().getAttribute("orderBy") != null) {
                     orderBy = (String) request.getSession().getAttribute("orderBy");
                 }
                 request.getSession().setAttribute("orderBy", orderBy);
@@ -444,6 +532,8 @@ public class INewsFactoryImpl implements IServletFactory {
                 // 配置新闻列表
                 List<News> pageNews = null;
                 if (request.getParameter("likeWord") != null) {
+                    pageNews = DBUtil.getObjectLikeLimit("news", orderBy, likeStr, "DESC", news, "%" + likeWord + "%", 0, 100000);
+                    request.getSession().setAttribute("newsSize", pageNews.size());
                     pageNews = DBUtil.getObjectLikeLimit("news", orderBy, likeStr, "DESC", news, "%" + likeWord + "%", (page - 1) * 15, 15);
                     if (pageNews != null) {
                         for (News n : pageNews) {
@@ -451,10 +541,14 @@ public class INewsFactoryImpl implements IServletFactory {
                             ias.updateOfNewsId(n, n.getNewsId());
                         }
                         if (pageNews.isEmpty()) {
-                            request.getSession().setAttribute("info", "当前没有这些新闻，将为您呈现推荐新闻");
+                            request.getSession().setAttribute("info", "当前没有这些新闻");
+                            request.getSession().removeAttribute("newsList");
+                            request.getSession().removeAttribute("zdNewsList");
                         }
                     } else {
-                        request.getSession().setAttribute("info", "当前没有这些新闻，将为您呈现推荐新闻");
+                        request.getSession().setAttribute("info", "当前没有这些新闻");
+                        request.getSession().removeAttribute("newsList");
+                        request.getSession().removeAttribute("zdNewsList");
                     }
                     request.getSession().removeAttribute("zdNewsList");
                 } else {
@@ -462,6 +556,15 @@ public class INewsFactoryImpl implements IServletFactory {
                     // 获得置顶新闻列表
                     List<News> zdlist = DBUtil.getObjectLikeLimit("news", orderBy, likeStr, "DESC", news, "%置顶%", 0, 6);
                     request.getSession().setAttribute("zdNewsList", zdlist);
+                }
+                List<News> tlist = pageNews;
+                if (pageNews != null) {
+                    tlist = new ArrayList();
+                    for (News n : pageNews) {
+                        if (n.getBuff() == null || !n.getBuff().contains("置顶")) {
+                            tlist.add(n);
+                        }
+                    }
                 }
                 request.getSession().setAttribute("newsList", pageNews);
                 // 获得热搜榜
@@ -479,6 +582,7 @@ public class INewsFactoryImpl implements IServletFactory {
             request.getSession().setAttribute("info", "当前类别没有新闻");
             request.getSession().setAttribute("newsSize", 0);
             request.getSession().removeAttribute("newsList");
+            request.getSession().removeAttribute("zdNewsList");
         }
         ServletUtil.forward(request, response, "index.jsp");
     }
@@ -524,43 +628,43 @@ public class INewsFactoryImpl implements IServletFactory {
             throws ServletException, IOException {
         if (request.getParameter("newsId") != null) {
             doUpdate(request, response, servlet);
-        }
-        // TODO Auto-generated method stub
-        Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "insert_from")
-                .addNp("title", "新闻标题不能为空")
-                .addNp("body", "新闻内容不能为空")
-                .addNp("newsTypeId", "新闻类型不能为空")
-                .addNs("identity", "请重新登录", "login_from")
-                .build();
-        if (tMap != null) {
-            String insertNewDate = new Date().toLocaleString();
-            User user = (User) tMap.get("ses_identity");
-            Map<String, String> m = MapUtil.soss(tMap);
-            News news = new News();
-            news.setTitle(m.get("par_title"));
-            news.setBody(m.get("par_body"));
-            news.setNewsTypeId(m.get("par_newsTypeId"));
-            if (request.getParameter("money") != null) {
-                if (StringUtil.isBigInt(user.getMoney(), request.getParameter("money"))) {
-                    news.setMoney(request.getParameter("money"));
-                    user.setMoney(StringUtil.subInt(user.getMoney(), request.getParameter("money")));
-                    ius.updateOfUserId(user, user.getUserId());
-                } else {
-                    request.getSession().setAttribute("newsBody", tMap.get("par_body").toString());
-                    request.getSession().setAttribute("newsTitle", tMap.get("par_title").toString());
-                    request.getSession().setAttribute("info", "阳光值不足" + request.getParameter("money") + "你当前拥有" + user.getMoney() + "阳光值");
-                    //ServletUtil.redirect(request, response, servlet, "insert_from");
-                    return;
+        } else {
+            // TODO Auto-generated method stub
+            Map<String, Object> tMap = new ServletCheckBuilder(request, response, servlet, "insert_from")
+                    .addNp("title", "新闻标题不能为空")
+                    .addNp("body", "新闻内容不能为空")
+                    .addNp("newsTypeId", "新闻类型不能为空")
+                    .addNs("identity", "请重新登录", "login_from")
+                    .build();
+            if (tMap != null) {
+                String insertNewDate = new Date().toLocaleString();
+                User user = (User) tMap.get("ses_identity");
+                Map<String, String> m = MapUtil.soss(tMap);
+                News news = new News();
+                news.setTitle(m.get("par_title"));
+                news.setBody(m.get("par_body"));
+                news.setNewsTypeId(m.get("par_newsTypeId"));
+                if (request.getParameter("money") != null) {
+                    if (StringUtil.isBigInt(user.getMoney(), request.getParameter("money"))) {
+                        news.setMoney(request.getParameter("money"));
+                        user.setMoney(StringUtil.subInt(user.getMoney(), request.getParameter("money")));
+                        ius.updateOfUserId(user, user.getUserId());
+                    } else {
+                        request.getSession().setAttribute("newsBody", tMap.get("par_body").toString());
+                        request.getSession().setAttribute("newsTitle", tMap.get("par_title").toString());
+                        request.getSession().setAttribute("info", "阳光值不足" + request.getParameter("money") + "你当前拥有" + user.getMoney() + "阳光值");
+                        ServletUtil.redirect(request, response, "NewsAction.do?method=readyPost");
+                        return;
+                    }
                 }
+                request.getSession().removeAttribute("newsBody");
+                request.getSession().removeAttribute("newsTitle");
+                news.setTime(insertNewDate);
+                news.setUserId(user.getUserId());
+                news.setPath(user.getPath());
+                ServletUtil.dataOfSetReqRedirect(request, response, servlet, "insert_to", "insert_from", "插入", ias.insert(news), "news");
             }
-            request.getSession().removeAttribute("newsBody");
-            request.getSession().removeAttribute("newsTitle");
-            news.setTime(insertNewDate);
-            news.setUserId(user.getUserId());
-            news.setPath(user.getPath());
-            ServletUtil.dataOfSetReqRedirect(request, response, servlet, "insert_to", "insert_from", "插入", ias.insert(news), "news");
         }
-
     }
 
     /**

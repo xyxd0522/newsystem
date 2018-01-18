@@ -22,16 +22,21 @@
                     <script>layer.msg('${info}')</script>
                     <c:remove var="info" />
                 </c:if>
+                <script>
+                    function change() {
+                        $("#yzm").attr("src", "${pageContext.request.contextPath}/token.do?" + Math.random() * 100000000);
+                    }
+                </script>
         </head>
         <body>
 
-                <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
+                <c:import url="/user/top.jsp" />
                 <div class="layui-container fly-marginTop">
                         <div class="fly-panel fly-panel-user" pad20>
                                 <div class="layui-tab layui-tab-brief" lay-filter="user">
                                         <ul class="layui-tab-title">
                                                 <li class="layui-this">登入</li>
-                                                <li><a href="reg.jsp">注册</a></li>
+                                                <li><a href="${pageContext.request.contextPath}/user/reg.jsp">注册</a></li>
                                         </ul>
                                         <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
                                                 <div class="layui-tab-item layui-show">
@@ -55,7 +60,7 @@
                                                                                         <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
                                                                                 </div>
                                                                                 <div class="layui-form-mid">
-                                                                                        <span style="color: #c00;"><img src="${pageContext.request.contextPath}/token.do"></img></span>
+                                                                                        <span style="color: #c00;"><img id="yzm" src="${pageContext.request.contextPath}/token.do" onclick="change()" ></img></span>
                                                                                 </div>
                                                                         </div>
                                                                         <div class="layui-form-item">

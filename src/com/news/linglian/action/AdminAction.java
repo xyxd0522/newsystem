@@ -19,14 +19,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lol
  */
-@WebServlet(name = "EmailAction", urlPatterns = "/EmailAction.do", initParams = {
-    @WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.lAdminFactoryImpl")})
+@WebServlet(name = "AdminAction", urlPatterns = "/AdminAction.do", initParams = {
+    @WebInitParam(name = "action_factory", value = "com.news.linglian.factoryImpl.IAdminFactoryImpl")})
 public class AdminAction extends HttpServlet {
 
     protected void doThing(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         String method = request.getParameter("method");
-        System.out.println("管理员来了" + method);
         IServletFactory isf;
         try {
             isf = (IServletFactory) Class.forName(

@@ -65,20 +65,21 @@ public class IdenityFilter implements Filter {
         } else {
             if (session.getAttribute("identity") != null) {
                 User user = (User) session.getAttribute("identity");
-                System.out.println(user.getNowDays());
                 if (user.getNowDays() == null || new Date().getDate() != Integer.parseInt(user.getNowDays())) {
-                    request.getSession().setAttribute("isQd", false);
+                    request.getSession().removeAttribute("isQd");
                 } else {
                     request.getSession().setAttribute("isQd", true);
                 }
                 List<Email> tList = new IEmailServiceImpl().getEmailsOfToUserIdAndStatus(user.getUserId(), "0");
                 if (tList != null) {
                     request.getSession().setAttribute("emailSize", tList.size());
+                } else {
+                    request.getSession().setAttribute("emailSize", 0);
                 }
                 session.setAttribute("identity", new IUserServiceImpl().getUserOfUserId(user.getUserId()));
                 filterChain.doFilter(request, response);
             } else {
-                request.getRequestDispatcher("/" + request.getContextPath() + "user/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/" + "user/login.jsp").forward(request, response);
             }
         }
     }

@@ -45,6 +45,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.MapUtil;
 import util.Response;
+import util.StringUtil;
 
 /**
  *
@@ -134,11 +135,13 @@ public class IUserFactoryImpl implements IServletFactory {
             User user = (User) tMap.get("ses_identity");
             if (!ServletUtil.equalOfObject(new Date().getDate(), user.getNowDays())) {
                 user.setNowDays(String.valueOf(new Date().getDate()));
+                user.setDays(StringUtil.addInt(user.getDays(), "1"));
+                user.setMoney(StringUtil.addInt(user.getMoney(), "5"));
                 ias.updateOfUserId(user, user.getUserId());
                 request.getSession().setAttribute("isQd", true);
                 request.getSession().setAttribute("info", "签到成功");
             } else {
-                request.getSession().setAttribute("isQd", true); 
+                request.getSession().setAttribute("isQd", true);
                 request.getSession().setAttribute("info", "今日已经签到");
             }
         }
@@ -190,9 +193,9 @@ public class IUserFactoryImpl implements IServletFactory {
             } else {
                 res.setCode(1);
                 res.setMsg("上传成功");
-                user.setImage(fileName.substring(fileName.indexOf("web") + 3));
+                user.setImage(fileName.substring(fileName.indexOf("img")));
                 ias.updateOfUserId(user, user.getUserId());
-                res.addDate("src", fileName.substring(fileName.indexOf("web") + 3));
+                res.addDate("src", fileName.substring(fileName.indexOf("img")));
             }
             PrintWriter out = response.getWriter();
             out.println(JSON.toJSON(res));
@@ -270,13 +273,13 @@ public class IUserFactoryImpl implements IServletFactory {
             String str = user.getNewIds();
             String[] strs = new String[0];
             List<News> scList = null;
-            if (str != null) {
+            if (str != null && !"".equals(str)) {
                 strs = str.split(",");
                 scList = ins.getNewssOfNewsIds(strs);
             }
             String gz = user.getUserIds();
             List<User> gzList = null;
-            if (str != null) {
+            if (str != null && !"".equals(str)) {
                 strs = gz.split(",");
                 gzList = ias.getUsersOfUsersIds(strs);
             }
@@ -322,13 +325,13 @@ public class IUserFactoryImpl implements IServletFactory {
             if (isInsert) {
                 user.setUserIds(str + "," + m.get("par_userId"));
                 ias.updateOfUserId(user, user.getUserId());
-                ServletUtil.dataOfSetSesRredirect(request, response, servlet,
+                ServletUtil.dataOfSetSesForward(request, response, servlet,
                         "query_to", "query_to", "关注",
                         user, "identity");
             }
             if (!isInsert) {
                 request.getSession().setAttribute("info", "你已经关注了该用户");
-                ServletUtil.redirect(request, response, servlet, "query_to");
+                ServletUtil.forward(request, response, servlet, "query_to");
             }
         }
     }
@@ -399,11 +402,16 @@ public class IUserFactoryImpl implements IServletFactory {
                         strs[i] = n.getNewsId();
                     }
                 }
-                List<News> comNewsList = ins.getNewssOfNewsIds(strs);
+                List<News> comNewsList = null;
                 Map<String, News> map = new HashMap();
-                for (News news : comNewsList) {
-                    if (!map.containsKey(news.getNewsId())) {
-                        map.put(news.getNewsId(), news);
+                if (strs == null || strs.length == 0) {
+                    comNewsList = ins.getNewssOfNewsIds(strs);
+                    if (comNewsList != null) {
+                        for (News news : comNewsList) {
+                            if (!map.containsKey(news.getNewsId())) {
+                                map.put(news.getNewsId(), news);
+                            }
+                        }
                     }
                 }
                 request.getSession().setAttribute("comNewsList", map);
@@ -454,8 +462,6 @@ public class IUserFactoryImpl implements IServletFactory {
                 .addNp("pass", "密码不能为空")
                 .addNp("repass", "确认密码不能为空")
                 .addNp("quiz1", "省份不能为空")
-                .addNp("quiz2", "城市不能为空")
-                .addNp("quiz3", "区/县不能为空")
                 .addNp("vercode", "验证码不能为空")
                 .addEpp("pass", "repass", "二次密码不相同", false)
                 .addEps("vercode", "token", "验证码错误", false)
@@ -511,11 +517,16 @@ public class IUserFactoryImpl implements IServletFactory {
                 request.getSession().setAttribute("info", "当前密码错误");
                 ServletUtil.redirect(request, response, servlet, "login_from");
             } else {
-                user.setLoginDate(new Date().toLocaleString());
-                ias.updateOfUserId(user, user.getUserId());
-                ServletUtil.dataOfSetSesRredirect(request, response, servlet,
-                        "login_to", "login_from", "登录",
-                        user, "identity");
+                if ("-98".equals(user.getLvl())) {
+                    request.getSession().setAttribute("info", "该账号已被封号");
+                    ServletUtil.redirect(request, response, servlet, "login_from");
+                } else {
+                    user.setLoginDate(new Date().toLocaleString());
+                    ias.updateOfUserId(user, user.getUserId());
+                    ServletUtil.dataOfSetSesRredirect(request, response, servlet,
+                            "login_to", "login_from", "登录",
+                            user, "identity");
+                }
             }
         }
     }

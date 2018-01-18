@@ -36,6 +36,9 @@ public class INewsDaoNImpl extends INewsDaoImpl implements INewsDaoN {
 
     @Override
     public List<News> getNewssOfNewsIds(String[] newsIds) {
+        if (newsIds.length == 0) {
+            return new ArrayList<News>();
+        }
         StringBuffer str = new StringBuffer();
         str.append("in (");
         int index = 0;
@@ -53,6 +56,7 @@ public class INewsDaoNImpl extends INewsDaoImpl implements INewsDaoN {
                 .addBeforeWheres(ClassUtil.getName(News.class))
                 .addAfterWheres("newsId", str.toString())
                 .build();
+        System.out.println(sql);
         return DBMan.getInstance().queryWithoutThrow(News.class, sql, newsIds);
     }
 

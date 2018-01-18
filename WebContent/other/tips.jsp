@@ -11,41 +11,17 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="keywords" content="SunnyNews">
                 <meta name="description" content="SunnyNews 向阳小队旗舰之作">
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/layui.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/global.css" />
-                <link rel="stylesheet" type="text/css" href="../comm/layui/css/modules/layer/default/layer.css" />
-                <script src="../comm/layui/layui.js" charset="utf-8"></script>
-                <script src="../comm/layer/layer.js"></script>
-                <script src="../comm/jquery/jquery-2.1.4.js"></script>
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/layui.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/global.css" />
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/comm/layui/css/modules/layer/default/layer.css" />
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js" charset="utf-8"></script>
+                <script src="${pageContext.request.contextPath}/comm/layer/layer.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/jquery/jquery-2.1.4.js"></script>
         </head>
         <body>
 
-                <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
-                <div class="fly-panel fly-column">
-                        <div class="layui-container">
-                                <ul class="layui-clear" >
-                                        <li class="layui-hide-xs layui-this" ><a href="/" >首页</a></li> 
-                                        <li><a href="../news/newsList.jsp"  >讨论版&nbsp;&nbsp;<span class="layui-badge-dot"></span></a></li> 
-
-                                        <!-- 用户登入后显示 -->
-                                        <!-- 我收藏的贴 我发布的帖 
-                                        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li> 
-                                        
-                                        
-                                        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.jsp">我发布的</a></li> 
-                                        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.jsp#collection">我收藏的</a></li>
-                                        -->
-                                </ul> 
-
-                                <div class="fly-column-right layui-hide-xs"> 
-                                        <span class="fly-search"><i class="layui-icon"></i></span> 
-                                        <a href="../news/newsPost.jsp" class="layui-btn">发布新闻</a> 
-                                </div> 
-                                <div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;"> 
-                                        <a href="../news/newsPost.jsp" class="layui-btn">发布新闻</a> 
-                                </div> 
-                        </div>
-                </div>
+                <c:import url="/user/top.jsp" />
+                <c:import url="/other/botton.jsp" />
 
                 <div class="layui-container fly-marginTop">
                         <div class="fly-panel">
@@ -63,19 +39,19 @@
                         </p>
                 </div>
 
-                <script src="../comm/layui/layui.js"></script>
+                <script src="${pageContext.request.contextPath}/comm/layui/layui.js"></script>
                 <script>
                     layui.cache.page = '';
                     layui.cache.user = {
                         username: '游客'
                         , uid: -1
-                        , avatar: '../img/logo.jpg'
+                        , avatar: '${pageContext.request.contextPath}/img/logo.jpg'
                         , experience: 83
                         , sex: '男'
                     };
                     layui.config({
                         version: "3.0.0"
-                        , base: '../comm/mods/'
+                        , base: '${pageContext.request.contextPath}/comm/mods/'
                     }).extend({
                         fly: 'index'
                     }).use(['fly', 'face'], function () {

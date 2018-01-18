@@ -24,18 +24,51 @@
                     </script>
                     <c:remove var="info" />
                 </c:if>
+
+                <c:if test="${not empty identity}">
+                    <script>
+                        $(document).ready(function () {
+                            var emailNumber = ${emailSize};
+                            // 检测有没有新的消息
+                            myrefreshEmail();
+                            function myrefreshEmail()
+                            {
+                                $.get("${pageContext.request.contextPath}/EmailAction.do?method=getEmailNumber&size=" + emailNumber).done(function (data) {
+                                    data = JSON.parse(data);
+                                    if (emailNumber != data.size) {
+                                        emailNumber = data.size;
+                                        if (emailNumber != 0) {
+                                            layer.tips("有人跟你说:" + data.email.body, '#emailSizeSpan', {
+                                                tips: [3, '#78BA32'],
+                                                time: 5000,
+                                                tipsMore: true
+                                            });
+                                        }
+                                    }
+                                    if (emailNumber == 0) {
+                                        $("#emailSizeSpan").html("通知");
+                                    } else {
+                                        $("#emailSizeSpan").html("通知<span class='layui-badge'>" + emailNumber + "</span>");
+                                    }
+                                });
+                            }
+                            setInterval(myrefreshEmail, 1000);
+                        });
+                    </script>
+                </c:if>
         </head>
         <body style="margin-top: 65px;">
                 <div class="fly-header layui-bg-black">
                         <div class="layui-container">
                                 <a class="fly-logo" href="${pageContext.request.contextPath}/NewsAction.do?method=queryAll">
-                                        <img src="${pageContext.request.contextPath}/img/logo.png" style="height: 38px;padding-left:-10px;" alt="logo">
+                                        <img src="${pageContext.request.contextPath}/img/logo4.png" style="height: 38px;padding-left:-10px;" alt="logo">
                                 </a>
                                 <c:if test="${not empty sessionScope.identity}">
                                     <ul class="layui-nav fly-nav layui-hide-xs">
                                             <li class="layui-nav-item layui-this">
                                                     <a href="${pageContext.request.contextPath}/EmailAction.do?method=getEmail">
-                                                            <i class="iconfont icon-jiaoliu"></i>通知<c:if test="${not empty emailSize && emailSize != 0}"><span class="layui-badge">${emailSize}</span></c:if>
+                                                            <i class="iconfont icon-jiaoliu"></i>
+                                                            <span id="emailSizeSpan">通知</span>
                                                     </a>
                                             </li>
                                             <li class="layui-nav-item">
@@ -87,7 +120,7 @@
                                                                 <img id="touxiang" src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
                                                             </c:if>
                                                             <c:if test="${not empty sessionScope.identity.image}">
-                                                                <img id="touxiang" src="${sessionScope.identity.image}">
+                                                                <img id="touxiang" src="${pageContext.request.contextPath}/${sessionScope.identity.image}">
                                                             </c:if>
 
                                                     </a>

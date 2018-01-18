@@ -20,7 +20,7 @@
         </head>
         <body>
 
-                <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
+                <c:import url="/user/top.jsp" />
 
                 <div class="layui-container fly-marginTop fly-user-main">
                         <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">

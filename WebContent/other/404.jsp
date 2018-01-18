@@ -11,12 +11,12 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="keywords" content="fly,layui,前端社区">
                 <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
-                <link rel = "stylesheet" type = "text/css" href = "../comm/layui/css/layui.css"/>
-                <link rel = "stylesheet" type = "text/css" href = "../comm/layui/global.css"/>
+                <link rel = "stylesheet" type = "text/css" href = "${pageContext.request.contextPath}/comm/layui/css/layui.css"/>
+                <link rel = "stylesheet" type = "text/css" href = "${pageContext.request.contextPath}/comm/layui/global.css"/>
         </head>
         <body>
 
-                <c:import url="${pageContext.request.contextPath}/user/top.jsp" />
+                <c:import url="/user/top.jsp" />
                 <div class="layui-container fly-marginTop">
                         <div class="fly-panel">
                                 <div class="fly-none">
