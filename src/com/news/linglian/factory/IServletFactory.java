@@ -9,6 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface IServletFactory {
 	public void doThing(HttpServletRequest request,
-			HttpServletResponse response, HttpServlet serlvet,
+			HttpServletResponse response, HttpServlet servlet,
 			String method) throws ServletException, IOException;
 }

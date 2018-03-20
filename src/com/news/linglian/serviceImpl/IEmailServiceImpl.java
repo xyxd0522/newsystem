@@ -26,8 +26,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int updateOfToUserId(Email email, String toUserId) {
         return dao.updateOfToUserId(email, toUserId);
     }
-    public int updateOfTitle(Email email, String title) {
-        return dao.updateOfTitle(email, title);
+    public int updateOfNewsId(Email email, String newsId) {
+        return dao.updateOfNewsId(email, newsId);
     }
     public int updateOfBody(Email email, String body) {
         return dao.updateOfBody(email, body);
@@ -47,8 +47,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int updateOfEmailIdAndToUserId(Email email, String emailId, String toUserId) {
         return dao.updateOfEmailIdAndToUserId(email, emailId, toUserId);
     }
-    public int updateOfEmailIdAndTitle(Email email, String emailId, String title) {
-        return dao.updateOfEmailIdAndTitle(email, emailId, title);
+    public int updateOfEmailIdAndNewsId(Email email, String emailId, String newsId) {
+        return dao.updateOfEmailIdAndNewsId(email, emailId, newsId);
     }
     public int updateOfEmailIdAndBody(Email email, String emailId, String body) {
         return dao.updateOfEmailIdAndBody(email, emailId, body);
@@ -65,8 +65,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int updateOfFromUserIdAndToUserId(Email email, String fromUserId, String toUserId) {
         return dao.updateOfFromUserIdAndToUserId(email, fromUserId, toUserId);
     }
-    public int updateOfFromUserIdAndTitle(Email email, String fromUserId, String title) {
-        return dao.updateOfFromUserIdAndTitle(email, fromUserId, title);
+    public int updateOfFromUserIdAndNewsId(Email email, String fromUserId, String newsId) {
+        return dao.updateOfFromUserIdAndNewsId(email, fromUserId, newsId);
     }
     public int updateOfFromUserIdAndBody(Email email, String fromUserId, String body) {
         return dao.updateOfFromUserIdAndBody(email, fromUserId, body);
@@ -80,8 +80,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int updateOfFromUserIdAndStatus(Email email, String fromUserId, String status) {
         return dao.updateOfFromUserIdAndStatus(email, fromUserId, status);
     }
-    public int updateOfToUserIdAndTitle(Email email, String toUserId, String title) {
-        return dao.updateOfToUserIdAndTitle(email, toUserId, title);
+    public int updateOfToUserIdAndNewsId(Email email, String toUserId, String newsId) {
+        return dao.updateOfToUserIdAndNewsId(email, toUserId, newsId);
     }
     public int updateOfToUserIdAndBody(Email email, String toUserId, String body) {
         return dao.updateOfToUserIdAndBody(email, toUserId, body);
@@ -95,17 +95,17 @@ public class IEmailServiceImpl implements IEmailService {
     public int updateOfToUserIdAndStatus(Email email, String toUserId, String status) {
         return dao.updateOfToUserIdAndStatus(email, toUserId, status);
     }
-    public int updateOfTitleAndBody(Email email, String title, String body) {
-        return dao.updateOfTitleAndBody(email, title, body);
+    public int updateOfNewsIdAndBody(Email email, String newsId, String body) {
+        return dao.updateOfNewsIdAndBody(email, newsId, body);
     }
-    public int updateOfTitleAndTime(Email email, String title, String time) {
-        return dao.updateOfTitleAndTime(email, title, time);
+    public int updateOfNewsIdAndTime(Email email, String newsId, String time) {
+        return dao.updateOfNewsIdAndTime(email, newsId, time);
     }
-    public int updateOfTitleAndParam(Email email, String title, String param) {
-        return dao.updateOfTitleAndParam(email, title, param);
+    public int updateOfNewsIdAndParam(Email email, String newsId, String param) {
+        return dao.updateOfNewsIdAndParam(email, newsId, param);
     }
-    public int updateOfTitleAndStatus(Email email, String title, String status) {
-        return dao.updateOfTitleAndStatus(email, title, status);
+    public int updateOfNewsIdAndStatus(Email email, String newsId, String status) {
+        return dao.updateOfNewsIdAndStatus(email, newsId, status);
     }
     public int updateOfBodyAndTime(Email email, String body, String time) {
         return dao.updateOfBodyAndTime(email, body, time);
@@ -137,8 +137,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int removeOfToUserId(String toUserId) {
         return dao.removeOfToUserId(toUserId);
     }
-    public int removeOfTitle(String title) {
-        return dao.removeOfTitle(title);
+    public int removeOfNewsId(String newsId) {
+        return dao.removeOfNewsId(newsId);
     }
     public int removeOfBody(String body) {
         return dao.removeOfBody(body);
@@ -158,8 +158,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int removeOfEmailIdAndToUserId(String emailId, String toUserId) {
         return dao.removeOfEmailIdAndToUserId(emailId, toUserId);
     }
-    public int removeOfEmailIdAndTitle(String emailId, String title) {
-        return dao.removeOfEmailIdAndTitle(emailId, title);
+    public int removeOfEmailIdAndNewsId(String emailId, String newsId) {
+        return dao.removeOfEmailIdAndNewsId(emailId, newsId);
     }
     public int removeOfEmailIdAndBody(String emailId, String body) {
         return dao.removeOfEmailIdAndBody(emailId, body);
@@ -176,8 +176,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int removeOfFromUserIdAndToUserId(String fromUserId, String toUserId) {
         return dao.removeOfFromUserIdAndToUserId(fromUserId, toUserId);
     }
-    public int removeOfFromUserIdAndTitle(String fromUserId, String title) {
-        return dao.removeOfFromUserIdAndTitle(fromUserId, title);
+    public int removeOfFromUserIdAndNewsId(String fromUserId, String newsId) {
+        return dao.removeOfFromUserIdAndNewsId(fromUserId, newsId);
     }
     public int removeOfFromUserIdAndBody(String fromUserId, String body) {
         return dao.removeOfFromUserIdAndBody(fromUserId, body);
@@ -191,8 +191,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int removeOfFromUserIdAndStatus(String fromUserId, String status) {
         return dao.removeOfFromUserIdAndStatus(fromUserId, status);
     }
-    public int removeOfToUserIdAndTitle(String toUserId, String title) {
-        return dao.removeOfToUserIdAndTitle(toUserId, title);
+    public int removeOfToUserIdAndNewsId(String toUserId, String newsId) {
+        return dao.removeOfToUserIdAndNewsId(toUserId, newsId);
     }
     public int removeOfToUserIdAndBody(String toUserId, String body) {
         return dao.removeOfToUserIdAndBody(toUserId, body);
@@ -206,17 +206,17 @@ public class IEmailServiceImpl implements IEmailService {
     public int removeOfToUserIdAndStatus(String toUserId, String status) {
         return dao.removeOfToUserIdAndStatus(toUserId, status);
     }
-    public int removeOfTitleAndBody(String title, String body) {
-        return dao.removeOfTitleAndBody(title, body);
+    public int removeOfNewsIdAndBody(String newsId, String body) {
+        return dao.removeOfNewsIdAndBody(newsId, body);
     }
-    public int removeOfTitleAndTime(String title, String time) {
-        return dao.removeOfTitleAndTime(title, time);
+    public int removeOfNewsIdAndTime(String newsId, String time) {
+        return dao.removeOfNewsIdAndTime(newsId, time);
     }
-    public int removeOfTitleAndParam(String title, String param) {
-        return dao.removeOfTitleAndParam(title, param);
+    public int removeOfNewsIdAndParam(String newsId, String param) {
+        return dao.removeOfNewsIdAndParam(newsId, param);
     }
-    public int removeOfTitleAndStatus(String title, String status) {
-        return dao.removeOfTitleAndStatus(title, status);
+    public int removeOfNewsIdAndStatus(String newsId, String status) {
+        return dao.removeOfNewsIdAndStatus(newsId, status);
     }
     public int removeOfBodyAndTime(String body, String time) {
         return dao.removeOfBodyAndTime(body, time);
@@ -248,8 +248,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int insertOfToUserId(String toUserId) {
         return dao.insertOfToUserId(toUserId);
     }
-    public int insertOfTitle(String title) {
-        return dao.insertOfTitle(title);
+    public int insertOfNewsId(String newsId) {
+        return dao.insertOfNewsId(newsId);
     }
     public int insertOfBody(String body) {
         return dao.insertOfBody(body);
@@ -269,8 +269,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int insertOfEmailIdAndToUserId(String emailId, String toUserId) {
         return dao.insertOfEmailIdAndToUserId(emailId, toUserId);
     }
-    public int insertOfEmailIdAndTitle(String emailId, String title) {
-        return dao.insertOfEmailIdAndTitle(emailId, title);
+    public int insertOfEmailIdAndNewsId(String emailId, String newsId) {
+        return dao.insertOfEmailIdAndNewsId(emailId, newsId);
     }
     public int insertOfEmailIdAndBody(String emailId, String body) {
         return dao.insertOfEmailIdAndBody(emailId, body);
@@ -287,8 +287,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int insertOfFromUserIdAndToUserId(String fromUserId, String toUserId) {
         return dao.insertOfFromUserIdAndToUserId(fromUserId, toUserId);
     }
-    public int insertOfFromUserIdAndTitle(String fromUserId, String title) {
-        return dao.insertOfFromUserIdAndTitle(fromUserId, title);
+    public int insertOfFromUserIdAndNewsId(String fromUserId, String newsId) {
+        return dao.insertOfFromUserIdAndNewsId(fromUserId, newsId);
     }
     public int insertOfFromUserIdAndBody(String fromUserId, String body) {
         return dao.insertOfFromUserIdAndBody(fromUserId, body);
@@ -302,8 +302,8 @@ public class IEmailServiceImpl implements IEmailService {
     public int insertOfFromUserIdAndStatus(String fromUserId, String status) {
         return dao.insertOfFromUserIdAndStatus(fromUserId, status);
     }
-    public int insertOfToUserIdAndTitle(String toUserId, String title) {
-        return dao.insertOfToUserIdAndTitle(toUserId, title);
+    public int insertOfToUserIdAndNewsId(String toUserId, String newsId) {
+        return dao.insertOfToUserIdAndNewsId(toUserId, newsId);
     }
     public int insertOfToUserIdAndBody(String toUserId, String body) {
         return dao.insertOfToUserIdAndBody(toUserId, body);
@@ -317,17 +317,17 @@ public class IEmailServiceImpl implements IEmailService {
     public int insertOfToUserIdAndStatus(String toUserId, String status) {
         return dao.insertOfToUserIdAndStatus(toUserId, status);
     }
-    public int insertOfTitleAndBody(String title, String body) {
-        return dao.insertOfTitleAndBody(title, body);
+    public int insertOfNewsIdAndBody(String newsId, String body) {
+        return dao.insertOfNewsIdAndBody(newsId, body);
     }
-    public int insertOfTitleAndTime(String title, String time) {
-        return dao.insertOfTitleAndTime(title, time);
+    public int insertOfNewsIdAndTime(String newsId, String time) {
+        return dao.insertOfNewsIdAndTime(newsId, time);
     }
-    public int insertOfTitleAndParam(String title, String param) {
-        return dao.insertOfTitleAndParam(title, param);
+    public int insertOfNewsIdAndParam(String newsId, String param) {
+        return dao.insertOfNewsIdAndParam(newsId, param);
     }
-    public int insertOfTitleAndStatus(String title, String status) {
-        return dao.insertOfTitleAndStatus(title, status);
+    public int insertOfNewsIdAndStatus(String newsId, String status) {
+        return dao.insertOfNewsIdAndStatus(newsId, status);
     }
     public int insertOfBodyAndTime(String body, String time) {
         return dao.insertOfBodyAndTime(body, time);
@@ -359,8 +359,8 @@ public class IEmailServiceImpl implements IEmailService {
     public Email getEmailOfToUserId(String toUserId) {
         return dao.getEmailOfToUserId(toUserId);
     }
-    public Email getEmailOfTitle(String title) {
-        return dao.getEmailOfTitle(title);
+    public Email getEmailOfNewsId(String newsId) {
+        return dao.getEmailOfNewsId(newsId);
     }
     public Email getEmailOfBody(String body) {
         return dao.getEmailOfBody(body);
@@ -380,8 +380,8 @@ public class IEmailServiceImpl implements IEmailService {
     public Email getEmailOfEmailIdAndToUserId(String emailId, String toUserId) {
         return dao.getEmailOfEmailIdAndToUserId(emailId, toUserId);
     }
-    public Email getEmailOfEmailIdAndTitle(String emailId, String title) {
-        return dao.getEmailOfEmailIdAndTitle(emailId, title);
+    public Email getEmailOfEmailIdAndNewsId(String emailId, String newsId) {
+        return dao.getEmailOfEmailIdAndNewsId(emailId, newsId);
     }
     public Email getEmailOfEmailIdAndBody(String emailId, String body) {
         return dao.getEmailOfEmailIdAndBody(emailId, body);
@@ -398,8 +398,8 @@ public class IEmailServiceImpl implements IEmailService {
     public Email getEmailOfFromUserIdAndToUserId(String fromUserId, String toUserId) {
         return dao.getEmailOfFromUserIdAndToUserId(fromUserId, toUserId);
     }
-    public Email getEmailOfFromUserIdAndTitle(String fromUserId, String title) {
-        return dao.getEmailOfFromUserIdAndTitle(fromUserId, title);
+    public Email getEmailOfFromUserIdAndNewsId(String fromUserId, String newsId) {
+        return dao.getEmailOfFromUserIdAndNewsId(fromUserId, newsId);
     }
     public Email getEmailOfFromUserIdAndBody(String fromUserId, String body) {
         return dao.getEmailOfFromUserIdAndBody(fromUserId, body);
@@ -413,8 +413,8 @@ public class IEmailServiceImpl implements IEmailService {
     public Email getEmailOfFromUserIdAndStatus(String fromUserId, String status) {
         return dao.getEmailOfFromUserIdAndStatus(fromUserId, status);
     }
-    public Email getEmailOfToUserIdAndTitle(String toUserId, String title) {
-        return dao.getEmailOfToUserIdAndTitle(toUserId, title);
+    public Email getEmailOfToUserIdAndNewsId(String toUserId, String newsId) {
+        return dao.getEmailOfToUserIdAndNewsId(toUserId, newsId);
     }
     public Email getEmailOfToUserIdAndBody(String toUserId, String body) {
         return dao.getEmailOfToUserIdAndBody(toUserId, body);
@@ -428,17 +428,17 @@ public class IEmailServiceImpl implements IEmailService {
     public Email getEmailOfToUserIdAndStatus(String toUserId, String status) {
         return dao.getEmailOfToUserIdAndStatus(toUserId, status);
     }
-    public Email getEmailOfTitleAndBody(String title, String body) {
-        return dao.getEmailOfTitleAndBody(title, body);
+    public Email getEmailOfNewsIdAndBody(String newsId, String body) {
+        return dao.getEmailOfNewsIdAndBody(newsId, body);
     }
-    public Email getEmailOfTitleAndTime(String title, String time) {
-        return dao.getEmailOfTitleAndTime(title, time);
+    public Email getEmailOfNewsIdAndTime(String newsId, String time) {
+        return dao.getEmailOfNewsIdAndTime(newsId, time);
     }
-    public Email getEmailOfTitleAndParam(String title, String param) {
-        return dao.getEmailOfTitleAndParam(title, param);
+    public Email getEmailOfNewsIdAndParam(String newsId, String param) {
+        return dao.getEmailOfNewsIdAndParam(newsId, param);
     }
-    public Email getEmailOfTitleAndStatus(String title, String status) {
-        return dao.getEmailOfTitleAndStatus(title, status);
+    public Email getEmailOfNewsIdAndStatus(String newsId, String status) {
+        return dao.getEmailOfNewsIdAndStatus(newsId, status);
     }
     public Email getEmailOfBodyAndTime(String body, String time) {
         return dao.getEmailOfBodyAndTime(body, time);
@@ -470,8 +470,8 @@ public class IEmailServiceImpl implements IEmailService {
     public List<Email> getEmailsOfToUserId(String toUserId) {
         return dao.getEmailsOfToUserId(toUserId);
     }
-    public List<Email> getEmailsOfTitle(String title) {
-        return dao.getEmailsOfTitle(title);
+    public List<Email> getEmailsOfNewsId(String newsId) {
+        return dao.getEmailsOfNewsId(newsId);
     }
     public List<Email> getEmailsOfBody(String body) {
         return dao.getEmailsOfBody(body);
@@ -491,8 +491,8 @@ public class IEmailServiceImpl implements IEmailService {
     public List<Email> getEmailsOfEmailIdAndToUserId(String emailId, String toUserId) {
         return dao.getEmailsOfEmailIdAndToUserId(emailId, toUserId);
     }
-    public List<Email> getEmailsOfEmailIdAndTitle(String emailId, String title) {
-        return dao.getEmailsOfEmailIdAndTitle(emailId, title);
+    public List<Email> getEmailsOfEmailIdAndNewsId(String emailId, String newsId) {
+        return dao.getEmailsOfEmailIdAndNewsId(emailId, newsId);
     }
     public List<Email> getEmailsOfEmailIdAndBody(String emailId, String body) {
         return dao.getEmailsOfEmailIdAndBody(emailId, body);
@@ -509,8 +509,8 @@ public class IEmailServiceImpl implements IEmailService {
     public List<Email> getEmailsOfFromUserIdAndToUserId(String fromUserId, String toUserId) {
         return dao.getEmailsOfFromUserIdAndToUserId(fromUserId, toUserId);
     }
-    public List<Email> getEmailsOfFromUserIdAndTitle(String fromUserId, String title) {
-        return dao.getEmailsOfFromUserIdAndTitle(fromUserId, title);
+    public List<Email> getEmailsOfFromUserIdAndNewsId(String fromUserId, String newsId) {
+        return dao.getEmailsOfFromUserIdAndNewsId(fromUserId, newsId);
     }
     public List<Email> getEmailsOfFromUserIdAndBody(String fromUserId, String body) {
         return dao.getEmailsOfFromUserIdAndBody(fromUserId, body);
@@ -524,8 +524,8 @@ public class IEmailServiceImpl implements IEmailService {
     public List<Email> getEmailsOfFromUserIdAndStatus(String fromUserId, String status) {
         return dao.getEmailsOfFromUserIdAndStatus(fromUserId, status);
     }
-    public List<Email> getEmailsOfToUserIdAndTitle(String toUserId, String title) {
-        return dao.getEmailsOfToUserIdAndTitle(toUserId, title);
+    public List<Email> getEmailsOfToUserIdAndNewsId(String toUserId, String newsId) {
+        return dao.getEmailsOfToUserIdAndNewsId(toUserId, newsId);
     }
     public List<Email> getEmailsOfToUserIdAndBody(String toUserId, String body) {
         return dao.getEmailsOfToUserIdAndBody(toUserId, body);
@@ -539,17 +539,17 @@ public class IEmailServiceImpl implements IEmailService {
     public List<Email> getEmailsOfToUserIdAndStatus(String toUserId, String status) {
         return dao.getEmailsOfToUserIdAndStatus(toUserId, status);
     }
-    public List<Email> getEmailsOfTitleAndBody(String title, String body) {
-        return dao.getEmailsOfTitleAndBody(title, body);
+    public List<Email> getEmailsOfNewsIdAndBody(String newsId, String body) {
+        return dao.getEmailsOfNewsIdAndBody(newsId, body);
     }
-    public List<Email> getEmailsOfTitleAndTime(String title, String time) {
-        return dao.getEmailsOfTitleAndTime(title, time);
+    public List<Email> getEmailsOfNewsIdAndTime(String newsId, String time) {
+        return dao.getEmailsOfNewsIdAndTime(newsId, time);
     }
-    public List<Email> getEmailsOfTitleAndParam(String title, String param) {
-        return dao.getEmailsOfTitleAndParam(title, param);
+    public List<Email> getEmailsOfNewsIdAndParam(String newsId, String param) {
+        return dao.getEmailsOfNewsIdAndParam(newsId, param);
     }
-    public List<Email> getEmailsOfTitleAndStatus(String title, String status) {
-        return dao.getEmailsOfTitleAndStatus(title, status);
+    public List<Email> getEmailsOfNewsIdAndStatus(String newsId, String status) {
+        return dao.getEmailsOfNewsIdAndStatus(newsId, status);
     }
     public List<Email> getEmailsOfBodyAndTime(String body, String time) {
         return dao.getEmailsOfBodyAndTime(body, time);

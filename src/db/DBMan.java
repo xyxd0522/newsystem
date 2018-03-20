@@ -102,7 +102,6 @@ public class DBMan {
                 .addBeforeWheres(ClassUtil.getName(t.getClass()))
                 .addDataName(dataName)
                 .addAfterWheres(ClassUtil.getNameNotNull(t)).build();
-        System.out.println(sql);
         return (T) queryByIdWithoutThrow(t.getClass(), sql,
                 ClassUtil.getValueNotNull(t));
     }
@@ -113,7 +112,6 @@ public class DBMan {
                 .addBeforeWheres(ClassUtil.getName(t.getClass()))
                 .addDataName(dataName)
                 .addAfterWheres(ClassUtil.getNameNotNull(t)).build();
-        System.out.println(sql);
         return (List<T>) queryWithoutThrow(t.getClass(), sql,
                 ClassUtil.getValueNotNull(t));
     }
@@ -122,7 +120,6 @@ public class DBMan {
         String sql = new SqlUtil().setStatus(SqlUtil.SQL_DELETE)
                 .addDataName(dataName)
                 .addAfterWheres(ClassUtil.getNameNotNull(t)).build();
-        System.out.println(sql);
         return updateWithoutThrow(sql, ClassUtil.getValueNotNull(t));
     }
 
@@ -131,7 +128,6 @@ public class DBMan {
                 .addBeforeWheres(ClassUtil.getNameNotNull(t))
                 .addDataName(dataName)
                 .addAfterWheres(ClassUtil.getNameNotNull(k)).build();
-        System.out.println(sql);
         return updateWithoutThrow(
                 sql,
                 ArrayUtil.multArray(ClassUtil.getValueNotNull(t),
@@ -143,7 +139,6 @@ public class DBMan {
                 .addBeforeWheres(ClassUtil.getNameNotNull(t))
                 .addDataName(dataName)
                 .addAfterWheres(ClassUtil.getNameNotNull(t)).build();
-        System.out.println(sql);
         return updateWithoutThrow(sql, ClassUtil.getValueNotNull(t));
     }
 
@@ -341,6 +336,9 @@ public class DBMan {
             Class.forName(drivers);
             isLoadClass = true;
         }
+        System.out.println(url);
+        System.out.println(user);
+        System.out.println(passwd);
         conn = DriverManager.getConnection(url, user, passwd);
         if (conn == null) {
             throw new ClassNotFoundException(

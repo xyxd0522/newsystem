@@ -173,7 +173,7 @@ public class StringUtil {
             if (b == null || "".equals(b)) {
                 b = "0";
             }
-            return Integer.parseInt(a) > Integer.parseInt(b);
+            return Integer.parseInt(a) >= Integer.parseInt(b);
         } catch (Exception ex) {
             System.out.println("StringUtil" + ex.getMessage());
         }

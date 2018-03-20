@@ -257,8 +257,8 @@ public class ServletCheckBuilder {
     // </editor-fold>   
     // <editor-fold defaultstate="collapsed" desc="私有函数"> 
     private void putMapOfSes(Checker c) {
-        if (!m.containsKey("par_" + c.param)) {
-            m.put("par_" + c.param, request.getSession().getAttribute(c.param));
+        if (!m.containsKey("ses_" + c.param)) {
+            m.put("ses_" + c.param, request.getSession().getAttribute(c.param));
         }
     }
 
@@ -281,17 +281,17 @@ public class ServletCheckBuilder {
         if (!m.containsKey("par_" + c.param)) {
             m.put("par_" + c.param, request.getParameter(c.param));
         }
-        if (!m.containsKey("par_" + c.param)) {
-            m.put("par_" + c.param2, request.getSession().getAttribute(c.param2));
+        if (!m.containsKey("ses_" + c.param)) {
+            m.put("ses_" + c.param2, request.getSession().getAttribute(c.param2));
         }
     }
 
     private void putMapOfSesAndSes(Checker c) {
-        if (!m.containsKey("par_" + c.param)) {
-            m.put("par_" + c.param, request.getSession().getAttribute(c.param));
+        if (!m.containsKey("ses_" + c.param)) {
+            m.put("ses_" + c.param, request.getSession().getAttribute(c.param));
         }
         if (!m.containsKey("par_" + c.param)) {
-            m.put("par_" + c.param2, request.getSession().getAttribute(c.param2));
+            m.put("ses_" + c.param2, request.getSession().getAttribute(c.param2));
         }
     }
 
@@ -357,7 +357,7 @@ public class ServletCheckBuilder {
      * @throws IOException
      */
     private boolean checkClassListOfSes() throws ServletException, IOException {
-        for (Checker c : checkNullListOfSes) {
+        for (Checker c : checkClassListOfSes) {
             putMapOfSes(c);
             if (!ServletUtil.checkClassOfSes(request, response, servlet,
                     c.parameterName, c.param, c.alert, c.claszz)) {
@@ -593,7 +593,7 @@ public class ServletCheckBuilder {
         if (!checkNullListOfPar()) {
             return null;
         }
-        if (!checkClassListOfSes()) {
+        if (!checkNullListOfSes()) {
             return null;
         }
         if (!checkClassListOfPar()) {
@@ -677,6 +677,11 @@ public class ServletCheckBuilder {
             this.flag = flag;
             this.alert = alert;
             this.parameterName = parameterName;
+        }
+
+        @Override
+        public String toString() {
+            return "Checker{" + "param=" + param + ", param2=" + param2 + ", alert=" + alert + ", parameterName=" + parameterName + ", flag=" + flag + ", claszz=" + claszz + '}';
         }
 
     }

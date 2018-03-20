@@ -16,6 +16,7 @@ public class News {
     private String time;
     private String search;
     private String bUserIds;
+    private String money;
 
     public String getNewsId() {
         return newsId;
@@ -137,9 +138,17 @@ public class News {
         this.bUserIds = bUserIds;
     }
 
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
+
     @Override
     public String toString() {
-        return "News [newsId=" + newsId + ", title=" + title + ", body=" + body + ", userId=" + userId + ", userNewsTypeId=" + userNewsTypeId + ", status=" + status + ", buff=" + buff + ", param=" + param + ", newsTypeId=" + newsTypeId + ", path=" + path + ", good=" + good + ", bad=" + bad + ", time=" + time + ", search=" + search + ", bUserIds=" + bUserIds + ", ]";
+        return "News [newsId=" + newsId + ", title=" + title + ", body=" + body + ", userId=" + userId + ", userNewsTypeId=" + userNewsTypeId + ", status=" + status + ", buff=" + buff + ", param=" + param + ", newsTypeId=" + newsTypeId + ", path=" + path + ", good=" + good + ", bad=" + bad + ", time=" + time + ", search=" + search + ", bUserIds=" + bUserIds + ", money=" + money + ", ]";
     }
 
 }

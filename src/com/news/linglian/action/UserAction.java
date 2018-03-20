@@ -20,6 +20,8 @@ import com.news.linglian.factory.IServletFactory;
     @WebInitParam(name = "login_to", value = "index.jsp"),
     @WebInitParam(name = "query_from", value = "user/login.jsp"),
     @WebInitParam(name = "query_to", value = "user/home.jsp"),
+    @WebInitParam(name = "update_from", value = "user/set.jsp"),
+    @WebInitParam(name = "update_to", value = "user/set.jsp"),
     @WebInitParam(name = "insert_from", value = "user/res.jsp"),
     @WebInitParam(name = "insert_to", value = "user/login.jsp")})
 public class UserAction extends HttpServlet {
